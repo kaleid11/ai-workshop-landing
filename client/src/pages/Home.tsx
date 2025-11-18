@@ -19,7 +19,7 @@ export default function Home() {
         <div className="bg-brand-orange text-white text-center py-3 relative z-10">
           <div className="container flex flex-wrap items-center justify-center gap-2 text-sm md:text-base font-bold">
             <Sparkles className="w-4 h-4" />
-            <span>Bring a friend, save $15 each • Startup discount available</span>
+            <span>Bring friends and save • Startup discount available</span>
             <Sparkles className="w-4 h-4" />
           </div>
         </div>
@@ -28,9 +28,16 @@ export default function Home() {
           <div className="flex flex-col items-center text-center space-y-8">
             <img src={APP_LOGO} alt="Workshop Logo" className="w-24 h-24 md:w-32 md:h-32" />
             
-            <div className="space-y-4 max-w-4xl">
+            <div className="space-y-6 max-w-4xl">
+              <div className="inline-block">
+                <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-2 text-sm md:text-base font-semibold mb-4">
+                  📅 Wednesday, Nov 26 • 9-11am Brisbane / 10am-12pm Melbourne
+                </div>
+              </div>
+              
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
-                Stop Paying $3K/Month for Social Media
+                Stop Paying <span className="text-brand-orange">$3K/Month</span>
+                <br />for Social Media
               </h1>
               <p className="text-xl md:text-2xl text-white/90 font-medium">
                 Learn to Automate Your Content in One 2-Hour Workshop
@@ -59,9 +66,20 @@ export default function Home() {
               </Button>
             </div>
 
-            <p className="text-sm text-white/70 pt-4">
-              ⚡ Limited spots available
-            </p>
+            <div className="flex flex-wrap items-center justify-center gap-6 pt-4 text-sm text-white/80">
+              <div className="flex items-center gap-2">
+                <Clock className="w-4 h-4" />
+                <span>2-hour live workshop</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Users className="w-4 h-4" />
+                <span>Limited spots</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Zap className="w-4 h-4" />
+                <span>Instant portal access</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -441,7 +459,7 @@ export default function Home() {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-5xl font-bold text-brand-purple mb-4">
-                Bring a Friend, Save Together
+                Bring Friends and Save
               </h2>
               <p className="text-xl text-gray-600">
                 Get $15 AUD off for each friend you refer
@@ -537,6 +555,97 @@ export default function Home() {
               <CardContent>
                 <p className="text-gray-700">
                   All tactics, zero theory. Tools and answers you can use the same day you learn them.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-16 md:py-24 bg-gray-50">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-5xl font-bold text-brand-purple mb-4">
+              What People Are Saying
+            </h2>
+            <p className="text-xl text-gray-600">
+              Real results from operators who've worked with us
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* Testimonial 1 - Josh Green */}
+            <Card className="border-2 hover:border-brand-orange transition-colors">
+              <CardHeader>
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-12 h-12 rounded-full bg-brand-orange/20 flex items-center justify-center text-brand-orange font-bold text-xl">
+                    JG
+                  </div>
+                  <div>
+                    <CardTitle className="text-lg">Josh Green</CardTitle>
+                    <p className="text-sm text-gray-600">Marketing Business Owner</p>
+                  </div>
+                </div>
+                <div className="flex gap-1 text-yellow-500">
+                  {[...Array(5)].map((_, i) => (
+                    <span key={i}>★</span>
+                  ))}
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-700 italic">
+                  "Huxley is super knowledgeable around AI tools and automation. He quickly understood our existing workflows so it wasn't long before we were implementing great time-saving changes without breaking what was working already."
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Testimonial 2 - Michael Hunt */}
+            <Card className="border-2 hover:border-brand-blue transition-colors">
+              <CardHeader>
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-12 h-12 rounded-full bg-brand-blue/20 flex items-center justify-center text-brand-blue font-bold text-xl">
+                    MH
+                  </div>
+                  <div>
+                    <CardTitle className="text-lg">Michael Hunt</CardTitle>
+                    <p className="text-sm text-gray-600">Business Owner</p>
+                  </div>
+                </div>
+                <div className="flex gap-1 text-yellow-500">
+                  {[...Array(5)].map((_, i) => (
+                    <span key={i}>★</span>
+                  ))}
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-700 italic">
+                  "I use Huxley for all my AI and tech needs. What I like is that I tell him what I need and he sorts it out. I have saved so much time using technology he has suggested. I highly recommend Huxley for any AI or tech assistance."
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Testimonial 3 - David Small */}
+            <Card className="border-2 hover:border-brand-green transition-colors">
+              <CardHeader>
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-12 h-12 rounded-full bg-brand-green/20 flex items-center justify-center text-brand-green font-bold text-xl">
+                    DS
+                  </div>
+                  <div>
+                    <CardTitle className="text-lg">David Small</CardTitle>
+                    <p className="text-sm text-gray-600">Entrepreneur</p>
+                  </div>
+                </div>
+                <div className="flex gap-1 text-yellow-500">
+                  {[...Array(5)].map((_, i) => (
+                    <span key={i}>★</span>
+                  ))}
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-700 italic">
+                  "With his extensive knowledge of everything AI, Huxley created a one-slide schematic that encapsulates everything a business case should be without the pain points of traditional presentations. If you need graphic creation of any kind I recommend Huxley!"
                 </p>
               </CardContent>
             </Card>

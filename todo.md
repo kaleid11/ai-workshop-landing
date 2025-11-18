@@ -41,3 +41,19 @@
 - [x] Update checkout flow for single option
 - [x] Test final changes
 - [x] Create final checkpoint
+
+## Portal and Final Enhancements
+
+- [x] Add testimonials section to landing page
+- [x] Add workshop date/time: Wednesday Nov 26, 9-11am Brisbane (10am-12pm Melbourne, UTC+10)
+- [x] Improve hero section to be more modern and dynamic
+- [x] Create member portal page with Manus auth
+- [x] Add WhatsApp group link to portal (https://chat.whatsapp.com/FFzITkJIkkK7ZELGNQKDLl)
+- [x] Add Facebook community link to portal (https://linktr.ee/huxleyp)
+- [x] Add "Add to Calendar" button in portal
+- [x] Add "Email Us" button in portal (info@thzn.world)
+- [x] Add "Coming Soon" placeholders for templates and advanced workshop
+- [x] Update "Bring Friends, Save Together" to "Bring Friends and Save"
+- [x] Add portal route to App.tsx
+- [x] Test all new features
+- [x] Create final checkpoint
