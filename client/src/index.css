@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -43,8 +44,15 @@
 }
 
 :root {
-  --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-blue-50);
+  /* Brand Colors */
+  --brand-dark-purple: 56 29 42;
+  --brand-blue: 62 105 144;
+  --brand-green: 170 189 140;
+  --brand-cream: 233 227 180;
+  --brand-orange: 243 155 109;
+
+  --primary: oklch(0.35 0.08 330);
+  --primary-foreground: oklch(0.98 0.01 270);
   --sidebar-primary: var(--color-blue-600);
   --sidebar-primary-foreground: var(--color-blue-50);
   --chart-1: var(--color-blue-300);
@@ -63,8 +71,8 @@
   --secondary-foreground: oklch(0.4 0.015 65);
   --muted: oklch(0.967 0.001 286.375);
   --muted-foreground: oklch(0.552 0.016 285.938);
-  --accent: oklch(0.967 0.001 286.375);
-  --accent-foreground: oklch(0.141 0.005 285.823);
+  --accent: oklch(0.75 0.08 60);
+  --accent-foreground: oklch(0.2 0.02 270);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
   --border: oklch(0.92 0.004 286.32);
@@ -80,7 +88,7 @@
 
 .dark {
   --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-blue-50);
+  --primary-foreground: oklch(0.98 0.01 270);
   --sidebar-primary: var(--color-blue-500);
   --sidebar-primary-foreground: var(--color-blue-50);
   --background: oklch(0.141 0.005 285.823);
@@ -119,6 +127,23 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -173,5 +198,47 @@
       padding-right: 2rem;
       max-width: 1280px; /* Standard content width */
     }
+  }
+}
+@layer utilities {
+  /* Brand color utilities */
+  .bg-brand-purple {
+    background-color: rgb(var(--brand-dark-purple));
+  }
+
+  .bg-brand-blue {
+    background-color: rgb(var(--brand-blue));
+  }
+
+  .bg-brand-green {
+    background-color: rgb(var(--brand-green));
+  }
+
+  .bg-brand-cream {
+    background-color: rgb(var(--brand-cream));
+  }
+
+  .bg-brand-orange {
+    background-color: rgb(var(--brand-orange));
+  }
+
+  .text-brand-purple {
+    color: rgb(var(--brand-dark-purple));
+  }
+
+  .text-brand-blue {
+    color: rgb(var(--brand-blue));
+  }
+
+  .text-brand-green {
+    color: rgb(var(--brand-green));
+  }
+
+  .text-brand-cream {
+    color: rgb(var(--brand-cream));
+  }
+
+  .text-brand-orange {
+    color: rgb(var(--brand-orange));
   }
 }
