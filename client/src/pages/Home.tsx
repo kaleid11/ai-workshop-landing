@@ -458,10 +458,10 @@ export default function Home() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-700 mb-4">
-                    You and your friend both get $15 AUD off when they sign up.
+                    You get $15 AUD off for each friend you refer.
                   </p>
                   <p className="text-sm text-gray-600">
-                    After purchase, email their names to{" "}
+                    After they purchase, email their names to{" "}
                     <a href="mailto:info@thzn.world" className="text-brand-green hover:underline font-medium">
                       info@thzn.world
                     </a>{" "}

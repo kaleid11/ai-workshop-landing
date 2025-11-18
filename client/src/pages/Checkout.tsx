@@ -111,11 +111,11 @@ export default function Checkout() {
                     <div>
                       <p className="font-semibold text-gray-900">$15 AUD off per friend</p>
                       <p className="text-sm text-gray-600">
-                        Refer friends and you both get $15 AUD off. Email their names to{" "}
+                        Refer friends and you get $15 AUD off. Email their names to{" "}
                         <a href="mailto:info@thzn.world" className="text-brand-green hover:underline font-medium">
                           info@thzn.world
                         </a>{" "}
-                        after purchase to claim your discount.
+                        after they purchase to claim your discount.
                       </p>
                     </div>
                   </div>
