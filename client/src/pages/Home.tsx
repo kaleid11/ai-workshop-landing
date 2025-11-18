@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { APP_LOGO } from "@/const";
-import { CheckCircle2, Clock, DollarSign, Sparkles, TrendingDown, Users, Video, Zap } from "lucide-react";
+import { CheckCircle2, Clock, DollarSign, Gift, Mail, Sparkles, TrendingDown, Users, Video, Zap } from "lucide-react";
 import { Link } from "wouter";
 
 export default function Home() {
@@ -15,11 +15,11 @@ export default function Home() {
       <section className="relative bg-gradient-to-br from-[rgb(var(--brand-dark-purple))] via-[rgb(var(--brand-blue))] to-[rgb(var(--brand-dark-purple))] text-white overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE0YzMuMzEgMCA2IDIuNjkgNiA2cy0yLjY5IDYtNiA2LTYtMi42OS02LTYgMi42OS02IDYtNnpNNiAzNGMzLjMxIDAgNiAyLjY5IDYgNnMtMi42OSA2LTYgNi02LTIuNjktNi02IDIuNjktNiA2LTZ6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-20"></div>
         
-        {/* Black Friday Banner */}
+        {/* Banner */}
         <div className="bg-brand-orange text-white text-center py-3 relative z-10">
-          <div className="container flex items-center justify-center gap-2 text-sm md:text-base font-bold">
+          <div className="container flex flex-wrap items-center justify-center gap-2 text-sm md:text-base font-bold">
             <Sparkles className="w-4 h-4" />
-            <span>BLACK FRIDAY SPECIAL: Save $200 + Skip $24K/year in hiring costs</span>
+            <span>Bring a friend, save $15 each • Startup discount available</span>
             <Sparkles className="w-4 h-4" />
           </div>
         </div>
@@ -30,7 +30,7 @@ export default function Home() {
             
             <div className="space-y-4 max-w-4xl">
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
-                Stop Paying $2K/Month for Social Media
+                Stop Paying $3K/Month for Social Media
               </h1>
               <p className="text-xl md:text-2xl text-white/90 font-medium">
                 Learn to Automate Your Content in One 2-Hour Workshop
@@ -46,7 +46,7 @@ export default function Home() {
                   size="lg" 
                   className="bg-brand-orange hover:bg-brand-orange/90 text-white text-lg px-8 py-6 h-auto shadow-2xl"
                 >
-                  Get Black Friday Access - $97
+                  Get Workshop Access - $97 AUD
                 </Button>
               </Link>
               <Button 
@@ -60,7 +60,7 @@ export default function Home() {
             </div>
 
             <p className="text-sm text-white/70 pt-4">
-              ⚡ Limited spots • Ends this week
+              ⚡ Limited spots available
             </p>
           </div>
         </div>
@@ -89,8 +89,8 @@ export default function Home() {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
-                  <div className="text-4xl font-bold text-gray-900">$2,000<span className="text-xl text-gray-600">/mo</span></div>
-                  <div className="text-red-600 font-semibold mt-1">= $24,000/year</div>
+                  <div className="text-4xl font-bold text-gray-900">$3,000<span className="text-xl text-gray-600">/mo</span></div>
+                  <div className="text-red-600 font-semibold mt-1">= $36,000/year AUD</div>
                 </div>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start gap-2">
@@ -125,18 +125,18 @@ export default function Home() {
                 <div>
                   <div className="text-4xl font-bold text-gray-900">
                     $97
-                    <span className="text-xl text-gray-400 line-through ml-2">$297</span>
+                    <span className="text-xl text-gray-600 ml-2">AUD</span>
                   </div>
                   <div className="text-brand-orange font-semibold mt-1">One-time • Lifetime access</div>
                 </div>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-5 h-5 text-brand-orange flex-shrink-0 mt-0.5" />
-                    <span>Save $23,903 in year one</span>
+                    <span>Save $35,903 in year one</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-5 h-5 text-brand-orange flex-shrink-0 mt-0.5" />
-                    <span>Automate 24/7, not 9-5</span>
+                    <span>Set up once, review as needed</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-5 h-5 text-brand-orange flex-shrink-0 mt-0.5" />
@@ -154,7 +154,7 @@ export default function Home() {
           <div className="text-center mt-12">
             <Link href="/checkout">
               <Button size="lg" className="bg-brand-orange hover:bg-brand-orange/90 text-white text-lg px-8 py-6 h-auto">
-                Get Started for $97 →
+                Get Started for $97 AUD →
               </Button>
             </Link>
           </div>
@@ -296,11 +296,11 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {/* Module 1 */}
             <div className="bg-white rounded-2xl overflow-hidden border-2 border-gray-200 hover:border-brand-orange transition-all hover:shadow-xl">
-              <div className="aspect-video bg-gradient-to-br from-brand-green/20 to-brand-blue/20 flex items-center justify-center p-8">
+              <div className="aspect-[4/3] bg-gradient-to-br from-brand-green/20 to-brand-blue/20 flex items-center justify-center p-6">
                 <img 
                   src="/images/quick-actions.png" 
                   alt="Social Media Automation Tools" 
-                  className="w-full h-full object-contain rounded-lg"
+                  className="w-full h-full object-contain"
                 />
               </div>
               <div className="p-6 md:p-8">
@@ -308,18 +308,19 @@ export default function Home() {
                   Module 1: Automate Social Media Posts
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
-                  Learn to generate captions, schedule posts, and manage content across all platforms with automation tools. Set up your content calendar once and let it run.
+                  Learn to generate captions, schedule posts, and manage content across all platforms with automation tools. Set up your content calendar and review before posting.
                 </p>
               </div>
             </div>
 
             {/* Module 2 */}
             <div className="bg-white rounded-2xl overflow-hidden border-2 border-gray-200 hover:border-brand-blue transition-all hover:shadow-xl">
-              <div className="aspect-video bg-gradient-to-br from-brand-blue/30 to-brand-purple/20 flex items-center justify-center p-8">
-                <div className="text-center">
-                  <div className="text-6xl md:text-8xl font-bold text-white/90 mb-2">Sora 2</div>
-                  <div className="text-xl text-white/80">Video Generation</div>
-                </div>
+              <div className="aspect-[4/3] bg-gradient-to-br from-brand-blue/30 to-brand-purple/20 flex items-center justify-center p-6">
+                <img 
+                  src="/images/video-generation.png" 
+                  alt="Video Generation Interface" 
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div className="p-6 md:p-8">
                 <h3 className="text-2xl font-bold text-brand-purple mb-3">
@@ -333,11 +334,11 @@ export default function Home() {
 
             {/* Module 3 */}
             <div className="bg-white rounded-2xl overflow-hidden border-2 border-gray-200 hover:border-brand-purple transition-all hover:shadow-xl">
-              <div className="aspect-video bg-gradient-to-br from-brand-purple/20 to-brand-orange/20 flex items-center justify-center p-8">
+              <div className="aspect-[4/3] bg-gradient-to-br from-brand-purple/20 to-brand-orange/20 flex items-center justify-center p-6">
                 <img 
                   src="/images/ai-edit.webp" 
                   alt="Video Editing Interface" 
-                  className="w-full h-full object-contain rounded-lg"
+                  className="w-full h-full object-contain"
                 />
               </div>
               <div className="p-6 md:p-8">
@@ -345,18 +346,18 @@ export default function Home() {
                   Module 3: Edit Videos with Automation
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
-                  Use automation to edit your footage with professional results. Add captions, transitions, and effects without manual editing.
+                  Use automation to edit your footage with professional results. Add captions, transitions, and effects. Review and refine before publishing.
                 </p>
               </div>
             </div>
 
             {/* Module 4 */}
             <div className="bg-white rounded-2xl overflow-hidden border-2 border-gray-200 hover:border-brand-green transition-all hover:shadow-xl">
-              <div className="aspect-video bg-gradient-to-br from-brand-orange/20 to-brand-green/20 flex items-center justify-center p-8">
+              <div className="aspect-[4/3] bg-gradient-to-br from-brand-orange/20 to-brand-green/20 flex items-center justify-center p-6">
                 <img 
                   src="/images/ai-twins.webp" 
                   alt="AI Avatar Creation" 
-                  className="w-full h-full object-contain rounded-lg"
+                  className="w-full h-full object-contain"
                 />
               </div>
               <div className="p-6 md:p-8">
@@ -364,10 +365,29 @@ export default function Home() {
                   Module 4: Clone Yourself (Advanced)
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
-                  Optional advanced module: Create a digital version of yourself to record videos without being on camera. Scale your content creation.
+                  Optional advanced module: Create a digital version of yourself to record videos without being on camera. Scale your content creation with API integration.
                 </p>
               </div>
             </div>
+          </div>
+
+          <div className="mt-12 text-center">
+            <Card className="max-w-2xl mx-auto border-2 border-brand-purple bg-gradient-to-br from-brand-purple/5 to-brand-orange/5">
+              <CardHeader>
+                <div className="flex items-center justify-center gap-2 mb-2">
+                  <Sparkles className="w-6 h-6 text-brand-purple" />
+                  <CardTitle className="text-2xl">Advanced Workshop Coming Soon</CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-700 mb-4">
+                  Ready to go deeper? Our advanced workshop covers API integration for full automation. Workshop attendees get special pricing.
+                </p>
+                <p className="text-sm text-gray-600">
+                  Details available in your member portal after purchase.
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
@@ -388,7 +408,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-bold text-brand-purple mb-3">Secure Your Spot</h3>
               <p className="text-gray-700">
-                Sign up now with Black Friday pricing. Get instant access to the member portal and WhatsApp group.
+                Sign up now for $97 AUD. Get instant access to the member portal and WhatsApp group.
               </p>
             </div>
 
@@ -398,7 +418,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-bold text-brand-purple mb-3">Get Portal Access</h3>
               <p className="text-gray-700">
-                Download templates, connect with operators, and prep your WhatsApp group link before the workshop.
+                Download templates, connect with operators, and prep before the workshop.
               </p>
             </div>
 
@@ -415,8 +435,68 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Referral Program Section */}
+      <section className="py-16 md:py-24 bg-gradient-to-br from-brand-green/10 to-brand-blue/10">
+        <div className="container">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-5xl font-bold text-brand-purple mb-4">
+                Bring a Friend, Save Together
+              </h2>
+              <p className="text-xl text-gray-600">
+                Get $15 AUD off for each friend you refer
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              <Card className="border-2 border-brand-green">
+                <CardHeader>
+                  <div className="flex items-center gap-2">
+                    <Gift className="w-6 h-6 text-brand-green" />
+                    <CardTitle className="text-xl">Referral Program</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-700 mb-4">
+                    You and your friend both get $15 AUD off when they sign up.
+                  </p>
+                  <p className="text-sm text-gray-600">
+                    After purchase, email their names to{" "}
+                    <a href="mailto:info@thzn.world" className="text-brand-green hover:underline font-medium">
+                      info@thzn.world
+                    </a>{" "}
+                    to claim your discount.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-2 border-brand-purple">
+                <CardHeader>
+                  <div className="flex items-center gap-2">
+                    <Mail className="w-6 h-6 text-brand-purple" />
+                    <CardTitle className="text-xl">Startup Discount</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-700 mb-4">
+                    Early-stage startups get $20 AUD off.
+                  </p>
+                  <p className="text-sm text-gray-600">
+                    Email{" "}
+                    <a href="mailto:info@thzn.world" className="text-brand-purple hover:underline font-medium">
+                      info@thzn.world
+                    </a>{" "}
+                    with your startup details before purchase to receive a discount code.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Why Operators Love This Section */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      <section className="py-16 md:py-24 bg-white">
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-5xl font-bold text-brand-purple mb-4">
@@ -444,7 +524,7 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-700">
-                  Cut your social media budget from $2K/month to zero. Invest savings back into your business.
+                  Cut your social media budget from $3K/month to zero. Invest savings back into your business.
                 </p>
               </CardContent>
             </Card>
@@ -494,15 +574,18 @@ export default function Home() {
                   <CheckCircle2 className="w-6 h-6 text-brand-orange flex-shrink-0 mt-0.5" />
                   <span>Workshop replay and bonus templates</span>
                 </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-brand-orange flex-shrink-0 mt-0.5" />
+                  <span>Special pricing for advanced workshop</span>
+                </li>
               </ul>
 
               <div className="mt-8 pt-8 border-t border-white/20 text-center">
-                <div className="text-sm text-white/70 mb-2">Black Friday Special</div>
                 <div className="text-5xl font-bold mb-2">
                   $97
-                  <span className="text-2xl text-white/60 line-through ml-3">$297</span>
+                  <span className="text-2xl text-white/80 ml-2">AUD</span>
                 </div>
-                <div className="text-brand-orange font-semibold mb-6">Save $200 • One-time payment</div>
+                <div className="text-brand-orange font-semibold mb-6">One-time payment • Lifetime access</div>
                 
                 <Link href="/checkout">
                   <Button 
@@ -516,7 +599,7 @@ export default function Home() {
             </div>
 
             <p className="text-sm text-white/70">
-              The workshop is a practical, no-fluff session. Limited to 50 operators. If you're ready to work less and multiply your content, this is for you. If you just want theory, save your money.
+              The workshop is a practical, no-fluff session. If you're ready to work less and multiply your content, this is for you. If you just want theory, save your money.
             </p>
           </div>
         </div>
@@ -534,8 +617,8 @@ export default function Home() {
               </div>
             </div>
             <div className="text-sm text-center md:text-right">
-              <p>Questions? Email: support@workshop.com</p>
-              <p className="mt-1">Limited to 50 operators • Black Friday pricing ends soon</p>
+              <p>Questions? Email: <a href="mailto:info@thzn.world" className="hover:text-white">info@thzn.world</a></p>
+              <p className="mt-1">Limited spots available • All prices in AUD</p>
             </div>
           </div>
         </div>

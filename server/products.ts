@@ -1,6 +1,6 @@
 /**
  * Workshop products and pricing configuration
- * Black Friday Special Pricing
+ * AUD Pricing
  */
 
 export interface WorkshopProduct {
@@ -15,50 +15,21 @@ export interface WorkshopProduct {
 }
 
 export const WORKSHOP_PRODUCTS: Record<string, WorkshopProduct> = {
-  blackFriday: {
-    id: "workshop_black_friday",
-    name: "Black Friday Special",
-    description: "Limited time Black Friday offer - save over $2,000",
-    price: 9700, // $97
-    originalPrice: 29700, // $297 workshop value
-    currency: "usd",
-    badge: "BEST VALUE",
+  standard: {
+    id: "workshop_standard",
+    name: "Workshop Access",
+    description: "Complete social media automation workshop with lifetime access",
+    price: 9700, // $97 AUD
+    originalPrice: 9700,
+    currency: "aud",
     features: [
-      "2-hour live workshop ($297 value)",
+      "2-hour live workshop",
       "Lifetime portal access",
       "WhatsApp community",
       "Workshop replay",
       "Bonus templates & guides",
-    ],
-  },
-  earlyBird: {
-    id: "workshop_early_bird",
-    name: "Early Bird",
-    description: "Early access pricing for fast movers",
-    price: 14700, // $147
-    originalPrice: 29700,
-    currency: "usd",
-    badge: "LIMITED",
-    features: [
-      "2-hour live workshop ($297 value)",
-      "Lifetime portal access",
-      "WhatsApp community",
-      "Workshop replay",
-      "Bonus templates",
-    ],
-  },
-  standard: {
-    id: "workshop_standard",
-    name: "Standard Access",
-    description: "Full workshop access at regular pricing",
-    price: 19700, // $197
-    originalPrice: 29700,
-    currency: "usd",
-    features: [
-      "2-hour live workshop ($297 value)",
-      "Lifetime portal access",
-      "WhatsApp community",
-      "Workshop replay",
+      "Email support for 30 days",
+      "Special pricing for advanced workshop",
     ],
   },
 };
@@ -75,6 +46,10 @@ export function calculatePercentOff(originalPrice: number, salePrice: number): n
   return Math.round(((originalPrice - salePrice) / originalPrice) * 100);
 }
 
-// Social Media Manager Cost Comparison
-export const SOCIAL_MEDIA_MANAGER_MONTHLY_COST = 200000; // $2,000/month average
-export const SOCIAL_MEDIA_MANAGER_YEARLY_COST = SOCIAL_MEDIA_MANAGER_MONTHLY_COST * 12; // $24,000/year
+// Social Media Manager Cost Comparison (AUD)
+export const SOCIAL_MEDIA_MANAGER_MONTHLY_COST = 300000; // $3,000 AUD/month average
+export const SOCIAL_MEDIA_MANAGER_YEARLY_COST = SOCIAL_MEDIA_MANAGER_MONTHLY_COST * 12; // $36,000 AUD/year
+
+// Referral Program
+export const REFERRAL_DISCOUNT_PER_FRIEND = 1500; // $15 AUD off per friend
+export const STARTUP_DISCOUNT = 2000; // $20 AUD off for startups (email required)

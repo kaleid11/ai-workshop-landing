@@ -1,292 +1,224 @@
-import { useAuth } from "@/_core/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { APP_LOGO, getLoginUrl } from "@/const";
+import { APP_LOGO } from "@/const";
 import { trpc } from "@/lib/trpc";
-import { CheckCircle2, Loader2, Sparkles, TrendingDown } from "lucide-react";
+import { CheckCircle2, Gift, Mail, Sparkles, Users } from "lucide-react";
 import { useState } from "react";
-import { toast } from "sonner";
+import { Link } from "wouter";
 
 export default function Checkout() {
-  const { user, isAuthenticated, loading: authLoading } = useAuth();
-  const [selectedProduct, setSelectedProduct] = useState<string>("blackFriday");
-  
+  const [isLoading, setIsLoading] = useState(false);
   const { data: products, isLoading: productsLoading } = trpc.checkout.getProducts.useQuery();
   const createSession = trpc.checkout.createSession.useMutation();
 
-  const handleCheckout = async (productId: string) => {
-    if (!isAuthenticated) {
-      window.location.href = getLoginUrl();
-      return;
-    }
-
+  const handleCheckout = async () => {
+    setIsLoading(true);
     try {
-      toast.info("Redirecting to secure checkout...");
-      const result = await createSession.mutateAsync({ productId: productId as "blackFriday" | "earlyBird" | "standard" });
+      const result = await createSession.mutateAsync({
+        productId: "standard",
+      });
+
       if (result.url) {
-        window.open(result.url, "_blank");
+        window.location.href = result.url;
       }
     } catch (error) {
-      toast.error("Failed to create checkout session. Please try again.");
-      console.error(error);
+      console.error("Checkout error:", error);
+      setIsLoading(false);
     }
   };
 
-  if (authLoading || productsLoading) {
+  const product = products?.[0];
+
+  if (productsLoading || !product) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-white">
-        <Loader2 className="w-8 h-8 animate-spin text-brand-orange" />
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-orange mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading checkout...</p>
+        </div>
       </div>
     );
   }
-
-  if (!isAuthenticated) {
-    return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[rgb(var(--brand-dark-purple))] to-[rgb(var(--brand-blue))] text-white p-4">
-        <img src={APP_LOGO} alt="Workshop Logo" className="w-24 h-24 mb-8" />
-        <h1 className="text-3xl md:text-4xl font-bold mb-4 text-center">Sign In Required</h1>
-        <p className="text-lg mb-8 text-center max-w-md text-white/90">
-          Please sign in to access Black Friday pricing
-        </p>
-        <Button 
-          size="lg"
-          className="bg-brand-orange hover:bg-brand-orange/90 text-white"
-          onClick={() => window.location.href = getLoginUrl()}
-        >
-          Sign In to Continue
-        </Button>
-      </div>
-    );
-  }
-
-  const blackFriday = products?.find(p => p.productKey === "blackFriday");
-  const earlyBird = products?.find(p => p.productKey === "earlyBird");
-  const standard = products?.find(p => p.productKey === "standard");
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="bg-white border-b sticky top-0 z-50">
+      <header className="bg-white border-b">
         <div className="container py-4">
-          <div className="flex items-center gap-3">
-            <img src={APP_LOGO} alt="Workshop Logo" className="w-12 h-12" />
-            <div>
-              <h1 className="text-xl font-bold text-brand-purple">Social Media Automation Workshop</h1>
-              <p className="text-sm text-gray-600">Black Friday Special</p>
+          <Link href="/">
+            <div className="flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity">
+              <img src={APP_LOGO} alt="Workshop Logo" className="w-10 h-10" />
+              <span className="font-bold text-lg">Social Media Workshop</span>
             </div>
-          </div>
+          </Link>
         </div>
       </header>
 
-      <div className="container py-8 md:py-16">
-        <div className="max-w-6xl mx-auto">
-          {/* Black Friday Banner */}
-          <div className="bg-gradient-to-r from-brand-orange to-brand-purple text-white rounded-2xl p-6 md:p-8 mb-8 text-center">
-            <div className="flex items-center justify-center gap-2 mb-3">
-              <Sparkles className="w-6 h-6" />
-              <h2 className="text-2xl md:text-3xl font-bold">Black Friday Exclusive</h2>
-              <Sparkles className="w-6 h-6" />
-            </div>
-            <p className="text-lg md:text-xl mb-2">Limited Time Offer - Ends Soon!</p>
-            <p className="text-white/90">Save over $2,000 compared to hiring a social media manager</p>
-          </div>
-
-          {/* Value Comparison */}
-          <div className="bg-gray-50 rounded-2xl p-6 md:p-8 mb-12 border-2 border-gray-200">
-            <h3 className="text-2xl font-bold text-center mb-6 text-brand-purple">The Real Value</h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white rounded-xl p-6 border-2 border-red-200">
-                <div className="text-red-600 font-bold text-sm mb-2">Traditional Approach</div>
-                <div className="text-3xl font-bold text-gray-900 mb-4">$2,000<span className="text-lg text-gray-600">/month</span></div>
-                <ul className="space-y-2 text-sm text-gray-700">
-                  <li className="flex items-start gap-2">
-                    <span className="text-red-500 mt-0.5">•</span>
-                    <span>Hire a social media manager</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-red-500 mt-0.5">•</span>
-                    <span>$24,000+ per year commitment</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-red-500 mt-0.5">•</span>
-                    <span>Ongoing monthly expenses</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-red-500 mt-0.5">•</span>
-                    <span>Limited to their availability</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="bg-gradient-to-br from-brand-orange/10 to-brand-purple/10 rounded-xl p-6 border-2 border-brand-orange">
-                <div className="text-brand-orange font-bold text-sm mb-2 flex items-center gap-2">
-                  <TrendingDown className="w-4 h-4" />
-                  This Workshop
-                </div>
-                <div className="text-3xl font-bold text-gray-900 mb-1">
-                  $97 
-                  <span className="text-lg text-gray-500 line-through ml-2">$297</span>
-                </div>
-                <div className="text-sm text-brand-purple font-semibold mb-4">One-time payment • Lifetime access</div>
-                <ul className="space-y-2 text-sm text-gray-700">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-brand-orange flex-shrink-0 mt-0.5" />
-                    <span>Learn to automate everything yourself</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-brand-orange flex-shrink-0 mt-0.5" />
-                    <span>Save $23,903 in the first year alone</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-brand-orange flex-shrink-0 mt-0.5" />
-                    <span>Work 24/7 with automation</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-brand-orange flex-shrink-0 mt-0.5" />
-                    <span>Keep 100% control of your content</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/* Pricing Tiers */}
-          <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-purple mb-3">
-              Choose Your Access Level
-            </h2>
-            <p className="text-lg text-gray-600">
-              All tiers include the full workshop and lifetime access
+      <div className="container py-12 md:py-20">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <h1 className="text-3xl md:text-5xl font-bold text-brand-purple mb-4">
+              Secure Your Workshop Spot
+            </h1>
+            <p className="text-xl text-gray-600">
+              One payment. Lifetime access. Transform your social media workflow.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
-            {/* Black Friday Special */}
-            {blackFriday && (
-              <Card className={`border-2 transition-all cursor-pointer relative ${selectedProduct === "blackFriday" ? "border-brand-orange shadow-2xl scale-105" : "hover:border-brand-orange/50"}`}
-                onClick={() => setSelectedProduct("blackFriday")}>
-                {blackFriday.badge && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-orange text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg">
-                    {blackFriday.badge}
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Left: Product Details */}
+            <div className="space-y-6">
+              <Card className="border-2 border-brand-orange">
+                <CardHeader>
+                  <div className="flex items-center gap-2 mb-2">
+                    <Sparkles className="w-6 h-6 text-brand-orange" />
+                    <CardTitle className="text-2xl">{product.name}</CardTitle>
                   </div>
-                )}
-                <CardHeader className="pt-8">
-                  <CardTitle className="text-2xl text-center">{blackFriday.name}</CardTitle>
-                  <div className="text-center mt-4">
-                    <div className="text-5xl font-bold text-brand-purple">
-                      ${(blackFriday.price / 100).toFixed(0)}
-                    </div>
-                    <div className="text-xl text-gray-400 line-through mt-1">
-                      ${(blackFriday.originalPrice / 100).toFixed(0)}
-                    </div>
-                    <div className="text-brand-orange font-bold mt-2">
-                      Save ${((blackFriday.originalPrice - blackFriday.price) / 100).toFixed(0)}
-                    </div>
-                  </div>
-                  <CardDescription className="text-center text-base mt-3">{blackFriday.description}</CardDescription>
+                  <CardDescription className="text-base">{product.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-3">
-                    {blackFriday.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-2">
+                  <div className="mb-6">
+                    <div className="text-5xl font-bold text-gray-900">
+                      ${(product.price / 100).toFixed(0)}
+                      <span className="text-xl text-gray-600 ml-2">AUD</span>
+                    </div>
+                    <div className="text-brand-orange font-semibold mt-1">One-time payment • Lifetime access</div>
+                  </div>
+
+                  <div className="space-y-3">
+                    <h3 className="font-semibold text-gray-900 mb-3">What's Included:</h3>
+                    {product.features.map((feature, index) => (
+                      <div key={index} className="flex items-start gap-3">
                         <CheckCircle2 className="w-5 h-5 text-brand-orange flex-shrink-0 mt-0.5" />
-                        <span className="text-sm">{feature}</span>
-                      </li>
+                        <span className="text-gray-700">{feature}</span>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 </CardContent>
               </Card>
-            )}
 
-            {/* Early Bird */}
-            {earlyBird && (
-              <Card className={`border-2 transition-all cursor-pointer relative ${selectedProduct === "earlyBird" ? "border-brand-blue shadow-xl" : "hover:border-brand-blue/50"}`}
-                onClick={() => setSelectedProduct("earlyBird")}>
-                {earlyBird.badge && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-blue text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg">
-                    {earlyBird.badge}
+              {/* Referral Program Card */}
+              <Card className="border-2 border-brand-green bg-gradient-to-br from-brand-green/5 to-brand-blue/5">
+                <CardHeader>
+                  <div className="flex items-center gap-2">
+                    <Gift className="w-6 h-6 text-brand-green" />
+                    <CardTitle className="text-xl">Bring a Friend, Save Together</CardTitle>
                   </div>
-                )}
-                <CardHeader className="pt-8">
-                  <CardTitle className="text-2xl text-center">{earlyBird.name}</CardTitle>
-                  <div className="text-center mt-4">
-                    <div className="text-5xl font-bold text-brand-purple">
-                      ${(earlyBird.price / 100).toFixed(0)}
-                    </div>
-                    <div className="text-xl text-gray-400 line-through mt-1">
-                      ${(earlyBird.originalPrice / 100).toFixed(0)}
-                    </div>
-                    <div className="text-brand-blue font-bold mt-2">
-                      Save ${((earlyBird.originalPrice - earlyBird.price) / 100).toFixed(0)}
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <Users className="w-5 h-5 text-brand-green flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-gray-900">$15 AUD off per friend</p>
+                      <p className="text-sm text-gray-600">
+                        Refer friends and you both get $15 AUD off. Email their names to{" "}
+                        <a href="mailto:info@thzn.world" className="text-brand-green hover:underline font-medium">
+                          info@thzn.world
+                        </a>{" "}
+                        after purchase to claim your discount.
+                      </p>
                     </div>
                   </div>
-                  <CardDescription className="text-center text-base mt-3">{earlyBird.description}</CardDescription>
+                </CardContent>
+              </Card>
+
+              {/* Startup Discount Card */}
+              <Card className="border-2 border-brand-purple bg-gradient-to-br from-brand-purple/5 to-brand-orange/5">
+                <CardHeader>
+                  <div className="flex items-center gap-2">
+                    <Mail className="w-6 h-6 text-brand-purple" />
+                    <CardTitle className="text-xl">Startup Discount Available</CardTitle>
+                  </div>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-3">
-                    {earlyBird.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-5 h-5 text-brand-blue flex-shrink-0 mt-0.5" />
-                        <span className="text-sm">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            )}
-
-            {/* Standard */}
-            {standard && (
-              <Card className={`border-2 transition-all cursor-pointer ${selectedProduct === "standard" ? "border-brand-purple shadow-xl" : "hover:border-brand-purple/50"}`}
-                onClick={() => setSelectedProduct("standard")}>
-                <CardHeader className="pt-8">
-                  <CardTitle className="text-2xl text-center">{standard.name}</CardTitle>
-                  <div className="text-center mt-4">
-                    <div className="text-5xl font-bold text-brand-purple">
-                      ${(standard.price / 100).toFixed(0)}
-                    </div>
-                    <div className="text-xl text-gray-400 line-through mt-1">
-                      ${(standard.originalPrice / 100).toFixed(0)}
-                    </div>
-                    <div className="text-brand-purple font-bold mt-2">
-                      Save ${((standard.originalPrice - standard.price) / 100).toFixed(0)}
+                  <div className="flex items-start gap-3">
+                    <Sparkles className="w-5 h-5 text-brand-purple flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-gray-900">$20 AUD off for early-stage startups</p>
+                      <p className="text-sm text-gray-600">
+                        Email{" "}
+                        <a href="mailto:info@thzn.world" className="text-brand-purple hover:underline font-medium">
+                          info@thzn.world
+                        </a>{" "}
+                        with your startup details before purchase to receive a discount code.
+                      </p>
                     </div>
                   </div>
-                  <CardDescription className="text-center text-base mt-3">{standard.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    {standard.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-5 h-5 text-brand-purple flex-shrink-0 mt-0.5" />
-                        <span className="text-sm">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </CardContent>
               </Card>
-            )}
+            </div>
+
+            {/* Right: Checkout Action */}
+            <div>
+              <Card className="border-2 sticky top-8">
+                <CardHeader>
+                  <CardTitle className="text-2xl">Complete Your Purchase</CardTitle>
+                  <CardDescription>Secure payment via Stripe</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  <div className="bg-gray-50 rounded-lg p-6 space-y-3">
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-700">Workshop Access</span>
+                      <span className="font-semibold">${(product.price / 100).toFixed(0)} AUD</span>
+                    </div>
+                    <div className="border-t pt-3 flex justify-between items-center">
+                      <span className="font-bold text-lg">Total</span>
+                      <span className="font-bold text-2xl text-brand-orange">
+                        ${(product.price / 100).toFixed(0)} AUD
+                      </span>
+                    </div>
+                  </div>
+
+                  <Button
+                    size="lg"
+                    className="w-full bg-brand-orange hover:bg-brand-orange/90 text-white text-lg py-7 h-auto"
+                    onClick={handleCheckout}
+                    disabled={isLoading}
+                  >
+                    {isLoading ? (
+                      <span className="flex items-center gap-2">
+                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                        Processing...
+                      </span>
+                    ) : (
+                      "Proceed to Payment →"
+                    )}
+                  </Button>
+
+                  <div className="space-y-2 text-sm text-gray-600 text-center">
+                    <p className="flex items-center justify-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-brand-green" />
+                      Secure payment processing
+                    </p>
+                    <p className="flex items-center justify-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-brand-green" />
+                      Instant access after payment
+                    </p>
+                    <p className="flex items-center justify-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-brand-green" />
+                      30-day email support included
+                    </p>
+                  </div>
+
+                  <div className="pt-4 border-t text-center">
+                    <p className="text-sm text-gray-600">
+                      Questions?{" "}
+                      <a href="mailto:info@thzn.world" className="text-brand-orange hover:underline font-medium">
+                        Email us
+                      </a>
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </div>
 
-          {/* Checkout Button */}
-          <div className="max-w-md mx-auto">
-            <Button
-              size="lg"
-              className="w-full bg-brand-orange hover:bg-brand-orange/90 text-white text-xl py-7 h-auto shadow-xl"
-              onClick={() => handleCheckout(selectedProduct)}
-              disabled={createSession.isPending}
-            >
-              {createSession.isPending ? (
-                <>
-                  <Loader2 className="w-5 h-5 animate-spin mr-2" />
-                  Processing...
-                </>
-              ) : (
-                "Secure Checkout →"
-              )}
-            </Button>
-            <p className="text-sm text-gray-600 text-center mt-4">
-              🔒 Secure payment • Test card: 4242 4242 4242 4242
+          {/* Bottom CTA */}
+          <div className="mt-12 text-center">
+            <p className="text-gray-600">
+              <Link href="/" className="text-brand-orange hover:underline font-medium">
+                ← Back to workshop details
+              </Link>
             </p>
           </div>
         </div>

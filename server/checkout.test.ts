@@ -39,22 +39,19 @@ describe("checkout.getProducts", () => {
     const products = await caller.checkout.getProducts();
 
     expect(products).toBeDefined();
-    expect(products.length).toBe(3);
+    expect(products.length).toBe(1);
     
     const productKeys = products.map(p => p.productKey);
-    expect(productKeys).toContain("blackFriday");
-    expect(productKeys).toContain("earlyBird");
     expect(productKeys).toContain("standard");
 
     // Verify product structure
-    const blackFriday = products.find(p => p.productKey === "blackFriday");
-    expect(blackFriday).toBeDefined();
-    expect(blackFriday?.name).toBe("Black Friday Special");
-    expect(blackFriday?.price).toBe(9700);
-    expect(blackFriday?.originalPrice).toBe(29700);
-    expect(blackFriday?.currency).toBe("usd");
-    expect(blackFriday?.features).toBeInstanceOf(Array);
-    expect(blackFriday?.features.length).toBeGreaterThan(0);
+    const standard = products.find(p => p.productKey === "standard");
+    expect(standard).toBeDefined();
+    expect(standard?.name).toBe("Workshop Access");
+    expect(standard?.price).toBe(9700);
+    expect(standard?.currency).toBe("aud");
+    expect(standard?.features).toBeInstanceOf(Array);
+    expect(standard?.features.length).toBeGreaterThan(0);
   });
 });
 
@@ -72,7 +69,7 @@ describe("checkout.createSession", () => {
     const caller = appRouter.createCaller(unauthCtx);
 
     await expect(
-      caller.checkout.createSession({ productId: "blackFriday" })
+      caller.checkout.createSession({ productId: "standard" })
     ).rejects.toThrow();
   });
 

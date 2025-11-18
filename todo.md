@@ -26,3 +26,18 @@
 - [x] Ensure full mobile responsiveness
 - [x] Test on mobile viewport
 - [x] Create final checkpoint
+
+## Final Refinements
+
+- [x] Simplify to single pricing option ($97 AUD)
+- [x] Change all pricing from USD to AUD)
+- [x] Add referral program messaging ($15 off per friend)
+- [x] Add startup discount info (email info@thzn.world for $20 off)
+- [x] Fix Module 2 image (use video generation screenshot)
+- [x] Enlarge all module images for better visibility)
+- [x] Update automation messaging (review content, not fully 24/7)
+- [x] Add advanced workshop teaser with special pricing mention
+- [x] Remove multiple pricing tiers from checkout
+- [x] Update checkout flow for single option
+- [x] Test final changes
+- [x] Create final checkpoint
