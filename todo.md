@@ -13,4 +13,16 @@
 - [x] Create pricing and Stripe checkout section
 - [x] Create footer with contact info
 - [x] Test Stripe payment flow
-- [ ] Create checkpoint for deployment
+- [x] Create checkpoint for deployment
+
+## Black Friday Update
+
+- [x] Replace logo with new design
+- [x] Remove AI-centric language and generic copy
+- [x] Add Black Friday deal messaging
+- [x] Update pricing to show $297 value + social media manager comparison
+- [x] Fix module card screenshots (remove cropping issues)
+- [x] Improve module cards UI for modern, polished look
+- [x] Ensure full mobile responsiveness
+- [x] Test on mobile viewport
+- [x] Create final checkpoint

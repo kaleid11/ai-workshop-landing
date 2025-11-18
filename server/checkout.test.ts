@@ -42,18 +42,19 @@ describe("checkout.getProducts", () => {
     expect(products.length).toBe(3);
     
     const productKeys = products.map(p => p.productKey);
+    expect(productKeys).toContain("blackFriday");
     expect(productKeys).toContain("earlyBird");
-    expect(productKeys).toContain("startup");
-    expect(productKeys).toContain("referral");
+    expect(productKeys).toContain("standard");
 
     // Verify product structure
-    const earlyBird = products.find(p => p.productKey === "earlyBird");
-    expect(earlyBird).toBeDefined();
-    expect(earlyBird?.name).toBe("Early Bird Access");
-    expect(earlyBird?.price).toBe(9700);
-    expect(earlyBird?.currency).toBe("usd");
-    expect(earlyBird?.features).toBeInstanceOf(Array);
-    expect(earlyBird?.features.length).toBeGreaterThan(0);
+    const blackFriday = products.find(p => p.productKey === "blackFriday");
+    expect(blackFriday).toBeDefined();
+    expect(blackFriday?.name).toBe("Black Friday Special");
+    expect(blackFriday?.price).toBe(9700);
+    expect(blackFriday?.originalPrice).toBe(29700);
+    expect(blackFriday?.currency).toBe("usd");
+    expect(blackFriday?.features).toBeInstanceOf(Array);
+    expect(blackFriday?.features.length).toBeGreaterThan(0);
   });
 });
 
@@ -71,7 +72,7 @@ describe("checkout.createSession", () => {
     const caller = appRouter.createCaller(unauthCtx);
 
     await expect(
-      caller.checkout.createSession({ productId: "earlyBird" })
+      caller.checkout.createSession({ productId: "blackFriday" })
     ).rejects.toThrow();
   });
 

@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { APP_LOGO } from "@/const";
-import { CheckCircle2, Clock, Users, Video, Wand2, Zap } from "lucide-react";
+import { CheckCircle2, Clock, DollarSign, Sparkles, TrendingDown, Users, Video, Zap } from "lucide-react";
 import { Link } from "wouter";
 
 export default function Home() {
@@ -15,250 +15,364 @@ export default function Home() {
       <section className="relative bg-gradient-to-br from-[rgb(var(--brand-dark-purple))] via-[rgb(var(--brand-blue))] to-[rgb(var(--brand-dark-purple))] text-white overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE0YzMuMzEgMCA2IDIuNjkgNiA2cy0yLjY5IDYtNiA2LTYtMi42OS02LTYgMi42OS02IDYtNnpNNiAzNGMzLjMxIDAgNiAyLjY5IDYgNnMtMi42OSA2LTYgNi02LTIuNjktNi02IDIuNjktNiA2LTZ6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-20"></div>
         
-        <div className="container relative py-20 md:py-32">
+        {/* Black Friday Banner */}
+        <div className="bg-brand-orange text-white text-center py-3 relative z-10">
+          <div className="container flex items-center justify-center gap-2 text-sm md:text-base font-bold">
+            <Sparkles className="w-4 h-4" />
+            <span>BLACK FRIDAY SPECIAL: Save $200 + Skip $24K/year in hiring costs</span>
+            <Sparkles className="w-4 h-4" />
+          </div>
+        </div>
+
+        <div className="container relative py-16 md:py-28">
           <div className="flex flex-col items-center text-center space-y-8">
-            <img src={APP_LOGO} alt="Workshop Logo" className="w-32 h-32 md:w-40 md:h-40" />
+            <img src={APP_LOGO} alt="Workshop Logo" className="w-24 h-24 md:w-32 md:h-32" />
             
             <div className="space-y-4 max-w-4xl">
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
-                Unlock Effortless Content Creation With AI
+                Stop Paying $2K/Month for Social Media
               </h1>
               <p className="text-xl md:text-2xl text-white/90 font-medium">
-                The Operator's Social Media Workshop
+                Learn to Automate Your Content in One 2-Hour Workshop
               </p>
               <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto">
-                Make Your Posts, Videos, and Marketing Smarter—in Minutes, Not Days
+                Create posts, videos, and marketing content in minutes—without hiring a team
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button 
-                size="lg" 
-                className="bg-brand-orange hover:bg-brand-orange/90 text-white text-lg px-8 py-6 h-auto"
-                onClick={scrollToCheckout}
-              >
-                Get Workshop Access Now
-              </Button>
+              <Link href="/checkout">
+                <Button 
+                  size="lg" 
+                  className="bg-brand-orange hover:bg-brand-orange/90 text-white text-lg px-8 py-6 h-auto shadow-2xl"
+                >
+                  Get Black Friday Access - $97
+                </Button>
+              </Link>
               <Button 
                 size="lg" 
                 variant="outline" 
                 className="bg-white/10 hover:bg-white/20 text-white border-white/30 text-lg px-8 py-6 h-auto backdrop-blur-sm"
-                onClick={() => document.getElementById("benefits")?.scrollIntoView({ behavior: "smooth" })}
+                onClick={() => document.getElementById("value")?.scrollIntoView({ behavior: "smooth" })}
               >
-                Learn More
+                See The Value
               </Button>
             </div>
 
             <p className="text-sm text-white/70 pt-4">
-              ⚡ Only 50 seats available—move fast
+              ⚡ Limited spots • Ends this week
             </p>
           </div>
         </div>
       </section>
 
-      {/* Big Results Section */}
-      <section className="py-16 md:py-24 bg-white" id="benefits">
+      {/* Value Comparison Section */}
+      <section className="py-16 md:py-24 bg-gray-50" id="value">
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-5xl font-bold text-brand-purple mb-4">
-              Big Results. Zero Fluff.
+              The Math Is Simple
             </h2>
+            <p className="text-xl text-gray-600">
+              One workshop vs. hiring a social media manager
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Traditional Cost */}
+            <Card className="border-2 border-red-200 bg-white">
+              <CardHeader>
+                <div className="flex items-center gap-2 text-red-600 mb-2">
+                  <TrendingDown className="w-6 h-6" />
+                  <CardTitle className="text-2xl">Hiring a Manager</CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div>
+                  <div className="text-4xl font-bold text-gray-900">$2,000<span className="text-xl text-gray-600">/mo</span></div>
+                  <div className="text-red-600 font-semibold mt-1">= $24,000/year</div>
+                </div>
+                <ul className="space-y-3 text-gray-700">
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-500 mt-1">✗</span>
+                    <span>Ongoing monthly payments</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-500 mt-1">✗</span>
+                    <span>Limited to their schedule</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-500 mt-1">✗</span>
+                    <span>No control over process</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-500 mt-1">✗</span>
+                    <span>Dependent on one person</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* Workshop Value */}
+            <Card className="border-2 border-brand-orange bg-gradient-to-br from-brand-orange/5 to-brand-purple/5">
+              <CardHeader>
+                <div className="flex items-center gap-2 text-brand-orange mb-2">
+                  <Sparkles className="w-6 h-6" />
+                  <CardTitle className="text-2xl">This Workshop</CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div>
+                  <div className="text-4xl font-bold text-gray-900">
+                    $97
+                    <span className="text-xl text-gray-400 line-through ml-2">$297</span>
+                  </div>
+                  <div className="text-brand-orange font-semibold mt-1">One-time • Lifetime access</div>
+                </div>
+                <ul className="space-y-3 text-gray-700">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-brand-orange flex-shrink-0 mt-0.5" />
+                    <span>Save $23,903 in year one</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-brand-orange flex-shrink-0 mt-0.5" />
+                    <span>Automate 24/7, not 9-5</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-brand-orange flex-shrink-0 mt-0.5" />
+                    <span>Full control of your content</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-brand-orange flex-shrink-0 mt-0.5" />
+                    <span>Skills you keep forever</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="text-center mt-12">
+            <Link href="/checkout">
+              <Button size="lg" className="bg-brand-orange hover:bg-brand-orange/90 text-white text-lg px-8 py-6 h-auto">
+                Get Started for $97 →
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* What You Get Section */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-5xl font-bold text-brand-purple mb-4">
+              What You'll Master
+            </h2>
+            <p className="text-xl text-gray-600">
+              Practical skills you can use immediately
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <Card className="border-2 hover:border-brand-orange transition-colors">
               <CardHeader>
                 <Zap className="w-12 h-12 text-brand-orange mb-4" />
-                <CardTitle className="text-xl">Automate Everything</CardTitle>
+                <CardTitle className="text-2xl">Hands-On Training</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">
-                  Automate captions and posts across all platforms. Save hours on repetitive content work.
+                <p className="text-gray-700 mb-4">
+                  Learn by doing. Set up automation tools during the live session and leave with working systems.
                 </p>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-brand-orange flex-shrink-0 mt-0.5" />
+                    <span>Post scheduling across platforms</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-brand-orange flex-shrink-0 mt-0.5" />
+                    <span>Caption and hashtag generation</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-brand-orange flex-shrink-0 mt-0.5" />
+                    <span>Content calendar automation</span>
+                  </li>
+                </ul>
               </CardContent>
             </Card>
 
             <Card className="border-2 hover:border-brand-blue transition-colors">
               <CardHeader>
                 <Video className="w-12 h-12 text-brand-blue mb-4" />
-                <CardTitle className="text-xl">Create Videos Fast</CardTitle>
+                <CardTitle className="text-2xl">Portal Access</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">
-                  Create story-driven videos at the speed of your ideas using cutting-edge AI tools.
+                <p className="text-gray-700 mb-4">
+                  Lifetime access to templates, guides, and resources. Download everything you need.
                 </p>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-brand-blue flex-shrink-0 mt-0.5" />
+                    <span>Content templates library</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-brand-blue flex-shrink-0 mt-0.5" />
+                    <span>Tool setup guides</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-brand-blue flex-shrink-0 mt-0.5" />
+                    <span>Workshop replay video</span>
+                  </li>
+                </ul>
               </CardContent>
             </Card>
 
             <Card className="border-2 hover:border-brand-green transition-colors">
               <CardHeader>
                 <Users className="w-12 h-12 text-brand-green mb-4" />
-                <CardTitle className="text-xl">Connect With Operators</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Connect with business owners who move fast and think smart in our exclusive community.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Why This Workshop */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-[rgb(var(--brand-cream))] to-white">
-        <div className="container">
-          <div className="max-w-4xl mx-auto text-center space-y-6">
-            <h2 className="text-3xl md:text-5xl font-bold text-brand-purple">
-              Why This Workshop?
-            </h2>
-            <p className="text-xl text-gray-700 leading-relaxed">
-              If you're ready to work like a top operator—saving hours and multiplying your impact—this 
-              <span className="font-bold text-brand-orange"> 2-hour live workshop</span> is the shortcut. 
-              Get actionable skills, not just theory.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* What You'll Get */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-bold text-brand-purple mb-4">
-              What You'll Get
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <Card className="border-2">
-              <CardHeader>
-                <Wand2 className="w-10 h-10 text-brand-orange mb-2" />
-                <CardTitle className="text-2xl">Hands-On Training</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Master AI-powered workflows for posting, scheduling, and video creation. Tools revealed step-by-step inside the session.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-2">
-              <CardHeader>
-                <CheckCircle2 className="w-10 h-10 text-brand-blue mb-2" />
-                <CardTitle className="text-2xl">Resource Portal Access</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Download guides, checklists, recaps and bonus templates any time after the workshop.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-2">
-              <CardHeader>
-                <Users className="w-10 h-10 text-brand-green mb-2" />
                 <CardTitle className="text-2xl">Community Connection</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">
-                  Join the private WhatsApp group for ongoing support, networking, and direct access to experienced peers.
+                <p className="text-gray-700 mb-4">
+                  Join our private WhatsApp group for ongoing support and networking with operators.
                 </p>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-brand-green flex-shrink-0 mt-0.5" />
+                    <span>Direct access to instructors</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-brand-green flex-shrink-0 mt-0.5" />
+                    <span>Share wins and strategies</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-brand-green flex-shrink-0 mt-0.5" />
+                    <span>Get help when stuck</span>
+                  </li>
+                </ul>
               </CardContent>
             </Card>
 
-            <Card className="border-2">
+            <Card className="border-2 hover:border-brand-purple transition-colors">
               <CardHeader>
-                <Clock className="w-10 h-10 text-brand-purple mb-2" />
+                <Clock className="w-12 h-12 text-brand-purple mb-4" />
                 <CardTitle className="text-2xl">Replay & Support</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">
-                  Couldn't make it live? Access the replay and get your questions answered in the portal or chat.
+                <p className="text-gray-700 mb-4">
+                  Can't make it live? Watch the replay. Need help? We've got you covered.
                 </p>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-brand-purple flex-shrink-0 mt-0.5" />
+                    <span>Full workshop recording</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-brand-purple flex-shrink-0 mt-0.5" />
+                    <span>Email support for 30 days</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-brand-purple flex-shrink-0 mt-0.5" />
+                    <span>Bonus troubleshooting guide</span>
+                  </li>
+                </ul>
               </CardContent>
             </Card>
           </div>
         </div>
       </section>
 
-      {/* Workshop Modules */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-white">
+      {/* Workshop Modules Section */}
+      <section className="py-16 md:py-24 bg-gray-50">
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-5xl font-bold text-brand-purple mb-4">
               Workshop Modules
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Four powerful modules to transform your social media workflow
+            <p className="text-xl text-gray-600">
+              Four focused modules to transform your social media workflow
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-            <Card className="overflow-hidden border-2 hover:shadow-lg transition-shadow">
-              <div className="aspect-video bg-gradient-to-br from-[rgb(var(--brand-blue))] to-[rgb(var(--brand-purple))] flex items-center justify-center">
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {/* Module 1 */}
+            <div className="bg-white rounded-2xl overflow-hidden border-2 border-gray-200 hover:border-brand-orange transition-all hover:shadow-xl">
+              <div className="aspect-video bg-gradient-to-br from-brand-green/20 to-brand-blue/20 flex items-center justify-center p-8">
                 <img 
                   src="/images/quick-actions.png" 
-                  alt="AI Post Generator" 
-                  className="w-full h-full object-cover"
+                  alt="Social Media Automation Tools" 
+                  className="w-full h-full object-contain rounded-lg"
                 />
               </div>
-              <CardHeader>
-                <CardTitle className="text-2xl">Module 1: Automate Social Media Posts</CardTitle>
-                <CardDescription className="text-base">
-                  Learn to generate captions, schedule posts, and manage content across all platforms with AI-powered automation tools.
-                </CardDescription>
-              </CardHeader>
-            </Card>
-
-            <Card className="overflow-hidden border-2 hover:shadow-lg transition-shadow">
-              <div className="aspect-video bg-gradient-to-br from-[rgb(var(--brand-green))] to-[rgb(var(--brand-blue))] flex items-center justify-center">
-                <div className="text-white text-6xl font-bold">Sora 2</div>
+              <div className="p-6 md:p-8">
+                <h3 className="text-2xl font-bold text-brand-purple mb-3">
+                  Module 1: Automate Social Media Posts
+                </h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Learn to generate captions, schedule posts, and manage content across all platforms with automation tools. Set up your content calendar once and let it run.
+                </p>
               </div>
-              <CardHeader>
-                <CardTitle className="text-2xl">Module 2: Create Videos with AI</CardTitle>
-                <CardDescription className="text-base">
-                  Master Sora 2 and other AI video generators to create professional short-form videos from text prompts in minutes.
-                </CardDescription>
-              </CardHeader>
-            </Card>
+            </div>
 
-            <Card className="overflow-hidden border-2 hover:shadow-lg transition-shadow">
-              <div className="aspect-video bg-gradient-to-br from-[rgb(var(--brand-purple))] to-[rgb(var(--brand-orange))]">
+            {/* Module 2 */}
+            <div className="bg-white rounded-2xl overflow-hidden border-2 border-gray-200 hover:border-brand-blue transition-all hover:shadow-xl">
+              <div className="aspect-video bg-gradient-to-br from-brand-blue/30 to-brand-purple/20 flex items-center justify-center p-8">
+                <div className="text-center">
+                  <div className="text-6xl md:text-8xl font-bold text-white/90 mb-2">Sora 2</div>
+                  <div className="text-xl text-white/80">Video Generation</div>
+                </div>
+              </div>
+              <div className="p-6 md:p-8">
+                <h3 className="text-2xl font-bold text-brand-purple mb-3">
+                  Module 2: Create Videos with Tools
+                </h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Master Sora 2 and other video generators to create professional short-form videos from text prompts in minutes. No filming or editing required.
+                </p>
+              </div>
+            </div>
+
+            {/* Module 3 */}
+            <div className="bg-white rounded-2xl overflow-hidden border-2 border-gray-200 hover:border-brand-purple transition-all hover:shadow-xl">
+              <div className="aspect-video bg-gradient-to-br from-brand-purple/20 to-brand-orange/20 flex items-center justify-center p-8">
                 <img 
                   src="/images/ai-edit.webp" 
-                  alt="AI Video Editing" 
-                  className="w-full h-full object-cover"
+                  alt="Video Editing Interface" 
+                  className="w-full h-full object-contain rounded-lg"
                 />
               </div>
-              <CardHeader>
-                <CardTitle className="text-2xl">Module 3: Edit Videos with AI</CardTitle>
-                <CardDescription className="text-base">
-                  Use AI to edit your real footage with professional results—no manual editing skills required.
-                </CardDescription>
-              </CardHeader>
-            </Card>
+              <div className="p-6 md:p-8">
+                <h3 className="text-2xl font-bold text-brand-purple mb-3">
+                  Module 3: Edit Videos with Automation
+                </h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Use automation to edit your footage with professional results. Add captions, transitions, and effects without manual editing.
+                </p>
+              </div>
+            </div>
 
-            <Card className="overflow-hidden border-2 hover:shadow-lg transition-shadow">
-              <div className="aspect-video bg-gradient-to-br from-[rgb(var(--brand-orange))] to-[rgb(var(--brand-cream))]">
+            {/* Module 4 */}
+            <div className="bg-white rounded-2xl overflow-hidden border-2 border-gray-200 hover:border-brand-green transition-all hover:shadow-xl">
+              <div className="aspect-video bg-gradient-to-br from-brand-orange/20 to-brand-green/20 flex items-center justify-center p-8">
                 <img 
                   src="/images/ai-twins.webp" 
-                  alt="AI Twins" 
-                  className="w-full h-full object-cover"
+                  alt="AI Avatar Creation" 
+                  className="w-full h-full object-contain rounded-lg"
                 />
               </div>
-              <CardHeader>
-                <CardTitle className="text-2xl">Module 4: Clone Yourself (Advanced)</CardTitle>
-                <CardDescription className="text-base">
-                  Optional advanced module: Create your AI twin in minutes to scale your presence and produce content without being on camera.
-                </CardDescription>
-              </CardHeader>
-            </Card>
+              <div className="p-6 md:p-8">
+                <h3 className="text-2xl font-bold text-brand-purple mb-3">
+                  Module 4: Clone Yourself (Advanced)
+                </h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Optional advanced module: Create a digital version of yourself to record videos without being on camera. Scale your content creation.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* How It Works */}
+      {/* How It Works Section */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container">
           <div className="text-center mb-12">
@@ -267,165 +381,161 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="max-w-4xl mx-auto space-y-8">
-            <div className="flex gap-6 items-start">
-              <div className="flex-shrink-0 w-12 h-12 rounded-full bg-brand-orange text-white flex items-center justify-center text-xl font-bold">
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div className="text-center">
+              <div className="w-16 h-16 rounded-full bg-brand-orange text-white flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                 1
               </div>
-              <div>
-                <h3 className="text-2xl font-bold text-brand-purple mb-2">
-                  Secure Your Spot With Stripe
-                </h3>
-                <p className="text-lg text-gray-600">
-                  Fast, simple online checkout—choose Early Bird, Startup, or Referral Discount.
-                </p>
-              </div>
+              <h3 className="text-xl font-bold text-brand-purple mb-3">Secure Your Spot</h3>
+              <p className="text-gray-700">
+                Sign up now with Black Friday pricing. Get instant access to the member portal and WhatsApp group.
+              </p>
             </div>
 
-            <div className="flex gap-6 items-start">
-              <div className="flex-shrink-0 w-12 h-12 rounded-full bg-brand-blue text-white flex items-center justify-center text-xl font-bold">
+            <div className="text-center">
+              <div className="w-16 h-16 rounded-full bg-brand-blue text-white flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                 2
               </div>
-              <div>
-                <h3 className="text-2xl font-bold text-brand-purple mb-2">
-                  Get Portal Access Instantly
-                </h3>
-                <p className="text-lg text-gray-600">
-                  Log in for workshop resources, bonus content, and your WhatsApp group link.
-                </p>
-              </div>
+              <h3 className="text-xl font-bold text-brand-purple mb-3">Get Portal Access</h3>
+              <p className="text-gray-700">
+                Download templates, connect with operators, and prep your WhatsApp group link before the workshop.
+              </p>
             </div>
 
-            <div className="flex gap-6 items-start">
-              <div className="flex-shrink-0 w-12 h-12 rounded-full bg-brand-green text-white flex items-center justify-center text-xl font-bold">
+            <div className="text-center">
+              <div className="w-16 h-16 rounded-full bg-brand-green text-white flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                 3
               </div>
-              <div>
-                <h3 className="text-2xl font-bold text-brand-purple mb-2">
-                  Attend Live, Grow Continuously
-                </h3>
-                <p className="text-lg text-gray-600">
-                  Join the session, learn by doing, and keep leveling up with portal guides and community help.
-                </p>
-              </div>
+              <h3 className="text-xl font-bold text-brand-purple mb-3">Attend Live</h3>
+              <p className="text-gray-700">
+                Join the 2-hour live workshop, set up your systems, and keep learning with replays and community help.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Why Operators Love This */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-[rgb(var(--brand-blue))]/10 to-white">
+      {/* Why Operators Love This Section */}
+      <section className="py-16 md:py-24 bg-gray-50">
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-5xl font-bold text-brand-purple mb-4">
-              Why Operators Love This Offer
+              Why Operators Choose This
             </h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="text-center space-y-4">
-              <div className="w-16 h-16 mx-auto rounded-full bg-brand-orange/20 flex items-center justify-center">
-                <Clock className="w-8 h-8 text-brand-orange" />
-              </div>
-              <h3 className="text-2xl font-bold text-brand-purple">Save Hours</h3>
-              <p className="text-gray-600">
-                Get rid of repetitive grunt work—let AI do the heavy lifting.
-              </p>
-            </div>
+            <Card className="border-2">
+              <CardHeader>
+                <Clock className="w-12 h-12 text-brand-orange mb-4" />
+                <CardTitle className="text-xl">Save Hours</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-700">
+                  Set up automation once. Save 10+ hours per week on content creation and posting.
+                </p>
+              </CardContent>
+            </Card>
 
-            <div className="text-center space-y-4">
-              <div className="w-16 h-16 mx-auto rounded-full bg-brand-blue/20 flex items-center justify-center">
-                <Wand2 className="w-8 h-8 text-brand-blue" />
-              </div>
-              <h3 className="text-2xl font-bold text-brand-purple">Elevate Your Brand</h3>
-              <p className="text-gray-600">
-                Craft pro-grade video and captions from a single prompt.
-              </p>
-            </div>
+            <Card className="border-2">
+              <CardHeader>
+                <DollarSign className="w-12 h-12 text-brand-blue mb-4" />
+                <CardTitle className="text-xl">Eliminate Hiring</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-700">
+                  Cut your social media budget from $2K/month to zero. Invest savings back into your business.
+                </p>
+              </CardContent>
+            </Card>
 
-            <div className="text-center space-y-4">
-              <div className="w-16 h-16 mx-auto rounded-full bg-brand-green/20 flex items-center justify-center">
-                <Zap className="w-8 h-8 text-brand-green" />
-              </div>
-              <h3 className="text-2xl font-bold text-brand-purple">No Wasted Time</h3>
-              <p className="text-gray-600">
-                All guides, tools, and answers are a click away in your member portal.
-              </p>
-            </div>
+            <Card className="border-2">
+              <CardHeader>
+                <Zap className="w-12 h-12 text-brand-green mb-4" />
+                <CardTitle className="text-xl">No Wasted Time</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-700">
+                  All tactics, zero theory. Tools and answers you can use the same day you learn them.
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
 
-      {/* Checkout Section */}
+      {/* Final CTA Section */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-[rgb(var(--brand-dark-purple))] to-[rgb(var(--brand-blue))] text-white" id="checkout">
         <div className="container">
-          <div className="max-w-3xl mx-auto text-center space-y-8">
+          <div className="max-w-4xl mx-auto text-center space-y-8">
             <h2 className="text-3xl md:text-5xl font-bold">
               Ready to Transform Your Social Media?
             </h2>
             <p className="text-xl text-white/90">
-              Join the AI Social Media Workshop and start creating like a pro
+              Join the 2-hour workshop and learn to automate content like a pro
             </p>
-            
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
-              <p className="text-2xl font-bold mb-6">Workshop Access</p>
-              <div className="space-y-4 text-left mb-8">
-                <div className="flex items-center gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-brand-orange flex-shrink-0" />
-                  <span>2-hour live workshop with hands-on training</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-brand-orange flex-shrink-0" />
-                  <span>Lifetime access to resource portal</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-brand-orange flex-shrink-0" />
-                  <span>Private WhatsApp community access</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-brand-orange flex-shrink-0" />
-                  <span>Workshop replay and ongoing support</span>
-                </div>
-              </div>
 
-              <Link href="/checkout">
-                <Button 
-                  size="lg" 
-                  className="w-full bg-brand-orange hover:bg-brand-orange/90 text-white text-xl py-6 h-auto"
-                >
-                  Get Workshop Access Now
-                </Button>
-              </Link>
-              
-              <p className="text-sm text-white/70 mt-4">
-                ⚡ Only 50 seats available
-              </p>
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 text-left max-w-2xl mx-auto">
+              <h3 className="text-2xl font-bold mb-6 text-center">Workshop Access Includes:</h3>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-brand-orange flex-shrink-0 mt-0.5" />
+                  <span>2-hour live workshop (or watch the replay)</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-brand-orange flex-shrink-0 mt-0.5" />
+                  <span>Lifetime access to member portal</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-brand-orange flex-shrink-0 mt-0.5" />
+                  <span>Private WhatsApp community</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-brand-orange flex-shrink-0 mt-0.5" />
+                  <span>Workshop replay and bonus templates</span>
+                </li>
+              </ul>
+
+              <div className="mt-8 pt-8 border-t border-white/20 text-center">
+                <div className="text-sm text-white/70 mb-2">Black Friday Special</div>
+                <div className="text-5xl font-bold mb-2">
+                  $97
+                  <span className="text-2xl text-white/60 line-through ml-3">$297</span>
+                </div>
+                <div className="text-brand-orange font-semibold mb-6">Save $200 • One-time payment</div>
+                
+                <Link href="/checkout">
+                  <Button 
+                    size="lg" 
+                    className="w-full bg-brand-orange hover:bg-brand-orange/90 text-white text-xl py-7 h-auto shadow-2xl"
+                  >
+                    Get Workshop Access Now →
+                  </Button>
+                </Link>
+              </div>
             </div>
 
-            <p className="text-white/80 text-sm">
-              The workshop is practical, social, and built for operator speed—if you run a business 
-              and want fewer headaches with content, this is the only session you'll need.
+            <p className="text-sm text-white/70">
+              The workshop is a practical, no-fluff session. Limited to 50 operators. If you're ready to work less and multiply your content, this is for you. If you just want theory, save your money.
             </p>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-12 bg-[rgb(var(--brand-dark-purple))] text-white">
+      <footer className="bg-[rgb(var(--brand-dark-purple))] text-white/80 py-12">
         <div className="container">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
               <img src={APP_LOGO} alt="Workshop Logo" className="w-12 h-12" />
               <div>
-                <p className="font-bold">AI Social Media Workshop</p>
-                <p className="text-sm text-white/70">Transform your content creation</p>
+                <div className="font-bold text-white">Social Media Automation Workshop</div>
+                <div className="text-sm">© 2024. All rights reserved.</div>
               </div>
             </div>
-            
-            <div className="text-center md:text-right">
-              <p className="text-sm text-white/70">
-                © 2025 AI Social Media Workshop. All rights reserved.
-              </p>
+            <div className="text-sm text-center md:text-right">
+              <p>Questions? Email: support@workshop.com</p>
+              <p className="mt-1">Limited to 50 operators • Black Friday pricing ends soon</p>
             </div>
           </div>
         </div>

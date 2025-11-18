@@ -28,7 +28,7 @@ export const appRouter = router({
     createSession: protectedProcedure
       .input(
         z.object({
-          productId: z.enum(["earlyBird", "startup", "referral"]),
+          productId: z.enum(["blackFriday", "earlyBird", "standard"]),
         })
       )
       .mutation(async ({ input, ctx }) => {
