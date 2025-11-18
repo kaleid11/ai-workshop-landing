@@ -102,7 +102,7 @@ export default function Checkout() {
                 <CardHeader>
                   <div className="flex items-center gap-2">
                     <Gift className="w-6 h-6 text-brand-green" />
-                    <CardTitle className="text-xl">Bring a Friend, Save Together</CardTitle>
+                    <CardTitle className="text-xl">Bring a Friend & Save</CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-4">
