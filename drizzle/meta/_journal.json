@@ -15,6 +15,13 @@
       "when": 1763521127446,
       "tag": "0001_nostalgic_wither",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1763522797678,
+      "tag": "0002_fancy_maestro",
+      "breakpoints": true
     }
   ]
 }

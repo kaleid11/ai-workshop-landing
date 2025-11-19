@@ -43,3 +43,19 @@ export const purchases = mysqlTable("purchases", {
 
 export type Purchase = typeof purchases.$inferSelect;
 export type InsertPurchase = typeof purchases.$inferInsert;
+
+/**
+ * Admin tokens table
+ * One-time use tokens for granting admin access
+ */
+export const adminTokens = mysqlTable("adminTokens", {
+  id: int("id").autoincrement().primaryKey(),
+  token: varchar("token", { length: 64 }).notNull().unique(),
+  used: int("used").default(0).notNull(), // 0 = unused, 1 = used
+  usedBy: int("usedBy"), // userId who used the token
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  usedAt: timestamp("usedAt"),
+});
+
+export type AdminToken = typeof adminTokens.$inferSelect;
+export type InsertAdminToken = typeof adminTokens.$inferInsert;

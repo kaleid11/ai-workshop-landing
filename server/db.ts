@@ -1,6 +1,6 @@
 import { eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertPurchase, InsertUser, purchases, users } from "../drizzle/schema";
+import { adminTokens, InsertPurchase, InsertUser, purchases, users } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -144,4 +144,86 @@ export async function getPurchaseBySessionId(sessionId: string) {
     .limit(1);
 
   return result.length > 0 ? result[0] : undefined;
+}
+
+/**
+ * Create a new admin token
+ */
+export async function createAdminToken(token: string) {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot create admin token: database not available");
+    return undefined;
+  }
+
+  try {
+    const result = await db.insert(adminTokens).values({ token });
+    return result;
+  } catch (error) {
+    console.error("[Database] Failed to create admin token:", error);
+    throw error;
+  }
+}
+
+/**
+ * Verify and use an admin token
+ */
+export async function useAdminToken(token: string, userId: number): Promise<boolean> {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot use admin token: database not available");
+    return false;
+  }
+
+  try {
+    // Check if token exists and is unused
+    const result = await db
+      .select()
+      .from(adminTokens)
+      .where(eq(adminTokens.token, token))
+      .limit(1);
+
+    if (result.length === 0 || result[0]?.used === 1) {
+      return false;
+    }
+
+    // Mark token as used
+    await db
+      .update(adminTokens)
+      .set({ used: 1, usedBy: userId, usedAt: new Date() })
+      .where(eq(adminTokens.token, token));
+
+    // Update user role to admin
+    await db
+      .update(users)
+      .set({ role: "admin" })
+      .where(eq(users.id, userId));
+
+    return true;
+  } catch (error) {
+    console.error("[Database] Failed to use admin token:", error);
+    return false;
+  }
+}
+
+/**
+ * Generate a new admin token
+ */
+export async function generateAdminToken(): Promise<string> {
+  const token = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+  await createAdminToken(token);
+  return token;
+}
+
+/**
+ * Update workshop replay video URL
+ * For now, this is a placeholder - in a real implementation, you'd store this in a config table
+ */
+export async function updateWorkshopReplay(videoUrl: string): Promise<void> {
+  // TODO: Store this in a workshop_config table
+  // For now, just log it
+  console.log("[Workshop] Replay URL updated:", videoUrl);
+  // In a real implementation, you'd do:
+  // await db.insert(workshopConfig).values({ key: 'replay_url', value: videoUrl })
+  //   .onDuplicateKeyUpdate({ set: { value: videoUrl } });
 }

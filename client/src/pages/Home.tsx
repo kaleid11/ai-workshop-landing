@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { CountdownTimer } from "@/components/CountdownTimer";
 import { APP_LOGO } from "@/const";
 import { CheckCircle2, Clock, DollarSign, Gift, Mail, Sparkles, TrendingDown, Users, Video, Zap } from "lucide-react";
 import { Link } from "wouter";
@@ -17,10 +18,15 @@ export default function Home() {
         
         {/* Banner */}
         <div className="bg-brand-orange text-white text-center py-3 relative z-10">
-          <div className="container flex flex-wrap items-center justify-center gap-2 text-sm md:text-base font-bold">
+          <div className="container flex flex-wrap items-center justify-center gap-2 text-sm md:text-base font-bold relative">
             <Sparkles className="w-4 h-4" />
             <span>Bring friends and save • Startup discount available</span>
             <Sparkles className="w-4 h-4" />
+            <Link href="/portal" className="absolute right-4 top-1/2 -translate-y-1/2 hidden md:block">
+              <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 hover:text-white">
+                Login
+              </Button>
+            </Link>
           </div>
         </div>
 
@@ -45,6 +51,12 @@ export default function Home() {
               <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto">
                 Create posts, videos, and marketing content in minutes—without hiring a team
               </p>
+            </div>
+
+            {/* Countdown Timer */}
+            <div className="w-full max-w-2xl">
+              <p className="text-sm text-white/70 mb-3 uppercase tracking-wide font-semibold">Workshop Starts In:</p>
+              <CountdownTimer />
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">

@@ -101,3 +101,16 @@
 - [x] Create downloadable brand info template
 - [x] Test all links and download functionality
 - [x] Create final checkpoint
+
+## Countdown Timer, Login & Admin Portal
+
+- [x] Add countdown timer to landing page (Nov 26, 9am Brisbane)
+- [x] Add login button for returning users in header
+- [x] Create admin token system in database
+- [x] Create hidden admin token binding page
+- [x] Build admin portal for workshop management
+- [x] Add workshop replay upload functionality
+- [x] Add participant management in admin portal
+- [x] Test admin token binding flow
+- [x] Test login flow for returning users
+- [x] Create final checkpoint

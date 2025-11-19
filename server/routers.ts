@@ -2,7 +2,7 @@ import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { protectedProcedure, publicProcedure, router } from "./_core/trpc";
-import { hasWorkshopAccess } from "./db";
+import { hasWorkshopAccess, useAdminToken, generateAdminToken, updateWorkshopReplay } from "./db";
 import { z } from "zod";
 import Stripe from "stripe";
 import { WORKSHOP_PRODUCTS } from "./products";
@@ -83,6 +83,44 @@ export const appRouter = router({
         userEmail: ctx.user.email,
       };
     }),
+  }),
+
+  admin: router({
+    bindToken: protectedProcedure
+      .input(
+        z.object({
+          token: z.string().min(1),
+        })
+      )
+      .mutation(async ({ input, ctx }) => {
+        const success = await useAdminToken(input.token, ctx.user.id);
+        if (!success) {
+          throw new Error("Invalid or expired token");
+        }
+        return { success: true };
+      }),
+    generateToken: protectedProcedure.mutation(async ({ ctx }) => {
+      // Check if user is admin
+      if (ctx.user.role !== "admin") {
+        throw new Error("Unauthorized: Admin access required");
+      }
+      const token = await generateAdminToken();
+      return { token };
+    }),
+    uploadReplay: protectedProcedure
+      .input(
+        z.object({
+          videoUrl: z.string().url(),
+        })
+      )
+      .mutation(async ({ input, ctx }) => {
+        // Check if user is admin
+        if (ctx.user.role !== "admin") {
+          throw new Error("Unauthorized: Admin access required");
+        }
+        await updateWorkshopReplay(input.videoUrl);
+        return { success: true };
+      }),
   }),
 });
 

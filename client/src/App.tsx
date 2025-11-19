@@ -8,6 +8,8 @@ import Home from "./pages/Home";
 import Checkout from "./pages/Checkout";
 import Success from "./pages/Success";
 import Portal from "./pages/Portal";
+import AdminBind from "./pages/AdminBind";
+import Admin from "./pages/Admin";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -17,6 +19,8 @@ function Router() {
       <Route path={"/checkout"} component={Checkout} />
       <Route path={"/success"} component={Success} />
       <Route path={"/portal"} component={Portal} />
+      <Route path="/admin-bind" component={AdminBind} />
+      <Route path="/admin" component={Admin} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
