@@ -22,8 +22,8 @@ export default function Home() {
             <Sparkles className="w-4 h-4" />
             <span>Bring friends and save • Startup discount available</span>
             <Sparkles className="w-4 h-4" />
-            <Link href="/portal" className="absolute right-4 top-1/2 -translate-y-1/2 hidden md:block">
-              <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 hover:text-white">
+            <Link href="/portal" className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2">
+              <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 hover:text-white text-xs md:text-sm px-2 md:px-4">
                 Login
               </Button>
             </Link>

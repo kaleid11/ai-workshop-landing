@@ -185,6 +185,12 @@ export default function Checkout() {
                     )}
                   </Button>
 
+                  <div className="bg-brand-orange/10 border border-brand-orange/30 rounded-lg p-4 mb-4">
+                    <p className="text-sm font-semibold text-brand-orange text-center">
+                      ⚠️ Important: Please ensure you let the checkout process complete before closing this app or exiting. Do not navigate away until you see the success page.
+                    </p>
+                  </div>
+
                   <div className="space-y-2 text-sm text-gray-600 text-center">
                     <p className="flex items-center justify-center gap-2">
                       <CheckCircle2 className="w-4 h-4 text-brand-green" />

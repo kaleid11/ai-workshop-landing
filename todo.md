@@ -133,3 +133,10 @@
 - [x] Add Apple, Microsoft, Google certifications (Genius Bar, AI, Workspaces)
 - [x] Update to show 200+ businesses coached on AI for 18 months
 - [x] Create checkpoint with updated credentials
+
+## Mobile Navigation & Checkout Notice
+
+- [x] Fix mobile navigation to show login button
+- [x] Add checkout completion notice (don't close app during payment)
+- [x] Test mobile responsiveness
+- [x] Create checkpoint with mobile fixes
