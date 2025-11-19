@@ -756,7 +756,7 @@ export default function Home() {
               <CardContent className="text-gray-700">
                 <p className="mb-3">You'll need accounts for two main tools:</p>
                 <ul className="list-disc pl-6 space-y-2">
-                  <li><strong>ViralWave Studio</strong> - For automated post generation and scheduling</li>
+                  <li style={{fontWeight: '700'}}>An AI content Studio - For automated post generation and scheduling</li>
                   <li><strong>Captions.ai</strong> - For video editing and content creation</li>
                 </ul>
                 <p className="mt-3">Both have free tiers to get started. We'll walk through setup during the workshop, but signing up beforehand saves time.</p>

@@ -114,3 +114,8 @@
 - [x] Test admin token binding flow
 - [x] Test login flow for returning users
 - [x] Create final checkpoint
+
+## FAQ Text Update
+
+- [x] Replace "ViralWave Studio" with "An AI content Studio" in FAQ section
+- [x] Create checkpoint with updated FAQ
