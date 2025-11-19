@@ -67,3 +67,23 @@
 - [x] Update Stripe account ID to acct_1Pm5DNCii5zXCZr6
 - [x] Test Stripe live mode integration
 - [x] Create final checkpoint
+
+## Stripe Live Mode Fix
+
+- [ ] Investigate why test keys are still being used
+- [ ] Remove any test Stripe configuration
+- [ ] Verify live keys are properly loaded
+- [ ] Test checkout with live price ID
+- [ ] Create checkpoint after fix
+
+## Post-Purchase Flow & Portal Access
+
+- [x] Add database schema for purchase tracking
+- [x] Create Stripe webhook endpoint for payment success
+- [x] Update user access status after successful payment
+- [x] Set up email automation for welcome emails
+- [x] Send portal link and workshop details via email
+- [x] Update portal with access control (only paying customers)
+- [x] Add all workshop resources to portal (WhatsApp, Facebook, calendar)
+- [x] Test complete purchase-to-portal flow
+- [x] Create final checkpoint

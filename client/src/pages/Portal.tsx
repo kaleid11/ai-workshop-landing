@@ -2,11 +2,15 @@ import { useAuth } from "@/_core/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { APP_LOGO, APP_TITLE, getLoginUrl } from "@/const";
-import { Calendar, ExternalLink, Loader2, Mail, MessageCircle, Sparkles, Users, Video } from "lucide-react";
+import { trpc } from "@/lib/trpc";
+import { Calendar, ExternalLink, Loader2, Mail, MessageCircle, ShoppingCart, Sparkles, Users, Video } from "lucide-react";
 import { Link } from "wouter";
 
 export default function Portal() {
   const { user, loading, isAuthenticated } = useAuth();
+  const accessCheck = trpc.portal.checkAccess.useQuery(undefined, {
+    enabled: isAuthenticated,
+  });
 
   // Generate calendar event URL (Google Calendar format)
   const generateCalendarUrl = () => {
@@ -47,6 +51,42 @@ export default function Portal() {
               Sign In to Continue
             </Button>
           </a>
+          <Link href="/">
+            <Button variant="outline" className="bg-white/10 hover:bg-white/20 text-white border-white/30 w-full">
+              Back to Home
+            </Button>
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  // Check if user has purchased workshop access
+  if (accessCheck.isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="text-center">
+          <Loader2 className="w-12 h-12 animate-spin text-brand-purple mx-auto mb-4" />
+          <p className="text-gray-600">Checking your access...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!accessCheck.data?.hasAccess) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[rgb(var(--brand-dark-purple))] via-[rgb(var(--brand-blue))] to-[rgb(var(--brand-dark-purple))] text-white">
+        <div className="container max-w-md text-center space-y-6 p-8">
+          <ShoppingCart className="w-24 h-24 mx-auto text-brand-orange" />
+          <h1 className="text-3xl font-bold">Purchase Required</h1>
+          <p className="text-white/80 text-lg">
+            This portal is exclusive to workshop participants. Purchase your ticket to unlock access to all workshop materials, community groups, and resources.
+          </p>
+          <Link href="/checkout">
+            <Button size="lg" className="bg-brand-orange hover:bg-brand-orange/90 text-white w-full">
+              Get Workshop Access - $97 AUD
+            </Button>
+          </Link>
           <Link href="/">
             <Button variant="outline" className="bg-white/10 hover:bg-white/20 text-white border-white/30 w-full">
               Back to Home

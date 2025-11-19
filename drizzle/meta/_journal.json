@@ -8,6 +8,13 @@
       "when": 1763460111473,
       "tag": "0000_bright_shadow_king",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1763521127446,
+      "tag": "0001_nostalgic_wither",
+      "breakpoints": true
     }
   ]
 }

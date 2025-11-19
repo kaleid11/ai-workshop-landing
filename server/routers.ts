@@ -2,6 +2,7 @@ import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { protectedProcedure, publicProcedure, router } from "./_core/trpc";
+import { hasWorkshopAccess } from "./db";
 import { z } from "zod";
 import Stripe from "stripe";
 import { WORKSHOP_PRODUCTS } from "./products";
@@ -69,6 +70,18 @@ export const appRouter = router({
         ...product,
         productKey: key,
       }));
+    }),
+  }),
+
+  portal: router({
+    checkAccess: protectedProcedure.query(async ({ ctx }) => {
+      const hasAccess = await hasWorkshopAccess(ctx.user.id);
+      return {
+        hasAccess,
+        userId: ctx.user.id,
+        userName: ctx.user.name,
+        userEmail: ctx.user.email,
+      };
     }),
   }),
 });

@@ -1,6 +1,6 @@
 import { eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users } from "../drizzle/schema";
+import { InsertPurchase, InsertUser, purchases, users } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -89,4 +89,59 @@ export async function getUserByOpenId(openId: string) {
   return result.length > 0 ? result[0] : undefined;
 }
 
-// TODO: add feature queries here as your schema grows.
+/**
+ * Create a new purchase record
+ */
+export async function createPurchase(purchase: InsertPurchase) {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot create purchase: database not available");
+    return undefined;
+  }
+
+  try {
+    const result = await db.insert(purchases).values(purchase);
+    return result;
+  } catch (error) {
+    console.error("[Database] Failed to create purchase:", error);
+    throw error;
+  }
+}
+
+/**
+ * Check if user has purchased workshop access
+ */
+export async function hasWorkshopAccess(userId: number): Promise<boolean> {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot check access: database not available");
+    return false;
+  }
+
+  const result = await db
+    .select()
+    .from(purchases)
+    .where(eq(purchases.userId, userId))
+    .limit(1);
+
+  return result.length > 0 && result[0]?.status === "completed";
+}
+
+/**
+ * Get user's purchase by session ID
+ */
+export async function getPurchaseBySessionId(sessionId: string) {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot get purchase: database not available");
+    return undefined;
+  }
+
+  const result = await db
+    .select()
+    .from(purchases)
+    .where(eq(purchases.stripeSessionId, sessionId))
+    .limit(1);
+
+  return result.length > 0 ? result[0] : undefined;
+}
