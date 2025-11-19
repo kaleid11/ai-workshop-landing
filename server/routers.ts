@@ -43,14 +43,7 @@ export const appRouter = router({
           payment_method_types: ["card"],
           line_items: [
             {
-              price_data: {
-                currency: product.currency,
-                product_data: {
-                  name: product.name,
-                  description: product.description,
-                },
-                unit_amount: product.price,
-              },
+              price: product.stripePriceId, // Use live Stripe price ID
               quantity: 1,
             },
           ],

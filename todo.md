@@ -57,3 +57,13 @@
 - [x] Add portal route to App.tsx
 - [x] Test all new features
 - [x] Create final checkpoint
+
+## Instructor Section and Stripe Live Mode
+
+- [x] Read instructor profile from PDF
+- [x] Copy instructor photo to public folder
+- [x] Add instructor section to landing page
+- [x] Switch Stripe from test/sandbox to live production mode
+- [x] Update Stripe account ID to acct_1Pm5DNCii5zXCZr6
+- [x] Test Stripe live mode integration
+- [x] Create final checkpoint

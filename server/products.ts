@@ -10,6 +10,7 @@ export interface WorkshopProduct {
   price: number; // in cents
   originalPrice: number; // in cents
   currency: string;
+  stripePriceId: string; // Live Stripe price ID
   features: string[];
   badge?: string;
 }
@@ -22,6 +23,7 @@ export const WORKSHOP_PRODUCTS: Record<string, WorkshopProduct> = {
     price: 9700, // $97 AUD
     originalPrice: 9700,
     currency: "aud",
+    stripePriceId: "price_1SV19BCii5zXCZr6M8Lln2Se", // Live Stripe price ID
     features: [
       "2-hour live workshop",
       "Lifetime portal access",

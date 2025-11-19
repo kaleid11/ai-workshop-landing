@@ -562,6 +562,77 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Instructor Section */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-5xl font-bold text-brand-purple mb-4">
+              Meet Your Instructor
+            </h2>
+            <p className="text-xl text-gray-600">
+              Learn from a proven expert in AI automation and business systems
+            </p>
+          </div>
+
+          <div className="max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              {/* Instructor Photo */}
+              <div className="order-2 md:order-1">
+                <img 
+                  src="/instructor-huxley.jpeg" 
+                  alt="Huxley Peckham" 
+                  className="rounded-2xl shadow-2xl w-full object-cover aspect-square md:aspect-auto"
+                />
+              </div>
+
+              {/* Instructor Bio */}
+              <div className="order-1 md:order-2 space-y-6">
+                <div>
+                  <h3 className="text-3xl font-bold text-gray-900 mb-2">Huxley Peckham</h3>
+                  <p className="text-xl text-brand-orange font-semibold mb-4">Founder, Tech Horizon Labs</p>
+                  <p className="text-gray-700 text-lg leading-relaxed">
+                    I help businesses get smart about AI, security, and compliance—before it costs them.
+                  </p>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-6 h-6 text-brand-green flex-shrink-0 mt-1" />
+                    <p className="text-gray-700">
+                      <strong>Proven Results:</strong> Reduced client operational costs by up to 40% through AI automation and workflow optimization
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-6 h-6 text-brand-green flex-shrink-0 mt-1" />
+                    <p className="text-gray-700">
+                      <strong>Real Experience:</strong> Delivered 20+ digital literacy and automation workshops across Australia
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-6 h-6 text-brand-green flex-shrink-0 mt-1" />
+                    <p className="text-gray-700">
+                      <strong>Cutting-Edge Education:</strong> Harvard Computer Science graduate specializing in AI and automation systems
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-6 h-6 text-brand-green flex-shrink-0 mt-1" />
+                    <p className="text-gray-700">
+                      <strong>No Hype Approach:</strong> Trained across leading AI and compliance frameworks—grounded in reality, not buzzwords
+                    </p>
+                  </div>
+                </div>
+
+                <div className="pt-4">
+                  <p className="text-gray-600 italic">
+                    "I deal in clarity, protection, and measurable impact. At Tech Horizon Labs, we build systems that think ahead: automating what's repetitive, securing what matters, and proving ROI in weeks."
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials Section */}
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="container">
