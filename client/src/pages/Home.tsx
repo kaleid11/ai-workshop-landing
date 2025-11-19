@@ -724,6 +724,81 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="container max-w-4xl">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-5xl font-bold text-brand-purple mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-xl text-gray-600">
+              Everything you need to know before joining
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <Card className="border-2 hover:border-brand-orange transition-colors">
+              <CardHeader>
+                <CardTitle className="text-xl text-brand-purple">What tools do I need for this workshop?</CardTitle>
+              </CardHeader>
+              <CardContent className="text-gray-700">
+                <p className="mb-3">You'll need accounts for two main tools:</p>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li><strong>ViralWave Studio</strong> - For automated post generation and scheduling</li>
+                  <li><strong>Captions.ai</strong> - For video editing and content creation</li>
+                </ul>
+                <p className="mt-3">Both have free tiers to get started. We'll walk through setup during the workshop, but signing up beforehand saves time.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 hover:border-brand-orange transition-colors">
+              <CardHeader>
+                <CardTitle className="text-xl text-brand-purple">What if I miss the live session?</CardTitle>
+              </CardHeader>
+              <CardContent className="text-gray-700">
+                <p>All workshop participants get lifetime access to the replay recording. You can watch it anytime and follow along at your own pace. However, the live session includes Q&A and real-time troubleshooting that you'll miss.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 hover:border-brand-orange transition-colors">
+              <CardHeader>
+                <CardTitle className="text-xl text-brand-purple">Do I need any technical experience?</CardTitle>
+              </CardHeader>
+              <CardContent className="text-gray-700">
+                <p>No coding or technical skills required. If you can use social media and follow step-by-step instructions, you're ready. We'll guide you through everything from account setup to publishing your first automated post.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 hover:border-brand-orange transition-colors">
+              <CardHeader>
+                <CardTitle className="text-xl text-brand-purple">What's your refund policy?</CardTitle>
+              </CardHeader>
+              <CardContent className="text-gray-700">
+                <p>We offer a 7-day money-back guarantee. If you attend the workshop and feel it didn't deliver value, email us at info@thzn.world within 7 days for a full refund—no questions asked.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 hover:border-brand-orange transition-colors">
+              <CardHeader>
+                <CardTitle className="text-xl text-brand-purple">How long will it take to see results?</CardTitle>
+              </CardHeader>
+              <CardContent className="text-gray-700">
+                <p>Most participants have their first automated posts scheduled within 24 hours of the workshop. Within a week, you should have a full content calendar running. The time you save compounds—what takes 10 hours/week now will take 1-2 hours once you're set up.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 hover:border-brand-orange transition-colors">
+              <CardHeader>
+                <CardTitle className="text-xl text-brand-purple">Will this work for my industry/niche?</CardTitle>
+              </CardHeader>
+              <CardContent className="text-gray-700">
+                <p>Yes. The automation strategies work for any business with a social media presence—consultants, coaches, e-commerce, local services, B2B, nonprofits. We'll show you how to customize the tools for your specific audience and brand voice.</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA Section */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-[rgb(var(--brand-dark-purple))] to-[rgb(var(--brand-blue))] text-white" id="checkout">
         <div className="container">

@@ -236,6 +236,163 @@ export default function Portal() {
             </Card>
           </div>
 
+          {/* Workshop Preparation Guide */}
+          <div className="mb-8">
+            <Card className="border-2 border-brand-purple">
+              <CardHeader className="bg-gradient-to-r from-brand-purple/10 to-brand-blue/10">
+                <CardTitle className="text-3xl text-brand-purple flex items-center gap-3">
+                  <Sparkles className="w-8 h-8" />
+                  Workshop Preparation Guide
+                </CardTitle>
+                <CardDescription className="text-lg">
+                  Complete these steps before the workshop to maximize your results
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6 pt-6">
+                {/* Step 1: Sign up for tools */}
+                <div className="space-y-4">
+                  <h3 className="text-xl font-bold text-gray-900 flex items-center gap-2">
+                    <span className="bg-brand-orange text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">1</span>
+                    Sign Up for Required Tools
+                  </h3>
+                  <p className="text-gray-700 ml-10">
+                    Create free accounts for these two essential tools. We'll use them during the workshop.
+                  </p>
+                  <div className="ml-10 space-y-3">
+                    <div className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
+                      <div className="flex-1">
+                        <h4 className="font-bold text-gray-900 mb-1">ViralWave Studio</h4>
+                        <p className="text-sm text-gray-600 mb-2">For automated post generation and scheduling</p>
+                        <a href="https://viralwavestudio.com?via=huxley17" target="_blank" rel="noopener noreferrer">
+                          <Button className="bg-brand-purple hover:bg-brand-purple/90 text-white">
+                            Sign Up for ViralWave
+                            <ExternalLink className="w-4 h-4 ml-2" />
+                          </Button>
+                        </a>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
+                      <div className="flex-1">
+                        <h4 className="font-bold text-gray-900 mb-1">Captions.ai</h4>
+                        <p className="text-sm text-gray-600 mb-2">For video editing and content creation</p>
+                        <a href="https://www.captions.ai/" target="_blank" rel="noopener noreferrer">
+                          <Button className="bg-brand-blue hover:bg-brand-blue/90 text-white">
+                            Sign Up for Captions.ai
+                            <ExternalLink className="w-4 h-4 ml-2" />
+                          </Button>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Step 2: Define your brand strategy */}
+                <div className="space-y-4">
+                  <h3 className="text-xl font-bold text-gray-900 flex items-center gap-2">
+                    <span className="bg-brand-orange text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">2</span>
+                    Define Your Brand Strategy
+                  </h3>
+                  <p className="text-gray-700 ml-10">
+                    Use HuxleyGPT to develop your content strategy, target audience, and brand voice. This will save you hours during the workshop.
+                  </p>
+                  <div className="ml-10 space-y-3">
+                    <a href="https://chatgpt.com/g/g-691673823e548191bee75149c19c021f-huxleygpt" target="_blank" rel="noopener noreferrer">
+                      <Button className="bg-brand-green hover:bg-brand-green/90 text-white">
+                        Open HuxleyGPT Persona Builder
+                        <ExternalLink className="w-4 h-4 ml-2" />
+                      </Button>
+                    </a>
+                    <p className="text-sm text-gray-600">
+                      HuxleyGPT will guide you through defining your audience, content pillars, and brand voice.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Step 3: Complete brand template */}
+                <div className="space-y-4">
+                  <h3 className="text-xl font-bold text-gray-900 flex items-center gap-2">
+                    <span className="bg-brand-orange text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">3</span>
+                    Complete Your Brand Template
+                  </h3>
+                  <p className="text-gray-700 ml-10">
+                    Download and fill out this template with your brand info, audience details, and content strategy. You'll copy-paste this into ViralWave during the workshop.
+                  </p>
+                  <div className="ml-10">
+                    <a href="/brand-strategy-template.md" download="brand-strategy-template.md">
+                      <Button className="bg-brand-purple hover:bg-brand-purple/90 text-white">
+                        Download Brand Strategy Template
+                      </Button>
+                    </a>
+                  </div>
+                </div>
+
+                {/* Step 4: Prepare photos */}
+                <div className="space-y-4">
+                  <h3 className="text-xl font-bold text-gray-900 flex items-center gap-2">
+                    <span className="bg-brand-orange text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">4</span>
+                    Prepare Your Brand Authority Photos
+                  </h3>
+                  <p className="text-gray-700 ml-10">
+                    Gather 3-5 high-quality photos of yourself for ViralWave's Brand Authority feature. This allows the AI to generate custom images featuring you in every post.
+                  </p>
+                  <div className="ml-10 space-y-2">
+                    <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                      <h4 className="font-bold text-gray-900 mb-2">Required Photo Types:</h4>
+                      <ul className="space-y-2 text-sm text-gray-700">
+                        <li className="flex items-start gap-2">
+                          <span className="text-brand-purple font-bold">•</span>
+                          <span><strong>Professional headshot</strong> - Clean, well-lit photo in business attire (1000x1000px minimum)</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-brand-purple font-bold">•</span>
+                          <span><strong>Casual photos</strong> - Natural, relaxed photos in everyday settings (1000x1000px minimum)</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-brand-purple font-bold">•</span>
+                          <span><strong>Action shots</strong> - Photos of you working, speaking, or in your element (1000x1000px minimum)</span>
+                        </li>
+                      </ul>
+                      <p className="mt-3 text-sm text-gray-600">
+                        <strong>Tip:</strong> Use high-resolution images with good lighting. Avoid heavily filtered photos. The AI works best with clear shots of your face.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Pre-workshop checklist */}
+                <div className="mt-6 p-6 bg-gradient-to-br from-brand-purple/10 to-brand-blue/10 rounded-lg">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">Pre-Workshop Checklist</h3>
+                  <div className="space-y-2 text-gray-700">
+                    <label className="flex items-start gap-3 cursor-pointer">
+                      <input type="checkbox" className="mt-1" />
+                      <span>Signed up for ViralWave Studio</span>
+                    </label>
+                    <label className="flex items-start gap-3 cursor-pointer">
+                      <input type="checkbox" className="mt-1" />
+                      <span>Signed up for Captions.ai</span>
+                    </label>
+                    <label className="flex items-start gap-3 cursor-pointer">
+                      <input type="checkbox" className="mt-1" />
+                      <span>Used HuxleyGPT to define brand strategy</span>
+                    </label>
+                    <label className="flex items-start gap-3 cursor-pointer">
+                      <input type="checkbox" className="mt-1" />
+                      <span>Completed brand strategy template</span>
+                    </label>
+                    <label className="flex items-start gap-3 cursor-pointer">
+                      <input type="checkbox" className="mt-1" />
+                      <span>Prepared 3-5 high-quality photos</span>
+                    </label>
+                    <label className="flex items-start gap-3 cursor-pointer">
+                      <input type="checkbox" className="mt-1" />
+                      <span>Saved all files in an easily accessible folder</span>
+                    </label>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
           {/* Coming Soon Section */}
           <div className="grid md:grid-cols-2 gap-6">
             <Card className="border-2 border-gray-300 bg-gray-50">

@@ -87,3 +87,17 @@
 - [x] Add all workshop resources to portal (WhatsApp, Facebook, calendar)
 - [x] Test complete purchase-to-portal flow
 - [x] Create final checkpoint
+
+## FAQ and Workshop Preparation
+
+- [x] Add FAQ section to landing page
+- [x] Create brand strategy template document
+- [x] Add workshop preparation guide to portal
+- [x] Include ViralWave signup link (viralwavestudio.com?via=huxley17)
+- [x] Include Captions.ai signup link
+- [x] Include HuxleyGPT persona builder link
+-- [x] Add step-by-step setup instructions with examplesples
+- [x] Add checklist of required files/photos for workshop
+- [x] Create downloadable brand info template
+- [x] Test all links and download functionality
+- [x] Create final checkpoint
