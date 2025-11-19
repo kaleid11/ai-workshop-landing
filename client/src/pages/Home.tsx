@@ -617,13 +617,13 @@ export default function Home() {
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-brand-green flex-shrink-0 mt-1" />
                     <p className="text-gray-700">
-                      <strong>Real Experience:</strong> Delivered 20+ digital literacy and automation workshops across Australia
+                      <strong>Real Experience:</strong> Coached 200+ businesses on practical AI implementation over 18 months
                     </p>
                   </div>
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-brand-green flex-shrink-0 mt-1" />
                     <p className="text-gray-700">
-                      <strong>Cutting-Edge Education:</strong> Harvard Computer Science graduate specializing in AI and automation systems
+                      <strong>Industry Certified:</strong> Apple Certified (Genius Bar), Microsoft & Google Certified in AI and Workspaces
                     </p>
                   </div>
                   <div className="flex items-start gap-3">

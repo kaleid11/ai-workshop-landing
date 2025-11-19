@@ -126,3 +126,10 @@
 - [x] Replace with high-level descriptions of tool capabilities
 - [x] Improve messaging to build anticipation without revealing details
 - [x] Create checkpoint with improved FAQ
+
+## Instructor Credentials Update
+
+- [x] Remove Harvard reference from instructor section
+- [x] Add Apple, Microsoft, Google certifications (Genius Bar, AI, Workspaces)
+- [x] Update to show 200+ businesses coached on AI for 18 months
+- [x] Create checkpoint with updated credentials
