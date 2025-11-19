@@ -754,12 +754,12 @@ export default function Home() {
                 <CardTitle className="text-xl text-brand-purple">What tools do I need for this workshop?</CardTitle>
               </CardHeader>
               <CardContent className="text-gray-700">
-                <p className="mb-3">You'll need accounts for two main tools:</p>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li style={{fontWeight: '700'}}>An AI content Studio - For automated post generation and scheduling</li>
-                  <li><strong>Captions.ai</strong> - For video editing and content creation</li>
+                <p className="mb-3">You'll get access to two powerful AI platforms:</p>
+                <ul className="list-disc pl-6 space-y-3">
+                  <li><strong>An AI content studio</strong> - Automates post generation, scheduling, and multi-platform publishing with review workflows</li>
+                  <li><strong>An AI video editing suite</strong> - Features avatar cloning, a library of off-the-shelf avatars, automated captions, and professional editing tools</li>
                 </ul>
-                <p className="mt-3">Both have free tiers to get started. We'll walk through setup during the workshop, but signing up beforehand saves time.</p>
+                <p className="mt-3">Both platforms offer free tiers to start. You'll receive exclusive signup links and special offers in your member portal after purchase.</p>
               </CardContent>
             </Card>
 

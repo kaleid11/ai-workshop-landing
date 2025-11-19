@@ -119,3 +119,10 @@
 
 - [x] Replace "ViralWave Studio" with "An AI content Studio" in FAQ section
 - [x] Create checkpoint with updated FAQ
+
+## FAQ Tools Section Improvement
+
+- [x] Remove specific tool names from FAQ (keep exclusive to portal)
+- [x] Replace with high-level descriptions of tool capabilities
+- [x] Improve messaging to build anticipation without revealing details
+- [x] Create checkpoint with improved FAQ
