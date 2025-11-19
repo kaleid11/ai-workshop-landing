@@ -16,14 +16,16 @@ export default function Home() {
       <section className="relative bg-gradient-to-br from-[rgb(var(--brand-dark-purple))] via-[rgb(var(--brand-blue))] to-[rgb(var(--brand-dark-purple))] text-white overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE0YzMuMzEgMCA2IDIuNjkgNiA2cy0yLjY5IDYtNiA2LTYtMi42OS02LTYgMi42OS02IDYtNnpNNiAzNGMzLjMxIDAgNiAyLjY5IDYgNnMtMi42OSA2LTYgNi02LTIuNjktNi02IDIuNjktNiA2LTZ6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-20"></div>
         
-        {/* Banner */}
-        <div className="bg-brand-orange text-white text-center py-3 relative z-10">
-          <div className="container flex flex-wrap items-center justify-center gap-2 text-sm md:text-base font-bold relative">
-            <Sparkles className="w-4 h-4" />
-            <span>Bring friends and save • Startup discount available</span>
-            <Sparkles className="w-4 h-4" />
-            <Link href="/portal" className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2">
-              <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 hover:text-white text-xs md:text-sm px-2 md:px-4">
+        {/* Header with Logo and Login */}
+        <div className="bg-brand-orange text-white relative z-10">
+          <div className="container flex items-center justify-between py-3 px-4">
+            <div className="flex items-center gap-2">
+              <Sparkles className="w-4 h-4 flex-shrink-0" />
+              <span className="text-xs md:text-sm font-semibold line-clamp-1">Bring friends and save • Startup discount</span>
+              <Sparkles className="w-4 h-4 flex-shrink-0" />
+            </div>
+            <Link href="/portal" className="flex-shrink-0 ml-2">
+              <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 hover:text-white text-xs md:text-sm px-3 md:px-4 py-1 h-auto">
                 Login
               </Button>
             </Link>
