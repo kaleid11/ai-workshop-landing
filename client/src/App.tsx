@@ -18,6 +18,7 @@ import VibeMarketing from "./pages/pillars/VibeMarketing";
 import VibeCoding from "./pages/pillars/VibeCoding";
 import VibeAlignment from "./pages/pillars/VibeAlignment";
 import Calendar from "./pages/Calendar";
+import Enterprise from "./pages/Enterprise";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -37,6 +38,7 @@ function Router() {
       <Route path="/pillars/coding" component={VibeCoding} />
       <Route path="/pillars/alignment" component={VibeAlignment} />
       <Route path="/calendar" component={Calendar} />
+      <Route path="/enterprise" component={Enterprise} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

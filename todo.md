@@ -309,3 +309,34 @@
 - [x] Test calendar functionality
 - [x] Test prompt library downloads
 - [ ] Create checkpoint
+
+## Landing Page Redesign for Non-Technical Audiences
+
+- [x] Analyze client meeting notes and extract key consulting insights
+- [x] Review Manus platform capabilities and integration opportunities
+- [x] Analyze Tech Horizon Labs brand positioning and messaging
+- [x] Design unified homepage strategy serving all audiences
+- [x] Redesign Home.tsx with unified value ladder approach
+- [x] Add hero section with 3 clear CTAs (Workshop/Academy/Enterprise)
+- [x] Create "Choose Your Path" section with segmented offerings
+- [x] Add Horizon Framework visualization (5 pillars)
+- [x] Create mixed social proof section (workshops + enterprise)
+- [ ] Add interactive path selector or quiz (optional enhancement)
+- [x] Create /enterprise landing page
+- [x] Add enterprise hero with "Without Complexity, Cost, or Risk" messaging
+- [x] Create Horizon Framework detailed section (5 phases with full details)
+- [x] Add pre-built AI assistants gallery (25+ tools across 8 categories)
+- [x] Create cloneable resource library showcase
+- [x] Add enterprise case studies (anonymized testimonials)
+- [x] Create ROI calculator component (interactive with real-time calculations)
+- [x] Add pricing transparency section (3-tier pricing)
+- [x] Create comparison table (vs traditional consultancies)
+- [x] Add enterprise FAQ section (6 common questions)
+- [ ] Create /consulting landing page (optional - can be added later)
+- [ ] Add custom implementation services section (optional)
+- [ ] Create AI Transformation Partner details (optional)
+- [ ] Add strategic planning offerings (optional)
+- [x] Update navigation to include all pathways
+- [x] Test unified homepage with multiple audience segments
+- [x] Test enterprise landing page
+- [ ] Create checkpoint for landing page redesign
