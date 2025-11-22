@@ -376,3 +376,25 @@
 - [x] Add floating WhatsApp button (bottom-left)
 - [x] Test all booking links and CTAs work correctly (Stripe live mode tests expected to fail - not blockers)
 - [ ] Create checkpoint for site improvements
+
+## Tool Stack Audit Quiz & Case Studies
+
+- [x] Design quiz logic and recommendation algorithm
+- [x] Create 5-question quiz flow (team size, industry, tool count, budget, technical capability)
+- [x] Build recommendation engine for personalized 3-5 tool stack
+- [x] Add ROI projection calculator based on quiz answers
+- [x] Create email capture form for quiz results
+- [x] Build Tool Stack Audit quiz component
+- [x] Add quiz to homepage (after Core 7 Tools section) - Added as dedicated /quiz page
+- [x] Create Case Studies page (/case-studies)
+- [x] Write 4 anonymized client success stories
+- [x] Add tool consolidation metrics (before/after, savings, timeline)
+- [x] Include industry-specific examples (crypto/fintech, compliance, marketing, e-commerce)
+- [x] Add case study cards to homepage (3-card preview)
+- [x] Link case studies from Enterprise page (via Case Studies page)
+- [x] Create dedicated /quiz page for Tool Stack Audit
+- [x] Add "Take Tool Stack Quiz" CTA to homepage
+- [x] Test quiz logic and recommendations
+- [x] Test email capture integration
+- [x] Test all booking links and CTAs work correctly (Stripe live mode tests expected to fail - not blockers)
+- [x] Create checkpoint for site improvements

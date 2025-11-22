@@ -624,9 +624,136 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Rest of the sections remain the same... */}
-      {/* Choose Your Path, Social Proof, Why Tech Horizon Labs, Final CTA, Footer */}
-      {/* (Keeping existing sections for brevity - they're already good) */}
+      {/* Success Stories Preview Section */}
+      <section className="py-16 md:py-24 bg-white border-t-4 border-brand-orange">
+        <div className="container">
+          <div className="text-center mb-12">
+            <Badge className="mb-4 bg-brand-orange text-white text-base px-4 py-2">Proven Results</Badge>
+            <h2 className="text-3xl md:text-5xl font-bold text-brand-purple mb-6">
+              Success Stories from Real Businesses
+            </h2>
+            <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto">
+              See how organizations like yours consolidated tools, saved money, and scaled faster
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-12">
+            {/* Case Study 1 */}
+            <Card className="border-2 hover:shadow-lg transition-all">
+              <CardHeader>
+                <div className="text-4xl mb-2">💰</div>
+                <CardTitle className="text-xl">Crypto/Fintech Startup</CardTitle>
+                <CardDescription>15 people • Financial Services</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-2">
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm font-semibold">Before:</span>
+                    <span className="text-lg font-bold text-red-600">18 tools</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm font-semibold">After:</span>
+                    <span className="text-lg font-bold text-green-600">5 tools</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm font-semibold">Savings:</span>
+                    <span className="text-lg font-bold text-brand-blue">$24K/year</span>
+                  </div>
+                </div>
+                <p className="text-sm text-gray-700 italic">
+                  "We went from security nightmare to audit-ready in 4 weeks."
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Case Study 2 */}
+            <Card className="border-2 hover:shadow-lg transition-all">
+              <CardHeader>
+                <div className="text-4xl mb-2">🔥</div>
+                <CardTitle className="text-xl">Fire Safety Consultancy</CardTitle>
+                <CardDescription>8 people • Compliance Services</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-2">
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm font-semibold">Before:</span>
+                    <span className="text-lg font-bold text-red-600">12 tools</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm font-semibold">After:</span>
+                    <span className="text-lg font-bold text-green-600">4 tools</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm font-semibold">Savings:</span>
+                    <span className="text-lg font-bold text-brand-blue">$6K/year</span>
+                  </div>
+                </div>
+                <p className="text-sm text-gray-700 italic">
+                  "Audits went from 20 hours to 7 hours. 3x more clients."
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Case Study 3 */}
+            <Card className="border-2 hover:shadow-lg transition-all">
+              <CardHeader>
+                <div className="text-4xl mb-2">🎨</div>
+                <CardTitle className="text-xl">Marketing Agency</CardTitle>
+                <CardDescription>12 people • Creative Services</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-2">
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm font-semibold">Before:</span>
+                    <span className="text-lg font-bold text-red-600">22 tools</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm font-semibold">After:</span>
+                    <span className="text-lg font-bold text-green-600">7 tools</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm font-semibold">Savings:</span>
+                    <span className="text-lg font-bold text-brand-blue">$15K/year</span>
+                  </div>
+                </div>
+                <p className="text-sm text-gray-700 italic">
+                  "50% faster deliverables. 30% more clients with same team."
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* CTAs */}
+          <div className="text-center space-y-4">
+            <Link href="/case-studies">
+              <Button size="lg" className="bg-brand-orange hover:bg-brand-orange/90 text-white text-lg px-8 py-6 h-auto">
+                View All Case Studies <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Tool Stack Quiz CTA Section */}
+      <section className="py-16 md:py-24 bg-gradient-to-r from-brand-purple/10 to-brand-blue/10 border-t-4 border-brand-purple">
+        <div className="container max-w-4xl text-center space-y-6">
+          <Badge className="bg-brand-purple text-white text-base px-4 py-2 inline-block">Free Assessment</Badge>
+          <h2 className="text-3xl md:text-5xl font-bold text-brand-purple">
+            What's Your Perfect Tool Stack?
+          </h2>
+          <p className="text-xl text-gray-700 max-w-2xl mx-auto">
+            Answer 5 quick questions and get personalized AI tool recommendations with ROI projections
+          </p>
+          <Link href="/quiz">
+            <Button size="lg" className="bg-brand-purple hover:bg-brand-purple/90 text-white text-lg px-8 py-6 h-auto">
+              Take Free Tool Stack Quiz <ArrowRight className="w-5 h-5 ml-2" />
+            </Button>
+          </Link>
+          <p className="text-sm text-gray-600 pt-4">
+            Takes 2 minutes • No credit card required • Get instant recommendations
+          </p>
+        </div>
+      </section>
 
       {/* Final CTA Section */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-[rgb(var(--brand-dark-purple))] via-[rgb(var(--brand-blue))] to-[rgb(var(--brand-dark-purple))] text-white">
