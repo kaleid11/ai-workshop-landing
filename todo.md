@@ -149,3 +149,108 @@
 - [x] Improve overall mobile header aesthetics
 - [x] Test mobile header on multiple devices
 - [x] Create checkpoint with improved mobile header
+
+## Tech Horizon Academy Expansion
+
+### Database Schema
+- [x] Create membership_tiers table (Free, Starter, Lite, Pro, Elite)
+- [x] Create pillars table (Marketing, Coding, Alignment)
+- [x] Create resources table (workshops, templates, guides)
+- [x] Create tools_database table
+- [x] Create prompts_library table
+- [x] Create forum_posts and forum_comments tables
+- [x] Create userSubscriptions table for subscription tracking
+- [x] Create workshops and workshopRegistrations tables
+- [x] Import 1,620 tools from tools.json
+- [x] Import 118 prompts from prompts.json
+- [x] Create 5 pillars (3 active, 2 coming soon)
+- [x] Create 5 membership tiers with founding discounts
+
+### Pricing Page
+- [ ] Design 5-tier comparison table
+- [ ] Add founding member discount badges
+- [ ] Create tier detail cards with features
+- [ ] Add FAQ section for pricing
+- [ ] Implement Stripe checkout for each tier
+- [ ] Add annual vs monthly toggle
+
+### Pillar Pages
+- [ ] Create Marketing pillar page with workshop schedule
+- [ ] Create Coding pillar page with tool recommendations
+- [ ] Create Alignment pillar page with frameworks
+- [ ] Add sample workshop previews for each pillar
+- [ ] Create "Which pillar is right for you?" quiz
+
+### Tool Database & Prompt Library
+- [ ] Build tool database page with filtering
+- [ ] Add tool detail pages with setup guides
+- [ ] Create prompt library with categories
+- [ ] Add copy-to-clipboard functionality for prompts
+- [ ] Implement search for tools and prompts
+- [ ] Add tier-based access control
+
+### Member Portal
+- [ ] Create dashboard with tier-specific content
+- [ ] Add workshop schedule and registration
+- [ ] Build resource library with downloads
+- [ ] Create profile management page
+- [ ] Add subscription management (upgrade/downgrade)
+- [ ] Implement tier-based navigation
+
+### Homepage Redesign
+- [ ] Add Horizon Framework visual (Innovate → Forge → Grow → Scale → Trust)
+- [ ] Create Vibe Pillars overview section
+- [ ] Add academy tier preview cards
+- [ ] Keep existing workshop section
+- [ ] Add member testimonials and stats
+- [ ] Update hero section for academy positioning
+
+### Forum Functionality
+- [ ] Create forum homepage with recent posts
+- [ ] Build post creation and editing
+- [ ] Add commenting system
+- [ ] Implement member-only access
+- [ ] Add categories per pillar
+- [ ] Create moderation tools for admin
+
+### Testing & Launch
+- [ ] Test all tier access controls
+- [ ] Verify Stripe integration for subscriptions
+- [ ] Test forum functionality
+- [ ] Check mobile responsiveness
+- [ ] Create admin documentation
+- [ ] Write vitest tests for new features
+- [ ] Create final checkpoint
+
+## Tier Feature Updates
+- [ ] Replace email support with monthly Q&A webinar in all tiers
+- [ ] Add THL Tool Picker GPT to Starter tier
+- [ ] Update database tier features
+
+## Resources Page
+- [ ] Create Resources page as lead magnet
+- [ ] Add some free downloads (not too much)
+- [ ] Make it accessible to non-members
+
+## GitHub Content Extraction
+- [x] Extract prompts from awesome-chatgpt-prompts-main.zip
+- [x] Fetch and extract content from vibe-marketing repo
+- [x] Import 256 new prompts into database with pillar/tier/tech stack categorization
+- [x] Total prompts: 374 (118 original + 256 new)
+
+## Navigation & Member Portal
+- [x] Add academy navigation cards to member portal
+- [x] Link to tools, prompts, resources, and pricing pages
+- [ ] Add navigation to home page footer
+- [ ] Write tests for academy features
+
+## Bug Fixes
+- [x] Fix getUserSubscription returning undefined (return null instead)
+- [x] Fix Select.Item empty value error in Prompts page (use "all" instead of empty string)
+- [x] Fix nested <a> tags in Portal page navigation cards (use onClick instead of Link wrapper)
+
+- [x] Fix Select.Item empty value error in Tools page
+- [x] Fix nested <a> tags in Tools page
+
+- [x] Update tools database access - make all tools available to Starter tier and above
+- [x] Update prompts library access - make all prompts available to Starter tier and above

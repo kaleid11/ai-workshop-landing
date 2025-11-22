@@ -2,7 +2,7 @@ import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { protectedProcedure, publicProcedure, router } from "./_core/trpc";
-import { hasWorkshopAccess, useAdminToken, generateAdminToken, updateWorkshopReplay } from "./db";
+import { hasWorkshopAccess, useAdminToken, generateAdminToken, updateWorkshopReplay, getMembershipTiers, getUserSubscription, getTools, getPrompts, getActivePillars } from "./db";
 import { z } from "zod";
 import Stripe from "stripe";
 import { WORKSHOP_PRODUCTS } from "./products";
@@ -121,6 +121,43 @@ export const appRouter = router({
         await updateWorkshopReplay(input.videoUrl);
         return { success: true };
       }),
+  }),
+
+  // Academy router for membership tiers, tools, prompts, etc.
+  academy: router({
+    getTiers: publicProcedure.query(async () => {
+      return await getMembershipTiers();
+    }),
+    getUserSubscription: protectedProcedure.query(async ({ ctx }) => {
+      return await getUserSubscription(ctx.user.id);
+    }),
+    getTools: publicProcedure
+      .input(
+        z.object({
+          category: z.string().optional(),
+          pricingModel: z.string().optional(),
+          search: z.string().optional(),
+          tierRequired: z.string().optional(),
+        }).optional()
+      )
+      .query(async ({ input }) => {
+        return await getTools(input);
+      }),
+    getPrompts: publicProcedure
+      .input(
+        z.object({
+          category: z.string().optional(),
+          tool: z.string().optional(),
+          search: z.string().optional(),
+          tierRequired: z.string().optional(),
+        }).optional()
+      )
+      .query(async ({ input }) => {
+        return await getPrompts(input);
+      }),
+    getPillars: publicProcedure.query(async () => {
+      return await getActivePillars();
+    }),
   }),
 });
 

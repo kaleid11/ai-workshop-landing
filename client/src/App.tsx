@@ -10,6 +10,10 @@ import Success from "./pages/Success";
 import Portal from "./pages/Portal";
 import AdminBind from "./pages/AdminBind";
 import Admin from "./pages/Admin";
+import Pricing from "./pages/Pricing";
+import Tools from "./pages/Tools";
+import Prompts from "./pages/Prompts";
+import Resources from "./pages/Resources";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -21,6 +25,10 @@ function Router() {
       <Route path={"/portal"} component={Portal} />
       <Route path="/admin-bind" component={AdminBind} />
       <Route path="/admin" component={Admin} />
+      <Route path="/pricing" component={Pricing} />
+      <Route path="/tools" component={Tools} />
+      <Route path="/prompts" component={Prompts} />
+      <Route path="/resources" component={Resources} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

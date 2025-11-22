@@ -131,6 +131,57 @@ export default function Portal() {
             </p>
           </div>
 
+          {/* Academy Quick Access */}
+          <div className="grid md:grid-cols-4 gap-4 mb-8">
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer border-2 border-orange-200 hover:border-orange-400" onClick={() => window.location.href = '/tools'}>
+              <CardHeader>
+                <CardTitle className="text-lg flex items-center gap-2">
+                  <Sparkles className="w-5 h-5 text-orange-500" />
+                  Tools Database
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-gray-600">1,620+ AI tools</p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer border-2 border-purple-200 hover:border-purple-400" onClick={() => window.location.href = '/prompts'}>
+              <CardHeader>
+                <CardTitle className="text-lg flex items-center gap-2">
+                  <MessageCircle className="w-5 h-5 text-purple-500" />
+                  Prompts Library
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-gray-600">374+ prompts</p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer border-2 border-blue-200 hover:border-blue-400" onClick={() => window.location.href = '/resources'}>
+              <CardHeader>
+                <CardTitle className="text-lg flex items-center gap-2">
+                  <Video className="w-5 h-5 text-blue-500" />
+                  Resources
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-gray-600">Guides & workflows</p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer border-2 border-green-200 hover:border-green-400" onClick={() => window.location.href = '/pricing'}>
+              <CardHeader>
+                <CardTitle className="text-lg flex items-center gap-2">
+                  <ShoppingCart className="w-5 h-5 text-green-500" />
+                  Upgrade
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-gray-600">View membership tiers</p>
+              </CardContent>
+            </Card>
+          </div>
+
           {/* Workshop Details */}
           <div className="grid md:grid-cols-2 gap-6 mb-8">
             <Card className="border-2 border-brand-orange">

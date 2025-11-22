@@ -227,3 +227,160 @@ export async function updateWorkshopReplay(videoUrl: string): Promise<void> {
   // await db.insert(workshopConfig).values({ key: 'replay_url', value: videoUrl })
   //   .onDuplicateKeyUpdate({ set: { value: videoUrl } });
 }
+
+// ============================================================================
+// Academy Database Queries
+// ============================================================================
+
+import { membershipTiers, userSubscriptions, tools, prompts, pillars } from "../drizzle/schema";
+
+/**
+ * Get all membership tiers ordered by display order
+ */
+export async function getMembershipTiers() {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot get tiers: database not available");
+    return [];
+  }
+
+  const result = await db
+    .select()
+    .from(membershipTiers)
+    .orderBy(membershipTiers.displayOrder);
+
+  return result;
+}
+
+/**
+ * Get user's active subscription
+ */
+export async function getUserSubscription(userId: number) {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot get subscription: database not available");
+    return null;
+  }
+
+  const result = await db
+    .select({
+      subscription: userSubscriptions,
+      tier: membershipTiers,
+    })
+    .from(userSubscriptions)
+    .leftJoin(membershipTiers, eq(userSubscriptions.tierId, membershipTiers.id))
+    .where(eq(userSubscriptions.userId, userId))
+    .orderBy(userSubscriptions.createdAt)
+    .limit(1);
+
+  return result.length > 0 ? result[0] : null;
+}
+
+/**
+ * Get all tools with optional filtering
+ */
+export async function getTools(filters?: {
+  category?: string;
+  pricingModel?: string;
+  search?: string;
+  tierRequired?: string;
+}) {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot get tools: database not available");
+    return [];
+  }
+
+  let query = db.select().from(tools).where(eq(tools.status, 'approved'));
+
+  // Note: Drizzle doesn't support dynamic where clauses easily, so we'll filter in memory for now
+  // In production, you'd want to build the query dynamically
+  const result = await query;
+
+  let filtered = result;
+
+  if (filters?.category) {
+    filtered = filtered.filter(t => t.category === filters.category);
+  }
+
+  if (filters?.pricingModel) {
+    filtered = filtered.filter(t => t.pricingModel === filters.pricingModel);
+  }
+
+  if (filters?.search) {
+    const searchLower = filters.search.toLowerCase();
+    filtered = filtered.filter(t => 
+      t.name.toLowerCase().includes(searchLower) ||
+      t.description?.toLowerCase().includes(searchLower)
+    );
+  }
+
+  if (filters?.tierRequired) {
+    filtered = filtered.filter(t => t.tierRequired === filters.tierRequired);
+  }
+
+  return filtered;
+}
+
+/**
+ * Get all prompts with optional filtering
+ */
+export async function getPrompts(filters?: {
+  category?: string;
+  tool?: string;
+  search?: string;
+  tierRequired?: string;
+}) {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot get prompts: database not available");
+    return [];
+  }
+
+  let query = db.select().from(prompts).where(eq(prompts.status, 'approved'));
+
+  const result = await query;
+
+  let filtered = result;
+
+  if (filters?.category) {
+    filtered = filtered.filter(p => p.category === filters.category);
+  }
+
+  if (filters?.tool) {
+    filtered = filtered.filter(p => p.tool === filters.tool);
+  }
+
+  if (filters?.search) {
+    const searchLower = filters.search.toLowerCase();
+    filtered = filtered.filter(p => 
+      p.title.toLowerCase().includes(searchLower) ||
+      p.description?.toLowerCase().includes(searchLower)
+    );
+  }
+
+  if (filters?.tierRequired) {
+    filtered = filtered.filter(p => p.tierRequired === filters.tierRequired);
+  }
+
+  return filtered;
+}
+
+/**
+ * Get all active pillars
+ */
+export async function getActivePillars() {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot get pillars: database not available");
+    return [];
+  }
+
+  const result = await db
+    .select()
+    .from(pillars)
+    .where(eq(pillars.status, 'active'))
+    .orderBy(pillars.displayOrder);
+
+  return result;
+}
