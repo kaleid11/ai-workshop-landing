@@ -132,7 +132,7 @@ export default function Portal() {
           </div>
 
           {/* Academy Quick Access */}
-          <div className="grid md:grid-cols-4 gap-4 mb-8">
+          <div className="grid md:grid-cols-5 gap-4 mb-8">
             <Card className="hover:shadow-lg transition-shadow cursor-pointer border-2 border-orange-200 hover:border-orange-400" onClick={() => window.location.href = '/tools'}>
               <CardHeader>
                 <CardTitle className="text-lg flex items-center gap-2">
@@ -166,6 +166,18 @@ export default function Portal() {
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-gray-600">Guides & workflows</p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer border-2 border-pink-200 hover:border-pink-400" onClick={() => window.location.href = '/calendar'}>
+              <CardHeader>
+                <CardTitle className="text-lg flex items-center gap-2">
+                  <Calendar className="w-5 h-5 text-pink-500" />
+                  Calendar
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-gray-600">Workshop schedule</p>
               </CardContent>
             </Card>
 

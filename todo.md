@@ -290,3 +290,22 @@
 - [ ] Add pillar links to home page footer
 - [x] Test all pillar pages (Marketing, Coding, Alignment)
 - [x] Create checkpoint
+
+## Pillar Prompt Libraries & Workshop Calendar
+
+- [x] Query database for Marketing-specific prompts
+- [x] Create Marketing Prompt Library (20+ prompts with templates)
+- [x] Query database for Coding-specific prompts
+- [x] Create Coding Prompt Library (20+ prompts with platform guides)
+- [x] Query database for Alignment-specific prompts
+- [x] Create Alignment Prompt Library (20+ prompts with Horizon Framework)
+- [x] Convert markdown files to PDF for download (385KB each)
+- [x] Add prompt library downloads to Resources page
+- [x] Create unified workshop calendar page
+- [x] Add calendar view showing all workshops across 3 pillars
+- [x] Add Google Calendar sync for each workshop
+- [x] Add filter by pillar (Marketing/Coding/Alignment)
+- [x] Add filter by tier (Lite/Pro)
+- [x] Test calendar functionality
+- [x] Test prompt library downloads
+- [ ] Create checkpoint

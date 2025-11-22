@@ -92,12 +92,33 @@ export default function Resources() {
     },
     {
       id: 6,
-      title: "100+ ChatGPT Prompts Library",
-      description: "Full collection of expertly crafted prompts using the RIPE framework for all business functions.",
+      title: "Vibe Marketing Prompt Library",
+      description: "20+ marketing prompts for social media, email, ads, SEO, and content creation. Includes fill-in templates.",
       type: "Prompt Library",
       icon: FileText,
       tier: "Starter",
       badge: "Starter+",
+      downloadUrl: "/guides/Marketing-Prompt-Library.pdf",
+    },
+    {
+      id: 6.1,
+      title: "Vibe Coding Prompt Library",
+      description: "20+ coding prompts for Manus, Replit, and Cursor. Build apps, debug code, and optimize performance.",
+      type: "Prompt Library",
+      icon: FileText,
+      tier: "Starter",
+      badge: "Starter+",
+      downloadUrl: "/guides/Coding-Prompt-Library.pdf",
+    },
+    {
+      id: 6.2,
+      title: "Vibe Alignment Prompt Library",
+      description: "20+ alignment prompts for team adoption, process optimization, and AI transformation with Horizon Framework.",
+      type: "Prompt Library",
+      icon: FileText,
+      tier: "Starter",
+      badge: "Starter+",
+      downloadUrl: "/guides/Alignment-Prompt-Library.pdf",
     },
     {
       id: 7,
@@ -336,15 +357,17 @@ export default function Resources() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {memberResources.map((resource) => {
               const Icon = resource.icon;
+              const hasAccess = isAuthenticated && resource.downloadUrl; // For now, show downloads to all authenticated users
+              
               return (
-                <Card key={resource.id} className="opacity-75">
+                <Card key={resource.id} className={hasAccess ? "" : "opacity-75"}>
                   <CardHeader>
                     <div className="flex items-start justify-between mb-2">
-                      <Icon className="w-8 h-8 text-gray-400" />
-                      <Badge variant="outline">{resource.badge}</Badge>
+                      <Icon className={`w-8 h-8 ${hasAccess ? 'text-blue-500' : 'text-gray-400'}`} />
+                      <Badge variant={hasAccess ? "default" : "outline"}>{resource.badge}</Badge>
                     </div>
                     <div className="flex items-center gap-2 mb-2">
-                      <Lock className="w-4 h-4 text-gray-400" />
+                      {!hasAccess && <Lock className="w-4 h-4 text-gray-400" />}
                       <CardTitle className="text-lg">{resource.title}</CardTitle>
                     </div>
                     <CardDescription>{resource.description}</CardDescription>
@@ -355,11 +378,20 @@ export default function Resources() {
                   </CardContent>
 
                   <CardFooter>
-                    <Button className="w-full" variant="outline" asChild>
-                      <Link href="/pricing">
-                        <span>Unlock with {resource.tier}</span>
-                      </Link>
-                    </Button>
+                    {hasAccess ? (
+                      <Button className="w-full" asChild>
+                        <a href={resource.downloadUrl} download>
+                          <Download className="w-4 h-4 mr-2" />
+                          Download
+                        </a>
+                      </Button>
+                    ) : (
+                      <Button className="w-full" variant="outline" asChild>
+                        <Link href="/pricing">
+                          <span>Unlock with {resource.tier}</span>
+                        </Link>
+                      </Button>
+                    )}
                   </CardFooter>
                 </Card>
               );
