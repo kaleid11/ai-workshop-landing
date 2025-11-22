@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { APP_LOGO, APP_TITLE, getLoginUrl } from "@/const";
 import { trpc } from "@/lib/trpc";
-import { Calendar, ExternalLink, Loader2, Mail, MessageCircle, ShoppingCart, Sparkles, Users, Video } from "lucide-react";
+import { Calendar, ExternalLink, Loader2, Mail, MessageCircle, ShoppingCart, Sparkles, Users, Video, TrendingUp, Code2, Target } from "lucide-react";
 import { Link } from "wouter";
 
 export default function Portal() {
@@ -234,6 +234,72 @@ export default function Portal() {
                 </p>
               </CardContent>
             </Card>
+          </div>
+
+          {/* Vibe Pillars */}
+          <div className="mb-8">
+            <h2 className="text-2xl font-bold mb-4">Explore Vibe Pillars</h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              <Card className="hover:shadow-lg transition-shadow cursor-pointer border-2 border-orange-200 hover:border-orange-400" onClick={() => window.location.href = '/pillars/marketing'}>
+                <CardHeader>
+                  <div className="flex items-center gap-3 mb-2">
+                    <TrendingUp className="w-8 h-8 text-orange-500" />
+                    <CardTitle className="text-xl">Vibe Marketing</CardTitle>
+                  </div>
+                  <CardDescription>
+                    Master AI-powered marketing automation
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-gray-600 mb-3">
+                    Create, automate, and scale your marketing with AI. From social media to email campaigns.
+                  </p>
+                  <p className="text-sm font-semibold text-orange-600">
+                    2-4 workshops/month →
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="hover:shadow-lg transition-shadow cursor-pointer border-2 border-blue-200 hover:border-blue-400" onClick={() => window.location.href = '/pillars/coding'}>
+                <CardHeader>
+                  <div className="flex items-center gap-3 mb-2">
+                    <Code2 className="w-8 h-8 text-blue-500" />
+                    <CardTitle className="text-xl">Vibe Coding</CardTitle>
+                  </div>
+                  <CardDescription>
+                    Build apps with AI, no coding required
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-gray-600 mb-3">
+                    Learn to build functional web applications using AI-powered no-code platforms.
+                  </p>
+                  <p className="text-sm font-semibold text-blue-600">
+                    2-4 workshops/month →
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="hover:shadow-lg transition-shadow cursor-pointer border-2 border-green-200 hover:border-green-400" onClick={() => window.location.href = '/pillars/alignment'}>
+                <CardHeader>
+                  <div className="flex items-center gap-3 mb-2">
+                    <Target className="w-8 h-8 text-green-500" />
+                    <CardTitle className="text-xl">Vibe Alignment</CardTitle>
+                  </div>
+                  <CardDescription>
+                    Align your team, scale your AI
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-gray-600 mb-3">
+                    Create AI strategies that work. From team buy-in to measuring ROI.
+                  </p>
+                  <p className="text-sm font-semibold text-green-600">
+                    2-4 workshops/month →
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
           </div>
 
           {/* Community & Resources */}

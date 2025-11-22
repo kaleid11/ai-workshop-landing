@@ -266,3 +266,27 @@
 - [x] Fix any errors in Resources section
 - [x] Test all downloads
 - [x] Update HuxleyGPT link with correct URL
+
+## Pillar Detail Pages
+- [x] Create Vibe Marketing pillar page
+  - [x] Pillar overview and learning objectives
+  - [x] Workshop schedule (Lite: 2/month, Pro: 4/month)
+  - [x] Key topics and curriculum (8-week curriculum)
+  - [x] Marketing-specific tools and prompts
+  - [x] Outcomes and what you'll learn
+- [x] Create Vibe Coding pillar page
+  - [x] Pillar overview and learning objectives
+  - [x] Workshop schedule (Lite: 2/month, Pro: 4/month)
+  - [x] Key topics and curriculum (8-week curriculum)
+  - [x] Coding-specific tools and workflows
+  - [x] Project showcases (3 real-world examples)
+- [x] Create Vibe Alignment pillar page
+  - [x] Pillar overview and learning objectives
+  - [x] Workshop schedule (Lite: 2/month, Pro: 4/month)
+  - [x] Key topics and curriculum (8-week curriculum)
+  - [x] Alignment-specific frameworks (6 frameworks)
+  - [x] Case studies (3 real business transformations)
+- [x] Add pillar navigation to portal (3 cards with links)
+- [ ] Add pillar links to home page footer
+- [x] Test all pillar pages (Marketing, Coding, Alignment)
+- [x] Create checkpoint

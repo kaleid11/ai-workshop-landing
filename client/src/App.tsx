@@ -14,6 +14,9 @@ import Pricing from "./pages/Pricing";
 import Tools from "./pages/Tools";
 import Prompts from "./pages/Prompts";
 import Resources from "./pages/Resources";
+import VibeMarketing from "./pages/pillars/VibeMarketing";
+import VibeCoding from "./pages/pillars/VibeCoding";
+import VibeAlignment from "./pages/pillars/VibeAlignment";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -29,6 +32,9 @@ function Router() {
       <Route path="/tools" component={Tools} />
       <Route path="/prompts" component={Prompts} />
       <Route path="/resources" component={Resources} />
+      <Route path="/pillars/marketing" component={VibeMarketing} />
+      <Route path="/pillars/coding" component={VibeCoding} />
+      <Route path="/pillars/alignment" component={VibeAlignment} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
