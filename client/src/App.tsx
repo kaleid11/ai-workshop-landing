@@ -4,6 +4,8 @@ import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import StickyBookingButton from "./components/StickyBookingButton";
+import WhatsAppButton from "./components/WhatsAppButton";
 import Home from "./pages/Home";
 import Checkout from "./pages/Checkout";
 import Success from "./pages/Success";
@@ -61,6 +63,8 @@ function App() {
         <TooltipProvider>
           <Toaster />
           <Router />
+          <StickyBookingButton />
+          <WhatsAppButton />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>

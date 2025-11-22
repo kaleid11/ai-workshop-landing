@@ -340,3 +340,39 @@
 - [x] Test unified homepage with multiple audience segments
 - [x] Test enterprise landing page
 - [ ] Create checkpoint for landing page redesign
+
+## Site Design Improvements & Booking Integration
+
+- [x] Extract and organize booking links and tool ecosystem
+- [x] Integrate Klipy.ai booking link (15-min free AI audit) across all CTAs
+- [x] Add WhatsApp contact link integration
+- [x] Add floating sticky booking button (bottom-right)
+- [x] Add floating WhatsApp button (bottom-left)
+- [ ] Add social media links (Facebook, LinkedIn, Linktree)
+- [ ] Create "Core Tools" showcase section (ChatGPT, Manus, Replit, Gamma, ElevenLabs, Captions.ai, Viralwave Studio)
+- [ ] Build tool database/directory page
+- [ ] Add tool comparison and recommendation logic
+- [ ] Integrate Beehiiv email capture for GPT access
+- [ ] Update all "Book Your Audit" CTAs with actual booking link
+- [ ] Improve homepage hero CTAs with booking integration
+- [ ] Enhance Enterprise page CTAs with booking link
+- [ ] Add floating/sticky booking CTA across site
+- [ ] Improve visual design consistency
+- [ ] Add tool logos and branding
+- [ ] Create tool recommendation quiz/selector
+- [ ] Add referral links for partner tools
+- [ ] Test all booking flows
+- [ ] Create checkpoint
+
+## Homepage Improvements Completed
+
+- [x] Add "Stop Tool Overwhelm" section with before/after comparison
+- [x] Create "Core 7 Tools" showcase section (ChatGPT, Manus, Replit, Gamma, ElevenLabs, Captions.ai, Viralwave Studio)
+- [x] Add tool consolidation ROI messaging ($5K-$15K annual savings)
+- [x] Update all "Book Audit" CTAs with actual Klipy.ai booking link
+- [x] Add "This academy runs on Manus" badge to Manus tool card
+- [x] Improve homepage visual hierarchy and design
+- [x] Add floating sticky booking button (bottom-right)
+- [x] Add floating WhatsApp button (bottom-left)
+- [x] Test all booking links and CTAs work correctly (Stripe live mode tests expected to fail - not blockers)
+- [ ] Create checkpoint for site improvements
