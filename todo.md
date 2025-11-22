@@ -254,3 +254,15 @@
 
 - [x] Update tools database access - make all tools available to Starter tier and above
 - [x] Update prompts library access - make all prompts available to Starter tier and above
+
+## Resource Improvement
+- [x] Read and analyze existing resource files
+- [x] Create "Getting Started with ChatGPT" guide (beginner-friendly, step-by-step)
+- [x] Clean up ChatGPT Business Setup Guide (remove law firm references)
+- [x] Add HuxleyGPT as free GPT resource
+- [x] Ensure all guides are downloadable
+- [x] Add interactive elements to free resources section (quick-start checklist)
+- [x] Update Resources page with improved guides
+- [x] Fix any errors in Resources section
+- [x] Test all downloads
+- [x] Update HuxleyGPT link with correct URL
