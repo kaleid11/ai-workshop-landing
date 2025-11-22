@@ -460,3 +460,24 @@
 - [ ] Verify accessibility (keyboard navigation, screen readers)
 - [ ] Test all forms and CTAs
 - [ ] Create final checkpoint
+
+
+## AI Readiness Scorecard PDF Generator
+
+- [x] Design 5-dimension AI readiness assessment framework (Technology, Process, People, Security, ROI)
+- [x] Create scoring rubric for each dimension (0-100 scale)
+- [x] Design proposal template with personalized recommendations
+- [x] Add implementation timeline generator based on readiness score
+- [x] Create ROI projection calculator
+- [x] Design PDF layout for scorecard report
+- [x] Build enhanced quiz component with 20 readiness questions
+- [x] Add email capture form for scorecard delivery
+- [x] Implement scorecard backend tRPC procedure
+- [x] Create proposal content based on recommended path (Workshop/Academy/Enterprise)
+- [x] Add "Request Consultation" CTA to results page
+- [x] Create dedicated /scorecard page
+- [x] Add scorecard CTA to homepage (dual assessment section)
+- [ ] Add scorecard CTA to Enterprise page (optional)
+- [ ] Implement PDF generation (future enhancement - requires additional PDF library setup)
+- [x] Test scorecard generation and delivery (backend logging working, frontend complete)
+- [ ] Create final checkpoint

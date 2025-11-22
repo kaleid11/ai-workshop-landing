@@ -734,24 +734,62 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Tool Stack Quiz CTA Section */}
+      {/* Free Assessments Section */}
       <section className="py-16 md:py-24 bg-gradient-to-r from-brand-purple/10 to-brand-blue/10 border-t-4 border-brand-purple">
-        <div className="container max-w-4xl text-center space-y-6">
-          <Badge className="bg-brand-purple text-white text-base px-4 py-2 inline-block">Free Assessment</Badge>
-          <h2 className="text-3xl md:text-5xl font-bold text-brand-purple">
-            What's Your Perfect Tool Stack?
-          </h2>
-          <p className="text-xl text-gray-700 max-w-2xl mx-auto">
-            Answer 5 quick questions and get personalized AI tool recommendations with ROI projections
-          </p>
-          <Link href="/quiz">
-            <Button size="lg" className="bg-brand-purple hover:bg-brand-purple/90 text-white text-lg px-8 py-6 h-auto">
-              Take Free Tool Stack Quiz <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
-          </Link>
-          <p className="text-sm text-gray-600 pt-4">
-            Takes 2 minutes • No credit card required • Get instant recommendations
-          </p>
+        <div className="container max-w-6xl">
+          <div className="text-center mb-12">
+            <Badge className="bg-brand-purple text-white text-base px-4 py-2 inline-block mb-4">Free Assessments</Badge>
+            <h2 className="text-3xl md:text-5xl font-bold text-brand-purple mb-4">
+              Discover Your AI Potential
+            </h2>
+            <p className="text-xl text-gray-700 max-w-2xl mx-auto">
+              Take one of our free assessments to get personalized recommendations
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {/* Tool Stack Quiz */}
+            <Card className="border-2 border-brand-purple/20 hover:border-brand-purple transition-all">
+              <CardHeader>
+                <Badge className="bg-blue-500 text-white w-fit mb-2">5 Questions • 2 Minutes</Badge>
+                <CardTitle className="text-2xl">Tool Stack Quiz</CardTitle>
+                <CardDescription className="text-base">
+                  Get personalized AI tool recommendations with ROI projections based on your team size, industry, and budget
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Link href="/quiz">
+                  <Button size="lg" className="w-full bg-blue-500 hover:bg-blue-600 text-white">
+                    Take Tool Stack Quiz <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
+                </Link>
+                <p className="text-sm text-gray-600 text-center mt-4">
+                  Perfect for: Quick tool consolidation recommendations
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* AI Readiness Scorecard */}
+            <Card className="border-2 border-brand-orange/20 hover:border-brand-orange transition-all">
+              <CardHeader>
+                <Badge className="bg-brand-orange text-white w-fit mb-2">20 Questions • 5 Minutes</Badge>
+                <CardTitle className="text-2xl">AI Readiness Scorecard</CardTitle>
+                <CardDescription className="text-base">
+                  Comprehensive assessment across 5 dimensions (Technology, Process, People, Security, ROI) with personalized roadmap and proposal
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Link href="/scorecard">
+                  <Button size="lg" className="w-full bg-brand-orange hover:bg-brand-orange/90 text-white">
+                    Get AI Readiness Score <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
+                </Link>
+                <p className="text-sm text-gray-600 text-center mt-4">
+                  Perfect for: Enterprise planning and budget approval
+                </p>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </section>
 

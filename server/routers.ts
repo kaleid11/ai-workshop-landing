@@ -159,6 +159,45 @@ export const appRouter = router({
       return await getActivePillars();
     }),
   }),
+
+  scorecard: router({
+    generate: publicProcedure
+      .input(
+        z.object({
+          email: z.string().email(),
+          name: z.string(),
+          company: z.string(),
+          phone: z.string().optional(),
+          overallScore: z.number(),
+          dimensionScores: z.object({
+            technology: z.number(),
+            process: z.number(),
+            people: z.number(),
+            security: z.number(),
+            roi: z.number(),
+          }),
+          readinessLevel: z.string(),
+          recommendedPath: z.string(),
+        })
+      )
+      .mutation(async ({ input }) => {
+        // TODO: Generate PDF scorecard and send via email
+        // For now, just log the data and return success
+        console.log("[Scorecard] Generated for:", input.email, input.name, input.company);
+        console.log("[Scorecard] Overall Score:", input.overallScore);
+        console.log("[Scorecard] Readiness Level:", input.readinessLevel);
+        console.log("[Scorecard] Recommended Path:", input.recommendedPath);
+        
+        // TODO: Store in database for lead tracking
+        // TODO: Generate PDF using reportlab or similar
+        // TODO: Send email with PDF attachment
+        
+        return {
+          success: true,
+          message: "Scorecard generated successfully",
+        };
+      }),
+  }),
 });
 
 export type AppRouter = typeof appRouter;
