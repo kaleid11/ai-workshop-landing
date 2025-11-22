@@ -1032,13 +1032,35 @@ export default function Enterprise() {
                   </div>
                 </div>
 
-                <div className="text-center mt-6">
-                  <p className="text-gray-600 mb-4">
-                    This is the future of consulting—productized, scalable, and proven.
+                <div className="mt-6 p-6 bg-gradient-to-r from-brand-purple/10 to-brand-blue/10 rounded-lg">
+                  <div className="grid md:grid-cols-2 gap-6 items-center">
+                    <div>
+                      <div className="text-sm font-semibold text-brand-purple mb-2">Custom Academy Pricing</div>
+                      <div className="text-3xl font-bold text-brand-purple mb-2">$15K-$25K</div>
+                      <p className="text-sm text-gray-600">
+                        One-time setup + $500-$1,500/month hosting & support (based on users)
+                      </p>
+                      <p className="text-xs text-gray-500 mt-2">
+                        Includes: Custom branding, content migration, 2-3 week deployment, training, ongoing support
+                      </p>
+                    </div>
+                    <div className="text-center md:text-right">
+                      <p className="text-sm text-gray-600 mb-4">
+                        <strong>This is the future of consulting</strong>—productized, scalable, and proven. See it in action.
+                      </p>
+                      <a href="https://app.klipy.ai/book/pre-discovery/free-pre-discovery" target="_blank" rel="noopener noreferrer">
+                        <Button size="lg" className="bg-brand-purple hover:bg-brand-purple/90">
+                          Request Academy Demo <ArrowRight className="w-5 h-5 ml-2" />
+                        </Button>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-6 text-center">
+                  <p className="text-sm text-gray-600 italic">
+                    💡 <strong>Real Example:</strong> This entire academy platform (workshops, resources, portal, payment system) was built on Manus in 18 months. We can replicate it for your organization in 2-3 weeks.
                   </p>
-                  <Button size="lg" className="bg-brand-purple hover:bg-brand-purple/90">
-                    Request Resource Library Demo <ArrowRight className="w-5 h-5 ml-2" />
-                  </Button>
                 </div>
               </CardContent>
             </Card>
@@ -1209,6 +1231,188 @@ export default function Enterprise() {
                       </tr>
                     </tbody>
                   </table>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Security & Compliance Section */}
+      <section className="py-16 md:py-24 bg-gradient-to-br from-brand-purple/5 to-brand-blue/5 border-t-4 border-brand-purple">
+        <div className="container">
+          <div className="text-center mb-12">
+            <Badge className="mb-4 bg-brand-purple text-white text-base px-4 py-2">Security-First Approach</Badge>
+            <h2 className="text-3xl md:text-5xl font-bold text-brand-purple mb-6">
+              Enterprise-Grade Security & Compliance
+            </h2>
+            <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto">
+              Built on Australian Government's ASD Essential Eight framework—preventing 98% of cyber attacks
+            </p>
+          </div>
+
+          {/* Key Stats */}
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16">
+            <Card className="border-2 border-brand-purple/20">
+              <CardContent className="pt-6 text-center">
+                <div className="text-5xl font-bold text-brand-purple mb-2">98%</div>
+                <div className="text-lg font-semibold mb-2">Attack Prevention Rate</div>
+                <p className="text-sm text-gray-600">
+                  ASD Essential Eight framework blocks 98% of cyber attacks before they reach your systems
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-red-500/20">
+              <CardContent className="pt-6 text-center">
+                <div className="text-5xl font-bold text-red-600 mb-2">$56K</div>
+                <div className="text-lg font-semibold mb-2">Average Breach Cost</div>
+                <p className="text-sm text-gray-600">
+                  Australian SMBs lose an average of $56,000 per cyber incident—we help you avoid this
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-green-500/20">
+              <CardContent className="pt-6 text-center">
+                <div className="text-5xl font-bold text-green-600 mb-2">4 Weeks</div>
+                <div className="text-lg font-semibold mb-2">To Audit-Ready</div>
+                <p className="text-sm text-gray-600">
+                  From security nightmare to compliance-ready documentation in just 4 weeks
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* ASD Essential Eight Framework */}
+          <div className="max-w-5xl mx-auto mb-12">
+            <Card className="border-2 border-brand-purple">
+              <CardHeader>
+                <CardTitle className="text-2xl flex items-center gap-2">
+                  <Shield className="w-6 h-6 text-brand-purple" />
+                  ASD Essential Eight Framework
+                </CardTitle>
+                <CardDescription>
+                  Australian Government's baseline security standard—we implement all 8 controls from day 1
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <div className="font-semibold">Application Control</div>
+                      <p className="text-sm text-gray-600">Only approved AI tools can be used—no shadow IT</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <div className="font-semibold">Patch Applications</div>
+                      <p className="text-sm text-gray-600">Automated updates for all platforms—no vulnerabilities</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <div className="font-semibold">Multi-Factor Authentication</div>
+                      <p className="text-sm text-gray-600">SSO + MFA enforced across all tools</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <div className="font-semibold">Restrict Admin Privileges</div>
+                      <p className="text-sm text-gray-600">Role-based access control—least privilege principle</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <div className="font-semibold">Patch Operating Systems</div>
+                      <p className="text-sm text-gray-600">Cloud-based platforms—always up to date</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <div className="font-semibold">User Application Hardening</div>
+                      <p className="text-sm text-gray-600">Secure configurations for ChatGPT, Manus, all tools</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <div className="font-semibold">Regular Backups</div>
+                      <p className="text-sm text-gray-600">Automated daily backups—disaster recovery ready</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <div className="font-semibold">Daily Backups</div>
+                      <p className="text-sm text-gray-600">Tested restore procedures—no data loss</p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Compliance Documentation */}
+          <div className="max-w-5xl mx-auto">
+            <Card className="border-2 border-brand-blue">
+              <CardHeader>
+                <CardTitle className="text-2xl flex items-center gap-2">
+                  <FileText className="w-6 h-6 text-brand-blue" />
+                  Audit-Ready Documentation
+                </CardTitle>
+                <CardDescription>
+                  Everything you need for compliance audits, insurance, and client due diligence
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 className="font-semibold mb-3 flex items-center gap-2">
+                      <CheckCircle2 className="w-5 h-5 text-green-600" />
+                      Security Policies & Procedures
+                    </h4>
+                    <ul className="space-y-2 text-sm text-gray-700">
+                      <li>• AI Acceptable Use Policy</li>
+                      <li>• Data Classification & Handling</li>
+                      <li>• Incident Response Plan</li>
+                      <li>• Business Continuity Plan</li>
+                      <li>• Third-Party Risk Assessment</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="font-semibold mb-3 flex items-center gap-2">
+                      <CheckCircle2 className="w-5 h-5 text-green-600" />
+                      Compliance Checklists
+                    </h4>
+                    <ul className="space-y-2 text-sm text-gray-700">
+                      <li>• ASD Essential Eight Compliance Matrix</li>
+                      <li>• ISO 27001 Gap Analysis</li>
+                      <li>• GDPR/Privacy Act Checklist</li>
+                      <li>• Industry-Specific Requirements</li>
+                      <li>• Quarterly Security Reviews</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="mt-6 p-4 bg-green-50 rounded-lg border border-green-200">
+                  <p className="text-sm text-green-800">
+                    <strong>Included in all Enterprise packages:</strong> Complete documentation package, quarterly security reviews, and ongoing compliance support. Ready for audits from day 1.
+                  </p>
                 </div>
               </CardContent>
             </Card>

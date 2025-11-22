@@ -398,3 +398,65 @@
 - [x] Test email capture integration
 - [x] Test all booking links and CTAs work correctly (Stripe live mode tests expected to fail - not blockers)
 - [x] Create checkpoint for site improvements
+
+## Comprehensive Website Audit & Optimization
+
+### Page-by-Page Analysis
+- [ ] Audit Homepage - check all sections, CTAs, links, messaging
+- [ ] Audit Enterprise page - verify all content, Horizon Framework, ROI calculator
+- [ ] Audit Case Studies page - verify all 4 stories, metrics, quotes
+- [ ] Audit Quiz page - test all 5 questions, recommendation logic, email capture
+- [ ] Audit Calendar page - verify all 12 workshops, Google Calendar integration
+- [ ] Audit Resources page - verify all PDFs, tier-based access
+- [ ] Audit Tools/Prompts pages - check content completeness
+- [ ] Audit Pillar pages (Marketing/Coding/Alignment) - verify content
+- [ ] Audit Portal page - check navigation, access control
+- [ ] Audit Pricing page - verify all tiers, Stripe integration
+
+### Knowledge Integration Check
+- [ ] Verify ASD Essential Eight compliance messaging is present
+- [ ] Check computational thinking "ground-up" approach in content
+- [ ] Verify prompt engineering techniques are showcased
+- [ ] Check security-first messaging throughout site
+- [ ] Verify tool consolidation value prop is consistent
+- [ ] Check Horizon Framework is explained clearly
+- [ ] Verify Manus platform positioning ("This academy runs on Manus")
+
+### Missing Features & Enhancements
+- [ ] Add security/compliance section to Enterprise page
+- [ ] Add ASD Essential Eight details
+- [ ] Create "Manus Clone Showcase" section
+- [ ] Add computational thinking approach to About/How It Works
+- [ ] Add prompt engineering showcase
+- [ ] Enhance footer with complete navigation
+- [ ] Add social media links (Facebook, LinkedIn, Linktree)
+- [ ] Add Beehiiv email capture for GPT access
+- [ ] Create /security page with compliance details
+- [ ] Add testimonials/social proof throughout
+
+### Technical Optimizations
+- [ ] Verify all booking links work (Klipy.ai)
+- [ ] Test WhatsApp button functionality
+- [ ] Verify floating booking button on all pages
+- [ ] Check mobile responsiveness on all pages
+- [ ] Verify all internal links work
+- [ ] Test quiz recommendation algorithm
+- [ ] Verify email capture integration
+- [ ] Check page load performance
+- [ ] Verify SEO meta tags on all pages
+
+### Content Completeness
+- [ ] Verify all 25+ pre-built AI assistants are listed
+- [ ] Check Core 7 Tools descriptions are complete
+- [ ] Verify all workshop details are accurate
+- [ ] Check pricing is consistent across pages
+- [ ] Verify contact information is present
+- [ ] Check legal pages (Privacy, Terms) exist
+
+### Final Polish
+- [ ] Proofread all copy for typos/errors
+- [ ] Verify brand consistency (colors, fonts, tone)
+- [ ] Check image quality and alt text
+- [ ] Verify accessibility (keyboard navigation, screen readers)
+- [ ] Test all forms and CTAs
+- [ ] Create final checkpoint

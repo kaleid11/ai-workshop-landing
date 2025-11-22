@@ -830,6 +830,7 @@ export default function Home() {
                 <li><Link href="/portal" className="hover:text-white transition-colors">AI Academy</Link></li>
                 <li><Link href="/enterprise" className="hover:text-white transition-colors">Enterprise</Link></li>
                 <li><Link href="/calendar" className="hover:text-white transition-colors">Workshop Calendar</Link></li>
+                <li><Link href="/case-studies" className="hover:text-white transition-colors">Case Studies</Link></li>
               </ul>
             </div>
 
@@ -840,6 +841,7 @@ export default function Home() {
                 <li><Link href="/tools" className="hover:text-white transition-colors">Tool Database</Link></li>
                 <li><Link href="/prompts" className="hover:text-white transition-colors">Prompt Library</Link></li>
                 <li><Link href="/resources" className="hover:text-white transition-colors">Member Resources</Link></li>
+                <li><Link href="/quiz" className="hover:text-white transition-colors">Tool Stack Quiz</Link></li>
                 <li><a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Book Free Audit</a></li>
               </ul>
             </div>
@@ -848,6 +850,7 @@ export default function Home() {
             <div>
               <h3 className="font-bold text-lg mb-4">Company</h3>
               <ul className="space-y-2 text-sm text-gray-400">
+                <li><Link href="/about" className="hover:text-white transition-colors">About & How It Works</Link></li>
                 <li><a href="https://techhorizonlabs.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Main Website</a></li>
                 <li><a href="mailto:hello@techhorizonlabs.com" className="hover:text-white transition-colors">Contact</a></li>
                 <li><a href="https://wa.me/message/WKT2DLIU5ACIO1" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">WhatsApp</a></li>
