@@ -165,65 +165,176 @@ export default function ToolStackAuditQuiz() {
         name: "ChatGPT Team",
         cost: "$25-30/user/month",
         description: "Foundation for all AI work - conversational AI, automation, research",
-        category: "Core"
+        category: "Core AI"
       },
       {
         name: "Manus",
         cost: "$20-40/user/month",
-        description: "Platform for custom tools, micro-apps, and AI orchestration",
-        category: "Core"
+        description: "Replaces Zapier, Typeform, Webflow, basic CRM - custom tools, forms, landing pages, automation",
+        category: "Core Platform"
       }
     ];
 
-    // Add industry-specific tools
+    // Add industry-specific tools based on answers
     if (answers.industry === "marketing") {
       recommendations.push(
         {
           name: "Gamma",
           cost: "$15/month",
-          description: "AI-powered presentations and pitch decks",
-          category: "Marketing"
+          description: "AI-powered presentations and pitch decks - replaces Canva Pro",
+          category: "Content Creation"
         },
         {
           name: "Captions.ai",
           cost: "$20/month",
-          description: "AI video editing and captions",
-          category: "Marketing"
+          description: "AI video editing and captions - replaces Descript",
+          category: "Video Production"
+        },
+        {
+          name: "Reap.video",
+          cost: "$29/month (AppSumo lifetime deal available)",
+          description: "Repurpose long videos into shorts - coming: full video editing suite",
+          category: "Video Production"
+        },
+        {
+          name: "Riverside.fm",
+          cost: "$19-79/month",
+          description: "Studio-quality podcast recording and live streaming",
+          category: "Content Creation"
         },
         {
           name: "ElevenLabs",
           cost: "$11/month",
-          description: "AI voice generation and text-to-speech",
-          category: "Marketing"
+          description: "AI voice generation and text-to-speech for ads and content",
+          category: "Audio Production"
         }
       );
     }
 
-    if (answers.industry === "tech" && answers.technical === "highly-technical") {
-      recommendations.push({
-        name: "Replit",
-        cost: "$20/user/month",
-        description: "Collaborative coding and rapid prototyping",
-        category: "Development"
-      });
+    if (answers.industry === "tech") {
+      recommendations.push(
+        {
+          name: "Replit",
+          cost: "$20/user/month",
+          description: "AI-powered collaborative coding and rapid prototyping",
+          category: "Development"
+        },
+        {
+          name: "Gamma",
+          cost: "$15/month",
+          description: "AI presentations for pitch decks and product demos",
+          category: "Content Creation"
+        }
+      );
+      
+      if (answers.technical === "highly-technical") {
+        recommendations.push({
+          name: "Opus Pro",
+          cost: "$9-29/month",
+          description: "AI video clipping with Adobe Premiere Pro integration",
+          category: "Video Production"
+        });
+      }
     }
 
     if (answers.industry === "professional") {
-      recommendations.push({
-        name: "Custom Compliance GPTs",
-        cost: "Included in ChatGPT Team",
-        description: "Industry-specific compliance and audit assistants",
-        category: "Professional Services"
-      });
+      recommendations.push(
+        {
+          name: "Gamma",
+          cost: "$15/month",
+          description: "Professional presentations and proposals",
+          category: "Content Creation"
+        },
+        {
+          name: "ElevenLabs",
+          cost: "$11/month",
+          description: "AI voice for training materials and presentations",
+          category: "Audio Production"
+        },
+        {
+          name: "Custom Compliance GPTs",
+          cost: "Included in ChatGPT Team",
+          description: "Industry-specific compliance and audit assistants",
+          category: "Professional Services"
+        }
+      );
     }
 
     if (answers.industry === "ecommerce") {
+      recommendations.push(
+        {
+          name: "Gamma",
+          cost: "$15/month",
+          description: "Product presentations and marketing materials",
+          category: "Content Creation"
+        },
+        {
+          name: "Captions.ai",
+          cost: "$20/month",
+          description: "Product demo videos and social media content",
+          category: "Video Production"
+        },
+        {
+          name: "Custom E-commerce Tools",
+          cost: "Built on Manus",
+          description: "Product descriptions, customer service automation, inventory alerts",
+          category: "E-commerce Operations"
+        }
+      );
+    }
+
+    // Add universal tools based on team size and budget
+    if (answers.teamSize !== "solo") {
+      // For teams, add collaboration tools
+      if (!recommendations.find(r => r.name === "Riverside.fm") && answers.budget !== "under200") {
+        recommendations.push({
+          name: "Riverside.fm",
+          cost: "$19-79/month",
+          description: "Team podcasts, webinars, and internal training videos",
+          category: "Content Creation"
+        });
+      }
+    }
+
+    // Add video tools for higher budgets
+    if ((answers.budget === "500-1000" || answers.budget === "1000-2000" || answers.budget === "2000+") && 
+        !recommendations.find(r => r.name === "Reap.video")) {
       recommendations.push({
-        name: "Custom E-commerce Tools",
-        cost: "Built on Manus",
-        description: "Product descriptions, customer service, inventory management",
-        category: "E-commerce"
+        name: "Reap.video",
+        cost: "$29/month (AppSumo lifetime deal available)",
+        description: "Repurpose content into shorts - full editing suite coming soon",
+        category: "Video Production"
       });
+    }
+
+    // Ensure we always have at least 7-8 tools
+    if (recommendations.length < 7) {
+      const additionalTools = [
+        {
+          name: "Gamma",
+          cost: "$15/month",
+          description: "AI-powered presentations and documents",
+          category: "Content Creation"
+        },
+        {
+          name: "ElevenLabs",
+          cost: "$11/month",
+          description: "AI voice generation for content and training",
+          category: "Audio Production"
+        },
+        {
+          name: "Captions.ai",
+          cost: "$20/month",
+          description: "AI video editing and social media content",
+          category: "Video Production"
+        }
+      ];
+
+      for (const tool of additionalTools) {
+        if (!recommendations.find(r => r.name === tool.name) && recommendations.length < 8) {
+          recommendations.push(tool);
+        }
+      }
     }
 
     return recommendations;
@@ -244,21 +355,49 @@ export default function ToolStackAuditQuiz() {
       currentCost = toolCount * 80; // Average $80/tool
     }
 
-    // Calculate recommended stack cost
+    // Calculate recommended stack cost based on actual tools
     const recommendations = getRecommendations();
     let recommendedCost = 0;
     
-    if (answers.teamSize === "solo") recommendedCost = 150;
-    else if (answers.teamSize === "small") recommendedCost = 300;
-    else if (answers.teamSize === "medium") recommendedCost = 500;
-    else recommendedCost = 800;
+    // Calculate actual cost from recommended tools
+    const teamMultiplier = answers.teamSize === "solo" ? 1 : 
+                          answers.teamSize === "small" ? 3 : 
+                          answers.teamSize === "medium" ? 8 : 15;
+    
+    // Base costs for recommended stack
+    recommendedCost = 25 + 30; // ChatGPT Team + Manus base
+    
+    if (answers.industry === "marketing") {
+      recommendedCost += 15 + 20 + 29 + 40 + 11; // Gamma + Captions + Reap + Riverside (mid-tier) + ElevenLabs
+    } else if (answers.industry === "tech") {
+      recommendedCost += 20 + 15; // Replit + Gamma
+      if (answers.technical === "highly-technical") {
+        recommendedCost += 19; // Opus Pro
+      }
+    } else if (answers.industry === "professional") {
+      recommendedCost += 15 + 11; // Gamma + ElevenLabs
+    } else if (answers.industry === "ecommerce") {
+      recommendedCost += 15 + 20; // Gamma + Captions
+    }
+    
+    // Add team multiplier for per-user tools (ChatGPT, Manus, Replit)
+    const perUserCost = 25 + 30 + (answers.industry === "tech" ? 20 : 0);
+    recommendedCost = recommendedCost - perUserCost + (perUserCost * teamMultiplier);
 
     const monthlySavings = Math.max(0, currentCost - recommendedCost);
     const annualSavings = monthlySavings * 12;
     
-    // Time savings value
-    const hoursSaved = answers.toolCount === "16+" ? 15 : 10;
-    const hourlyRate = answers.teamSize === "large" ? 150 : answers.teamSize === "medium" ? 100 : 75;
+    // Time savings value - more realistic based on tool count
+    const currentToolCount = answers.toolCount.includes("+") ? 18 : 
+                            parseInt(answers.toolCount.split("-")[1] || "5");
+    const recommendedToolCount = recommendations.length;
+    const toolReduction = Math.max(0, currentToolCount - recommendedToolCount);
+    
+    // Each tool saved = 2 hours/week in management overhead
+    const hoursSaved = Math.max(5, toolReduction * 2);
+    const hourlyRate = answers.teamSize === "large" ? 150 : 
+                      answers.teamSize === "medium" ? 100 : 
+                      answers.teamSize === "small" ? 75 : 50;
     const timeValue = hoursSaved * hourlyRate * 52;
 
     return {
@@ -341,10 +480,59 @@ export default function ToolStackAuditQuiz() {
           </Card>
         </div>
 
+        {/* What Manus Replaces */}
+        <Card className="max-w-4xl mx-auto border-2 border-brand-orange bg-gradient-to-br from-brand-orange/10 to-brand-purple/10">
+          <CardHeader className="text-center">
+            <CardTitle className="text-2xl text-brand-purple mb-2">
+              💡 How Manus Saves You Money
+            </CardTitle>
+            <CardDescription className="text-base text-gray-700">
+              One platform replaces multiple expensive subscriptions
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h5 className="font-bold text-red-600 mb-3 flex items-center gap-2">
+                  <span className="text-2xl">❌</span> Without Manus ($200-500/mo)
+                </h5>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  <li>• Zapier: $30-70/mo</li>
+                  <li>• Typeform: $25-50/mo</li>
+                  <li>• Webflow: $14-39/mo</li>
+                  <li>• HubSpot CRM: $45-90/mo</li>
+                  <li>• Airtable: $20-45/mo</li>
+                  <li>• Make.com: $9-29/mo</li>
+                  <li className="font-semibold pt-2 border-t">Total: $143-323/month</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-bold text-green-600 mb-3 flex items-center gap-2">
+                  <span className="text-2xl">✅</span> With Manus ($20-40/user/mo)
+                </h5>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  <li>✓ Custom automation workflows</li>
+                  <li>✓ Unlimited forms & surveys</li>
+                  <li>✓ Landing pages & websites</li>
+                  <li>✓ Built-in CRM & database</li>
+                  <li>✓ Data tables & spreadsheets</li>
+                  <li>✓ API integrations & webhooks</li>
+                  <li className="font-semibold pt-2 border-t text-green-600">Save: $103-283/month = ${(103 * 12).toLocaleString()}-${(283 * 12).toLocaleString()}/year</li>
+                </ul>
+              </div>
+            </div>
+            <div className="mt-6 p-4 bg-brand-purple/10 rounded-lg text-center">
+              <p className="text-sm font-semibold text-brand-purple">
+                🎯 Plus: No-code interface means your team can build tools without hiring developers
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+
         {/* Recommended Tools */}
         <div className="max-w-5xl mx-auto">
           <h4 className="text-2xl font-bold text-brand-purple mb-6 text-center">
-            Your Recommended Tools
+            Your Complete Recommended Stack ({recommendations.length} Tools)
           </h4>
           <div className="grid md:grid-cols-2 gap-4">
             {recommendations.map((tool, index) => (

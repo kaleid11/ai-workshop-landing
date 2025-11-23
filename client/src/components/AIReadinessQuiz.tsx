@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
@@ -626,6 +626,195 @@ export default function AIReadinessQuiz() {
                   <div className="font-bold">{readinessLevel.expectedROI}</div>
                 </div>
               </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* What Manus Replaces */}
+        <Card className="border-2 border-brand-orange bg-gradient-to-br from-brand-orange/10 to-brand-purple/10">
+          <CardHeader className="text-center">
+            <CardTitle className="text-2xl text-brand-purple mb-2">
+              💡 How Manus Accelerates Your AI Journey
+            </CardTitle>
+            <CardDescription className="text-base text-gray-700">
+              One platform replaces multiple expensive tools and eliminates technical barriers
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h5 className="font-bold text-red-600 mb-3 flex items-center gap-2">
+                  <span className="text-2xl">❌</span> Traditional Approach ($200-500/mo)
+                </h5>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  <li>• Zapier: $30-70/mo</li>
+                  <li>• Typeform: $25-50/mo</li>
+                  <li>• Webflow: $14-39/mo</li>
+                  <li>• HubSpot CRM: $45-90/mo</li>
+                  <li>• Airtable: $20-45/mo</li>
+                  <li>• Make.com: $9-29/mo</li>
+                  <li>• Plus: Developer time for integrations</li>
+                  <li className="font-semibold pt-2 border-t">Total: $143-323/month + dev costs</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-bold text-green-600 mb-3 flex items-center gap-2">
+                  <span className="text-2xl">✅</span> With Manus ($20-40/user/mo)
+                </h5>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  <li>✓ Custom automation workflows</li>
+                  <li>✓ Unlimited forms & surveys</li>
+                  <li>✓ Landing pages & websites</li>
+                  <li>✓ Built-in CRM & database</li>
+                  <li>✓ Data tables & spreadsheets</li>
+                  <li>✓ API integrations & webhooks</li>
+                  <li>✓ No-code interface (no developers needed)</li>
+                  <li className="font-semibold pt-2 border-t text-green-600">Save: $103-283/month = $1,236-$3,396/year</li>
+                </ul>
+              </div>
+            </div>
+            <div className="mt-6 p-4 bg-brand-purple/10 rounded-lg text-center">
+              <p className="text-sm font-semibold text-brand-purple">
+                🎯 Perfect for your {readinessLevel.level} readiness level: Start building AI tools without technical complexity
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Recommended Tool Stack */}
+        <Card className="border-2">
+          <CardHeader>
+            <CardTitle className="text-2xl">Your Recommended Tool Stack</CardTitle>
+            <CardDescription>
+              Based on your readiness level and dimension scores, we recommend these {overall < 40 ? "5-6" : overall < 70 ? "7-8" : "9-10"} core tools
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="grid md:grid-cols-2 gap-4">
+              {/* Core Tools - Always recommended */}
+              <div className="border-2 border-brand-blue rounded-lg p-4">
+                <div className="flex items-start justify-between mb-2">
+                  <div>
+                    <h4 className="font-bold">ChatGPT Team</h4>
+                    <Badge variant="outline" className="mt-1 text-xs">Core AI</Badge>
+                  </div>
+                  <span className="text-sm font-semibold text-brand-blue">$25-30/user/mo</span>
+                </div>
+                <p className="text-sm text-gray-700">Foundation for all AI work - conversational AI, automation, research</p>
+              </div>
+
+              <div className="border-2 border-brand-orange rounded-lg p-4 bg-brand-orange/5">
+                <div className="flex items-start justify-between mb-2">
+                  <div>
+                    <h4 className="font-bold">Manus</h4>
+                    <Badge className="mt-1 text-xs bg-brand-orange">Replaces 6+ Tools</Badge>
+                  </div>
+                  <span className="text-sm font-semibold text-brand-orange">$20-40/user/mo</span>
+                </div>
+                <p className="text-sm text-gray-700">Custom tools, forms, landing pages, CRM, automation - no code required</p>
+              </div>
+
+              {/* Content Creation Tools */}
+              {overall >= 40 && (
+                <>
+                  <div className="border-2 rounded-lg p-4">
+                    <div className="flex items-start justify-between mb-2">
+                      <div>
+                        <h4 className="font-bold">Gamma</h4>
+                        <Badge variant="outline" className="mt-1 text-xs">Content Creation</Badge>
+                      </div>
+                      <span className="text-sm font-semibold text-brand-blue">$15/mo</span>
+                    </div>
+                    <p className="text-sm text-gray-700">AI presentations and documents - replaces Canva Pro</p>
+                  </div>
+
+                  <div className="border-2 rounded-lg p-4">
+                    <div className="flex items-start justify-between mb-2">
+                      <div>
+                        <h4 className="font-bold">Captions.ai</h4>
+                        <Badge variant="outline" className="mt-1 text-xs">Video Production</Badge>
+                      </div>
+                      <span className="text-sm font-semibold text-brand-blue">$20/mo</span>
+                    </div>
+                    <p className="text-sm text-gray-700">AI video editing and captions - replaces Descript</p>
+                  </div>
+                </>
+              )}
+
+              {/* Advanced Tools for higher readiness */}
+              {overall >= 60 && (
+                <>
+                  <div className="border-2 rounded-lg p-4">
+                    <div className="flex items-start justify-between mb-2">
+                      <div>
+                        <h4 className="font-bold">Riverside.fm</h4>
+                        <Badge variant="outline" className="mt-1 text-xs">Content Creation</Badge>
+                      </div>
+                      <span className="text-sm font-semibold text-brand-blue">$19-79/mo</span>
+                    </div>
+                    <p className="text-sm text-gray-700">Studio-quality podcast recording and live streaming</p>
+                  </div>
+
+                  <div className="border-2 rounded-lg p-4">
+                    <div className="flex items-start justify-between mb-2">
+                      <div>
+                        <h4 className="font-bold">Reap.video</h4>
+                        <Badge variant="outline" className="mt-1 text-xs">Video Production</Badge>
+                      </div>
+                      <span className="text-sm font-semibold text-brand-blue">$29/mo</span>
+                    </div>
+                    <p className="text-sm text-gray-700">Repurpose content into shorts - full editing suite coming soon (AppSumo deal available)</p>
+                  </div>
+
+                  <div className="border-2 rounded-lg p-4">
+                    <div className="flex items-start justify-between mb-2">
+                      <div>
+                        <h4 className="font-bold">ElevenLabs</h4>
+                        <Badge variant="outline" className="mt-1 text-xs">Audio Production</Badge>
+                      </div>
+                      <span className="text-sm font-semibold text-brand-blue">$11/mo</span>
+                    </div>
+                    <p className="text-sm text-gray-700">AI voice generation for content and training materials</p>
+                  </div>
+                </>
+              )}
+
+              {/* Technical Tools for highly ready organizations */}
+              {overall >= 70 && dimensions.technology >= 70 && (
+                <>
+                  <div className="border-2 rounded-lg p-4">
+                    <div className="flex items-start justify-between mb-2">
+                      <div>
+                        <h4 className="font-bold">Replit</h4>
+                        <Badge variant="outline" className="mt-1 text-xs">Development</Badge>
+                      </div>
+                      <span className="text-sm font-semibold text-brand-blue">$20/user/mo</span>
+                    </div>
+                    <p className="text-sm text-gray-700">AI-powered collaborative coding and rapid prototyping</p>
+                  </div>
+
+                  <div className="border-2 rounded-lg p-4">
+                    <div className="flex items-start justify-between mb-2">
+                      <div>
+                        <h4 className="font-bold">Opus Pro</h4>
+                        <Badge variant="outline" className="mt-1 text-xs">Video Production</Badge>
+                      </div>
+                      <span className="text-sm font-semibold text-brand-blue">$9-29/mo</span>
+                    </div>
+                    <p className="text-sm text-gray-700">AI video clipping with Adobe Premiere Pro integration</p>
+                  </div>
+                </>
+              )}
+            </div>
+
+            <div className="mt-6 p-4 bg-blue-50 rounded-lg">
+              <p className="text-sm text-gray-700">
+                <strong>Estimated Monthly Cost:</strong> {overall < 40 ? "$80-120" : overall < 70 ? "$150-220" : "$200-300"} per user
+                <br />
+                <strong>Replaces:</strong> 10-15 fragmented tools costing $400-800/month
+                <br />
+                <strong>Annual Savings:</strong> <span className="text-green-600 font-bold">${overall < 40 ? "3,840-8,160" : overall < 70 ? "2,160-6,960" : "1,200-6,000"}</span>
+              </p>
             </div>
           </CardContent>
         </Card>

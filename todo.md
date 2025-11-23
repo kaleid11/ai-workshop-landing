@@ -585,3 +585,40 @@ All features implemented and tested:
 - [x] All tests passing
 
 Ready for checkpoint and deployment!
+
+
+## Quiz & Scorecard Overhaul (Critical Issues Found - Nov 23)
+
+### Problems Identified:
+- [ ] Quiz only showing 5 tools instead of 8-12 comprehensive stack
+- [ ] ROI calculation showing $0 savings (broken logic)
+- [ ] Missing key tools: Riverside.fm, Reap.video, Opus Pro, AppSumo alternatives
+- [ ] Not positioning Manus as consolidation tool that replaces expensive CRMs/forms/landing pages
+- [ ] Weak value proposition - need to show BEFORE/AFTER tool costs clearly
+
+### Improvements to Implement:
+- [ ] Expand quiz recommendations to 8-12 tools based on industry/team size/budget
+- [ ] Add Riverside.fm for podcasting/live streaming
+- [ ] Add Reap.video (AppSumo) for video editing
+- [ ] Add Opus Pro for Adobe interoperability
+- [ ] Position Manus $20-40 tier as replacement for Zapier + Typeform + Webflow + CRM
+- [ ] Fix ROI calculations to show real savings (e.g., $500/mo → $200/mo = $3,600/year)
+- [ ] Add "What Manus Replaces" section showing specific tool consolidation
+- [ ] Make numbers more impactful with before/after comparisons
+- [ ] Update scorecard with same improvements
+- [ ] Test both assessments with realistic scenarios
+- [ ] Create checkpoint
+
+## Quiz & Scorecard Improvements Completed (Nov 23)
+
+- [x] Expand quiz recommendations to 8-12 tools based on industry/team size/budget
+- [x] Add Riverside.fm for podcasting/live streaming
+- [x] Add Reap.video (AppSumo) for video editing
+- [x] Add Opus Pro for Adobe interoperability
+- [x] Position Manus $20-40 tier as replacement for Zapier + Typeform + Webflow + CRM
+- [x] Fix ROI calculations to show real savings (e.g., $500/mo → $200/mo = $3,600/year)
+- [x] Add "What Manus Replaces" section showing specific tool consolidation
+- [x] Make numbers more impactful with before/after comparisons
+- [x] Update scorecard with same improvements
+- [x] Test both assessments with realistic scenarios
+- [x] All tests passing (10/10)
