@@ -26,6 +26,7 @@ import Quiz from "./pages/Quiz";
 import About from "./pages/About";
 import Scorecard from "./pages/Scorecard";
 import AdminAssessments from "./pages/AdminAssessments";
+import Workshop from "./pages/Workshop";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -48,6 +49,7 @@ function Router() {
       <Route path="/enterprise" component={Enterprise} />
       <Route path="/case-studies" component={CaseStudies} />
       <Route path="/quiz" component={Quiz} />
+      <Route path="/workshop" component={Workshop} />
       <Route path="/about" component={About} />
       <Route path="/how-it-works" component={About} />
       <Route path="/scorecard" component={Scorecard} />

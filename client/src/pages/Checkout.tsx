@@ -15,7 +15,7 @@ export default function Checkout() {
     setIsLoading(true);
     try {
       const result = await createSession.mutateAsync({
-        productId: "standard",
+        priceId: "price_1SV19BCii5zXCZr6M8Lln2Se", // Standard workshop price ID
       });
 
       if (result.url) {

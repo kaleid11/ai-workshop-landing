@@ -4,6 +4,8 @@ export const APP_TITLE = import.meta.env.VITE_APP_TITLE || "AI Social Media Work
 
 export const APP_LOGO = "/images/logo-new.png";
 
+export const BOOKING_URL = "https://klipy.ai/huxleyp";
+
 // Generate login URL at runtime so redirect URI reflects the current origin.
 export const getLoginUrl = () => {
   const oauthPortalUrl = import.meta.env.VITE_OAUTH_PORTAL_URL;

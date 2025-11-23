@@ -29,35 +29,30 @@ export const appRouter = router({
     createSession: protectedProcedure
       .input(
         z.object({
-          productId: z.enum(["standard"]),
+          priceId: z.string(), // Accept any Stripe price ID
         })
       )
       .mutation(async ({ input, ctx }) => {
-        const product = WORKSHOP_PRODUCTS[input.productId];
-        if (!product) {
-          throw new Error("Invalid product ID");
-        }
-
         const origin = ctx.req.headers.origin || "http://localhost:3000";
 
         const session = await stripe.checkout.sessions.create({
           payment_method_types: ["card"],
           line_items: [
             {
-              price: product.stripePriceId, // Use live Stripe price ID
+              price: input.priceId, // Use provided Stripe price ID
               quantity: 1,
             },
           ],
           mode: "payment",
           success_url: `${origin}/success?session_id={CHECKOUT_SESSION_ID}`,
-          cancel_url: `${origin}/checkout`,
+          cancel_url: `${origin}/workshop`,
           customer_email: ctx.user.email || undefined,
           client_reference_id: ctx.user.id.toString(),
           metadata: {
             user_id: ctx.user.id.toString(),
             customer_email: ctx.user.email || "",
             customer_name: ctx.user.name || "",
-            product_id: input.productId,
+            price_id: input.priceId,
           },
           allow_promotion_codes: true,
         });

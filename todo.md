@@ -622,3 +622,35 @@ Ready for checkpoint and deployment!
 - [x] Update scorecard with same improvements
 - [x] Test both assessments with realistic scenarios
 - [x] All tests passing (10/10)
+
+
+## Workshop Landing Page (/workshop)
+
+- [ ] Design workshop page structure and layout
+- [ ] Create hero section with workshop value proposition
+- [ ] Add 3-tier pricing cards (Starter/Pro/Enterprise)
+- [ ] Integrate Stripe checkout for each tier
+- [ ] Add detailed curriculum section (what's included)
+- [ ] Add workshop outcomes section (what you'll learn)
+- [ ] Add instructor section (Huxley's credentials and photo)
+- [ ] Add urgency elements (spots remaining, next workshop date)
+- [ ] Add social proof (testimonials, success stories)
+- [ ] Add FAQ section for workshop
+- [ ] Test Stripe checkout flow for all tiers
+- [ ] Create checkpoint
+
+## Workshop Landing Page Completed (Nov 23)
+
+- [x] Design workshop page structure and layout
+- [x] Create hero section with workshop value proposition
+- [x] Add 3-tier pricing cards (Starter $197, Pro $497, Enterprise $1,497)
+- [x] Create Stripe products via MCP integration
+- [x] Integrate Stripe checkout for each tier with authentication
+- [x] Add detailed curriculum section (4 modules)
+- [x] Add workshop outcomes section
+- [x] Add instructor section (Huxley's credentials and photo)
+- [x] Add urgency elements (8 spots remaining, next workshop date Dec 15)
+- [x] Add testimonials section (3 client reviews)
+- [x] Add FAQ section (6 common questions)
+- [x] Add loading states and error handling for checkout
+- [ ] Test Stripe checkout flow end-to-end
