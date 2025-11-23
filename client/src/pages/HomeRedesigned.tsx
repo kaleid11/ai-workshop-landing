@@ -54,58 +54,41 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Hero Section - Enhanced Visual Design */}
+      {/* Hero Section - Redesigned with Clearer Messaging */}
       <section className="relative bg-gradient-to-br from-[rgb(var(--brand-dark-purple))] via-[rgb(var(--brand-blue))] to-[rgb(var(--brand-dark-purple))] text-white overflow-hidden">
-        {/* Animated Background Pattern */}
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE0YzMuMzEgMCA2IDIuNjkgNiA2cy0yLjY5IDYtNiA2LTYtMi42OS02LTYgMi42OS02IDYtNnpNNiAzNGMzLjMxIDAgNiAyLjY5IDYgNnMtMi42OSA2LTYgNi02LTIuNjktNi02IDIuNjktNiA2LTZ6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-20 animate-pulse"></div>
-        
-        {/* Gradient Orbs for Depth */}
-        <div className="absolute top-20 left-10 w-72 h-72 bg-brand-orange/30 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-brand-purple/30 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE0YzMuMzEgMCA2IDIuNjkgNiA2cy0yLjY5IDYtNiA2LTYtMi42OS02LTYgMi42OS02IDYtNnpNNiAzNGMzLjMxIDAgNiAyLjY5IDYgNnMtMi42OSA2LTYgNi02LTIuNjktNi02IDIuNjktNiA2LTZ6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-20"></div>
         
         <div className="container relative py-20 md:py-32">
           <div className="flex flex-col items-center text-center space-y-10 max-w-5xl mx-auto">
-            {/* Logo with Glow Effect */}
-            <div className="relative">
-              <div className="absolute inset-0 bg-brand-orange/50 rounded-full blur-2xl animate-pulse"></div>
-              <img src={APP_LOGO} alt="Tech Horizon Labs" className="relative w-20 h-20 md:w-28 md:h-28 drop-shadow-2xl" />
-            </div>
+            <img src={APP_LOGO} alt="Tech Horizon Labs" className="w-20 h-20 md:w-24 md:h-24" />
             
-            {/* Clear Value Proposition with Better Typography */}
+            {/* Clear Value Proposition */}
             <div className="space-y-6">
-              <Badge className="bg-brand-orange/20 border-2 border-brand-orange text-white text-base px-6 py-2 mb-4">
-                <Sparkles className="w-4 h-4 mr-2" />
-                Trusted by 200+ Queensland Businesses
-              </Badge>
-              <h1 className="text-5xl md:text-7xl font-bold leading-tight tracking-tight">
-                AI Implementation for<br />
-                <span className="bg-gradient-to-r from-brand-orange to-yellow-300 bg-clip-text text-transparent">Queensland SMBs</span>
+              <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+                AI Implementation for<br />Queensland SMBs
               </h1>
-              <div className="text-2xl md:text-3xl font-semibold text-brand-orange drop-shadow-lg">
+              <div className="text-2xl md:text-3xl font-semibold text-brand-orange">
                 Without the Complexity, Cost, or Risk
               </div>
               <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-                Average savings: <span className="font-bold text-brand-orange text-3xl">$15K/year</span> in just 4 weeks.<br />
-                <span className="text-lg">No coding required • 3-month ROI guarantee • Security-first approach</span>
+                200+ businesses saved <span className="font-bold text-brand-orange">$15K/year</span> in 4 weeks.<br />
+                No coding required. <span className="font-bold">3-month ROI guarantee.</span>
               </p>
             </div>
 
-            {/* Enhanced Primary CTA with Icons */}
+            {/* Primary CTA */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="bg-brand-orange hover:bg-brand-orange/90 text-white text-lg px-10 py-7 h-auto shadow-2xl hover:shadow-brand-orange/50 transition-all hover:scale-105">
-                  <Clock className="w-5 h-5 mr-2" />
+                <Button size="lg" className="bg-brand-orange hover:bg-brand-orange/90 text-white text-lg px-10 py-7 h-auto shadow-2xl">
                   Book Free 15-Min AI Audit <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
               </a>
-              <Link href="/scorecard">
-                <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-brand-purple text-lg px-10 py-7 h-auto hover:scale-105 transition-all">
-                  <BarChart3 className="w-5 h-5 mr-2" /> Take AI Readiness Quiz
-                </Button>
-              </Link>
+              <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-brand-purple text-lg px-10 py-7 h-auto">
+                <Play className="w-5 h-5 mr-2" /> See How It Works
+              </Button>
             </div>
 
-            {/* Enhanced Trust Bar */}
+            {/* Trust Bar */}
             <div className="flex flex-wrap items-center justify-center gap-8 pt-8 border-t border-white/20">
               <div className="flex items-center gap-2 text-white/90">
                 <div className="flex">
@@ -113,7 +96,7 @@ export default function Home() {
                     <Star key={i} className="w-5 h-5 fill-brand-orange text-brand-orange" />
                   ))}
                 </div>
-                <span className="font-semibold">200+ Happy Clients</span>
+                <span className="font-semibold">4.9/5 from 87 reviews</span>
               </div>
               <div className="flex items-center gap-2 text-white/90">
                 <Users className="w-5 h-5" />
@@ -252,15 +235,13 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Huxley's Photo */}
+            {/* Photo Placeholder */}
             <div className="order-2 md:order-1">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-purple to-brand-orange rounded-2xl blur-2xl opacity-30"></div>
-                <img 
-                  src="/instructor-huxley.jpeg" 
-                  alt="Huxley Peckham - AI Implementation Partner" 
-                  className="relative w-full aspect-square object-cover rounded-2xl shadow-2xl border-4 border-white"
-                />
+              <div className="aspect-square bg-gradient-to-br from-brand-purple to-brand-blue rounded-2xl flex items-center justify-center">
+                <div className="text-white text-center p-8">
+                  <Users className="w-24 h-24 mx-auto mb-4 opacity-50" />
+                  <p className="text-lg opacity-75">Professional headshot goes here</p>
+                </div>
               </div>
             </div>
 
@@ -432,104 +413,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* AI Readiness Checker Section - NEW */}
-      <section className="py-20 md:py-28 bg-gradient-to-br from-brand-blue/10 via-brand-purple/10 to-brand-blue/10">
-        <div className="container max-w-5xl">
-          <div className="text-center mb-12">
-            <Badge className="bg-brand-blue text-white text-base px-4 py-2 mb-4">
-              <BarChart3 className="w-4 h-4 mr-2" />
-              Free Assessment
-            </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Where Does Your Business Stand?
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Take our 5-minute AI Readiness Assessment and get a personalized roadmap
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <Card className="border-2 hover:shadow-xl transition-all">
-              <CardHeader>
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                  <Target className="w-6 h-6 text-blue-600" />
-                </div>
-                <CardTitle className="text-xl">Quick Tool Stack Audit</CardTitle>
-                <CardDescription className="text-base">5 questions • 2 minutes</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-gray-700">
-                  Discover which 3-5 tools will save you the most money and time based on your team size and industry.
-                </p>
-                <ul className="space-y-2 text-sm text-gray-600">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span>Personalized tool recommendations</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span>Annual cost savings projection</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span>Implementation difficulty rating</span>
-                  </li>
-                </ul>
-                <Link href="/quiz">
-                  <Button className="w-full bg-brand-blue hover:bg-brand-blue/90">
-                    Start Tool Audit <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
-
-            <Card className="border-2 border-brand-purple hover:shadow-xl transition-all">
-              <CardHeader>
-                <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4">
-                  <BarChart3 className="w-6 h-6 text-purple-600" />
-                </div>
-                <CardTitle className="text-xl">Full AI Readiness Scorecard</CardTitle>
-                <CardDescription className="text-base">20 questions • 5 minutes</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-gray-700">
-                  Get a comprehensive assessment across 5 dimensions: Technology, Process, People, Security, and ROI.
-                </p>
-                <ul className="space-y-2 text-sm text-gray-600">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span>Detailed readiness score (0-100)</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span>Personalized implementation proposal</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span>Priority actions and timeline</span>
-                  </li>
-                </ul>
-                <Link href="/scorecard">
-                  <Button className="w-full bg-brand-purple hover:bg-brand-purple/90">
-                    Take Full Assessment <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
-          </div>
-
-          <div className="text-center">
-            <p className="text-gray-600 mb-4">
-              Not sure which one to take? Start with the Quick Tool Audit.
-            </p>
-            <p className="text-sm text-gray-500">
-              Both assessments are 100% free. No credit card required.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Workshop Teaser Section */}
+      {/* Workshop Teaser Section - NEW */}
       <section className="py-20 md:py-28 bg-gradient-to-r from-brand-orange/10 to-brand-orange/5">
         <div className="container max-w-4xl">
           <div className="text-center space-y-6">
@@ -594,8 +478,8 @@ export default function Home() {
             {/* Manus */}
             <Card className="border-2 border-brand-purple bg-brand-purple/5">
               <CardHeader className="text-center pb-3">
-                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mx-auto mb-3 p-2 shadow-lg">
-                  <img src={APP_LOGO} alt="Manus" className="w-full h-full object-contain" />
+                <div className="w-16 h-16 bg-gradient-to-br from-brand-purple to-brand-dark-purple rounded-2xl flex items-center justify-center mx-auto mb-3">
+                  <Wand2 className="w-8 h-8 text-white" />
                 </div>
                 <CardTitle className="text-base">Manus</CardTitle>
                 <CardDescription className="text-xs font-semibold text-brand-purple">This academy! ⭐</CardDescription>
@@ -787,170 +671,6 @@ export default function Home() {
                 View All Case Studies <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Google Reviews Section - NEW */}
-      <section className="py-20 md:py-28 bg-gray-50">
-        <div className="container max-w-6xl">
-          <div className="text-center mb-12">
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <div className="flex">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-6 h-6 fill-yellow-400 text-yellow-400" />
-                ))}
-              </div>
-              <span className="text-2xl font-bold">5.0</span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Trusted by Queensland Businesses
-            </h2>
-            <p className="text-xl text-gray-600">
-              Real results from real businesses on the Sunshine Coast
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Review 1 - Edwards Essences */}
-            <Card className="border-2 hover:shadow-xl transition-all">
-              <CardHeader>
-                <div className="flex items-start justify-between mb-2">
-                  <div>
-                    <CardTitle className="text-lg">Edwards Essences</CardTitle>
-                    <CardDescription>Noosa Business</CardDescription>
-                  </div>
-                  <div className="flex">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-700 text-sm leading-relaxed">
-                  "Tech Horizon has truly delivered. Their proactive IT managed services have given us peace of mind... The implementation of their Core Security Suite has significantly strengthened our defenses. We highly recommend Tech Horizon to any Noosa or Sunshine Coast business."
-                </p>
-              </CardContent>
-            </Card>
-
-            {/* Review 2 - Josh Green */}
-            <Card className="border-2 hover:shadow-xl transition-all">
-              <CardHeader>
-                <div className="flex items-start justify-between mb-2">
-                  <div>
-                    <CardTitle className="text-lg">Josh Green</CardTitle>
-                    <CardDescription>Marketing Business</CardDescription>
-                  </div>
-                  <div className="flex">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-700 text-sm leading-relaxed">
-                  "Huxley is super knowledgeable around AI tools and automation. He quickly deciphered and understood our existing workflows and tools so it wasn't long before we were implementing some great time-saving changes in our marketing business. I can highly recommend using Tech Horizon Labs!"
-                </p>
-              </CardContent>
-            </Card>
-
-            {/* Review 3 - Michael Hunt */}
-            <Card className="border-2 hover:shadow-xl transition-all">
-              <CardHeader>
-                <div className="flex items-start justify-between mb-2">
-                  <div>
-                    <CardTitle className="text-lg">Michael Hunt</CardTitle>
-                    <CardDescription>Business Owner</CardDescription>
-                  </div>
-                  <div className="flex">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-700 text-sm leading-relaxed">
-                  "I use Huxley from Horizon labs for all my AI and tech needs. Huxley knows so much and is right across the latest technology... I have saved so much time using technology he has suggested. I continue to meet with Huxley once a month to ensure I am up to date with the latest tech!"
-                </p>
-              </CardContent>
-            </Card>
-
-            {/* Review 4 - S J */}
-            <Card className="border-2 hover:shadow-xl transition-all">
-              <CardHeader>
-                <div className="flex items-start justify-between mb-2">
-                  <div>
-                    <CardTitle className="text-lg">S J</CardTitle>
-                    <CardDescription>Residential Client</CardDescription>
-                  </div>
-                  <div className="flex">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-700 text-sm leading-relaxed">
-                  "We recently had Huxley from Tech Horizon Labs install a WiFi bridging system after struggling with poor internet quality. He was professional, efficient, and explained everything clearly. The results have been incredible - we now have super fast, reliable internet. Couldn't be happier!"
-                </p>
-              </CardContent>
-            </Card>
-
-            {/* Review 5 - DAVID SMALL */}
-            <Card className="border-2 hover:shadow-xl transition-all">
-              <CardHeader>
-                <div className="flex items-start justify-between mb-2">
-                  <div>
-                    <CardTitle className="text-lg">David Small</CardTitle>
-                    <CardDescription>Product Development</CardDescription>
-                  </div>
-                  <div className="flex">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-700 text-sm leading-relaxed">
-                  "With a product opportunity identified, one of the most important decisions of commercialisation takes place... The one-slide, clickable schematic is helping present the market, capability, budget and timeline in a clear, professional way."
-                </p>
-              </CardContent>
-            </Card>
-
-            {/* Review 6 - John Raeside */}
-            <Card className="border-2 hover:shadow-xl transition-all">
-              <CardHeader>
-                <div className="flex items-start justify-between mb-2">
-                  <div>
-                    <CardTitle className="text-lg">John Raeside</CardTitle>
-                    <CardDescription>Business Client</CardDescription>
-                  </div>
-                  <div className="flex">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-700 text-sm leading-relaxed">
-                  "Huxley is attentive to work circumstance and progressive to recognise ways to improve work function through IT systems and setup. Thank you Huxley and see you again soon!"
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-
-          <div className="text-center mt-12">
-            <a href="https://www.google.com/maps/place/Tech+Horizon+Labs" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" variant="outline" className="border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white">
-                Read All Reviews on Google <ExternalLink className="w-5 h-5 ml-2" />
-              </Button>
-            </a>
           </div>
         </div>
       </section>

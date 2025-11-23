@@ -340,10 +340,24 @@ export default function AIReadinessQuiz() {
   const [company, setCompany] = useState("");
   const [phone, setPhone] = useState("");
 
-  const generateScorecardMutation = trpc.scorecard.generate.useMutation({
-    onSuccess: () => {
-      toast.success("Scorecard sent to your email!");
+  const submitAssessment = trpc.assessment.submit.useMutation({
+    onSuccess: (data) => {
+      toast.success("Scorecard sent! Check your inbox and download below.");
       setShowEmailForm(false);
+      
+      // Download PDF immediately
+      if (data.pdfBase64) {
+        const blob = new Blob(
+          [Uint8Array.from(atob(data.pdfBase64), c => c.charCodeAt(0))],
+          { type: "application/pdf" }
+        );
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "ai-readiness-scorecard.pdf";
+        a.click();
+        URL.revokeObjectURL(url);
+      }
     },
     onError: (error: { message: string }) => {
       toast.error(`Failed to generate scorecard: ${error.message}`);
@@ -429,15 +443,20 @@ export default function AIReadinessQuiz() {
     const { dimensions, overall } = calculateScores();
     const readinessLevel = calculateReadinessLevel(overall);
 
-    generateScorecardMutation.mutate({
-      email,
+    submitAssessment.mutate({
       name,
-      company,
+      email,
       phone,
-      overallScore: overall,
-      dimensionScores: dimensions,
-      readinessLevel: readinessLevel.level,
-      recommendedPath: readinessLevel.recommendedPath,
+      company,
+      assessmentType: "full",
+      score: overall,
+      answers: {
+        ...answers,
+        dimensionScores: dimensions,
+        readinessLevel: readinessLevel.level,
+      },
+      recommendations: [readinessLevel.recommendedPath],
+      source: "scorecard-page",
     });
   };
 
@@ -500,10 +519,10 @@ export default function AIReadinessQuiz() {
             <div className="flex gap-3 pt-4">
               <Button
                 onClick={handleDownloadScorecard}
-                disabled={generateScorecardMutation.isPending}
+                disabled={submitAssessment.isPending}
                 className="flex-1"
               >
-                {generateScorecardMutation.isPending ? (
+                {submitAssessment.isPending ? (
                   "Generating..."
                 ) : (
                   <>

@@ -25,6 +25,7 @@ import CaseStudies from "./pages/CaseStudies";
 import Quiz from "./pages/Quiz";
 import About from "./pages/About";
 import Scorecard from "./pages/Scorecard";
+import AdminAssessments from "./pages/AdminAssessments";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -50,6 +51,7 @@ function Router() {
       <Route path="/about" component={About} />
       <Route path="/how-it-works" component={About} />
       <Route path="/scorecard" component={Scorecard} />
+      <Route path="/admin/assessments" component={AdminAssessments} />
       <Route path="{/404}" component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

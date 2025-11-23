@@ -274,3 +274,27 @@ export const forumComments = mysqlTable("forumComments", {
 
 export type ForumComment = typeof forumComments.$inferSelect;
 export type InsertForumComment = typeof forumComments.$inferInsert;
+
+/**
+ * Assessment results table
+ * Stores quiz and scorecard assessment results for lead generation
+ */
+export const assessmentResults = mysqlTable("assessmentResults", {
+  id: int("id").autoincrement().primaryKey(),
+  name: varchar("name", { length: 255 }).notNull(),
+  email: varchar("email", { length: 320 }).notNull(),
+  phone: varchar("phone", { length: 50 }),
+  company: varchar("company", { length: 255 }),
+  assessmentType: mysqlEnum("assessmentType", ["quick", "full"]).notNull(),
+  score: int("score").notNull(),
+  answers: text("answers").notNull(), // JSON string of all answers
+  recommendations: text("recommendations").notNull(), // JSON array of recommended tools
+  reportGenerated: int("reportGenerated").default(0).notNull(), // 0 = no, 1 = yes
+  emailSent: int("emailSent").default(0).notNull(), // 0 = no, 1 = yes
+  crmPushed: int("crmPushed").default(0).notNull(), // 0 = no, 1 = yes
+  source: varchar("source", { length: 100 }), // Where they came from (homepage, quiz page, etc.)
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type AssessmentResult = typeof assessmentResults.$inferSelect;
+export type InsertAssessmentResult = typeof assessmentResults.$inferInsert;

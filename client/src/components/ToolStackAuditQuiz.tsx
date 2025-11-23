@@ -15,6 +15,7 @@ import {
   Mail
 } from "lucide-react";
 import { toast } from "sonner";
+import { trpc } from "@/lib/trpc";
 
 type QuizAnswers = {
   teamSize: string;
@@ -40,6 +41,7 @@ export default function ToolStackAuditQuiz() {
     budget: "",
     technical: ""
   });
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [showResults, setShowResults] = useState(false);
 
@@ -112,14 +114,49 @@ export default function ToolStackAuditQuiz() {
     }
   };
 
+  const submitAssessment = trpc.assessment.submit.useMutation({
+    onSuccess: (data) => {
+      toast.success("Report sent! Check your inbox and download below.");
+      
+      // Download PDF immediately
+      if (data.pdfBase64) {
+        const blob = new Blob(
+          [Uint8Array.from(atob(data.pdfBase64), c => c.charCodeAt(0))],
+          { type: "application/pdf" }
+        );
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "tool-audit-report.pdf";
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+    },
+    onError: (error) => {
+      toast.error("Failed to send report. Please try again.");
+      console.error("Assessment submission error:", error);
+    },
+  });
+
   const handleEmailSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) {
       toast.error("Please enter your email");
       return;
     }
-    toast.success("Audit report sent! Check your inbox.");
-    // TODO: Integrate with email service
+
+    const recommendations = getRecommendations();
+    const roi = calculateROI();
+
+    submitAssessment.mutate({
+      name: name || email.split("@")[0],
+      email,
+      assessmentType: "quick",
+      score: recommendations.length,
+      answers: answers as Record<string, any>,
+      recommendations: recommendations.map(r => r.name),
+      source: "quiz-page",
+    });
   };
 
   const getRecommendations = (): ToolRecommendation[] => {
@@ -343,6 +380,18 @@ export default function ToolStackAuditQuiz() {
           <CardContent>
             <form onSubmit={handleEmailSubmit} className="space-y-4">
               <div>
+                <Label htmlFor="name" className="text-base">Your Name</Label>
+                <Input
+                  id="name"
+                  type="text"
+                  placeholder="John Smith"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="mt-2 h-12 text-base"
+                  required
+                />
+              </div>
+              <div>
                 <Label htmlFor="email" className="text-base">Email Address</Label>
                 <Input
                   id="email"
@@ -390,6 +439,7 @@ export default function ToolStackAuditQuiz() {
                 budget: "",
                 technical: ""
               });
+              setName("");
               setEmail("");
               setShowResults(false);
             }}

@@ -198,6 +198,104 @@ export const appRouter = router({
         };
       }),
   }),
+
+  // Assessment submission and report generation
+  assessment: router({
+    submit: publicProcedure
+      .input(
+        z.object({
+          name: z.string().min(1),
+          email: z.string().email(),
+          phone: z.string().optional(),
+          company: z.string().optional(),
+          assessmentType: z.enum(["quick", "full"]),
+          score: z.number(),
+          answers: z.record(z.string(), z.any()),
+          recommendations: z.array(z.string()),
+          source: z.string().optional(),
+        })
+      )
+      .mutation(async ({ input }) => {
+        const { createAssessmentResult, updateAssessmentFlags } = await import("./assessments");
+        const { generateAssessmentPDF } = await import("./pdfReport");
+        const { sendAssessmentReport } = await import("./resend");
+        const { pushAssessmentLead } = await import("./klipy");
+
+        // Store in database
+        const result = await createAssessmentResult({
+          name: input.name,
+          email: input.email,
+          phone: input.phone,
+          company: input.company,
+          assessmentType: input.assessmentType,
+          score: input.score,
+          answers: JSON.stringify(input.answers),
+          recommendations: JSON.stringify(input.recommendations),
+          source: input.source,
+        });
+
+        const assessmentId = result.insertId;
+
+        // Generate PDF report
+        let pdfBase64 = "";
+        try {
+          pdfBase64 = await generateAssessmentPDF({
+            name: input.name,
+            assessmentType: input.assessmentType,
+            score: input.score,
+            recommendations: input.recommendations,
+            answers: input.answers,
+          });
+          await updateAssessmentFlags(assessmentId, { reportGenerated: true });
+        } catch (error) {
+          console.error("[Assessment] Failed to generate PDF:", error);
+        }
+
+        // Send email with PDF attachment
+        try {
+          await sendAssessmentReport({
+            to: input.email,
+            name: input.name,
+            assessmentType: input.assessmentType,
+            score: input.score,
+            pdfBase64,
+          });
+          await updateAssessmentFlags(assessmentId, { emailSent: true });
+        } catch (error) {
+          console.error("[Assessment] Failed to send email:", error);
+        }
+
+        // Push to Klipy CRM
+        try {
+          await pushAssessmentLead({
+            email: input.email,
+            name: input.name,
+            phone: input.phone,
+            assessmentType: input.assessmentType,
+            score: input.score,
+            recommendations: input.recommendations,
+          });
+          await updateAssessmentFlags(assessmentId, { crmPushed: true });
+        } catch (error) {
+          console.error("[Assessment] Failed to push to CRM:", error);
+        }
+
+        return {
+          success: true,
+          assessmentId,
+          pdfBase64, // Return PDF for immediate download
+        };
+      }),
+
+    // Admin: Get all assessment results
+    getAll: protectedProcedure.query(async ({ ctx }) => {
+      if (ctx.user.role !== "admin") {
+        throw new Error("Unauthorized");
+      }
+      const { getAllAssessmentResults } = await import("./assessments");
+      return getAllAssessmentResults();
+    }),
+  }),
 });
 
 export type AppRouter = typeof appRouter;
