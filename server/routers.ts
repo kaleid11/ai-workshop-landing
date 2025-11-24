@@ -2,7 +2,7 @@ import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { protectedProcedure, publicProcedure, router } from "./_core/trpc";
-import { hasWorkshopAccess, useAdminToken, generateAdminToken, updateWorkshopReplay, getMembershipTiers, getUserSubscription, getTools, getPrompts, getActivePillars } from "./db";
+import { hasWorkshopAccess, getUserPurchase, useAdminToken, generateAdminToken, updateWorkshopReplay, getMembershipTiers, getUserSubscription, getTools, getPrompts, getActivePillars, getAllPurchasesWithUsers, manuallyGrantAccess } from "./db";
 import { z } from "zod";
 import Stripe from "stripe";
 import { WORKSHOP_PRODUCTS } from "./products";
@@ -70,12 +70,16 @@ export const appRouter = router({
 
   portal: router({
     checkAccess: protectedProcedure.query(async ({ ctx }) => {
-      const hasAccess = await hasWorkshopAccess(ctx.user.id);
+      const purchase = await getUserPurchase(ctx.user.id);
+      const hasAccess = purchase?.status === "completed";
+      
       return {
         hasAccess,
         userId: ctx.user.id,
         userName: ctx.user.name,
         userEmail: ctx.user.email,
+        liveAccessExpiresAt: purchase?.liveAccessExpiresAt || null,
+        purchasedAt: purchase?.purchasedAt || null,
       };
     }),
   }),
@@ -115,6 +119,27 @@ export const appRouter = router({
         }
         await updateWorkshopReplay(input.videoUrl);
         return { success: true };
+      }),
+    getAllPurchases: protectedProcedure.query(async ({ ctx }) => {
+      // Check if user is admin
+      if (ctx.user.role !== "admin") {
+        throw new Error("Unauthorized: Admin access required");
+      }
+      return await getAllPurchasesWithUsers();
+    }),
+    grantWorkshopAccess: protectedProcedure
+      .input(
+        z.object({
+          email: z.string().email(),
+          amount: z.number().int().positive(),
+        })
+      )
+      .mutation(async ({ input, ctx }) => {
+        // Check if user is admin
+        if (ctx.user.role !== "admin") {
+          throw new Error("Unauthorized: Admin access required");
+        }
+        return await manuallyGrantAccess(input.email, input.amount);
       }),
   }),
 

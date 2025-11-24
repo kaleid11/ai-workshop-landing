@@ -26,6 +26,7 @@ import Quiz from "./pages/Quiz";
 import About from "./pages/About";
 import Scorecard from "./pages/Scorecard";
 import AdminAssessments from "./pages/AdminAssessments";
+import AdminWorkshopAccess from "./pages/AdminWorkshopAccess";
 import Workshop from "./pages/Workshop";
 
 function Router() {
@@ -54,6 +55,7 @@ function Router() {
       <Route path="/how-it-works" component={About} />
       <Route path="/scorecard" component={Scorecard} />
       <Route path="/admin/assessments" component={AdminAssessments} />
+      <Route path="/admin/workshop-access" component={AdminWorkshopAccess} />
       <Route path="{/404}" component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

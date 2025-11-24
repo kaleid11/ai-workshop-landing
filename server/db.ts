@@ -128,6 +128,25 @@ export async function hasWorkshopAccess(userId: number): Promise<boolean> {
 }
 
 /**
+ * Get user's purchase details including live access expiry
+ */
+export async function getUserPurchase(userId: number) {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot get purchase: database not available");
+    return undefined;
+  }
+
+  const result = await db
+    .select()
+    .from(purchases)
+    .where(eq(purchases.userId, userId))
+    .limit(1);
+
+  return result.length > 0 ? result[0] : undefined;
+}
+
+/**
  * Get user's purchase by session ID
  */
 export async function getPurchaseBySessionId(sessionId: string) {
@@ -383,4 +402,87 @@ export async function getActivePillars() {
     .orderBy(pillars.displayOrder);
 
   return result;
+}
+
+
+/**
+ * Get all purchases with user information (admin only)
+ */
+export async function getAllPurchasesWithUsers() {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot get purchases: database not available");
+    return [];
+  }
+
+  const result = await db
+    .select({
+      id: purchases.id,
+      userId: purchases.userId,
+      stripeSessionId: purchases.stripeSessionId,
+      stripePaymentIntentId: purchases.stripePaymentIntentId,
+      productId: purchases.productId,
+      amount: purchases.amount,
+      currency: purchases.currency,
+      status: purchases.status,
+      purchasedAt: purchases.purchasedAt,
+      liveAccessExpiresAt: purchases.liveAccessExpiresAt,
+      userName: users.name,
+      userEmail: users.email,
+    })
+    .from(purchases)
+    .leftJoin(users, eq(purchases.userId, users.id))
+    .orderBy(purchases.purchasedAt);
+
+  return result;
+}
+
+/**
+ * Manually grant workshop access to a user by email (admin only)
+ */
+export async function manuallyGrantAccess(email: string, amount: number) {
+  const db = await getDb();
+  if (!db) {
+    throw new Error("Database not available");
+  }
+
+  // Find user by email
+  const userResult = await db
+    .select()
+    .from(users)
+    .where(eq(users.email, email))
+    .limit(1);
+
+  if (userResult.length === 0) {
+    throw new Error(`User with email ${email} not found`);
+  }
+
+  const user = userResult[0];
+
+  // Check if user already has access
+  const existingPurchase = await getUserPurchase(user.id);
+  if (existingPurchase) {
+    throw new Error(`User ${email} already has workshop access`);
+  }
+
+  // Create purchase record with 1-month free live access
+  const oneMonthFromNow = new Date();
+  oneMonthFromNow.setMonth(oneMonthFromNow.getMonth() + 1);
+
+  await createPurchase({
+    userId: user.id,
+    stripeSessionId: `manual_${Date.now()}_${user.id}`,
+    stripePaymentIntentId: `manual_${Date.now()}`,
+    productId: "manual_grant",
+    amount,
+    currency: "aud",
+    status: "completed",
+    liveAccessExpiresAt: oneMonthFromNow,
+  });
+
+  return {
+    success: true,
+    message: `Workshop access granted to ${email}`,
+    userId: user.id,
+  };
 }

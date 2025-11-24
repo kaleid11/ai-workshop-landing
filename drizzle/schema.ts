@@ -39,6 +39,7 @@ export const purchases = mysqlTable("purchases", {
   currency: varchar("currency", { length: 3 }).notNull(),
   status: mysqlEnum("status", ["pending", "completed", "refunded"]).default("pending").notNull(),
   purchasedAt: timestamp("purchasedAt").defaultNow().notNull(),
+  liveAccessExpiresAt: timestamp("liveAccessExpiresAt"), // 1 month free live workshop access
 });
 
 export type Purchase = typeof purchases.$inferSelect;

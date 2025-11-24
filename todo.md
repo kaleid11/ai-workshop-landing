@@ -684,3 +684,46 @@ Webhook couldn't find user, so purchases weren't recorded.
 
 **Fix Applied:**
 Changed `client_reference_id: ctx.user.id.toString()` to `client_reference_id: ctx.user.openId`
+
+
+## Workshop Portal System
+
+- [ ] Design access system (lifetime recordings/resources, 1-month free live access)
+- [ ] Update database schema to track purchase date and access expiry
+- [ ] Create /portal page with workshop content
+- [ ] Add WhatsApp group link section
+- [ ] Add resources/templates download section
+- [ ] Add workshop recording embed/links
+- [ ] Add live workshop access section (with expiry check)
+- [ ] Create admin panel at /admin/workshop-access
+- [ ] Add manual access grant functionality for admin
+- [ ] Add user search and access binding in admin panel
+- [ ] Update purchase confirmation email with portal link
+- [ ] Test portal access for purchased users
+- [ ] Test admin manual access grant
+
+## Portal System Completed (Nov 24)
+
+- [x] Design access system (lifetime recordings/resources, 1-month free live access)
+- [x] Update database schema to track purchase date and access expiry
+- [x] Portal page already exists with comprehensive content
+- [x] Add liveAccessExpiresAt field to purchases table
+- [x] Update webhook to set 1-month free live access on purchase
+- [x] Update checkAccess endpoint to return live access expiry date
+- [x] Create admin panel at /admin/workshop-access
+- [x] Add manual access grant functionality for admin
+- [x] Add getAllPurchasesWithUsers function
+- [x] Add manuallyGrantAccess function
+- [x] Update purchase confirmation email with portal link and lifetime access details
+- [x] Add admin route to App.tsx
+
+**Access System:**
+- One-time purchase = Lifetime access to recordings + resources + WhatsApp
+- 1 month free live workshop access (auto-expires)
+- Admin can manually grant access to users who paid outside the system
+
+**Admin Panel:**
+- View all purchases with user info
+- See live access expiry status
+- Manually grant workshop access by email
+- Search purchases by email

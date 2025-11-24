@@ -14,38 +14,44 @@ export async function sendWelcomeEmail(
 
 Welcome to the AI Social Media Workshop! 🎉
 
-Thank you for joining us. You're all set for the workshop on Wednesday, November 26th at 9:00 AM Brisbane time (10:00 AM Melbourne time).
+Your payment has been confirmed and you now have LIFETIME ACCESS to:
 
-Here's what you need to know:
+✅ Workshop recordings (forever)
+✅ All templates & resources (forever)
+✅ WhatsApp community group (forever)
+✅ 1 month FREE live workshop access
 
-🔗 ACCESS YOUR PORTAL
-Visit your member portal here: ${portalUrl}
+🔗 ACCESS YOUR PORTAL NOW
+👉 ${portalUrl}
 
-In the portal, you'll find:
+Your portal contains everything you need:
+- Workshop recordings & bonus content
+- Downloadable templates & checklists
 - WhatsApp community link
-- Facebook community resources
-- Add-to-calendar button for the workshop
-- All workshop materials and templates
-- Email support access
+- Live workshop calendar
+- Tool stack guides
 
-📅 WORKSHOP DETAILS
+📅 NEXT LIVE WORKSHOP
 Date: Wednesday, November 26, 2025
 Time: 9:00 AM - 11:00 AM (Brisbane) / 10:00 AM - 12:00 PM (Melbourne)
 Duration: 2 hours
 
 What you'll learn:
-✓ Automate social media posts
-✓ Create videos with AI tools
-✓ Edit videos using your own likeness
-✓ Optional: Clone yourself with AI
+✓ Automate social media with AI
+✓ Create & edit videos using AI tools
+✓ Build content workflows that save 10+ hours/week
+✓ Master the 7-tool stack that replaces 15+ expensive tools
 
-💬 JOIN THE COMMUNITY
-Connect with other workshop attendees in our WhatsApp group (link in portal). Share ideas, ask questions, and network with fellow operators.
+💬 JOIN THE WHATSAPP GROUP
+Connect with other workshop members in our private WhatsApp community (link in your portal). Share wins, ask questions, and get real-time support.
+
+⏰ YOUR 1-MONTH FREE LIVE ACCESS
+You have 1 month of FREE access to all live workshops. After that, you'll still have lifetime access to all recordings and resources - you'll just need to renew if you want to join future live sessions.
 
 📧 NEED HELP?
 Email us at info@thzn.world anytime.
 
-See you at the workshop!
+See you in the portal!
 
 Best regards,
 Huxley Peckham

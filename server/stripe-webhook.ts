@@ -63,7 +63,10 @@ export async function handleStripeWebhook(req: Request, res: Response) {
         return res.status(404).send("User not found");
       }
 
-      // Create purchase record
+      // Create purchase record with 1-month free live access
+      const oneMonthFromNow = new Date();
+      oneMonthFromNow.setMonth(oneMonthFromNow.getMonth() + 1);
+
       await createPurchase({
         userId: user.id,
         stripeSessionId: session.id,
@@ -72,6 +75,7 @@ export async function handleStripeWebhook(req: Request, res: Response) {
         amount: session.amount_total || 0,
         currency: session.currency || "aud",
         status: "completed",
+        liveAccessExpiresAt: oneMonthFromNow, // 1 month free live workshop access
       });
 
       console.log("[Stripe Webhook] Purchase recorded for user:", user.id);
