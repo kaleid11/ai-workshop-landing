@@ -81,8 +81,9 @@ export default function Workshop() {
 
   const handleCheckout = async (priceId: string) => {
     if (!isAuthenticated) {
-      // Redirect to login if not authenticated
-      window.location.href = getLoginUrl();
+      // Redirect to login with current page as return URL
+      // This ensures user comes back to workshop page after login
+      window.location.href = getLoginUrl(window.location.pathname + window.location.search);
       return;
     }
 

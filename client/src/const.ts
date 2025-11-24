@@ -7,11 +7,18 @@ export const APP_LOGO = "/images/logo-new.png";
 export const BOOKING_URL = "https://klipy.ai/huxleyp";
 
 // Generate login URL at runtime so redirect URI reflects the current origin.
-export const getLoginUrl = () => {
+// Optionally accepts a return URL to redirect to after login
+export const getLoginUrl = (returnTo?: string) => {
   const oauthPortalUrl = import.meta.env.VITE_OAUTH_PORTAL_URL;
   const appId = import.meta.env.VITE_APP_ID;
   const redirectUri = `${window.location.origin}/api/oauth/callback`;
-  const state = btoa(redirectUri);
+  
+  // Encode both the callback URI and the return URL in state
+  const stateData = {
+    redirectUri,
+    returnTo: returnTo || window.location.pathname + window.location.search
+  };
+  const state = btoa(JSON.stringify(stateData));
 
   const url = new URL(`${oauthPortalUrl}/app-auth`);
   url.searchParams.set("appId", appId);

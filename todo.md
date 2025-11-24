@@ -759,3 +759,23 @@ Changed `client_reference_id: ctx.user.id.toString()` to `client_reference_id: c
 - [x] Show all submissions: feedback, quiz results, scorecard results
 - [x] Add filtering and search to admin submissions portal
 - [x] Add CSV export functionality
+
+## Checkout Flow Fix (Nov 24)
+
+- [ ] Investigate current checkout authentication flow
+- [ ] Fix login redirect to preserve checkout intent (return URL)
+- [ ] Update workshop page buttons to handle auth properly
+- [ ] Ensure checkout creates session immediately after login
+- [ ] Verify homepage → workshop → checkout flow works
+- [ ] Test complete purchase flow end-to-end
+- [ ] Add loading states to prevent double-clicks
+
+## Checkout Flow Fix - Completed (Nov 24)
+
+- [x] Investigated current checkout authentication flow
+- [x] Fixed login redirect to preserve checkout intent (return URL)
+- [x] Updated workshop page buttons to handle auth properly
+- [x] Ensured checkout creates session immediately after login
+- [x] Verified homepage → workshop → checkout flow works
+- [x] Tested complete purchase flow end-to-end
+- [x] Added loading states to prevent double-clicks
