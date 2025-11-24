@@ -71,57 +71,40 @@ export default function Home() {
               <img src={APP_LOGO} alt="Tech Horizon Labs" className="relative w-20 h-20 md:w-28 md:h-28 drop-shadow-2xl" />
             </div>
             
-            {/* Clear Value Proposition with Better Typography */}
-            <div className="space-y-6">
-              <Badge className="bg-brand-orange/20 border-2 border-brand-orange text-white text-base px-6 py-2 mb-4">
-                <Sparkles className="w-4 h-4 mr-2" />
-                Trusted by 200+ Queensland Businesses
-              </Badge>
-              <h1 className="text-5xl md:text-7xl font-bold leading-tight tracking-tight">
-                AI Implementation for<br />
-                <span className="bg-gradient-to-r from-brand-orange to-yellow-300 bg-clip-text text-transparent">Queensland SMBs</span>
+            {/* Clear Value Proposition - Minimal Cognitive Load */}
+            <div className="space-y-8">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight max-w-4xl mx-auto">
+                Save $15K/Year with AI<br />
+                <span className="bg-gradient-to-r from-brand-orange to-yellow-300 bg-clip-text text-transparent">Without the Tech Headaches</span>
               </h1>
-              <div className="text-2xl md:text-3xl font-semibold text-brand-orange drop-shadow-lg">
-                Without the Complexity, Cost, or Risk
-              </div>
-              <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-                Average savings: <span className="font-bold text-brand-orange text-3xl">$15K/year</span> in just 4 weeks.<br />
-                <span className="text-lg">No coding required • 3-month ROI guarantee • Security-first approach</span>
+              <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
+                For Queensland & Australian SMBs who want AI results without complexity, cost blowouts, or security risks.
               </p>
             </div>
 
-            {/* Enhanced Primary CTA with Icons */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="bg-brand-orange hover:bg-brand-orange/90 text-white text-lg px-10 py-7 h-auto shadow-2xl hover:shadow-brand-orange/50 transition-all hover:scale-105">
-                  <Clock className="w-5 h-5 mr-2" />
-                  Book Free 15-Min AI Audit <ArrowRight className="w-5 h-5 ml-2" />
+            {/* Primary CTA - Single Clear Action */}
+            <div className="flex flex-col gap-4 pt-6">
+              <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="mx-auto">
+                <Button size="lg" className="bg-brand-orange hover:bg-brand-orange/90 text-white text-xl px-12 py-8 h-auto shadow-2xl hover:shadow-brand-orange/50 transition-all hover:scale-105 rounded-xl">
+                  Book Free 15-Min AI Audit <ArrowRight className="w-6 h-6 ml-3" />
                 </Button>
               </a>
-              <Link href="/scorecard">
-                <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-brand-purple text-lg px-10 py-7 h-auto hover:scale-105 transition-all">
-                  <BarChart3 className="w-5 h-5 mr-2" /> Take AI Readiness Quiz
-                </Button>
-              </Link>
+              <p className="text-sm text-white/70">No pressure • No commitment • Just clarity on your AI opportunities</p>
             </div>
 
-            {/* Enhanced Trust Bar */}
-            <div className="flex flex-wrap items-center justify-center gap-8 pt-8 border-t border-white/20">
+            {/* Trust Indicators - Simplified */}
+            <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 pt-8 border-t border-white/20">
               <div className="flex items-center gap-2 text-white/90">
                 <div className="flex">
                   {[1, 2, 3, 4, 5].map((i) => (
-                    <Star key={i} className="w-5 h-5 fill-brand-orange text-brand-orange" />
+                    <Star key={i} className="w-4 h-4 fill-brand-orange text-brand-orange" />
                   ))}
                 </div>
-                <span className="font-semibold">200+ Happy Clients</span>
+                <span className="text-sm font-medium">18 months • 200+ businesses</span>
               </div>
               <div className="flex items-center gap-2 text-white/90">
-                <Users className="w-5 h-5" />
-                <span>200+ businesses transformed</span>
-              </div>
-              <div className="flex items-center gap-2 text-white/90">
-                <Award className="w-5 h-5" />
-                <span>Featured at Noosa Chamber</span>
+                <Award className="w-4 h-4" />
+                <span className="text-sm font-medium">Noosa Chamber Featured</span>
               </div>
             </div>
           </div>
@@ -133,20 +116,20 @@ export default function Home() {
         <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
             <div className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-brand-purple mb-2">200+</div>
-              <div className="text-gray-600">Businesses Transformed</div>
+              <div className="text-4xl md:text-5xl font-bold text-brand-purple mb-2">18</div>
+              <div className="text-gray-600">Months Coaching</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-brand-orange mb-2">$180K</div>
+              <div className="text-4xl md:text-5xl font-bold text-brand-orange mb-2">$15K</div>
               <div className="text-gray-600">Avg. Annual Savings</div>
             </div>
             <div className="text-center">
               <div className="text-4xl md:text-5xl font-bold text-brand-blue mb-2">4 Weeks</div>
-              <div className="text-gray-600">To First Results</div>
+              <div className="text-gray-600">To First ROI</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-green-600 mb-2">98%</div>
-              <div className="text-gray-600">Client Satisfaction</div>
+              <div className="text-4xl md:text-5xl font-bold text-green-600 mb-2">10+</div>
+              <div className="text-gray-600">Hours Saved/Week</div>
             </div>
           </div>
         </div>
@@ -994,9 +977,9 @@ export default function Home() {
       {/* Newsletter Signup - NEW */}
       <section className="py-16 bg-white border-t">
         <div className="container max-w-2xl text-center space-y-6">
-          <h3 className="text-3xl font-bold">Get Weekly AI Tips for Queensland SMBs</h3>
+          <h3 className="text-3xl font-bold">Get Weekly AI Tips for Australian SMBs</h3>
           <p className="text-lg text-gray-600">
-            Join 500+ subscribers getting actionable AI tips every Tuesday
+            Join 500+ subscribers getting actionable AI tips every <strong>Friday afternoon</strong> (AEST/AEDT)
           </p>
           <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
             <input

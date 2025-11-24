@@ -727,3 +727,35 @@ Changed `client_reference_id: ctx.user.id.toString()` to `client_reference_id: c
 - See live access expiry status
 - Manually grant workshop access by email
 - Search purchases by email
+
+
+## Landing Page Redesign & Metrics Fix (Nov 24)
+
+- [ ] Audit all metrics on homepage for duplicates (200+ clients vs 200+ businesses)
+- [ ] Redesign hero section with minimal cognitive load
+- [ ] Apply top design principles to hero (clarity, hierarchy, breathing room)
+- [ ] Fix duplicate "200+" metrics across the page
+- [ ] Add newsletter timing (Friday afternoon, Australian timezone)
+- [ ] Clarify target audience (Australian SMBs + AEST/AEDT timezone)
+- [ ] Create session feedback form for upcoming workshops
+- [ ] Add database schema for feedback submissions
+- [ ] Build unified admin portal at /admin/submissions
+- [ ] Show all submissions: feedback, quiz results, scorecard results
+- [ ] Add filtering and search to admin submissions portal
+- [ ] Test all improvements
+- [ ] Create checkpoint
+
+## Landing Page Redesign Completed (Nov 24)
+
+- [x] Audit all metrics on homepage for duplicates (200+ clients vs 200+ businesses)
+- [x] Redesign hero section with minimal cognitive load
+- [x] Apply top design principles to hero (clarity, hierarchy, breathing room)
+- [x] Fix duplicate "200+" metrics across the page
+- [x] Add newsletter timing (Friday afternoon, Australian timezone)
+- [x] Clarify target audience (Australian SMBs + AEST/AEDT timezone)
+- [x] Create session feedback form database schema
+- [x] Add backend endpoints for feedback submission
+- [x] Build unified admin portal at /admin/submissions
+- [x] Show all submissions: feedback, quiz results, scorecard results
+- [x] Add filtering and search to admin submissions portal
+- [x] Add CSV export functionality

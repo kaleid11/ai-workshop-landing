@@ -2,7 +2,7 @@ import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { protectedProcedure, publicProcedure, router } from "./_core/trpc";
-import { hasWorkshopAccess, getUserPurchase, useAdminToken, generateAdminToken, updateWorkshopReplay, getMembershipTiers, getUserSubscription, getTools, getPrompts, getActivePillars, getAllPurchasesWithUsers, manuallyGrantAccess } from "./db";
+import { hasWorkshopAccess, getUserPurchase, useAdminToken, generateAdminToken, updateWorkshopReplay, getMembershipTiers, getUserSubscription, getTools, getPrompts, getActivePillars, getAllPurchasesWithUsers, manuallyGrantAccess, createSessionFeedback, getAllSessionFeedback, getAllAssessmentResults } from "./db";
 import { z } from "zod";
 import Stripe from "stripe";
 import { WORKSHOP_PRODUCTS } from "./products";
@@ -140,6 +140,37 @@ export const appRouter = router({
           throw new Error("Unauthorized: Admin access required");
         }
         return await manuallyGrantAccess(input.email, input.amount);
+      }),
+    getAllSubmissions: protectedProcedure.query(async ({ ctx }) => {
+      // Check if user is admin
+      if (ctx.user.role !== "admin") {
+        throw new Error("Unauthorized: Admin access required");
+      }
+      const [feedback, assessments] = await Promise.all([
+        getAllSessionFeedback(),
+        getAllAssessmentResults(),
+      ]);
+      return { feedback, assessments };
+    }),
+  }),
+
+  feedback: router({
+    submit: publicProcedure
+      .input(
+        z.object({
+          name: z.string().min(1),
+          email: z.string().email(),
+          company: z.string().optional(),
+          currentChallenges: z.string().min(1),
+          topicsInterested: z.string().min(1),
+          preferredFormat: z.enum(["live", "recorded", "both"]),
+          additionalComments: z.string().optional(),
+          source: z.string().optional(),
+        })
+      )
+      .mutation(async ({ input }) => {
+        await createSessionFeedback(input);
+        return { success: true };
       }),
   }),
 

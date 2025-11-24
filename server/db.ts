@@ -1,6 +1,6 @@
-import { eq } from "drizzle-orm";
+import { eq, desc } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { adminTokens, InsertPurchase, InsertUser, purchases, users } from "../drizzle/schema";
+import { adminTokens, InsertPurchase, InsertUser, purchases, users, sessionFeedback, InsertSessionFeedback, assessmentResults } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -485,4 +485,56 @@ export async function manuallyGrantAccess(email: string, amount: number) {
     message: `Workshop access granted to ${email}`,
     userId: user.id,
   };
+}
+
+// ============================================================================
+// Session Feedback Functions
+// ============================================================================
+
+export async function createSessionFeedback(feedback: InsertSessionFeedback) {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot create session feedback: database not available");
+    return null;
+  }
+
+  try {
+    await db.insert(sessionFeedback).values(feedback);
+    return feedback;
+  } catch (error) {
+    console.error("[Database] Failed to create session feedback:", error);
+    throw error;
+  }
+}
+
+export async function getAllSessionFeedback() {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot get session feedback: database not available");
+    return [];
+  }
+
+  try {
+    const results = await db.select().from(sessionFeedback).orderBy(desc(sessionFeedback.createdAt));
+    return results;
+  } catch (error) {
+    console.error("[Database] Failed to get session feedback:", error);
+    return [];
+  }
+}
+
+export async function getAllAssessmentResults() {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot get assessment results: database not available");
+    return [];
+  }
+
+  try {
+    const results = await db.select().from(assessmentResults).orderBy(desc(assessmentResults.createdAt));
+    return results;
+  } catch (error) {
+    console.error("[Database] Failed to get assessment results:", error);
+    return [];
+  }
 }

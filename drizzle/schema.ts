@@ -299,3 +299,24 @@ export const assessmentResults = mysqlTable("assessmentResults", {
 
 export type AssessmentResult = typeof assessmentResults.$inferSelect;
 export type InsertAssessmentResult = typeof assessmentResults.$inferInsert;
+
+
+/**
+ * Session feedback table
+ * Collects feedback for upcoming workshop sessions
+ */
+export const sessionFeedback = mysqlTable("sessionFeedback", {
+  id: int("id").autoincrement().primaryKey(),
+  name: varchar("name", { length: 255 }).notNull(),
+  email: varchar("email", { length: 320 }).notNull(),
+  company: varchar("company", { length: 255 }),
+  currentChallenges: text("currentChallenges").notNull(), // What challenges are you facing?
+  topicsInterested: text("topicsInterested").notNull(), // What topics would you like covered?
+  preferredFormat: mysqlEnum("preferredFormat", ["live", "recorded", "both"]).notNull(),
+  additionalComments: text("additionalComments"),
+  source: varchar("source", { length: 100 }), // Where they submitted from
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type SessionFeedback = typeof sessionFeedback.$inferSelect;
+export type InsertSessionFeedback = typeof sessionFeedback.$inferInsert;
