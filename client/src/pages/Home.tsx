@@ -939,16 +939,18 @@ export default function Home() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-20 md:py-28 bg-gradient-to-br from-brand-purple via-brand-blue to-brand-dark-purple text-white">
-        <div className="container max-w-4xl text-center space-y-8">
-          <h2 className="text-4xl md:text-5xl font-bold">
-            Ready to Save $15K/Year?
-          </h2>
-          <p className="text-xl md:text-2xl text-white/90">
-            Book your free 15-minute AI audit and get a personalized roadmap in 24 hours
-          </p>
+      <section className="py-12 md:py-16 min-h-[400px] bg-gradient-to-br from-brand-purple via-brand-blue to-brand-dark-purple text-white flex items-center">
+        <div className="container max-w-5xl text-center space-y-6">
+          <div className="space-y-4">
+            <h2 className="text-3xl md:text-5xl font-bold">
+              Ready to Save $15K/Year?
+            </h2>
+            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto">
+              Book your free 15-minute AI audit and get a personalized roadmap in 24 hours
+            </p>
+          </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
             <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
               <Button size="lg" className="bg-brand-orange hover:bg-brand-orange/90 text-white text-lg px-10 py-7 h-auto">
                 Book Free Audit <ArrowRight className="w-5 h-5 ml-2" />
@@ -966,8 +968,8 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="pt-8 border-t border-white/20">
-            <p className="text-white/80 text-lg">
+          <div className="pt-6 border-t border-white/20 max-w-2xl mx-auto">
+            <p className="text-white/90 text-base md:text-lg">
               <strong>3-month ROI guarantee</strong> • No coding required • Security-first approach
             </p>
           </div>
