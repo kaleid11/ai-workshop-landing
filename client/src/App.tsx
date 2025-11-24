@@ -31,6 +31,7 @@ import AdminSubmissions from "./pages/AdminSubmissions";
 import Workshop from "./pages/Workshop";
 import Upsell from "./pages/Upsell";
 import CheckoutPage from "./pages/CheckoutPage";
+import AcademyTools from "./pages/AcademyTools";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -62,7 +63,8 @@ function Router() {
       <Route path="/admin/assessments" component={AdminAssessments} />
       <Route path="/admin/workshop-access" component={AdminWorkshopAccess} />
       <Route path="/admin/submissions" component={AdminSubmissions} />
-      <Route path="{/404}" component={NotFound} />
+      <Route path="/academy/tools" component={AcademyTools} />
+      <Route path="/404" component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
     </Switch>

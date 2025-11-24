@@ -164,7 +164,18 @@ export default function Portal() {
           </div>
 
           {/* Academy Quick Access */}
-          <div className="grid md:grid-cols-5 gap-4 mb-8">
+          <div className="grid md:grid-cols-6 gap-4 mb-8">
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer border-2 border-purple-200 hover:border-purple-400" onClick={() => window.location.href = '/academy/tools'}>
+              <CardHeader>
+                <CardTitle className="text-lg flex items-center gap-2">
+                  <Sparkles className="w-5 h-5 text-purple-500" />
+                  Academy Tools
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-gray-600">AI helpers</p>
+              </CardContent>
+            </Card>
             <Card className="hover:shadow-lg transition-shadow cursor-pointer border-2 border-orange-200 hover:border-orange-400" onClick={() => window.location.href = '/tools'}>
               <CardHeader>
                 <CardTitle className="text-lg flex items-center gap-2">

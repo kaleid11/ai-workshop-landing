@@ -830,3 +830,16 @@ Changed `client_reference_id: ctx.user.id.toString()` to `client_reference_id: c
 - [x] Update portal to show Academy dashboard
 - [ ] Test complete purchase flow
 
+
+## Gemini API Integration & Academy Tools (Nov 24)
+
+- [x] Add Gemini API key to environment variables
+- [x] Create Gemini API helper functions (text generation, image generation)
+- [x] Build headshot generator tool (upload photo → generate professional headshots)
+- [x] Build brand artifact builder (upload content → generate brand assets)
+- [x] Build content repurposer (upload content → generate variations)
+- [x] Add Academy tools page at /academy/tools
+- [x] Update messaging: Education hub teaching ViralWave + Captions.ai + lite helper tools
+- [x] Test all Gemini integrations
+- [x] Save checkpoint
+

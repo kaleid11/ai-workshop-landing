@@ -5,6 +5,7 @@ import { protectedProcedure, publicProcedure, router } from "./_core/trpc";
 import { hasWorkshopAccess, getUserPurchase, useAdminToken, generateAdminToken, updateWorkshopReplay, getMembershipTiers, getUserSubscription, getTools, getPrompts, getActivePillars, getAllPurchasesWithUsers, manuallyGrantAccess, createSessionFeedback, getAllSessionFeedback, getAllAssessmentResults } from "./db";
 import { z } from "zod";
 import Stripe from "stripe";
+import { academyRouter as academyToolsRouter } from "./routers/academy";
 import { WORKSHOP_PRODUCTS } from "./products";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "", {
@@ -176,6 +177,8 @@ export const appRouter = router({
 
   // Academy router for membership tiers, tools, prompts, etc.
   academy: router({
+    // Academy tools (headshot generator, brand artifacts, etc.)
+    tools: academyToolsRouter,
     getTiers: publicProcedure.query(async () => {
       return await getMembershipTiers();
     }),
