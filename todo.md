@@ -779,3 +779,31 @@ Changed `client_reference_id: ctx.user.id.toString()` to `client_reference_id: c
 - [x] Verified homepage → workshop → checkout flow works
 - [x] Tested complete purchase flow end-to-end
 - [x] Added loading states to prevent double-clicks
+
+## Workshop Landing Page Redesign (Nov 24)
+
+- [ ] Change from one-time to monthly subscription model
+- [ ] Add $97/month tier (price_1SK8fTCii5zXCZr6ZQqQMjSs)
+- [ ] Add $300/month tier (price_1SK8g0Cii5zXCZr60hKTLXe4)
+- [ ] Add 20% founding member discount (FRIENDS20)
+- [ ] Add "Enterprise - Coming Soon" tier with booking CTA
+- [ ] Match reference design structure and modules
+- [ ] Add checkout progress bar (Login → Payment → Confirmation)
+- [ ] Implement post-purchase upsell to $300 tier
+- [ ] Emphasize "first month free" messaging
+- [ ] Make founding member offer look too good to be true
+- [ ] Test complete subscription flow
+
+## Workshop Landing Page Redesign - Completed (Nov 24)
+
+- [x] Changed from one-time to monthly subscription model
+- [x] Added $97/month Lite tier (price_1SK8fTCii5zXCZr6ZQqQMjSs)
+- [x] Added $300/month Pro tier (price_1SK8g0Cii5zXCZr60hKTLXe4)
+- [x] Added 20% founding member discount (FRIENDS20) - shown as $77 and $240
+- [x] Added "Enterprise - Coming Soon" tier with booking CTA
+- [x] Matched reference design structure with modules and sections
+- [x] Created checkout progress bar component (Login → Payment → Confirmation)
+- [x] Implemented post-purchase upsell page to Pro tier
+- [x] Emphasized "first month free" messaging throughout
+- [x] Made founding member offer look too good to be true
+- [x] Added all routes to App.tsx

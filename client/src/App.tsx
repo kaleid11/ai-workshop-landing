@@ -29,6 +29,8 @@ import AdminAssessments from "./pages/AdminAssessments";
 import AdminWorkshopAccess from "./pages/AdminWorkshopAccess";
 import AdminSubmissions from "./pages/AdminSubmissions";
 import Workshop from "./pages/Workshop";
+import Upsell from "./pages/Upsell";
+import CheckoutPage from "./pages/CheckoutPage";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -51,7 +53,9 @@ function Router() {
       <Route path="/enterprise" component={Enterprise} />
       <Route path="/case-studies" component={CaseStudies} />
       <Route path="/quiz" component={Quiz} />
-      <Route path="/workshop" component={Workshop} />
+      <Route path={"/workshop"} component={Workshop} />
+      <Route path={"/checkout-flow"} component={CheckoutPage} />
+      <Route path={"/upsell"} component={Upsell} />
       <Route path="/about" component={About} />
       <Route path="/how-it-works" component={About} />
       <Route path="/scorecard" component={Scorecard} />
