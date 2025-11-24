@@ -10,6 +10,7 @@ import { useAuth } from "@/_core/hooks/useAuth";
 import { getLoginUrl, BOOKING_URL } from "@/const";
 import { useState } from "react";
 import { toast } from "sonner";
+import { motion } from "framer-motion";
 
 const WORKSHOP_DATE = "Next Workshop: December 15, 2024";
 
@@ -138,7 +139,13 @@ export default function Workshop() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
             {/* One-Time Workshop */}
-            <Card className="relative border-2 hover:border-orange-500 transition-all">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+            <Card className="relative border-2 hover:border-orange-500 transition-all h-full">
               <CardHeader>
                 <div className="flex justify-between items-start mb-2">
                   <CardTitle>Workshop</CardTitle>
@@ -182,9 +189,16 @@ export default function Workshop() {
                 </Button>
               </CardContent>
             </Card>
+            </motion.div>
 
             {/* Lite Tier */}
-            <Card className="relative border-2 hover:border-purple-500 transition-all">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+            <Card className="relative border-2 hover:border-purple-500 transition-all h-full">
               <CardHeader>
                 <div className="flex justify-between items-start mb-2">
                   <CardTitle>Lite</CardTitle>
@@ -229,9 +243,16 @@ export default function Workshop() {
                 </Button>
               </CardContent>
             </Card>
+            </motion.div>
 
             {/* Pro Tier */}
-            <Card className="relative border-2 border-blue-500 shadow-lg scale-105">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+            <Card className="relative border-2 border-blue-500 shadow-lg scale-105 h-full">
               <div className="absolute -top-4 left-1/2 -translate-x-1/2">
                 <Badge className="bg-blue-500">MOST POPULAR</Badge>
               </div>
@@ -278,9 +299,16 @@ export default function Workshop() {
                 </Button>
               </CardContent>
             </Card>
+            </motion.div>
 
             {/* Elite Tier */}
-            <Card className="relative border-2 hover:border-orange-500 transition-all opacity-90">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+            <Card className="relative border-2 hover:border-orange-500 transition-all opacity-90 h-full">
               <CardHeader>
                 <div className="flex justify-between items-start mb-2">
                   <CardTitle>Elite</CardTitle>
@@ -324,6 +352,7 @@ export default function Workshop() {
                 </Button>
               </CardContent>
             </Card>
+            </motion.div>
           </div>
 
           <div className="text-center mt-8">

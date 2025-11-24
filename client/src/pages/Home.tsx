@@ -30,6 +30,7 @@ import {
   Play
 } from "lucide-react";
 import { Link } from "wouter";
+import { motion } from "framer-motion";
 
 const BOOKING_URL = "https://app.klipy.ai/book/pre-discovery/free-pre-discovery";
 
@@ -313,7 +314,13 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="border-2 border-brand-orange/20 relative">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+            <Card className="border-2 border-brand-orange/20 relative h-full">
               <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-brand-orange text-white rounded-full flex items-center justify-center text-2xl font-bold">
                 1
               </div>
@@ -344,8 +351,15 @@ export default function Home() {
                 </ul>
               </CardContent>
             </Card>
+            </motion.div>
 
-            <Card className="border-2 border-brand-blue/20 relative">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+            <Card className="border-2 border-brand-blue/20 relative h-full">
               <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-brand-blue text-white rounded-full flex items-center justify-center text-2xl font-bold">
                 2
               </div>
@@ -372,8 +386,15 @@ export default function Home() {
                 </div>
               </CardContent>
             </Card>
+            </motion.div>
 
-            <Card className="border-2 border-green-500/20 relative">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+            <Card className="border-2 border-green-500/20 relative h-full">
               <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center text-2xl font-bold">
                 3
               </div>
@@ -404,6 +425,7 @@ export default function Home() {
                 </ul>
               </CardContent>
             </Card>
+            </motion.div>
           </div>
 
           <div className="text-center mt-12">
