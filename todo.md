@@ -654,3 +654,33 @@ Ready for checkpoint and deployment!
 - [x] Add FAQ section (6 common questions)
 - [x] Add loading states and error handling for checkout
 - [ ] Test Stripe checkout flow end-to-end
+
+
+## Stripe Webhook Integration Fix
+
+- [ ] Investigate current Stripe webhook handler
+- [ ] Create purchases table in database schema
+- [ ] Add workshop_access tracking to user accounts
+- [ ] Implement webhook handler for checkout.session.completed
+- [ ] Update user account with purchase details on payment success
+- [ ] Add endpoint to check if user has workshop access
+- [ ] Test webhook flow with Stripe CLI
+- [ ] Verify user gets access after successful payment
+
+## Webhook Integration Fix Completed (Nov 24)
+
+- [x] Investigated current webhook setup
+- [x] Found root cause: checkout passing user.id instead of user.openId
+- [x] Fixed checkout session to pass ctx.user.openId as client_reference_id
+- [x] Added better logging to webhook handler for debugging
+- [x] Verified hasWorkshopAccess function exists and works
+- [x] Verified trpc.portal.checkAccess endpoint exists
+- [x] Tested access check endpoint (passing)
+- [ ] Test full checkout flow with real Stripe payment
+
+**Root Cause:**
+Checkout was passing `user.id` (database ID) but webhook expected `user.openId` (OAuth ID).
+Webhook couldn't find user, so purchases weren't recorded.
+
+**Fix Applied:**
+Changed `client_reference_id: ctx.user.id.toString()` to `client_reference_id: ctx.user.openId`

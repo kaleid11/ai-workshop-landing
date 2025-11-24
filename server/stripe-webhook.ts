@@ -43,8 +43,16 @@ export async function handleStripeWebhook(req: Request, res: Response) {
       const customerEmail = session.customer_details?.email || session.metadata?.customer_email;
       const customerName = session.customer_details?.name || session.metadata?.customer_name;
 
+      console.log("[Stripe Webhook] Session details:", {
+        sessionId: session.id,
+        userOpenId,
+        customerEmail,
+        amount: session.amount_total,
+        currency: session.currency,
+      });
+
       if (!userOpenId) {
-        console.error("[Stripe Webhook] No user reference in session");
+        console.error("[Stripe Webhook] No user reference in session - client_reference_id is missing");
         return res.status(400).send("No user reference");
       }
 

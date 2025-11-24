@@ -47,7 +47,7 @@ export const appRouter = router({
           success_url: `${origin}/success?session_id={CHECKOUT_SESSION_ID}`,
           cancel_url: `${origin}/workshop`,
           customer_email: ctx.user.email || undefined,
-          client_reference_id: ctx.user.id.toString(),
+          client_reference_id: ctx.user.openId, // Pass openId so webhook can find user
           metadata: {
             user_id: ctx.user.id.toString(),
             customer_email: ctx.user.email || "",
