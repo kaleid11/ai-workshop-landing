@@ -843,3 +843,18 @@ Changed `client_reference_id: ctx.user.id.toString()` to `client_reference_id: c
 - [x] Test all Gemini integrations
 - [x] Save checkpoint
 
+
+## Academy Tools Improvements & Workshop Portal Enhancement
+
+- [x] Build Brand Guidelines Generator (analyzes completed template → generates copyable/downloadable prompt)
+- [x] Add Higgsfield.ai to tools ecosystem (AI video generation)
+- [x] Improve Academy tools UX (better copy buttons, download options, clearer instructions)
+- [x] Update workshop portal with accurate preparation steps:
+  - [x] ViralWave Studio setup guide (scheduling, Facebook/Instagram native, group sharing)
+  - [x] Captions.ai integration instructions (on-the-go editing)
+  - [x] AI avatar setup options
+  - [x] Higgsfield.ai video generation walkthrough
+  - [x] Marketing toolbox overview
+- [x] Add downloadable brand strategy template with instructions
+- [x] Create step-by-step workshop preparation checklist
+- [x] Test all tools and save checkpoint

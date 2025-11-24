@@ -1,10 +1,10 @@
 import { useAuth } from "@/_core/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { APP_LOGO, APP_TITLE, getLoginUrl } from "@/const";
 import { trpc } from "@/lib/trpc";
 import { Copy, Image, Loader2, Sparkles, Wand2, RefreshCw } from "lucide-react";
@@ -26,6 +26,16 @@ export default function AcademyTools() {
   const generateHeadshot = trpc.academy.tools.generateHeadshot.useMutation();
   const generateBrandArtifact = trpc.academy.tools.generateBrandArtifact.useMutation();
   const repurposeContentMutation = trpc.academy.tools.repurposeContent.useMutation();
+  const generateBrandGuidelines = trpc.academy.tools.generateBrandGuidelines.useMutation();
+
+  // Brand Guidelines state
+  const [brandVoice, setBrandVoice] = useState("");
+  const [targetAudience, setTargetAudience] = useState("");
+  const [contentTopics, setContentTopics] = useState("");
+  const [keywords, setKeywords] = useState("");
+  const [avoidKeywords, setAvoidKeywords] = useState("");
+  const [platforms, setPlatforms] = useState<string[]>([]);
+  const [postingFrequency, setPostingFrequency] = useState("");
 
   async function handleGenerateHeadshot() {
     try {
@@ -60,6 +70,45 @@ export default function AcademyTools() {
     } catch (error) {
       toast.error("Failed to generate brand artifact prompt");
     }
+  }
+
+  async function handleGenerateBrandGuidelines() {
+    if (!brandVoice.trim() || !targetAudience.trim()) {
+      toast.error("Please fill in brand voice and target audience");
+      return;
+    }
+
+    try {
+      const result = await generateBrandGuidelines.mutateAsync({
+        brandVoice,
+        targetAudience,
+        contentTopics: contentTopics.split('\n').filter(t => t.trim()),
+        keywords: keywords.split('\n').filter(k => k.trim()),
+        avoidKeywords: avoidKeywords.split('\n').filter(k => k.trim()),
+        platforms,
+        postingFrequency,
+      });
+      
+      await navigator.clipboard.writeText(result.prompt);
+      toast.success("Brand guidelines prompt copied to clipboard!");
+    } catch (error) {
+      toast.error("Failed to generate brand guidelines");
+    }
+  }
+
+  function downloadBrandGuidelines() {
+    if (!generateBrandGuidelines.data) return;
+    
+    const blob = new Blob([generateBrandGuidelines.data.prompt], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = generateBrandGuidelines.data.downloadFilename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    toast.success("Brand guidelines downloaded!");
   }
 
   async function handleRepurposeContent() {
@@ -140,7 +189,138 @@ export default function AcademyTools() {
       {/* Tools Section */}
       <section className="py-12">
         <div className="container max-w-7xl">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+            {/* Brand Guidelines Generator */}
+            <Card className="border-2 border-green-200 md:col-span-2">
+              <CardHeader>
+                <div className="flex items-center gap-3 mb-2">
+                  <Sparkles className="w-8 h-8 text-green-500" />
+                  <CardTitle className="text-2xl">Brand Guidelines Generator</CardTitle>
+                </div>
+                <CardDescription>
+                  Create a comprehensive brand prompt for AI tools (ChatGPT, ViralWave, HuxleyGPT)
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <Label>Brand Voice & Personality *</Label>
+                    <Textarea
+                      value={brandVoice}
+                      onChange={(e) => setBrandVoice(e.target.value)}
+                      placeholder="e.g., Direct, no-nonsense, professional, value-first..."
+                      rows={3}
+                    />
+                  </div>
+
+                  <div>
+                    <Label>Target Audience *</Label>
+                    <Textarea
+                      value={targetAudience}
+                      onChange={(e) => setTargetAudience(e.target.value)}
+                      placeholder="e.g., High growth businesses, SMEs, operators looking to scale..."
+                      rows={3}
+                    />
+                  </div>
+
+                  <div>
+                    <Label>Content Topics (one per line)</Label>
+                    <Textarea
+                      value={contentTopics}
+                      onChange={(e) => setContentTopics(e.target.value)}
+                      placeholder="AI automation\nProductivity tips\nBusiness growth"
+                      rows={3}
+                    />
+                  </div>
+
+                  <div>
+                    <Label>Keywords to Include (one per line)</Label>
+                    <Textarea
+                      value={keywords}
+                      onChange={(e) => setKeywords(e.target.value)}
+                      placeholder="automation\nefficiency\nROI"
+                      rows={3}
+                    />
+                  </div>
+
+                  <div>
+                    <Label>Keywords to Avoid (one per line)</Label>
+                    <Textarea
+                      value={avoidKeywords}
+                      onChange={(e) => setAvoidKeywords(e.target.value)}
+                      placeholder="cheap\nfree\ndiscount"
+                      rows={3}
+                    />
+                  </div>
+
+                  <div>
+                    <Label>Posting Frequency</Label>
+                    <Input
+                      value={postingFrequency}
+                      onChange={(e) => setPostingFrequency(e.target.value)}
+                      placeholder="e.g., 3 times per week"
+                    />
+                  </div>
+                </div>
+
+                <div className="flex gap-2">
+                  <Button
+                    onClick={handleGenerateBrandGuidelines}
+                    disabled={generateBrandGuidelines.isPending}
+                    className="flex-1 bg-green-500 hover:bg-green-600"
+                  >
+                    {generateBrandGuidelines.isPending ? (
+                      <>
+                        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                        Generating...
+                      </>
+                    ) : (
+                      <>
+                        <Wand2 className="w-4 h-4 mr-2" />
+                        Generate Brand Guidelines
+                      </>
+                    )}
+                  </Button>
+                  {generateBrandGuidelines.data && (
+                    <Button
+                      onClick={downloadBrandGuidelines}
+                      variant="outline"
+                      className="border-green-500 text-green-600 hover:bg-green-50"
+                    >
+                      Download .txt
+                    </Button>
+                  )}
+                </div>
+
+                {generateBrandGuidelines.data && (
+                  <div className="mt-4 p-4 bg-green-50 rounded-lg border border-green-200">
+                    <div className="flex items-center justify-between mb-2">
+                      <p className="font-semibold text-sm">Generated Brand Guidelines:</p>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => {
+                          navigator.clipboard.writeText(generateBrandGuidelines.data.prompt);
+                          toast.success("Copied to clipboard!");
+                        }}
+                      >
+                        <Copy className="w-4 h-4" />
+                      </Button>
+                    </div>
+                    <div className="text-sm text-gray-700 mb-3 max-h-60 overflow-y-auto whitespace-pre-wrap font-mono text-xs bg-white p-3 rounded border border-green-100">
+                      {generateBrandGuidelines.data.prompt}
+                    </div>
+                    <div className="text-xs text-gray-600 space-y-1">
+                      <p className="font-semibold">How to use:</p>
+                      <p>{generateBrandGuidelines.data.instructions}</p>
+                    </div>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
             {/* Headshot Generator */}
             <Card className="border-2 border-purple-200">
               <CardHeader>
@@ -377,7 +557,7 @@ export default function AcademyTools() {
                 {repurposeContentMutation.data && (
                   <div className="mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200 space-y-3">
                     <p className="font-semibold text-sm mb-2">Platform-Optimized Variations:</p>
-                    {repurposeContentMutation.data.variations.map((variation, idx) => (
+                    {repurposeContentMutation.data.variations.map((variation: string, idx: number) => (
                       <div key={idx} className="p-3 bg-white rounded border border-blue-100">
                         <div className="flex items-start justify-between mb-2">
                           <span className="text-xs font-semibold text-blue-600">Variation {idx + 1}</span>
@@ -411,13 +591,14 @@ export default function AcademyTools() {
             </CardHeader>
             <CardContent className="space-y-3 text-sm text-gray-700">
               <p>
-                These lite tools help you create professional content faster. We generate AI prompts that you can use with external tools like:
+                These lite tools help you create professional content faster. We generate AI prompts and guidelines that you can use with external tools like:
               </p>
               <ul className="list-disc list-inside space-y-1 ml-4">
-                <li><strong>ViralWave Studio</strong> - Social media content automation</li>
-                <li><strong>Captions.ai</strong> - Video editing and captions</li>
-                <li><strong>Midjourney</strong> - AI image generation</li>
-                <li><strong>DALL-E</strong> - AI image generation</li>
+                <li><strong>ViralWave Studio</strong> - Social media content automation & scheduling</li>
+                <li><strong>Captions.ai</strong> - Video editing, captions, and AI avatars</li>
+                <li><strong>Higgsfield.ai</strong> - AI video generation</li>
+                <li><strong>Midjourney / DALL-E</strong> - AI image generation</li>
+                <li><strong>ChatGPT / Claude / Gemini</strong> - AI content creation with your brand voice</li>
                 <li><strong>Canva</strong> - Graphic design</li>
               </ul>
               <p className="mt-4">

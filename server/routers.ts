@@ -178,7 +178,7 @@ export const appRouter = router({
   // Academy router for membership tiers, tools, prompts, etc.
   academy: router({
     // Academy tools (headshot generator, brand artifacts, etc.)
-    tools: academyToolsRouter,
+    tools: academyToolsRouter.tools,
     getTiers: publicProcedure.query(async () => {
       return await getMembershipTiers();
     }),

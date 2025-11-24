@@ -7,6 +7,7 @@ import { generateHeadshotPrompt, generateImagePrompt, analyzeImage, generateCont
  * Lite helper tools for workshop participants
  */
 export const academyRouter = router({
+  tools: router({
   /**
    * Generate professional headshot prompt
    */
@@ -97,6 +98,86 @@ Copy the prompt and generate your professional headshot!`,
       }),
 
   /**
+   * Generate brand guidelines prompt from completed template
+   */
+  generateBrandGuidelines: protectedProcedure
+    .input(
+      z.object({
+        brandVoice: z.string(),
+        targetAudience: z.string(),
+        contentTopics: z.array(z.string()),
+        keywords: z.array(z.string()),
+        avoidKeywords: z.array(z.string()),
+        platforms: z.array(z.string()),
+        postingFrequency: z.string(),
+        problems: z.array(z.string()).optional(),
+        results: z.array(z.string()).optional(),
+        postTypes: z.array(z.string()).optional(),
+      })
+    )
+    .mutation(async ({ input }) => {
+      // Generate comprehensive brand guidelines prompt
+      const prompt = `# Brand Guidelines for AI Content Generation
+
+## Brand Voice & Personality
+${input.brandVoice}
+
+## Target Audience
+${input.targetAudience}
+
+${input.problems && input.problems.length > 0 ? `### Audience Pain Points
+${input.problems.map((p, i) => `${i + 1}. ${p}`).join('\n')}\n\n` : ''}${input.results && input.results.length > 0 ? `### Desired Outcomes
+${input.results.map((r, i) => `${i + 1}. ${r}`).join('\n')}\n\n` : ''}## Content Topics
+${input.contentTopics.map((t, i) => `${i + 1}. ${t}`).join('\n')}
+
+${input.postTypes && input.postTypes.length > 0 ? `## Post Types That Perform Well
+${input.postTypes.map(pt => `- ${pt}`).join('\n')}\n\n` : ''}## Keywords to Include
+${input.keywords.map(k => `- ${k}`).join('\n')}
+
+## Keywords to Avoid
+${input.avoidKeywords.map(k => `- ${k}`).join('\n')}
+
+## Social Media Platforms
+${input.platforms.map(p => `- ${p}`).join('\n')}
+
+## Posting Frequency
+${input.postingFrequency}
+
+---
+
+## How to Use This Prompt
+
+1. **Copy this entire prompt** and save it in a new chat with your AI tool (ChatGPT, Claude, Gemini, etc.)
+2. **Start your conversation** by saying: "Use these brand guidelines for all content you create for me"
+3. **Generate content** by asking: "Create a LinkedIn post about [topic]" or "Write 3 Instagram captions about [topic]"
+4. **The AI will remember** your brand voice, audience, and guidelines throughout the conversation
+5. **For ViralWave Studio**: Paste this prompt into your Brand Authority setup to train the AI on your voice
+
+## Example Prompts to Try
+
+- "Create 5 social media posts about [topic] following my brand guidelines"
+- "Write a LinkedIn article about [topic] in my brand voice"
+- "Generate 10 Instagram captions with hashtags about [topic]"
+- "Create a week's worth of content for [platform] following these guidelines"
+- "Repurpose this blog post into social media content for all my platforms"
+
+Remember: The AI works best when you reference specific topics, pain points, and desired outcomes from your brand guidelines!`;
+
+      return {
+        prompt,
+        downloadFilename: `brand-guidelines-${Date.now()}.txt`,
+        instructions: `This prompt is ready to use with:
+- ChatGPT (paste in a new chat)
+- Claude (paste in a new conversation)
+- Gemini (paste in a new chat)
+- ViralWave Studio (paste in Brand Authority setup)
+- HuxleyGPT (paste to refine your persona)
+
+Save this prompt and reuse it whenever you need AI-generated content that matches your brand!`,
+      };
+    }),
+
+  /**
    * Generate content variations for different platforms
    */
   repurposeContent: protectedProcedure
@@ -130,4 +211,5 @@ Copy the prompt and generate your professional headshot!`,
         originalContent: input.content,
       };
     }),
+  }),
 });

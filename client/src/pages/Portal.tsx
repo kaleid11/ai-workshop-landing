@@ -237,6 +237,154 @@ export default function Portal() {
             </Card>
           </div>
 
+          {/* Workshop Preparation */}
+          <div className="mb-8">
+            <Card className="border-2 border-purple-200 bg-purple-50">
+              <CardHeader>
+                <CardTitle className="text-2xl flex items-center gap-2">
+                  <Sparkles className="w-8 h-8 text-purple-500" />
+                  Workshop Preparation Checklist
+                </CardTitle>
+                <CardDescription className="text-gray-700">
+                  Complete these steps before the workshop to maximize your results
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="bg-white p-4 rounded-lg border border-purple-200">
+                    <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
+                      <span className="bg-purple-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm">1</span>
+                      Sign Up for Tools
+                    </h3>
+                    <ul className="space-y-2 text-sm text-gray-700">
+                      <li className="flex items-start gap-2">
+                        <span className="text-purple-500 mt-1">✓</span>
+                        <div>
+                          <strong>ViralWave Studio</strong> - Social media automation & scheduling
+                          <br />
+                          <a href="https://viralwavestudio.com?via=huxley17" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:underline text-xs">
+                            viralwavestudio.com?via=huxley17
+                          </a>
+                        </div>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-purple-500 mt-1">✓</span>
+                        <div>
+                          <strong>Captions.ai</strong> - Video editing, captions, AI avatars
+                          <br />
+                          <a href="https://www.captions.ai/" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:underline text-xs">
+                            captions.ai
+                          </a>
+                        </div>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-purple-500 mt-1">✓</span>
+                        <div>
+                          <strong>Higgsfield.ai</strong> - AI video generation
+                          <br />
+                          <a href="https://higgsfield.ai/" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:underline text-xs">
+                            higgsfield.ai
+                          </a>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-white p-4 rounded-lg border border-purple-200">
+                    <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
+                      <span className="bg-purple-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm">2</span>
+                      Prepare Brand Materials
+                    </h3>
+                    <ul className="space-y-2 text-sm text-gray-700">
+                      <li className="flex items-start gap-2">
+                        <span className="text-purple-500 mt-1">✓</span>
+                        <div>
+                          <strong>3-5 high-quality photos</strong> of yourself (1000x1000px minimum)
+                          <br />
+                          <span className="text-xs text-gray-600">For Brand Authority setup in ViralWave</span>
+                        </div>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-purple-500 mt-1">✓</span>
+                        <div>
+                          <strong>Complete brand guidelines</strong> using our Academy Tools
+                          <br />
+                          <a href="/academy/tools" className="text-purple-600 hover:underline text-xs">
+                            Generate your brand prompt →
+                          </a>
+                        </div>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-purple-500 mt-1">✓</span>
+                        <div>
+                          <strong>Download brand strategy template</strong>
+                          <br />
+                          <a href="/brand-strategy-template.md" download className="text-purple-600 hover:underline text-xs">
+                            Download template →
+                          </a>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-white p-4 rounded-lg border border-purple-200">
+                    <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
+                      <span className="bg-purple-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm">3</span>
+                      What We'll Cover
+                    </h3>
+                    <ul className="space-y-2 text-sm text-gray-700">
+                      <li className="flex items-start gap-2">
+                        <span className="text-orange-500 mt-1">→</span>
+                        <div>Marketing toolbox walkthrough (all tools in one place)</div>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-orange-500 mt-1">→</span>
+                        <div>ViralWave Studio setup (Brand Authority, scheduling, Facebook/Instagram native)</div>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-orange-500 mt-1">→</span>
+                        <div>Captions.ai integration (on-the-go editing, AI avatars)</div>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-orange-500 mt-1">→</span>
+                        <div>Higgsfield.ai video generation</div>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-orange-500 mt-1">→</span>
+                        <div>Scheduling workflows (ViralWave + native schedulers + group sharing)</div>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-white p-4 rounded-lg border border-purple-200">
+                    <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
+                      <span className="bg-purple-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm">4</span>
+                      Optional: Refine Your Persona
+                    </h3>
+                    <ul className="space-y-2 text-sm text-gray-700">
+                      <li className="flex items-start gap-2">
+                        <span className="text-purple-500 mt-1">✓</span>
+                        <div>
+                          <strong>Use HuxleyGPT</strong> to refine your brand voice and persona
+                          <br />
+                          <a href="https://chatgpt.com/g/g-691673823e548191bee75149c19c021f-huxleygpt" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:underline text-xs">
+                            Chat with HuxleyGPT →
+                          </a>
+                        </div>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-purple-500 mt-1">✓</span>
+                        <div>
+                          <strong>Save your completed brand guidelines</strong> in a folder for easy access during the workshop
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
           {/* Workshop Details */}
           <div className="grid md:grid-cols-2 gap-6 mb-8">
             <Card className="border-2 border-brand-orange">
