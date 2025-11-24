@@ -807,3 +807,26 @@ Changed `client_reference_id: ctx.user.id.toString()` to `client_reference_id: c
 - [x] Emphasized "first month free" messaging throughout
 - [x] Made founding member offer look too good to be true
 - [x] Added all routes to App.tsx
+
+## Workshop Page Rebuild (Nov 24)
+
+- [ ] Copy brand screenshots to project public folder
+- [ ] Update pricing structure: $97 workshop → 1 month free Academy access
+- [ ] Add monthly tiers: Lite $97/mo, Pro $300/mo, Elite $500/mo
+- [ ] Match brand colors (orange/purple/blue from screenshots)
+- [ ] Add Academy features section (Sora 2, Post Gen, Blog Gen, etc.)
+- [x] Update portal to show Academy dashboard
+- [ ] Test complete purchase flow
+
+
+## Workshop Page Rebuild - COMPLETED (Nov 24)
+
+- [x] Copy brand screenshots to project public folder
+- [x] Update pricing structure: $97 workshop → 1 month free Academy access
+- [x] Add monthly tiers: Lite $97/mo, Pro $300/mo, Elite $500/mo
+- [x] Match brand colors (orange/purple/blue from screenshots)
+- [x] Add Academy features section (Sora 2, Post Gen, Blog Gen, etc.)
+- [x] Add visual screenshots to Academy section
+- [x] Update portal to show Academy dashboard
+- [ ] Test complete purchase flow
+

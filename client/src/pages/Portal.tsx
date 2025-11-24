@@ -131,6 +131,38 @@ export default function Portal() {
             </p>
           </div>
 
+          {/* Academy Dashboard Preview */}
+          <div className="bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-950/20 dark:to-blue-950/20 rounded-2xl p-8 mb-8">
+            <div className="text-center mb-6">
+              <h2 className="text-2xl font-bold mb-2">Your Academy Dashboard</h2>
+              <p className="text-gray-600">Access all your AI content creation tools in one place</p>
+            </div>
+            <div className="max-w-4xl mx-auto mb-6">
+              <img 
+                src="/academy-dashboard.png" 
+                alt="Academy Dashboard" 
+                className="rounded-xl shadow-2xl border-4 border-white/50"
+              />
+            </div>
+            <div className="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+              <div className="text-center p-4 bg-white rounded-lg shadow">
+                <div className="text-3xl mb-2">🎬</div>
+                <p className="font-semibold">Sora 2 Video Generator</p>
+                <p className="text-sm text-gray-600">Create AI videos</p>
+              </div>
+              <div className="text-center p-4 bg-white rounded-lg shadow">
+                <div className="text-3xl mb-2">✍️</div>
+                <p className="font-semibold">Post Generator</p>
+                <p className="text-sm text-gray-600">Multi-platform posts</p>
+              </div>
+              <div className="text-center p-4 bg-white rounded-lg shadow">
+                <div className="text-3xl mb-2">📝</div>
+                <p className="font-semibold">Blog Generator</p>
+                <p className="text-sm text-gray-600">SEO-optimized content</p>
+              </div>
+            </div>
+          </div>
+
           {/* Academy Quick Access */}
           <div className="grid md:grid-cols-5 gap-4 mb-8">
             <Card className="hover:shadow-lg transition-shadow cursor-pointer border-2 border-orange-200 hover:border-orange-400" onClick={() => window.location.href = '/tools'}>
