@@ -240,7 +240,8 @@ export default function Home() {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-brand-purple to-brand-orange rounded-2xl blur-2xl opacity-30"></div>
                 <img 
-                  src="/instructor-huxley.jpeg" 
+                  src="/instructor-huxley.webp"
+                  loading="lazy" 
                   alt="Huxley Peckham - AI Implementation Partner" 
                   className="relative w-full aspect-square object-cover rounded-2xl shadow-2xl border-4 border-white"
                 />

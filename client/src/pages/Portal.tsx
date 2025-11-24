@@ -139,7 +139,8 @@ export default function Portal() {
             </div>
             <div className="max-w-4xl mx-auto mb-6">
               <img 
-                src="/academy-dashboard.png" 
+                src="/academy-dashboard.webp"
+                loading="lazy" 
                 alt="Academy Dashboard" 
                 className="rounded-xl shadow-2xl border-4 border-white/50"
               />

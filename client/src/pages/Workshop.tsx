@@ -46,7 +46,7 @@ export default function Workshop() {
     <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
       {/* Hero Section - Matches brand screenshot */}
       <section className="relative overflow-hidden bg-gradient-to-br from-orange-500 via-purple-500 to-blue-600 text-white">
-        <div className="absolute inset-0 bg-[url('/workshop-hero.png')] bg-cover bg-center opacity-20" />
+        <div className="absolute inset-0 bg-[url('/workshop-hero.webp')] bg-cover bg-center opacity-20" />
         <div className="container relative py-24 md:py-32">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
             <div className="space-y-8">
@@ -95,9 +95,10 @@ export default function Workshop() {
             
             <div className="relative">
               <img 
-                src="/instructor-huxley.jpeg" 
+                src="/instructor-huxley.webp" 
                 alt="Huxley Peckham" 
                 className="rounded-2xl shadow-2xl border-4 border-white/20"
+                loading="lazy"
               />
             </div>
           </div>
@@ -348,15 +349,15 @@ export default function Workshop() {
             <Card className="md:col-span-2 lg:col-span-3 border-2 border-purple-500 overflow-hidden">
               <div className="grid md:grid-cols-3 gap-4 p-6">
                 <div className="space-y-2">
-                  <img src="/video-generator.png" alt="Sora 2 Video Generator" className="rounded-lg shadow-lg" />
+                  <img src="/video-generator.webp" alt="Sora 2 Video Generator" className="rounded-lg shadow-lg" loading="lazy" />
                   <p className="text-sm font-semibold text-center">Sora 2 Video Generator</p>
                 </div>
                 <div className="space-y-2">
-                  <img src="/ai-twins.png" alt="AI Twins" className="rounded-lg shadow-lg" />
+                  <img src="/ai-twins.webp" alt="AI Twins" className="rounded-lg shadow-lg" loading="lazy" />
                   <p className="text-sm font-semibold text-center">AI Twins</p>
                 </div>
                 <div className="space-y-2">
-                  <img src="/video-editing.png" alt="Video Editing" className="rounded-lg shadow-lg" />
+                  <img src="/video-editing.webp" alt="Video Editing" className="rounded-lg shadow-lg" loading="lazy" />
                   <p className="text-sm font-semibold text-center">Video Editing</p>
                 </div>
               </div>
