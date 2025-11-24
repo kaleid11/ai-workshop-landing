@@ -874,3 +874,11 @@ Changed `client_reference_id: ctx.user.id.toString()` to `client_reference_id: c
 - [x] Fix critical bugs
 - [x] Improve code quality
 - [ ] Test improvements and save checkpoint
+
+## Workshop Page Design Improvement (Nov 24)
+
+- [x] Remove workshop-hero.webp background image from hero section
+- [x] Redesign hero section with cleaner gradient background
+- [x] Improve page flow and section transitions
+- [x] Enhance visual hierarchy throughout the page
+- [x] Test Workshop page design improvements

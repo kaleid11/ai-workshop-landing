@@ -44,9 +44,13 @@ export default function Workshop() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
-      {/* Hero Section - Matches brand screenshot */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-orange-500 via-purple-500 to-blue-600 text-white">
-        <div className="absolute inset-0 bg-[url('/workshop-hero.webp')] bg-cover bg-center opacity-20" />
+      {/* Hero Section - Clean gradient design */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-orange-500 via-purple-600 to-blue-600 text-white">
+        {/* Animated gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/30 via-transparent to-orange-500/30 animate-pulse" style={{animationDuration: '8s'}} />
+        {/* Decorative circles */}
+        <div className="absolute top-20 right-20 w-64 h-64 bg-white/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-20 w-96 h-96 bg-purple-300/10 rounded-full blur-3xl" />
         <div className="container relative py-24 md:py-32">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
             <div className="space-y-8">
@@ -106,7 +110,7 @@ export default function Workshop() {
       </section>
 
       {/* Value Proposition */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-20 bg-gradient-to-b from-white to-purple-50/30 dark:from-gray-900 dark:to-purple-950/20">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto space-y-4">
             <h2 className="text-3xl md:text-4xl font-bold">
@@ -121,7 +125,7 @@ export default function Workshop() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-20">
+      <section id="pricing" className="py-24 bg-gradient-to-b from-purple-50/30 to-white dark:from-purple-950/20 dark:to-gray-900">
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -332,7 +336,7 @@ export default function Workshop() {
       </section>
 
       {/* What's Included in Academy */}
-      <section className="py-20 bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-950/20 dark:to-blue-950/20">
+      <section className="py-24 bg-gradient-to-br from-purple-100 via-blue-50 to-purple-50 dark:from-purple-950/30 dark:via-blue-950/20 dark:to-purple-950/30">
         <div className="container">
           <div className="text-center mb-12">
             <Badge className="mb-4">ACADEMY PORTAL</Badge>
