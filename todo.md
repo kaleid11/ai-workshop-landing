@@ -894,3 +894,14 @@ Changed `client_reference_id: ctx.user.id.toString()` to `client_reference_id: c
 - [x] Verify all links and CTAs work
 - [x] Check mobile responsiveness
 - [ ] Test all animations across devices
+
+
+## SEO & Conversion Improvements (Current Sprint)
+- [x] Add FAQ accordion section to Workshop page
+- [x] Implement countdown timer for next workshop
+- [x] Add Schema.org structured data (LocalBusiness, Course)
+- [x] Add meta descriptions to all pages
+- [x] Set up Google Analytics (GA4) integration
+- [x] Add Open Graph tags for social sharing
+- [x] Test all SEO improvements
+- [x] Create setup guide for external services

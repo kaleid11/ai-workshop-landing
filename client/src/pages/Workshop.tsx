@@ -3,16 +3,26 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { 
   Check, Video, FileText, BookOpen, Calendar, Sparkles, 
-  Users, Clock, Zap, Star, ArrowRight, Shield, Target, MessageCircle
+  Users, Clock, Zap, Star, ArrowRight, Shield, Target, MessageCircle, ChevronDown
 } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { getLoginUrl, BOOKING_URL } from "@/const";
 import { useState } from "react";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
+import { WorkshopCountdown } from "@/components/WorkshopCountdown";
+import { SEO, workshopStructuredData } from "@/components/SEO";
 
-const WORKSHOP_DATE = "Next Workshop: December 15, 2024";
+// Set your next workshop date here (Brisbane time UTC+10)
+const WORKSHOP_DATE = new Date('2024-12-15T09:00:00+10:00'); // Dec 15, 2024, 9:00 AM Brisbane time
+const WORKSHOP_DATE_STRING = "December 15, 2024 • 9:00 AM AEST";
 
 export default function Workshop() {
   const { user, isAuthenticated } = useAuth();
@@ -45,6 +55,12 @@ export default function Workshop() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
+      <SEO 
+        title="AI Social Media Workshop - $77 AUD"
+        description="Learn to automate your social media with AI. Join 200+ Queensland businesses saving $3K/month. Live workshop + 1 month FREE Academy access. Next session December 15, 2024."
+        keywords="AI social media workshop, content automation, ViralWave Studio, AI marketing, social media automation, Queensland business, AI tools training"
+        structuredData={workshopStructuredData}
+      />
       {/* Hero Section - Clean gradient design */}
       <section className="relative overflow-hidden bg-gradient-to-br from-orange-500 via-purple-600 to-blue-600 text-white">
         {/* Animated gradient overlay */}
@@ -58,6 +74,13 @@ export default function Workshop() {
               <Badge className="bg-white/20 text-white border-white/30 hover:bg-white/30">
                 LIVE WORKSHOP
               </Badge>
+              
+              {/* Countdown Timer */}
+              <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg px-6 py-4 inline-block">
+                <p className="text-sm opacity-90 mb-2">Next Session Starts In:</p>
+                <WorkshopCountdown targetDate={WORKSHOP_DATE} className="text-white" />
+                <p className="text-xs opacity-75 mt-2">{WORKSHOP_DATE_STRING}</p>
+              </div>
               
               <h1 className="text-4xl md:text-6xl font-bold leading-tight">
                 Build an AI Agent that knows your business
@@ -683,6 +706,100 @@ export default function Workshop() {
                 <p className="font-semibold mt-4">— Lisa K., Agency Owner</p>
               </CardHeader>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-white">
+        <div className="container max-w-4xl">
+          <div className="text-center mb-12">
+            <Badge className="bg-purple-100 text-purple-700 mb-4">Frequently Asked Questions</Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Got Questions? We've Got Answers</h2>
+            <p className="text-lg text-gray-600">
+              Everything you need to know about the workshop and Academy access
+            </p>
+          </div>
+
+          <Accordion type="single" collapsible className="w-full space-y-4">
+            <AccordionItem value="item-1" className="border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold hover:no-underline">
+                What's included in the $77 workshop?
+              </AccordionTrigger>
+              <AccordionContent className="text-gray-600">
+                You get access to the live workshop, lifetime recording access, 1 month FREE Academy membership (worth $97), WhatsApp community access, and all workshop materials. Plus, you'll learn the exact 7-tool AI system to automate your social media.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-2" className="border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold hover:no-underline">
+                What happens after my free month of Academy access?
+              </AccordionTrigger>
+              <AccordionContent className="text-gray-600">
+                After your 1-month free trial, you can choose to upgrade to a monthly membership: Lite ($97/mo for 2 workshops/month), Pro ($300/mo for all workshops + strategy calls), or Elite ($500/mo for private sessions + custom handbooks). There's no obligation to continue—you keep the workshop recording forever.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-3" className="border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold hover:no-underline">
+                Do I need any technical experience?
+              </AccordionTrigger>
+              <AccordionContent className="text-gray-600">
+                No! This workshop is designed for business owners and marketers with zero technical background. We'll walk you through every step, from signing up for the tools to creating your first AI-generated post. If you can use Facebook, you can do this.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-4" className="border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold hover:no-underline">
+                What tools do I need to sign up for?
+              </AccordionTrigger>
+              <AccordionContent className="text-gray-600">
+                We'll guide you through setting up ViralWave Studio (content scheduling), Captions.ai (video editing), and Higgsfield.ai (AI video generation). Most tools offer free trials or free tiers to get started. You'll also get access to our Academy portal with additional AI tools and templates.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-5" className="border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold hover:no-underline">
+                Can I get a refund if I'm not satisfied?
+              </AccordionTrigger>
+              <AccordionContent className="text-gray-600">
+                Yes! We offer a 30-day money-back guarantee. If you attend the workshop and feel it wasn't worth your investment, just email us at info@thzn.world within 30 days for a full refund—no questions asked.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-6" className="border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold hover:no-underline">
+                How long is the workshop?
+              </AccordionTrigger>
+              <AccordionContent className="text-gray-600">
+                The live workshop runs for 2 hours, with 90 minutes of core content and 30 minutes for Q&A. You'll also get lifetime access to the recording, so you can rewatch and implement at your own pace.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-7" className="border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold hover:no-underline">
+                What if I can't attend the live session?
+              </AccordionTrigger>
+              <AccordionContent className="text-gray-600">
+                No problem! You'll get lifetime access to the workshop recording, all materials, and the WhatsApp community. While we recommend attending live for the Q&A, you can still get full value from the recording.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-8" className="border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold hover:no-underline">
+                How is this different from other AI courses?
+              </AccordionTrigger>
+              <AccordionContent className="text-gray-600">
+                This isn't theory—it's a hands-on implementation workshop. We focus on the exact tools and workflows that Queensland businesses are using right now to save $3K/month on social media. You'll leave with a working system, not just ideas. Plus, you get 1 month free Academy access to continue learning.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+
+          <div className="mt-12 text-center">
+            <p className="text-gray-600 mb-4">Still have questions?</p>
+            <Button variant="outline" onClick={() => window.open(BOOKING_URL, '_blank')}>
+              Book a Free 15-Min Call
+            </Button>
           </div>
         </div>
       </section>

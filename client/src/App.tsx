@@ -3,6 +3,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
+import { GoogleAnalytics } from "./components/GoogleAnalytics";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import StickyBookingButton from "./components/StickyBookingButton";
 import WhatsAppButton from "./components/WhatsAppButton";
@@ -79,6 +80,7 @@ function Router() {
 function App() {
   return (
     <ErrorBoundary>
+      <GoogleAnalytics />
       <ThemeProvider
         defaultTheme="light"
         // switchable
