@@ -23,6 +23,7 @@ type QuizAnswers = {
   toolCount: string;
   budget: string;
   technical: string;
+  currentTools: string;
 };
 
 type ToolRecommendation = {
@@ -39,7 +40,8 @@ export default function ToolStackAuditQuiz() {
     industry: "",
     toolCount: "",
     budget: "",
-    technical: ""
+    technical: "",
+    currentTools: ""
   });
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -95,6 +97,17 @@ export default function ToolStackAuditQuiz() {
         { value: "non-technical", label: "Non-technical (need simple, no-code solutions)", icon: "🎯" },
         { value: "some-technical", label: "Some technical skills (can handle basic integrations)", icon: "⚙️" },
         { value: "highly-technical", label: "Highly technical (comfortable with APIs and coding)", icon: "🔧" }
+      ]
+    },
+    {
+      id: "currentTools",
+      question: "Which of these tools are you currently paying for?",
+      options: [
+        { value: "airtable", label: "Airtable (database/project management)", icon: "🗃️" },
+        { value: "forms", label: "Form software (Typeform, Jotform, etc.)", icon: "📋" },
+        { value: "monday", label: "Monday.com (project management)", icon: "📅" },
+        { value: "zapier", label: "Zapier or other automation tools", icon: "⚡" },
+        { value: "none", label: "None of these", icon: "❌" }
       ]
     }
   ];
@@ -174,6 +187,43 @@ export default function ToolStackAuditQuiz() {
         category: "Core Platform"
       }
     ];
+
+    // Add connector-based recommendations based on current tools
+    if (answers.currentTools === "airtable") {
+      recommendations.push({
+        name: "Notion + ChatGPT/Manus Connectors",
+        cost: "$10/user/month (saves $10-35/user/month)",
+        description: "Replace Airtable with Notion database + AI connectors for automation. Savings: $120-$420/year per user",
+        category: "Connector Integration"
+      });
+    }
+
+    if (answers.currentTools === "forms") {
+      recommendations.push({
+        name: "Gmail + Notion + Manus Automation",
+        cost: "Free-$10/month (saves $25-70/month)",
+        description: "Replace form software with Gmail connector + Notion database + automated workflows. Savings: $300-$840/year",
+        category: "Connector Integration"
+      });
+    }
+
+    if (answers.currentTools === "monday") {
+      recommendations.push({
+        name: "ChatGPT Monday.com Connector OR Notion Alternative",
+        cost: "Included in ChatGPT Pro (or replace entirely)",
+        description: "Option 1: Keep Monday.com + add ChatGPT connector for AI automation. Option 2: Replace with Notion + Manus (save $108-$228/year per user)",
+        category: "Connector Integration"
+      });
+    }
+
+    if (answers.currentTools === "zapier") {
+      recommendations.push({
+        name: "Manus MCP Connectors",
+        cost: "Included in Manus subscription",
+        description: "Replace Zapier with Manus native connectors: Gmail, Notion, Stripe, HubSpot, Google Calendar, GitHub. Save $20-50/month",
+        category: "Connector Integration"
+      });
+    }
 
     // Add industry-specific tools based on answers
     if (answers.industry === "marketing") {
@@ -562,7 +612,7 @@ export default function ToolStackAuditQuiz() {
             <Sparkles className="w-12 h-12 text-brand-orange mx-auto mb-3" />
             <CardTitle className="text-2xl">Get Your Full Audit Report</CardTitle>
             <CardDescription className="text-base">
-              Enter your email to receive a detailed PDF with implementation roadmap and pricing breakdown
+              Enter your email to receive a detailed PDF with implementation roadmap, pricing breakdown, and connector integration guide
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -602,10 +652,21 @@ export default function ToolStackAuditQuiz() {
           </CardContent>
         </Card>
 
+        {/* Connector Disclaimer */}
+        {(answers.currentTools === "airtable" || answers.currentTools === "forms" || answers.currentTools === "monday" || answers.currentTools === "zapier") && (
+          <Card className="max-w-3xl mx-auto border-2 border-blue-200 bg-blue-50/30">
+            <CardContent className="pt-6">
+              <p className="text-sm text-gray-700 text-center">
+                <strong className="text-brand-purple">📋 Connector Integration Note:</strong> These recommendations include tool consolidation using Manus and ChatGPT native connectors. <strong>Book a free 15-minute consultation to confirm this setup will work for your specific workflows and requirements.</strong> Actual savings may vary based on your current subscriptions and usage patterns.
+              </p>
+            </CardContent>
+          </Card>
+        )}
+
         {/* CTA */}
         <div className="text-center space-y-4 pt-8">
           <p className="text-lg text-gray-700">
-            Want to discuss your specific needs?
+            Want to discuss your specific needs and confirm connector compatibility?
           </p>
           <a href="https://app.klipy.ai/book/pre-discovery/free-pre-discovery" target="_blank" rel="noopener noreferrer">
             <Button size="lg" className="bg-brand-purple hover:bg-brand-purple/90 text-lg px-8 py-6 h-auto">
@@ -625,7 +686,8 @@ export default function ToolStackAuditQuiz() {
                 industry: "",
                 toolCount: "",
                 budget: "",
-                technical: ""
+                technical: "",
+                currentTools: ""
               });
               setName("");
               setEmail("");

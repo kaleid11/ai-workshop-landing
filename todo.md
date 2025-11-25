@@ -954,3 +954,18 @@ Changed `client_reference_id: ctx.user.id.toString()` to `client_reference_id: c
 - [x] Make hero section more impactful and cleaner
 - [x] Test on mobile viewport (375px width)
 - [x] Save checkpoint after mobile improvements
+
+## Connector Integration & Tool Stack Optimization
+
+- [x] Add connector-awareness to Quiz assessment
+- [x] Add connector-awareness to Scorecard assessment
+- [x] Create connector recommendations based on current tool usage
+- [x] Add Airtable replacement recommendations (Notion + Manus/ChatGPT connectors)
+- [x] Add form software replacement recommendations (Gmail + Notion + automation)
+- [x] Add Monday.com replacement/integration recommendations
+- [x] Calculate cost savings for connector-based tool consolidation
+- [x] Add disclaimer about booking consultation to confirm setup
+- [ ] Update PDF report generation to include connector recommendations
+- [ ] Update email templates to highlight connector savings
+- [x] Test connector recommendations in both assessments
+- [ ] Create checkpoint with connector integration

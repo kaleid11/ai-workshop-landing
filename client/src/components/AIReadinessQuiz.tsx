@@ -78,6 +78,18 @@ const questions: Question[] = [
       { text: "On-premise only", score: 20, icon: "🏢" },
     ],
   },
+  {
+    id: 21,
+    dimension: "technology",
+    text: "Which of these tools are you currently paying for?",
+    options: [
+      { text: "Airtable (database/project management)", score: 50, icon: "🗃️" },
+      { text: "Form software (Typeform, Jotform)", score: 50, icon: "📋" },
+      { text: "Monday.com (project management)", score: 50, icon: "📅" },
+      { text: "Zapier or automation tools", score: 50, icon: "⚡" },
+      { text: "None of these", score: 100, icon: "✅" },
+    ],
+  },
 
   // Process Maturity (4 questions)
   {
@@ -629,6 +641,88 @@ export default function AIReadinessQuiz() {
             </div>
           </CardContent>
         </Card>
+
+        {/* Connector Integration Recommendations */}
+        {(answers[21] === 0 || answers[21] === 1 || answers[21] === 2 || answers[21] === 3) && (
+          <Card className="border-2 border-blue-200 bg-blue-50/30">
+            <CardHeader>
+              <CardTitle className="text-xl text-brand-purple">
+                🔗 Connector Integration Opportunities
+              </CardTitle>
+              <CardDescription className="text-base">
+                Based on your current tools, you can save significantly by leveraging Manus and ChatGPT native connectors
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                {answers[21] === 0 && (
+                  <div className="p-4 bg-white rounded-lg border border-blue-200">
+                    <h4 className="font-bold text-brand-purple mb-2">Replace Airtable</h4>
+                    <p className="text-sm text-gray-700 mb-2">
+                      <strong>Current cost:</strong> $240-$540/user/year
+                    </p>
+                    <p className="text-sm text-gray-700 mb-2">
+                      <strong>Replacement:</strong> Notion ($120/year) + ChatGPT/Manus Connectors
+                    </p>
+                    <p className="text-sm font-semibold text-green-600">
+                      💰 Savings: $120-$420/year per user
+                    </p>
+                  </div>
+                )}
+                {answers[21] === 1 && (
+                  <div className="p-4 bg-white rounded-lg border border-blue-200">
+                    <h4 className="font-bold text-brand-purple mb-2">Replace Form Software</h4>
+                    <p className="text-sm text-gray-700 mb-2">
+                      <strong>Current cost:</strong> $300-$840/year (Typeform, Jotform, etc.)
+                    </p>
+                    <p className="text-sm text-gray-700 mb-2">
+                      <strong>Replacement:</strong> Gmail + Notion + Manus Automation
+                    </p>
+                    <p className="text-sm font-semibold text-green-600">
+                      💰 Savings: $300-$840/year
+                    </p>
+                  </div>
+                )}
+                {answers[21] === 2 && (
+                  <div className="p-4 bg-white rounded-lg border border-blue-200">
+                    <h4 className="font-bold text-brand-purple mb-2">Optimize Monday.com</h4>
+                    <p className="text-sm text-gray-700 mb-2">
+                      <strong>Current cost:</strong> $108-$228/user/year
+                    </p>
+                    <p className="text-sm text-gray-700 mb-2">
+                      <strong>Option 1:</strong> Keep Monday.com + add ChatGPT connector for AI automation
+                    </p>
+                    <p className="text-sm text-gray-700 mb-2">
+                      <strong>Option 2:</strong> Replace with Notion + Manus
+                    </p>
+                    <p className="text-sm font-semibold text-green-600">
+                      💰 Potential savings: $108-$228/year per user (if replacing)
+                    </p>
+                  </div>
+                )}
+                {answers[21] === 3 && (
+                  <div className="p-4 bg-white rounded-lg border border-blue-200">
+                    <h4 className="font-bold text-brand-purple mb-2">Replace Zapier</h4>
+                    <p className="text-sm text-gray-700 mb-2">
+                      <strong>Current cost:</strong> $240-$600/year
+                    </p>
+                    <p className="text-sm text-gray-700 mb-2">
+                      <strong>Replacement:</strong> Manus MCP Connectors (Gmail, Notion, Stripe, HubSpot, Google Calendar, GitHub)
+                    </p>
+                    <p className="text-sm font-semibold text-green-600">
+                      💰 Savings: $240-$600/year
+                    </p>
+                  </div>
+                )}
+                <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
+                  <p className="text-xs text-gray-700">
+                    <strong className="text-brand-purple">⚠️ Important:</strong> These are suggested optimizations based on your current tools. <strong>Book a free 15-minute consultation to confirm this setup will work for your specific workflows and requirements.</strong> Actual savings may vary.
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        )}
 
         {/* What Manus Replaces */}
         <Card className="border-2 border-brand-orange bg-gradient-to-br from-brand-orange/10 to-brand-purple/10">
