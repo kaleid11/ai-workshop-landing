@@ -922,3 +922,14 @@ Changed `client_reference_id: ctx.user.id.toString()` to `client_reference_id: c
 - [x] Validate Open Graph tags at Facebook Debugger (user to validate externally)
 - [ ] Test email automation end-to-end (requires real purchase)
 - [x] Save final checkpoint after all critical fixes
+
+
+## Workshop Page Fixes (Nov 26 Issues)
+
+- [x] Fix countdown timer showing "Workshop has started!" when it's still Tuesday
+- [x] Verify Nov 26 date calculation and timezone handling (Brisbane UTC+10)
+- [x] Fix Academy portal images not being mobile-friendly
+- [x] Improve look and feel of Workshop page sections
+- [x] Test countdown timer with correct date logic
+- [x] Test mobile responsiveness of all images
+- [x] Save checkpoint after fixes

@@ -21,7 +21,7 @@ import { WorkshopCountdown } from "@/components/WorkshopCountdown";
 import { SEO, workshopStructuredData } from "@/components/SEO";
 
 // Set your next workshop date here (Brisbane time UTC+10)
-const WORKSHOP_DATE = new Date('2024-11-26T09:00:00+10:00'); // Nov 26, 2024, 9:00 AM Brisbane time
+const WORKSHOP_DATE = new Date('2025-11-26T09:00:00+10:00'); // Nov 26, 2025, 9:00 AM Brisbane time
 const WORKSHOP_DATE_STRING = "Wednesday, Nov 26 • 9-11am Brisbane / 10am-12pm Melbourne";
 
 export default function Workshop() {
@@ -529,11 +529,12 @@ export default function Workshop() {
             </Card>
           </div>
 
-          <div className="text-center">
+          <div className="text-center px-4">
             <img 
               src="/academy-dashboard.png" 
               alt="Academy Dashboard" 
-              className="rounded-xl shadow-2xl border-4 border-white/50 mx-auto max-w-4xl"
+              className="rounded-xl shadow-2xl border-4 border-white/50 mx-auto w-full max-w-4xl h-auto"
+              loading="lazy"
             />
           </div>
         </div>
@@ -797,11 +798,20 @@ export default function Workshop() {
             </AccordionItem>
           </Accordion>
 
-          <div className="mt-12 text-center">
-            <p className="text-gray-600 mb-4">Still have questions?</p>
-            <Button variant="outline" onClick={() => window.open(BOOKING_URL, '_blank')}>
-              Book a Free 15-Min Call
-            </Button>
+          <div className="mt-16 text-center">
+            <div className="bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 rounded-2xl p-8 max-w-2xl mx-auto">
+              <p className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Still have questions?</p>
+              <p className="text-gray-600 dark:text-gray-300 mb-6">Book a free 15-minute call and we'll help you decide if this workshop is right for you</p>
+              <Button 
+                size="lg"
+                variant="default" 
+                className="bg-gradient-to-r from-orange-500 to-purple-600 hover:from-orange-600 hover:to-purple-700 text-white"
+                onClick={() => window.open(BOOKING_URL, '_blank')}
+              >
+                <Calendar className="mr-2 h-5 w-5" />
+                Book a Free 15-Min Call
+              </Button>
+            </div>
           </div>
         </div>
       </section>
