@@ -969,3 +969,16 @@ Changed `client_reference_id: ctx.user.id.toString()` to `client_reference_id: c
 - [ ] Update email templates to highlight connector savings
 - [x] Test connector recommendations in both assessments
 - [ ] Create checkpoint with connector integration
+
+
+## Connector Recommendations Refinement (Nov 26)
+
+- [x] Fix Airtable positioning - change from "replacement" to "complement" (Airtable + Manus connectors = powerful combo)
+- [x] Emphasize Manus strength in BUILDING custom solutions (forms, landing pages, internal tools) vs just connecting
+- [x] Update form software recommendation - highlight Manus browser automation + coding agents can BUILD custom forms
+- [x] Clarify Monday.com recommendation - integration OR replacement depending on use case
+- [x] Refine Zapier recommendation - can replace many workflows but acknowledge some complex integrations may still need it
+- [x] Update Quiz connector recommendations with accurate positioning
+- [x] Update Scorecard connector recommendations with accurate positioning
+- [x] Test revised recommendations
+- [ ] Create checkpoint with refined positioning

@@ -657,52 +657,52 @@ export default function AIReadinessQuiz() {
               <div className="space-y-4">
                 {answers[21] === 0 && (
                   <div className="p-4 bg-white rounded-lg border border-blue-200">
-                    <h4 className="font-bold text-brand-purple mb-2">Replace Airtable</h4>
+                    <h4 className="font-bold text-brand-purple mb-2">Airtable + Manus Integration</h4>
                     <p className="text-sm text-gray-700 mb-2">
-                      <strong>Current cost:</strong> $240-$540/user/year
+                      <strong>Current setup:</strong> Airtable for database management
                     </p>
                     <p className="text-sm text-gray-700 mb-2">
-                      <strong>Replacement:</strong> Notion ($120/year) + ChatGPT/Manus Connectors
+                      <strong>Recommendation:</strong> Keep Airtable + add Manus connectors for workflow automation and custom tool building
                     </p>
-                    <p className="text-sm font-semibold text-green-600">
-                      💰 Savings: $120-$420/year per user
+                    <p className="text-sm font-semibold text-blue-600">
+                      💡 Powerful combo: Complex databases + AI automation
                     </p>
                   </div>
                 )}
                 {answers[21] === 1 && (
                   <div className="p-4 bg-white rounded-lg border border-blue-200">
-                    <h4 className="font-bold text-brand-purple mb-2">Replace Form Software</h4>
+                    <h4 className="font-bold text-brand-purple mb-2">Build Custom Forms with Manus</h4>
                     <p className="text-sm text-gray-700 mb-2">
                       <strong>Current cost:</strong> $300-$840/year (Typeform, Jotform, etc.)
                     </p>
                     <p className="text-sm text-gray-700 mb-2">
-                      <strong>Replacement:</strong> Gmail + Notion + Manus Automation
+                      <strong>Replacement:</strong> Build custom forms and internal tools with Manus browser automation + coding agents
                     </p>
                     <p className="text-sm font-semibold text-green-600">
-                      💰 Savings: $300-$840/year
+                      💰 Savings: $300-$840/year (included in Manus subscription)
                     </p>
                   </div>
                 )}
                 {answers[21] === 2 && (
                   <div className="p-4 bg-white rounded-lg border border-blue-200">
-                    <h4 className="font-bold text-brand-purple mb-2">Optimize Monday.com</h4>
+                    <h4 className="font-bold text-brand-purple mb-2">Monday.com + ChatGPT Integration</h4>
                     <p className="text-sm text-gray-700 mb-2">
                       <strong>Current cost:</strong> $108-$228/user/year
                     </p>
                     <p className="text-sm text-gray-700 mb-2">
-                      <strong>Option 1:</strong> Keep Monday.com + add ChatGPT connector for AI automation
+                      <strong>Recommendation:</strong> Keep Monday.com + add ChatGPT connector for AI-powered automation
                     </p>
                     <p className="text-sm text-gray-700 mb-2">
-                      <strong>Option 2:</strong> Replace with Notion + Manus
+                      <strong>Alternative:</strong> Replace with Notion + Manus for simpler workflows (potential savings: $108-$228/year per user)
                     </p>
-                    <p className="text-sm font-semibold text-green-600">
-                      💰 Potential savings: $108-$228/year per user (if replacing)
+                    <p className="text-sm font-semibold text-blue-600">
+                      💡 Choose based on your workflow complexity
                     </p>
                   </div>
                 )}
                 {answers[21] === 3 && (
                   <div className="p-4 bg-white rounded-lg border border-blue-200">
-                    <h4 className="font-bold text-brand-purple mb-2">Replace Zapier</h4>
+                    <h4 className="font-bold text-brand-purple mb-2">Replace Many Zapier Workflows</h4>
                     <p className="text-sm text-gray-700 mb-2">
                       <strong>Current cost:</strong> $240-$600/year
                     </p>
@@ -710,7 +710,7 @@ export default function AIReadinessQuiz() {
                       <strong>Replacement:</strong> Manus MCP Connectors (Gmail, Notion, Stripe, HubSpot, Google Calendar, GitHub)
                     </p>
                     <p className="text-sm font-semibold text-green-600">
-                      💰 Savings: $240-$600/year
+                      💰 Potential savings: $240-$600/year (some complex integrations may still need Zapier)
                     </p>
                   </div>
                 )}

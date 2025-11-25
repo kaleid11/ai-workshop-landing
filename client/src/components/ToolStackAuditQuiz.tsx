@@ -191,27 +191,27 @@ export default function ToolStackAuditQuiz() {
     // Add connector-based recommendations based on current tools
     if (answers.currentTools === "airtable") {
       recommendations.push({
-        name: "Notion + ChatGPT/Manus Connectors",
-        cost: "$10/user/month (saves $10-35/user/month)",
-        description: "Replace Airtable with Notion database + AI connectors for automation. Savings: $120-$420/year per user",
+        name: "Airtable + Manus Integration",
+        cost: "Keep Airtable + add Manus automation",
+        description: "Powerful combo: Keep Airtable for complex database management + add Manus connectors for workflow automation and custom tool building",
         category: "Connector Integration"
       });
     }
 
     if (answers.currentTools === "forms") {
       recommendations.push({
-        name: "Gmail + Notion + Manus Automation",
-        cost: "Free-$10/month (saves $25-70/month)",
-        description: "Replace form software with Gmail connector + Notion database + automated workflows. Savings: $300-$840/year",
-        category: "Connector Integration"
+        name: "Manus Custom Forms + Automation",
+        cost: "Included in Manus (saves $25-70/month)",
+        description: "Build custom forms and internal tools with Manus browser automation + coding agents. No need for Typeform/Jotform. Savings: $300-$840/year",
+        category: "Custom Tool Building"
       });
     }
 
     if (answers.currentTools === "monday") {
       recommendations.push({
-        name: "ChatGPT Monday.com Connector OR Notion Alternative",
-        cost: "Included in ChatGPT Pro (or replace entirely)",
-        description: "Option 1: Keep Monday.com + add ChatGPT connector for AI automation. Option 2: Replace with Notion + Manus (save $108-$228/year per user)",
+        name: "Monday.com + ChatGPT Integration",
+        cost: "Included in ChatGPT Pro",
+        description: "Keep Monday.com + add ChatGPT connector for AI-powered automation. OR replace with Notion + Manus for simpler workflows (potential savings: $108-$228/year per user)",
         category: "Connector Integration"
       });
     }
@@ -220,7 +220,7 @@ export default function ToolStackAuditQuiz() {
       recommendations.push({
         name: "Manus MCP Connectors",
         cost: "Included in Manus subscription",
-        description: "Replace Zapier with Manus native connectors: Gmail, Notion, Stripe, HubSpot, Google Calendar, GitHub. Save $20-50/month",
+        description: "Replace many Zapier workflows with Manus native connectors: Gmail, Notion, Stripe, HubSpot, Google Calendar, GitHub. Potential savings: $20-50/month (some complex integrations may still need Zapier)",
         category: "Connector Integration"
       });
     }
