@@ -85,6 +85,27 @@ export const appRouter = router({
     }),
   }),
 
+  onboarding: router({
+    getProgress: protectedProcedure.query(async ({ ctx }) => {
+      const { getUserOnboarding } = await import("./db");
+      const progress = await getUserOnboarding(ctx.user.id);
+      return {
+        completedItems: progress ? JSON.parse(progress.completedItems) : [],
+      };
+    }),
+    updateProgress: protectedProcedure
+      .input(
+        z.object({
+          completedItems: z.array(z.string()),
+        })
+      )
+      .mutation(async ({ input, ctx }) => {
+        const { upsertUserOnboarding } = await import("./db");
+        await upsertUserOnboarding(ctx.user.id, input.completedItems);
+        return { success: true };
+      }),
+  }),
+
   admin: router({
     bindToken: protectedProcedure
       .input(

@@ -1041,3 +1041,22 @@ Changed `client_reference_id: ctx.user.id.toString()` to `client_reference_id: c
 - [ ] Test Portal access for workshop purchasers
 - [ ] Test Portal CTA for non-purchasers
 - [ ] Create checkpoint with Portal navigation and email automation
+
+
+## Add to Calendar & Post-Purchase Onboarding (Nov 26)
+
+### Add to Calendar Feature
+- [x] Create calendar event generation utilities (Google Calendar, Outlook, iCal formats)
+- [x] Add "Add to Calendar" button section in Portal
+- [x] Include workshop date, time, timezone, and meeting link in calendar events
+- [x] Test calendar integration with all three formats (Google Calendar URL needs minor fix)
+
+### Post-Purchase Onboarding Checklist
+- [x] Create database schema for tracking onboarding progress (user_onboarding table)
+- [x] Create OnboardingChecklist component with progress tracking
+- [x] Add checklist items: tool signups, brand prep, community join, portal access tested
+- [x] Implement tRPC procedures for saving/loading onboarding progress
+- [x] Integrate onboarding checklist into Portal page (show prominently for new users)
+- [x] Add visual progress indicator (e.g., "3/5 steps complete")
+- [x] Test onboarding checklist functionality
+- [ ] Create checkpoint with calendar and onboarding features

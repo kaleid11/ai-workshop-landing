@@ -5,6 +5,7 @@ import { APP_LOGO, APP_TITLE, getLoginUrl } from "@/const";
 import { trpc } from "@/lib/trpc";
 import { Calendar, ExternalLink, Loader2, Mail, MessageCircle, ShoppingCart, Sparkles, Users, Video, TrendingUp, Code2, Target } from "lucide-react";
 import { Link } from "wouter";
+import OnboardingChecklist from "@/components/OnboardingChecklist";
 
 export default function Portal() {
   const { user, loading, isAuthenticated } = useAuth();
@@ -12,18 +13,51 @@ export default function Portal() {
     enabled: isAuthenticated,
   });
 
-  // Generate calendar event URL (Google Calendar format)
-  const generateCalendarUrl = () => {
-    const title = encodeURIComponent("Social Media Automation Workshop");
-    const details = encodeURIComponent(
-      "Learn to automate your social media content with AI tools. Workshop includes hands-on training with Sora 2, post automation, and video editing tools."
-    );
-    // Wednesday, Nov 26, 2025, 9:00 AM Brisbane time (UTC+10)
-    const startDate = "20251126T090000";
-    const endDate = "20251126T110000";
-    const timezone = "Australia/Brisbane";
+  // Generate calendar event URLs for different formats
+  const workshopDetails = {
+    title: "Social Media Automation Workshop",
+    description: "Learn to automate your social media content with AI tools. Workshop includes hands-on training with Sora 2, post automation, and video editing tools. Meeting link will be sent 24 hours before the workshop.",
+    location: "Online (Google Meet link to be provided)",
+    startDate: "20251126T090000", // Nov 26, 2025, 9:00 AM Brisbane
+    endDate: "20251126T110000",   // Nov 26, 2025, 11:00 AM Brisbane
+    timezone: "Australia/Brisbane",
+  };
+
+  const generateGoogleCalendarUrl = () => {
+    const { title, description, startDate, endDate, timezone } = workshopDetails;
+    return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&details=${encodeURIComponent(description)}&dates=${startDate}/${endDate}&ctz=${timezone}`;
+  };
+
+  const generateOutlookCalendarUrl = () => {
+    const { title, description, location, startDate, endDate } = workshopDetails;
+    // Convert to ISO format for Outlook
+    const start = `2025-11-26T09:00:00+10:00`;
+    const end = `2025-11-26T11:00:00+10:00`;
+    return `https://outlook.live.com/calendar/0/deeplink/compose?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(description)}&location=${encodeURIComponent(location)}&startdt=${start}&enddt=${end}`;
+  };
+
+  const generateICalFile = () => {
+    const { title, description, location, startDate, endDate } = workshopDetails;
+    const icsContent = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'BEGIN:VEVENT',
+      `DTSTART:${startDate}Z`,
+      `DTEND:${endDate}Z`,
+      `SUMMARY:${title}`,
+      `DESCRIPTION:${description}`,
+      `LOCATION:${location}`,
+      'END:VEVENT',
+      'END:VCALENDAR'
+    ].join('\r\n');
     
-    return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&dates=${startDate}/${endDate}&ctz=${timezone}`;
+    const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'workshop.ics';
+    link.click();
+    URL.revokeObjectURL(url);
   };
 
   if (loading) {
@@ -162,6 +196,11 @@ export default function Portal() {
                 <p className="text-sm text-gray-600">SEO-optimized content</p>
               </div>
             </div>
+          </div>
+
+          {/* Onboarding Checklist */}
+          <div className="mb-8">
+            <OnboardingChecklist />
           </div>
 
           {/* Academy Quick Access */}
@@ -404,12 +443,26 @@ export default function Portal() {
                     🕐 10:00 AM - 12:00 PM Melbourne Time
                   </p>
                 </div>
-                <a href={generateCalendarUrl()} target="_blank" rel="noopener noreferrer">
-                  <Button className="w-full bg-brand-orange hover:bg-brand-orange/90 text-white">
-                    <Calendar className="w-4 h-4 mr-2" />
-                    Add to Calendar
-                  </Button>
-                </a>
+                <div className="space-y-2">
+                  <a href={generateGoogleCalendarUrl()} target="_blank" rel="noopener noreferrer">
+                    <Button className="w-full bg-brand-orange hover:bg-brand-orange/90 text-white">
+                      <Calendar className="w-4 h-4 mr-2" />
+                      Add to Google Calendar
+                    </Button>
+                  </a>
+                  <div className="grid grid-cols-2 gap-2">
+                    <a href={generateOutlookCalendarUrl()} target="_blank" rel="noopener noreferrer">
+                      <Button variant="outline" className="w-full">
+                        <Calendar className="w-4 h-4 mr-2" />
+                        Outlook
+                      </Button>
+                    </a>
+                    <Button variant="outline" className="w-full" onClick={generateICalFile}>
+                      <Calendar className="w-4 h-4 mr-2" />
+                      Apple/iCal
+                    </Button>
+                  </div>
+                </div>
                 <p className="text-sm text-gray-600">
                   Can't make it live? No worries! The replay will be available in your portal within 24 hours.
                 </p>

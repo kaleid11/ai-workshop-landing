@@ -1,6 +1,6 @@
 import { eq, desc } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { adminTokens, InsertPurchase, InsertUser, purchases, users, sessionFeedback, InsertSessionFeedback, assessmentResults } from "../drizzle/schema";
+import { adminTokens, InsertPurchase, InsertUser, purchases, users, sessionFeedback, InsertSessionFeedback, assessmentResults, userOnboarding, InsertUserOnboarding } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -536,5 +536,51 @@ export async function getAllAssessmentResults() {
   } catch (error) {
     console.error("[Database] Failed to get assessment results:", error);
     return [];
+  }
+}
+
+/**
+ * Get user onboarding progress
+ */
+export async function getUserOnboarding(userId: number) {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot get user onboarding: database not available");
+    return null;
+  }
+
+  try {
+    const result = await db.select().from(userOnboarding).where(eq(userOnboarding.userId, userId)).limit(1);
+    return result.length > 0 ? result[0] : null;
+  } catch (error) {
+    console.error("[Database] Failed to get user onboarding:", error);
+    return null;
+  }
+}
+
+/**
+ * Upsert user onboarding progress
+ */
+export async function upsertUserOnboarding(userId: number, completedItems: string[]) {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot upsert user onboarding: database not available");
+    return;
+  }
+
+  try {
+    const completedItemsJson = JSON.stringify(completedItems);
+    
+    await db.insert(userOnboarding).values({
+      userId,
+      completedItems: completedItemsJson,
+    }).onDuplicateKeyUpdate({
+      set: {
+        completedItems: completedItemsJson,
+      },
+    });
+  } catch (error) {
+    console.error("[Database] Failed to upsert user onboarding:", error);
+    throw error;
   }
 }
