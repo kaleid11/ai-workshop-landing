@@ -44,9 +44,11 @@ export function WorkshopCountdown({ targetDate, className = "" }: WorkshopCountd
   // Prevent hydration mismatch by not rendering time until mounted
   if (!mounted) {
     return (
-      <div className={`inline-flex items-center gap-2 ${className}`}>
-        <Clock className="w-4 h-4" />
-        <span className="font-semibold">Loading...</span>
+      <div className={`backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl px-8 py-6 shadow-2xl ${className}`}>
+        <div className="flex items-center gap-3">
+          <Clock className="w-6 h-6 text-white animate-pulse" />
+          <span className="text-white font-semibold text-lg">Loading...</span>
+        </div>
       </div>
     );
   }
@@ -56,39 +58,60 @@ export function WorkshopCountdown({ targetDate, className = "" }: WorkshopCountd
 
   if (!hasTimeLeft) {
     return (
-      <div className={`inline-flex items-center gap-2 ${className}`}>
-        <Clock className="w-4 h-4" />
-        <span className="font-semibold">Workshop has started!</span>
+      <div className={`backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl px-8 py-6 shadow-2xl ${className}`}>
+        <div className="flex items-center gap-3">
+          <Clock className="w-6 h-6 text-white animate-pulse" />
+          <span className="text-white font-semibold text-lg">Workshop has started!</span>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className={`inline-flex items-center gap-3 ${className}`}>
-      <Clock className="w-5 h-5 flex-shrink-0" />
-      <div className="flex items-center gap-2">
-        {days > 0 && (
-          <>
-            <div className="flex flex-col items-center min-w-[3rem]">
-              <span className="text-2xl font-bold tabular-nums">{days}</span>
-              <span className="text-xs opacity-75">day{days !== 1 ? 's' : ''}</span>
+    <div className={`backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl px-8 py-6 shadow-2xl ${className}`}>
+      <div className="flex flex-col gap-4">
+        <div className="flex items-center gap-2">
+          <Clock className="w-5 h-5 text-white/90" />
+          <span className="text-white/90 font-medium text-sm tracking-wide">Next Session Starts In:</span>
+        </div>
+        
+        <div className="flex items-center justify-center gap-3">
+          {days > 0 && (
+            <>
+              <div className="flex flex-col items-center">
+                <div className="bg-white/20 backdrop-blur-sm rounded-xl px-4 py-3 min-w-[4.5rem] border border-white/30">
+                  <span className="text-4xl md:text-5xl font-bold text-white tabular-nums drop-shadow-lg">{days}</span>
+                </div>
+                <span className="text-xs text-white/80 mt-2 font-medium uppercase tracking-wider">day{days !== 1 ? 's' : ''}</span>
+              </div>
+              <span className="text-3xl font-bold text-white/60 mb-6">:</span>
+            </>
+          )}
+          
+          <div className="flex flex-col items-center">
+            <div className="bg-white/20 backdrop-blur-sm rounded-xl px-4 py-3 min-w-[4.5rem] border border-white/30">
+              <span className="text-4xl md:text-5xl font-bold text-white tabular-nums drop-shadow-lg">{hours.toString().padStart(2, '0')}</span>
             </div>
-            <span className="text-xl font-bold">:</span>
-          </>
-        )}
-        <div className="flex flex-col items-center min-w-[3rem]">
-          <span className="text-2xl font-bold tabular-nums">{hours.toString().padStart(2, '0')}</span>
-          <span className="text-xs opacity-75">hours</span>
-        </div>
-        <span className="text-xl font-bold">:</span>
-        <div className="flex flex-col items-center min-w-[3rem]">
-          <span className="text-2xl font-bold tabular-nums">{minutes.toString().padStart(2, '0')}</span>
-          <span className="text-xs opacity-75">mins</span>
-        </div>
-        <span className="text-xl font-bold">:</span>
-        <div className="flex flex-col items-center min-w-[3rem]">
-          <span className="text-2xl font-bold tabular-nums">{seconds.toString().padStart(2, '0')}</span>
-          <span className="text-xs opacity-75">secs</span>
+            <span className="text-xs text-white/80 mt-2 font-medium uppercase tracking-wider">hours</span>
+          </div>
+          
+          <span className="text-3xl font-bold text-white/60 mb-6">:</span>
+          
+          <div className="flex flex-col items-center">
+            <div className="bg-white/20 backdrop-blur-sm rounded-xl px-4 py-3 min-w-[4.5rem] border border-white/30">
+              <span className="text-4xl md:text-5xl font-bold text-white tabular-nums drop-shadow-lg">{minutes.toString().padStart(2, '0')}</span>
+            </div>
+            <span className="text-xs text-white/80 mt-2 font-medium uppercase tracking-wider">mins</span>
+          </div>
+          
+          <span className="text-3xl font-bold text-white/60 mb-6">:</span>
+          
+          <div className="flex flex-col items-center">
+            <div className="bg-white/20 backdrop-blur-sm rounded-xl px-4 py-3 min-w-[4.5rem] border border-white/30 animate-pulse">
+              <span className="text-4xl md:text-5xl font-bold text-white tabular-nums drop-shadow-lg">{seconds.toString().padStart(2, '0')}</span>
+            </div>
+            <span className="text-xs text-white/80 mt-2 font-medium uppercase tracking-wider">secs</span>
+          </div>
         </div>
       </div>
     </div>
