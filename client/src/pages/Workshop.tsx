@@ -68,62 +68,61 @@ export default function Workshop() {
         {/* Decorative circles */}
         <div className="absolute top-20 right-20 w-64 h-64 bg-white/5 rounded-full blur-3xl" />
         <div className="absolute bottom-20 left-20 w-96 h-96 bg-purple-300/10 rounded-full blur-3xl" />
-        <div className="container relative py-24 md:py-32">
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
-            <div className="space-y-8">
-              <Badge className="bg-white/20 text-white border-white/30 hover:bg-white/30">
+        <div className="container relative py-12 sm:py-20 md:py-32">
+          <div className="grid gap-8 lg:grid-cols-2 lg:gap-16 items-center">
+            <div className="space-y-6 sm:space-y-8">
+              <Badge className="bg-white/20 text-white border-white/30 hover:bg-white/30 text-xs sm:text-sm">
                 LIVE WORKSHOP
               </Badge>
               
               {/* Countdown Timer */}
-              <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg px-6 py-4 inline-block">
-                <p className="text-sm opacity-90 mb-2">Next Session Starts In:</p>
-                <WorkshopCountdown targetDate={WORKSHOP_DATE} className="text-white" />
-                <p className="text-xs opacity-75 mt-2">{WORKSHOP_DATE_STRING}</p>
-              </div>
+              <WorkshopCountdown targetDate={WORKSHOP_DATE} className="text-white" />
+              <p className="text-xs sm:text-sm text-white/90 -mt-4">{WORKSHOP_DATE_STRING}</p>
               
-                 <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            Stop Paying $3K/Month<br />for Social Media
-          </h1>
-              
-          <p className="text-xl md:text-2xl mb-8 text-white/90">
-            Learn to Automate Your Content in One 2-Hour Workshop
-          </p>
-          <p className="text-lg mb-8 text-white/80">
-            Create posts, videos, and marketing content in minutes—without hiring a team.
-          </p>          
-              <div className="flex flex-wrap gap-4">
+              <div className="space-y-4">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                  Stop Paying <span className="text-orange-300">$3K/Month</span><br />for Social Media
+                </h1>
+                
+                <p className="text-lg sm:text-xl md:text-2xl text-white/95 font-medium">
+                  Learn to Automate Your Content in One 2-Hour Workshop
+                </p>
+                <p className="text-base sm:text-lg text-white/85">
+                  Create posts, videos, and marketing content in minutes—without hiring a team.
+                </p>
+              </div>          
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Button 
                   size="lg" 
-                  className="bg-white text-purple-600 hover:bg-white/90"
+                  className="bg-white text-purple-600 hover:bg-white/90 w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6"
                   onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Get Workshop Access $77
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
                 </Button>
                 <Button 
                   size="lg" 
                   variant="outline"
-                  className="bg-transparent border-white text-white hover:bg-white/10"
+                  className="bg-transparent border-2 border-white text-white hover:bg-white/10 w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6"
                   onClick={() => window.open(BOOKING_URL, '_blank')}
                 >
                   Book 1-on-1 Audit
                 </Button>
               </div>
               
-              <div className="flex items-center gap-6 text-sm">
+              <div className="flex items-center gap-4 sm:gap-6 text-xs sm:text-sm">
                 <div className="flex items-center gap-2">
-                  <Users className="h-5 w-5" />
-                  <span>200+ Businesses Coached</span>
+                  <Users className="h-4 w-4 sm:h-5 sm:w-5" />
+                  <span>200+ Businesses</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Star className="h-5 w-5 fill-current" />
+                  <Star className="h-4 w-4 sm:h-5 sm:w-5 fill-current" />
                   <span>5.0 Rating</span>
                 </div>
               </div>
             </div>
             
-            <div className="relative">
+            <div className="relative hidden lg:block">
               <img 
                 src="/instructor-huxley.webp" 
                 alt="Huxley Peckham" 
