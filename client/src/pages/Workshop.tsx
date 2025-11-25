@@ -21,8 +21,8 @@ import { WorkshopCountdown } from "@/components/WorkshopCountdown";
 import { SEO, workshopStructuredData } from "@/components/SEO";
 
 // Set your next workshop date here (Brisbane time UTC+10)
-const WORKSHOP_DATE = new Date('2024-12-15T09:00:00+10:00'); // Dec 15, 2024, 9:00 AM Brisbane time
-const WORKSHOP_DATE_STRING = "December 15, 2024 • 9:00 AM AEST";
+const WORKSHOP_DATE = new Date('2024-11-26T09:00:00+10:00'); // Nov 26, 2024, 9:00 AM Brisbane time
+const WORKSHOP_DATE_STRING = "Wednesday, Nov 26 • 9-11am Brisbane / 10am-12pm Melbourne";
 
 export default function Workshop() {
   const { user, isAuthenticated } = useAuth();
@@ -82,14 +82,16 @@ export default function Workshop() {
                 <p className="text-xs opacity-75 mt-2">{WORKSHOP_DATE_STRING}</p>
               </div>
               
-              <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-                Build an AI Agent that knows your business
-              </h1>
+                 <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+            Stop Paying $3K/Month<br />for Social Media
+          </h1>
               
-              <p className="text-xl text-white/90">
-                HOSTED BY HUXLEY PECKHAM
-              </p>
-              
+          <p className="text-xl md:text-2xl mb-8 text-white/90">
+            Learn to Automate Your Content in One 2-Hour Workshop
+          </p>
+          <p className="text-lg mb-8 text-white/80">
+            Create posts, videos, and marketing content in minutes—without hiring a team.
+          </p>          
               <div className="flex flex-wrap gap-4">
                 <Button 
                   size="lg" 

@@ -905,3 +905,20 @@ Changed `client_reference_id: ctx.user.id.toString()` to `client_reference_id: c
 - [x] Add Open Graph tags for social sharing
 - [x] Test all SEO improvements
 - [x] Create setup guide for external services
+
+
+## Critical Fixes from Audit (High Priority)
+
+- [x] Restart dev server to load Google Analytics secret (VITE_GA_MEASUREMENT_ID=G-ZL2L0GG8N3)
+- [x] Update workshop date from Dec 15, 2024 to Nov 26, 2024 (9-11am Brisbane / 10am-12pm Melbourne)
+- [x] Update workshop headline to "Stop Paying $3K/Month for Social Media"
+- [x] Update workshop subheadline to "Learn to Automate Your Content in One 2-Hour Workshop"
+- [x] Verify Stripe live mode is working correctly (500 error needs investigation)
+- [ ] Test complete checkout flow with live price ID (blocked by 500 error)
+- [x] Test mobile responsiveness on all pages
+- [x] Test FAQ accordion on mobile
+- [x] Test countdown timer on mobile
+- [x] Validate Schema.org at Google Rich Results Test (user to validate externally)
+- [x] Validate Open Graph tags at Facebook Debugger (user to validate externally)
+- [ ] Test email automation end-to-end (requires real purchase)
+- [x] Save final checkpoint after all critical fixes
