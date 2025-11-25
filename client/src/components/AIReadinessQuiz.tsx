@@ -90,6 +90,17 @@ const questions: Question[] = [
       { text: "None of these", score: 100, icon: "✅" },
     ],
   },
+  {
+    id: 22,
+    dimension: "technology",
+    text: "What productivity suite does your team use?",
+    options: [
+      { text: "Microsoft 365 (Teams, OneDrive, Office)", score: 100, icon: "💼" },
+      { text: "Google Workspace (Gmail, Drive, Docs)", score: 100, icon: "🔷" },
+      { text: "Both Microsoft and Google", score: 100, icon: "🔄" },
+      { text: "Neither / Other", score: 75, icon: "🌐" },
+    ],
+  },
 
   // Process Maturity (4 questions)
   {
@@ -785,17 +796,43 @@ export default function AIReadinessQuiz() {
           </CardHeader>
           <CardContent>
             <div className="grid md:grid-cols-2 gap-4">
-              {/* Core Tools - Always recommended */}
-              <div className="border-2 border-brand-blue rounded-lg p-4">
-                <div className="flex items-start justify-between mb-2">
-                  <div>
-                    <h4 className="font-bold">ChatGPT Team</h4>
-                    <Badge variant="outline" className="mt-1 text-xs">Core AI</Badge>
+              {/* Core Tools - Ecosystem-based AI platform */}
+              {answers[22] === 1 && ( // Google Workspace
+                <div className="border-2 border-brand-blue rounded-lg p-4">
+                  <div className="flex items-start justify-between mb-2">
+                    <div>
+                      <h4 className="font-bold">Gemini Advanced</h4>
+                      <Badge variant="outline" className="mt-1 text-xs">Core AI</Badge>
+                    </div>
+                    <span className="text-sm font-semibold text-brand-blue">$20/user/mo</span>
                   </div>
-                  <span className="text-sm font-semibold text-brand-blue">$25-30/user/mo</span>
+                  <p className="text-sm text-gray-700">Best for Google Workspace - native Gmail, Drive, Docs integration. GEMs for custom workflows, mini apps in chat.</p>
                 </div>
-                <p className="text-sm text-gray-700">Foundation for all AI work - conversational AI, automation, research</p>
-              </div>
+              )}
+              {answers[22] === 2 && ( // Hybrid
+                <div className="border-2 border-brand-blue rounded-lg p-4">
+                  <div className="flex items-start justify-between mb-2">
+                    <div>
+                      <h4 className="font-bold">ChatGPT + Gemini</h4>
+                      <Badge variant="outline" className="mt-1 text-xs">Core AI</Badge>
+                    </div>
+                    <span className="text-sm font-semibold text-brand-blue">$45-50/user/mo</span>
+                  </div>
+                  <p className="text-sm text-gray-700">Hybrid approach: ChatGPT for Microsoft tools, Gemini for Google Workspace. Leverage best of both platforms.</p>
+                </div>
+              )}
+              {(answers[22] === 0 || answers[22] === 3) && ( // Microsoft or Neither
+                <div className="border-2 border-brand-blue rounded-lg p-4">
+                  <div className="flex items-start justify-between mb-2">
+                    <div>
+                      <h4 className="font-bold">ChatGPT Team</h4>
+                      <Badge variant="outline" className="mt-1 text-xs">Core AI</Badge>
+                    </div>
+                    <span className="text-sm font-semibold text-brand-blue">$25-30/user/mo</span>
+                  </div>
+                  <p className="text-sm text-gray-700">{answers[22] === 0 ? "Best for Microsoft 365 - integrates with Teams, OneDrive, Office. Foundation for all AI work." : "Foundation for all AI work - conversational AI, automation, research. Most versatile option."}</p>
+                </div>
+              )}
 
               <div className="border-2 border-brand-orange rounded-lg p-4 bg-brand-orange/5">
                 <div className="flex items-start justify-between mb-2">

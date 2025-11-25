@@ -544,7 +544,7 @@ export default function Home() {
               Social Media Automation with AI
             </h2>
             <p className="text-xl text-gray-700">
-              Learn to create 30 days of content in 2 hours using ChatGPT, Gamma, and Captions.ai
+              Learn to create 30 days of content in 2 hours using ChatGPT or Gemini, Gamma, and Captions.ai
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-6 text-lg">
@@ -592,8 +592,8 @@ export default function Home() {
                 <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-3">
                   <MessageSquare className="w-8 h-8 text-white" />
                 </div>
-                <CardTitle className="text-base">ChatGPT</CardTitle>
-                <CardDescription className="text-xs">The Foundation</CardDescription>
+                <CardTitle className="text-base">ChatGPT or Gemini</CardTitle>
+                <CardDescription className="text-xs">The AI Foundation</CardDescription>
               </CardHeader>
             </Card>
 

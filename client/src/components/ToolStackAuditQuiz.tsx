@@ -17,16 +17,15 @@ import {
 import { toast } from "sonner";
 import { trpc } from "@/lib/trpc";
 
-type QuizAnswers = {
+interface QuizAnswers {
   teamSize: string;
   industry: string;
   toolCount: string;
   budget: string;
   technical: string;
+  ecosystem: string;
   currentTools: string;
-};
-
-type ToolRecommendation = {
+}type ToolRecommendation = {
   name: string;
   cost: string;
   description: string;
@@ -41,6 +40,7 @@ export default function ToolStackAuditQuiz() {
     toolCount: "",
     budget: "",
     technical: "",
+    ecosystem: "",
     currentTools: ""
   });
   const [name, setName] = useState("");
@@ -97,6 +97,16 @@ export default function ToolStackAuditQuiz() {
         { value: "non-technical", label: "Non-technical (need simple, no-code solutions)", icon: "🎯" },
         { value: "some-technical", label: "Some technical skills (can handle basic integrations)", icon: "⚙️" },
         { value: "highly-technical", label: "Highly technical (comfortable with APIs and coding)", icon: "🔧" }
+      ]
+    },
+    {
+      id: "ecosystem",
+      question: "What productivity suite does your team use?",
+      options: [
+        { value: "microsoft", label: "Microsoft 365 (Teams, OneDrive, Office)", icon: "💼" },
+        { value: "google", label: "Google Workspace (Gmail, Drive, Docs)", icon: "🔷" },
+        { value: "hybrid", label: "Both Microsoft and Google", icon: "🔄" },
+        { value: "neither", label: "Neither / Other", icon: "🌐" }
       ]
     },
     {
@@ -173,20 +183,46 @@ export default function ToolStackAuditQuiz() {
   };
 
   const getRecommendations = (): ToolRecommendation[] => {
-    const recommendations: ToolRecommendation[] = [
-      {
+    const recommendations: ToolRecommendation[] = [];
+    
+    // Ecosystem-based AI platform recommendation
+    if (answers.ecosystem === "microsoft") {
+      recommendations.push({
         name: "ChatGPT Team",
         cost: "$25-30/user/month",
-        description: "Foundation for all AI work - conversational AI, automation, research",
+        description: "Best for Microsoft 365 users - integrates with Teams, OneDrive, Office. Foundation for all AI work.",
         category: "Core AI"
-      },
-      {
-        name: "Manus",
-        cost: "$20-40/user/month",
-        description: "Replaces Zapier, Typeform, Webflow, basic CRM - custom tools, forms, landing pages, automation",
-        category: "Core Platform"
-      }
-    ];
+      });
+    } else if (answers.ecosystem === "google") {
+      recommendations.push({
+        name: "Gemini Advanced",
+        cost: "$20/user/month",
+        description: "Best for Google Workspace users - native Gmail, Drive, Docs integration. GEMs for custom workflows, mini apps in chat.",
+        category: "Core AI"
+      });
+    } else if (answers.ecosystem === "hybrid") {
+      recommendations.push({
+        name: "ChatGPT Team + Gemini Advanced",
+        cost: "$45-50/user/month",
+        description: "Hybrid approach: ChatGPT for Microsoft tools, Gemini for Google Workspace. Leverage best of both platforms.",
+        category: "Core AI"
+      });
+    } else {
+      // Default to ChatGPT for neither/other
+      recommendations.push({
+        name: "ChatGPT Team",
+        cost: "$25-30/user/month",
+        description: "Foundation for all AI work - conversational AI, automation, research. Most versatile option.",
+        category: "Core AI"
+      });
+    }
+    
+    recommendations.push({
+      name: "Manus",
+      cost: "$20-40/user/month",
+      description: "Replaces Zapier, Typeform, Webflow, basic CRM - custom tools, forms, landing pages, automation",
+      category: "Core Platform"
+    });
 
     // Add connector-based recommendations based on current tools
     if (answers.currentTools === "airtable") {
@@ -414,8 +450,14 @@ export default function ToolStackAuditQuiz() {
                           answers.teamSize === "small" ? 3 : 
                           answers.teamSize === "medium" ? 8 : 15;
     
-    // Base costs for recommended stack
-    recommendedCost = 25 + 30; // ChatGPT Team + Manus base
+    // Base costs for recommended stack (ecosystem-based AI platform + Manus)
+    let aiPlatformCost = 25; // Default ChatGPT Team
+    if (answers.ecosystem === "google") {
+      aiPlatformCost = 20; // Gemini Advanced
+    } else if (answers.ecosystem === "hybrid") {
+      aiPlatformCost = 45; // Both ChatGPT + Gemini
+    }
+    recommendedCost = aiPlatformCost + 30; // AI platform + Manus base
     
     if (answers.industry === "marketing") {
       recommendedCost += 15 + 20 + 29 + 40 + 11; // Gamma + Captions + Reap + Riverside (mid-tier) + ElevenLabs
@@ -430,8 +472,8 @@ export default function ToolStackAuditQuiz() {
       recommendedCost += 15 + 20; // Gamma + Captions
     }
     
-    // Add team multiplier for per-user tools (ChatGPT, Manus, Replit)
-    const perUserCost = 25 + 30 + (answers.industry === "tech" ? 20 : 0);
+    // Add team multiplier for per-user tools (AI platform, Manus, Replit)
+    const perUserCost = aiPlatformCost + 30 + (answers.industry === "tech" ? 20 : 0);
     recommendedCost = recommendedCost - perUserCost + (perUserCost * teamMultiplier);
 
     const monthlySavings = Math.max(0, currentCost - recommendedCost);
@@ -681,14 +723,15 @@ export default function ToolStackAuditQuiz() {
             variant="ghost"
             onClick={() => {
               setStep(0);
-              setAnswers({
-                teamSize: "",
-                industry: "",
-                toolCount: "",
-                budget: "",
-                technical: "",
-                currentTools: ""
-              });
+      setAnswers({
+        teamSize: "",
+        industry: "",
+        toolCount: "",
+        budget: "",
+        technical: "",
+        ecosystem: "",
+        currentTools: ""
+      });
               setName("");
               setEmail("");
               setShowResults(false);

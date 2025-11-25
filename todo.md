@@ -981,4 +981,16 @@ Changed `client_reference_id: ctx.user.id.toString()` to `client_reference_id: c
 - [x] Update Quiz connector recommendations with accurate positioning
 - [x] Update Scorecard connector recommendations with accurate positioning
 - [x] Test revised recommendations
-- [ ] Create checkpoint with refined positioning
+- [x] Create checkpoint with refined positioning
+
+
+## Website Audit & Gemini Integration Refactor (Nov 26)
+
+- [x] Audit all pages to identify where AI platform recommendations appear
+- [x] Add ecosystem detection question to Quiz (Microsoft vs Google vs Hybrid)
+- [x] Add ecosystem detection question to Scorecard (Microsoft vs Google vs Hybrid)
+- [x] Update Quiz recommendations: Microsoft → ChatGPT, Google → Gemini, Hybrid → Both
+- [x] Update Scorecard recommendations: Microsoft → ChatGPT, Google → Gemini, Hybrid → Both
+- [x] Update homepage AI platform mentions to include Gemini
+- [x] Test ecosystem-based recommendations in both assessments
+- [ ] Create checkpoint with Gemini integration refactor
