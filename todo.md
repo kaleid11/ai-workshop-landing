@@ -993,4 +993,14 @@ Changed `client_reference_id: ctx.user.id.toString()` to `client_reference_id: c
 - [x] Update Scorecard recommendations: Microsoft → ChatGPT, Google → Gemini, Hybrid → Both
 - [x] Update homepage AI platform mentions to include Gemini
 - [x] Test ecosystem-based recommendations in both assessments
-- [ ] Create checkpoint with Gemini integration refactor
+- [x] Create checkpoint with Gemini integration refactor
+
+
+## Critical Bug Fixes (Nov 26)
+
+- [x] Fix login page visibility - add login/auth UI to all pages
+- [x] Fix workshop link scrolling - should scroll to TOP of workshop section, not bottom
+- [x] Fix workshop checkout - update Stripe price ID to price_1SV19BCii5zXCZr6M8Lln2Se
+- [x] Test workshop purchase flow end-to-end
+- [x] Test login flow on all pages
+- [ ] Create checkpoint with bug fixes

@@ -559,7 +559,7 @@ export default function Home() {
             </div>
 
             <div className="pt-4">
-              <Link href="/workshop">
+              <Link href="/workshop#workshop-top">
                 <Button size="lg" className="bg-brand-orange hover:bg-brand-orange/90 text-white text-lg px-10 py-7 h-auto">
                   Reserve Your Spot ($97) <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
@@ -979,7 +979,7 @@ export default function Home() {
                 Book Free Audit <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </a>
-            <Link href="/workshop">
+            <Link href="/workshop#workshop-top">
               <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-brand-purple text-lg px-10 py-7 h-auto">
                 Join Next Workshop ($97)
               </Button>
@@ -1035,7 +1035,7 @@ export default function Home() {
             <div>
               <h4 className="font-bold text-lg mb-4">Learn</h4>
               <ul className="space-y-2 text-sm">
-                <li><Link href="/workshop" className="text-gray-400 hover:text-white">Workshop</Link></li>
+                <li><Link href="/workshop#workshop-top" className="text-gray-400 hover:text-white">Workshop</Link></li>
                 <li><Link href="/portal" className="text-gray-400 hover:text-white">Academy</Link></li>
                 <li><Link href="/quiz" className="text-gray-400 hover:text-white">Tool Stack Quiz</Link></li>
                 <li><Link href="/scorecard" className="text-gray-400 hover:text-white">AI Readiness Scorecard</Link></li>

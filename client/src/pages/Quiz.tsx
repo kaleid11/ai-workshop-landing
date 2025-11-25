@@ -2,10 +2,13 @@ import ToolStackAuditQuiz from "@/components/ToolStackAuditQuiz";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "wouter";
+import { Header } from "@/components/Header";
 
 export default function Quiz() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-brand-purple/5 to-white py-12 px-4">
+    <div className="min-h-screen bg-gradient-to-b from-white via-brand-purple/5 to-white">
+      <Header />
+      <div className="py-12 px-4">
       <div className="container max-w-4xl">
         {/* Header */}
         <div className="mb-12 space-y-4">
@@ -31,6 +34,7 @@ export default function Quiz() {
 
         {/* Quiz Component */}
         <ToolStackAuditQuiz />
+      </div>
       </div>
     </div>
   );

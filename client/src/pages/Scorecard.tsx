@@ -1,9 +1,11 @@
 import AIReadinessQuiz from "@/components/AIReadinessQuiz";
 import { CheckCircle2, TrendingUp, Users, Shield, Cog, DollarSign } from "lucide-react";
+import { Header } from "@/components/Header";
 
 export default function Scorecard() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-brand-purple/5">
+      <Header />
       {/* Hero Section */}
       <section className="py-20 px-4">
         <div className="container max-w-6xl mx-auto text-center">

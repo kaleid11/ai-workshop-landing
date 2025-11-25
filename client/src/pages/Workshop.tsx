@@ -19,6 +19,7 @@ import { toast } from "sonner";
 import { motion } from "framer-motion";
 import { WorkshopCountdown } from "@/components/WorkshopCountdown";
 import { SEO, workshopStructuredData } from "@/components/SEO";
+import { Header } from "@/components/Header";
 
 // Set your next workshop date here (Brisbane time UTC+10)
 const WORKSHOP_DATE = new Date('2025-11-26T09:00:00+10:00'); // Nov 26, 2025, 9:00 AM Brisbane time
@@ -55,6 +56,7 @@ export default function Workshop() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
+      <Header />
       <SEO 
         title="AI Social Media Workshop - $77 AUD"
         description="Learn to automate your social media with AI. Join 200+ Queensland businesses saving $3K/month. Live workshop + 1 month FREE Academy access. Next session December 15, 2024."
@@ -62,7 +64,7 @@ export default function Workshop() {
         structuredData={workshopStructuredData}
       />
       {/* Hero Section - Clean gradient design */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-orange-500 via-purple-600 to-blue-600 text-white">
+      <section id="workshop-top" className="relative overflow-hidden bg-gradient-to-br from-orange-500 via-purple-600 to-blue-600 text-white">
         {/* Animated gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/30 via-transparent to-orange-500/30 animate-pulse" style={{animationDuration: '8s'}} />
         {/* Decorative circles */}
@@ -206,10 +208,10 @@ export default function Workshop() {
                 </ul>
                 <Button 
                   className="w-full"
-                  onClick={() => handleCheckout("price_1SK8fTCii5zXCZr6ZQqQMjSs")}
-                  disabled={checkoutLoading === "price_1SK8fTCii5zXCZr6ZQqQMjSs"}
+                  onClick={() => handleCheckout("price_1SV19BCii5zXCZr6M8Lln2Se")}
+                  disabled={checkoutLoading === "price_1SV19BCii5zXCZr6M8Lln2Se"}
                 >
-                  {checkoutLoading === "price_1SK8fTCii5zXCZr6ZQqQMjSs" ? "Loading..." : "Get Started"}
+                  {checkoutLoading === "price_1SV19BCii5zXCZr6M8Lln2Se" ? "Loading..." : "Get Started"}
                 </Button>
               </CardContent>
             </Card>
@@ -260,10 +262,10 @@ export default function Workshop() {
                 <Button 
                   className="w-full"
                   variant="outline"
-                  onClick={() => handleCheckout("price_1SK8fTCii5zXCZr6ZQqQMjSs")}
-                  disabled={checkoutLoading === "price_1SK8fTCii5zXCZr6ZQqQMjSs"}
+                  onClick={() => handleCheckout("price_1SV19BCii5zXCZr6M8Lln2Se")}
+                  disabled={checkoutLoading === "price_1SV19BCii5zXCZr6M8Lln2Se"}
                 >
-                  {checkoutLoading === "price_1SK8fTCii5zXCZr6ZQqQMjSs" ? "Loading..." : "Start with Workshop"}
+                  {checkoutLoading === "price_1SV19BCii5zXCZr6M8Lln2Se" ? "Loading..." : "Start with Workshop"}
                 </Button>
               </CardContent>
             </Card>
@@ -316,10 +318,10 @@ export default function Workshop() {
                 </ul>
                 <Button 
                   className="w-full bg-blue-500 hover:bg-blue-600"
-                  onClick={() => handleCheckout("price_1SK8g0Cii5zXCZr60hKTLXe4")}
-                  disabled={checkoutLoading === "price_1SK8g0Cii5zXCZr60hKTLXe4"}
+                  onClick={() => handleCheckout("price_1SV19BCii5zXCZr6M8Lln2Se")}
+                  disabled={checkoutLoading === "price_1SV19BCii5zXCZr6M8Lln2Se"}
                 >
-                  {checkoutLoading === "price_1SK8g0Cii5zXCZr60hKTLXe4" ? "Loading..." : "Start with Workshop"}
+                  {checkoutLoading === "price_1SV19BCii5zXCZr6M8Lln2Se" ? "Loading..." : "Start with Workshop"}
                 </Button>
               </CardContent>
             </Card>
@@ -828,10 +830,10 @@ export default function Workshop() {
             <Button 
               size="lg" 
               className="bg-white text-purple-600 hover:bg-white/90"
-              onClick={() => handleCheckout("price_1SK8fTCii5zXCZr6ZQqQMjSs")}
-              disabled={checkoutLoading === "price_1SK8fTCii5zXCZr6ZQqQMjSs"}
+              onClick={() => handleCheckout("price_1SV19BCii5zXCZr6M8Lln2Se")}
+              disabled={checkoutLoading === "price_1SV19BCii5zXCZr6M8Lln2Se"}
             >
-              {checkoutLoading === "price_1SK8fTCii5zXCZr6ZQqQMjSs" ? "Loading..." : "Get Workshop Access $77"}
+              {checkoutLoading === "price_1SV19BCii5zXCZr6M8Lln2Se" ? "Loading..." : "Get Workshop Access $77"}
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button 
