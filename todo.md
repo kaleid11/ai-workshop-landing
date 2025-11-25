@@ -1059,4 +1059,26 @@ Changed `client_reference_id: ctx.user.id.toString()` to `client_reference_id: c
 - [x] Integrate onboarding checklist into Portal page (show prominently for new users)
 - [x] Add visual progress indicator (e.g., "3/5 steps complete")
 - [x] Test onboarding checklist functionality
-- [ ] Create checkpoint with calendar and onboarding features
+- [x] Create checkpoint with calendar and onboarding features
+
+
+## Google Calendar Fix & Gemini Guide (Nov 26)
+
+### Google Calendar URL Fix
+- [x] Fix Google Calendar URL format to properly pre-fill event details
+- [x] Test Google Calendar button redirects to event creation page with workshop details
+- [x] Test Outlook calendar download works correctly
+- [x] Test Apple/iCal calendar download works correctly
+
+### Gemini Guide for Non-Technical Users
+- [x] Extract key content from Gemini for Google Workspace PDF guide
+- [x] Research Gemini API prompting strategies documentation
+- [x] Research Gemini Imagen image generation documentation
+- [x] Research Gemini 3 thinking mode documentation
+- [x] Create beginner-friendly prompting guide with visual examples
+- [ ] Add annotated screenshots showing Gemini interface (optional enhancement)
+- [x] Include step-by-step tutorials for common tasks
+- [x] Add Gemini guide to Portal Resource Hub section
+- [x] Add downloadable version to Resource Hub
+- [x] Test Gemini guide accessibility from Portal
+- [ ] Create checkpoint with calendar fix and Gemini guide

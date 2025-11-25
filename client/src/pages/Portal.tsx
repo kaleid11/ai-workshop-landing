@@ -24,8 +24,8 @@ export default function Portal() {
   };
 
   const generateGoogleCalendarUrl = () => {
-    const { title, description, startDate, endDate, timezone } = workshopDetails;
-    return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&details=${encodeURIComponent(description)}&dates=${startDate}/${endDate}&ctz=${timezone}`;
+    const { title, description, location, startDate, endDate, timezone } = workshopDetails;
+    return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&details=${encodeURIComponent(description)}&location=${encodeURIComponent(location)}&dates=${startDate}/${endDate}&ctz=${timezone}`;
   };
 
   const generateOutlookCalendarUrl = () => {
@@ -787,20 +787,52 @@ export default function Portal() {
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-gray-300 bg-gray-50">
+            <Card className="border-2 border-purple-300 bg-gradient-to-br from-purple-50 to-white">
               <CardHeader>
                 <div className="flex items-center gap-3 mb-2">
-                  <Sparkles className="w-8 h-8 text-gray-400" />
-                  <CardTitle className="text-2xl text-gray-700">Templates & Resources</CardTitle>
+                  <Sparkles className="w-8 h-8 text-purple-500" />
+                  <CardTitle className="text-2xl text-purple-900">Gemini Mastery Guide</CardTitle>
                 </div>
+                <CardDescription>
+                  Complete beginner-friendly guide to using Gemini for social media
+                </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="text-center py-8">
-                  <Sparkles className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-                  <p className="text-gray-600 font-semibold text-lg mb-2">Coming Soon</p>
-                  <p className="text-gray-500 text-sm">
-                    Downloadable templates, guides, and bonus resources will be added here after the workshop.
+                <div className="space-y-4">
+                  <p className="text-gray-700">
+                    Learn how to write powerful prompts, automate content creation, and leverage Gemini across Google Workspace.
                   </p>
+                  <div className="grid gap-3">
+                    <div className="flex items-start gap-2 text-sm">
+                      <span className="text-purple-500 mt-0.5">✓</span>
+                      <span>The 4-part prompt formula (Persona, Task, Context, Format)</span>
+                    </div>
+                    <div className="flex items-start gap-2 text-sm">
+                      <span className="text-purple-500 mt-0.5">✓</span>
+                      <span>6 quick tips for beginners with real examples</span>
+                    </div>
+                    <div className="flex items-start gap-2 text-sm">
+                      <span className="text-purple-500 mt-0.5">✓</span>
+                      <span>Social media prompts for captions, content calendars, research</span>
+                    </div>
+                    <div className="flex items-start gap-2 text-sm">
+                      <span className="text-purple-500 mt-0.5">✓</span>
+                      <span>Using Gemini in Gmail, Docs, Sheets, Slides, and Meet</span>
+                    </div>
+                  </div>
+                  <div className="flex gap-3 pt-2">
+                    <a href="/guides/gemini-beginners-guide.md" target="_blank" className="flex-1">
+                      <Button className="w-full bg-purple-500 hover:bg-purple-600 text-white">
+                        <Sparkles className="w-4 h-4 mr-2" />
+                        Read Guide
+                      </Button>
+                    </a>
+                    <a href="/guides/gemini-beginners-guide.md" download className="flex-1">
+                      <Button variant="outline" className="w-full border-purple-300 text-purple-700 hover:bg-purple-50">
+                        Download PDF
+                      </Button>
+                    </a>
+                  </div>
                 </div>
               </CardContent>
             </Card>
