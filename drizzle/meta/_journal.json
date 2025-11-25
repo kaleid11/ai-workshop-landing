@@ -50,6 +50,13 @@
       "when": 1763945163546,
       "tag": "0006_aromatic_absorbing_man",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "5",
+      "when": 1764064317800,
+      "tag": "0007_crazy_giant_girl",
+      "breakpoints": true
     }
   ]
 }

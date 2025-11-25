@@ -89,7 +89,7 @@ export async function handleStripeWebhook(req: Request, res: Response) {
       // Send welcome email to customer with portal link
       if (customerEmail) {
         const portalUrl = `${process.env.VITE_APP_URL || "https://aisocialwork-e9rjae3t.manus.space"}/portal`;
-        await sendWelcomeEmail(customerEmail, customerName || "there", portalUrl);
+        await sendWelcomeEmail(customerEmail, customerName || "there", portalUrl, user.id);
         console.log("[Stripe Webhook] Welcome email sent to:", customerEmail);
       }
 

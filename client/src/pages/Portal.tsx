@@ -82,9 +82,9 @@ export default function Portal() {
           <p className="text-white/80 text-lg">
             This portal is exclusive to workshop participants. Purchase your ticket to unlock access to all workshop materials, community groups, and resources.
           </p>
-          <Link href="/checkout">
+          <Link href="/workshop#workshop-top">
             <Button size="lg" className="bg-brand-orange hover:bg-brand-orange/90 text-white w-full">
-              Get Workshop Access - $97 AUD
+              Get Workshop Access - $77 AUD
             </Button>
           </Link>
           <Link href="/">

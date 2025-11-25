@@ -320,3 +320,27 @@ export const sessionFeedback = mysqlTable("sessionFeedback", {
 
 export type SessionFeedback = typeof sessionFeedback.$inferSelect;
 export type InsertSessionFeedback = typeof sessionFeedback.$inferInsert;
+
+/**
+ * Email logs table
+ * Tracks all automated emails sent to users
+ */
+export const emailLogs = mysqlTable("emailLogs", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  emailType: mysqlEnum("emailType", [
+    "workshop_confirmation",
+    "workshop_reminder_24h",
+    "workshop_followup",
+    "academy_confirmation",
+    "academy_renewal_reminder"
+  ]).notNull(),
+  recipientEmail: varchar("recipientEmail", { length: 320 }).notNull(),
+  subject: varchar("subject", { length: 255 }).notNull(),
+  status: mysqlEnum("status", ["sent", "failed", "pending"]).default("pending").notNull(),
+  errorMessage: text("errorMessage"),
+  sentAt: timestamp("sentAt").defaultNow().notNull(),
+});
+
+export type EmailLog = typeof emailLogs.$inferSelect;
+export type InsertEmailLog = typeof emailLogs.$inferInsert;

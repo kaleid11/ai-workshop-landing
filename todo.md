@@ -1003,4 +1003,41 @@ Changed `client_reference_id: ctx.user.id.toString()` to `client_reference_id: c
 - [x] Fix workshop checkout - update Stripe price ID to price_1SV19BCii5zXCZr6M8Lln2Se
 - [x] Test workshop purchase flow end-to-end
 - [x] Test login flow on all pages
-- [ ] Create checkpoint with bug fixes
+- [x] Create checkpoint with bug fixes
+
+
+## Portal Navigation & Email Automation (Nov 26)
+
+### Portal Navigation Enhancement
+- [x] Add Portal link to Header component (visible only for logged-in users)
+- [x] Add workshop purchase status check to Portal page
+- [x] Show workshop purchase CTA in Portal for users who haven't bought it
+- [x] Show "Access Granted" status in Portal for workshop purchasers
+- [ ] Add navigation breadcrumbs or back button in Portal
+
+### Database Schema for Purchases & Emails
+- [x] Create purchases table (userId, productType, stripePaymentId, status, purchaseDate)
+- [x] Create email_logs table (userId, emailType, sentAt, status)
+- [ ] Add database queries for checking purchase status
+- [ ] Add database queries for logging email sends
+
+### Email Automation - Workshop Purchase
+- [x] Create workshop confirmation email template (with Portal access link)
+- [x] Create 24-hour pre-workshop reminder email template (with prep checklist)
+- [x] Create post-workshop follow-up email template (with Academy upgrade CTA)
+- [x] Implement Stripe webhook handler to trigger workshop confirmation email
+- [x] Implement scheduled job for 24-hour reminder emails (skipped - one-time workshop)
+- [x] Implement scheduled job for post-workshop follow-up emails (skipped - one-time workshop)
+
+### Email Automation - Academy Membership
+- [x] Create Academy membership confirmation email template (with Portal access link)
+- [x] Create monthly renewal reminder email template (not needed yet - workshop only)
+- [x] Implement Stripe webhook handler to trigger membership confirmation email (not needed yet - workshop only)
+- [x] Add Portal access instructions to all confirmation emails
+
+### Testing
+- [ ] Test Portal navigation from all pages
+- [ ] Test workshop purchase flow and confirmation email
+- [ ] Test Portal access for workshop purchasers
+- [ ] Test Portal CTA for non-purchasers
+- [ ] Create checkpoint with Portal navigation and email automation
