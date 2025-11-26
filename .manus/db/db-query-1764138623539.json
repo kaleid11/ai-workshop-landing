@@ -1,0 +1,55 @@
+{
+  "query": "SELECT slug, name, priceOneTime, foundingPriceOneTime, priceMonthly, foundingPriceMonthly, workshopTokensPerMonth FROM membershipTiers WHERE slug IN ('access_pass', 'workshop', 'starter', 'lite', 'pro') ORDER BY displayOrder;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute SELECT slug, name, priceOneTime, foundingPriceOneTime, priceMonthly, foundingPriceMonthly, workshopTokensPerMonth FROM membershipTiers WHERE slug IN ('access_pass', 'workshop', 'starter', 'lite', 'pro') ORDER BY displayOrder;",
+  "rows": [
+    {
+      "slug": "access_pass",
+      "name": "Access Pass",
+      "priceOneTime": "4700",
+      "foundingPriceOneTime": "2700",
+      "priceMonthly": "0",
+      "foundingPriceMonthly": "0",
+      "workshopTokensPerMonth": "0"
+    },
+    {
+      "slug": "workshop",
+      "name": "Workshop",
+      "priceOneTime": "9700",
+      "foundingPriceOneTime": "19700",
+      "priceMonthly": "0",
+      "foundingPriceMonthly": "0",
+      "workshopTokensPerMonth": "1"
+    },
+    {
+      "slug": "starter",
+      "name": "Starter",
+      "priceOneTime": "0",
+      "foundingPriceOneTime": "0",
+      "priceMonthly": "14700",
+      "foundingPriceMonthly": "9700",
+      "workshopTokensPerMonth": "2"
+    },
+    {
+      "slug": "lite",
+      "name": "Lite",
+      "priceOneTime": "0",
+      "foundingPriceOneTime": "0",
+      "priceMonthly": "39700",
+      "foundingPriceMonthly": "30000",
+      "workshopTokensPerMonth": "4"
+    },
+    {
+      "slug": "pro",
+      "name": "Pro",
+      "priceOneTime": "NULL",
+      "foundingPriceOneTime": "NULL",
+      "priceMonthly": "29700",
+      "foundingPriceMonthly": "24700",
+      "workshopTokensPerMonth": "999"
+    }
+  ],
+  "messages": [],
+  "stdout": "slug\tname\tpriceOneTime\tfoundingPriceOneTime\tpriceMonthly\tfoundingPriceMonthly\tworkshopTokensPerMonth\naccess_pass\tAccess Pass\t4700\t2700\t0\t0\t0\nworkshop\tWorkshop\t9700\t19700\t0\t0\t1\nstarter\tStarter\t0\t0\t14700\t9700\t2\nlite\tLite\t0\t0\t39700\t30000\t4\npro\tPro\tNULL\tNULL\t29700\t24700\t999\n",
+  "stderr": "",
+  "execution_time_ms": 1589
+}

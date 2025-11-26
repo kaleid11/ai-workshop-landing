@@ -1311,3 +1311,13 @@ Changed `client_reference_id: ctx.user.id.toString()` to `client_reference_id: c
 - [x] Verify prompts are accessible in Prompts page
 - [ ] Test filtering and search functionality
 - [ ] Create checkpoint after data import
+
+## Pricing Page Corrections
+
+- [x] Remove $27/month tier (keep only one-time $27 Access Pass)
+- [x] Fix Starter tier: $97/month (strike through $147/month for founding members)
+- [x] Update Starter description: 2 workshops per month in credit
+- [x] Fix Lite tier: $300/month (strike through $397/month for founding members)
+- [x] Fix Workshop tier: $97 one-time (strike through $197, mention startup support available)
+- [x] Test all pricing displays correctly
+- [ ] Create checkpoint after pricing fixes

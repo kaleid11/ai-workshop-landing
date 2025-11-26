@@ -110,8 +110,8 @@ export default function Pricing() {
                     <CardTitle className="text-2xl">{tier.name}</CardTitle>
                     <CardDescription className="text-base">
                       {tier.slug === 'access_pass' && 'Lifetime access to all resources and community'}
-                      {tier.slug === 'workshop' && 'Single workshop access with recording'}
-                      {tier.slug === 'starter' && 'Monthly workshops and live training'}
+                      {tier.slug === 'workshop' && 'Single workshop access with recording (valued at $197, startup support available on request)'}
+                      {tier.slug === 'starter' && '2 workshops per month in credit - pick your topics'}
                       {tier.slug === 'lite' && 'More workshops plus recordings access'}
                       {tier.slug === 'pro' && 'Unlimited workshops and strategy calls'}
                       {tier.slug === 'enterprise' && 'Custom solutions for your business'}
