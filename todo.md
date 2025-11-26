@@ -1321,3 +1321,11 @@ Changed `client_reference_id: ctx.user.id.toString()` to `client_reference_id: c
 - [x] Fix Workshop tier: $97 one-time (strike through $197, mention startup support available)
 - [x] Test all pricing displays correctly
 - [ ] Create checkpoint after pricing fixes
+
+## Additional Pricing Updates
+
+- [x] Clarify which tier to remove from Pricing page (no removal needed)
+- [x] Fix Pro tier: $500/month founding (was $697/month regular)
+- [x] Expand FAQ/information section on Pricing page with accurate details
+- [x] Test pricing displays correctly
+- [ ] Create checkpoint after updates

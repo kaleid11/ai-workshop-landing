@@ -1,0 +1,16 @@
+{
+  "query": "-- Fix Pro tier: $500/month founding (was $697/month regular)\nUPDATE membershipTiers \nSET priceMonthly = 69700,\n    foundingPriceMonthly = 50000\nWHERE slug = 'pro';\n\nSELECT slug, name, priceMonthly, foundingPriceMonthly FROM membershipTiers WHERE slug = 'pro';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute -- Fix Pro tier: $500/month founding (was $697/month regular)\nUPDATE membershipTiers \nSET priceMonthly = 69700,\n    foundingPriceMonthly = 50000\nWHERE slug = 'pro';\n\nSELECT slug, name, priceMonthly, foundingPriceMonthly FROM membershipTiers WHERE slug = 'pro';",
+  "rows": [
+    {
+      "slug": "pro",
+      "name": "Pro",
+      "priceMonthly": "69700",
+      "foundingPriceMonthly": "50000"
+    }
+  ],
+  "messages": [],
+  "stdout": "slug\tname\tpriceMonthly\tfoundingPriceMonthly\npro\tPro\t69700\t50000\n",
+  "stderr": "",
+  "execution_time_ms": 1809
+}

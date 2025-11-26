@@ -214,14 +214,25 @@ export default function Pricing() {
             <div className="bg-white p-6 rounded-lg shadow-sm">
               <h3 className="font-semibold text-lg mb-2">How many workshops can I attend each month?</h3>
               <p className="text-gray-600">
-                Starter tier includes 2 workshops per month. Lite tier includes 4 workshops per month. Pro tier includes unlimited workshops per month. All tiers include monthly live training sessions.
+                <strong>Starter ($97/month):</strong> 2 workshop credits per month - pick any topics from our 3 pillars (Marketing, Coding, Alignment).<br/>
+                <strong>Lite ($300/month):</strong> 6 live workshops per month (2 per pillar) plus full access to workshop recordings library.<br/>
+                <strong>Pro ($500/month):</strong> 18 workshops per month (6 Lite + 12 Pro advanced workshops) plus quarterly 1-on-1 strategy calls and priority support.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="font-semibold text-lg mb-2">What are the 3 pillars?</h3>
+              <p className="text-gray-600">
+                <strong>Marketing:</strong> Automate your content creation, social media, and marketing workflows using AI tools like ChatGPT, Claude, and specialized content generators.<br/>
+                <strong>Coding:</strong> Build custom apps and automations without traditional coding using AI agents like Manus, Replit, and Lovable.<br/>
+                <strong>Alignment:</strong> Optimize your AI strategy, choose the right tools, and design efficient workflows that actually work for your business.
               </p>
             </div>
 
             <div className="bg-white p-6 rounded-lg shadow-sm">
               <h3 className="font-semibold text-lg mb-2">Which tiers include workshop recordings?</h3>
               <p className="text-gray-600">
-                Workshop recordings are available on Lite tier ($300/month) and above. Starter tier ($97/month) does not include access to workshop recordings, but you can attend live workshops and access all tools, prompts, and resources.
+                <strong>Lite ($300/month) and Pro ($500/month)</strong> include full access to our workshop recordings library. Starter tier ($97/month) includes live workshop attendance only. Access Pass ($27 one-time) and Workshop ($97 one-time) do not include recordings but give lifetime access to tools, prompts, and community.
               </p>
             </div>
 
@@ -235,7 +246,26 @@ export default function Pricing() {
             <div className="bg-white p-6 rounded-lg shadow-sm">
               <h3 className="font-semibold text-lg mb-2">Do I keep access to tools and prompts if I cancel?</h3>
               <p className="text-gray-600">
-                Yes! Anyone who has ever purchased any tier (even one-time Access Pass or Workshop) gets lifetime access to the full tools database and prompts library. This access never expires, even if you cancel your monthly subscription. Only workshop attendance and recordings require an active subscription.
+                <strong>Yes!</strong> Anyone who has ever purchased any tier (even the one-time $27 Access Pass) gets <strong>lifetime access</strong> to:<br/>
+                • Full tools database (1,620+ AI tools with reviews and comparisons)<br/>
+                • Complete prompts library (118+ tested prompts for ChatGPT, Claude, Gemini)<br/>
+                • Private Facebook community<br/>
+                • Resource library (playbooks, cheatsheets, workflow templates)<br/><br/>
+                This access <strong>never expires</strong>, even if you cancel your monthly subscription. Only live workshop attendance and recordings require an active subscription.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="font-semibold text-lg mb-2">What's included in the tools database?</h3>
+              <p className="text-gray-600">
+                Our curated database includes <strong>1,620+ AI tools</strong> across categories like productivity, content creation, coding, design, analytics, and automation. Each tool includes detailed reviews, pricing comparisons, use cases, quick-start guides, and G2 ratings. We test every tool ourselves and update the database monthly with new discoveries.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="font-semibold text-lg mb-2">How does workshop credit work?</h3>
+              <p className="text-gray-600">
+                <strong>Starter tier</strong> members receive 2 workshop credits per month that reset on your billing date. Credits can be used to attend any workshop from our 3 pillars. Unused credits do not roll over. <strong>Lite and Pro</strong> members have set workshop allocations per month (6 and 18 respectively) and can attend any workshops up to their limit.
               </p>
             </div>
 
