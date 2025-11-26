@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { APP_LOGO, APP_TITLE, getLoginUrl } from "@/const";
 import { Search, Download, ExternalLink, Loader2, BookOpen, Video } from "lucide-react";
+import { WikiGuideRenderer } from "@/components/WikiGuideRenderer";
 import { Link } from "wouter";
 
 interface WikiGuide {
@@ -1956,33 +1957,8 @@ export default function Wiki() {
                   </div>
                 </div>
 
-                {/* Workshop Recording Banner */}
-                <div className="bg-gradient-to-r from-brand-purple/10 to-brand-blue/10 border-2 border-brand-purple/30 rounded-xl p-6 mb-8">
-                  <div className="flex items-start gap-4">
-                    <div className="text-4xl">🎥</div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold text-brand-purple mb-2">Watch the Workshop Recording</h3>
-                      <p className="text-gray-700 mb-4">
-                        See this guide in action! Watch the full workshop recording where we cover this topic step-by-step.
-                      </p>
-                      <Link href="/portal">
-                        <Button className="bg-brand-purple hover:bg-brand-purple/90 text-white">
-                          <Video className="w-4 h-4 mr-2" />
-                          Access Workshop Recordings
-                        </Button>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Guide Content */}
-                <div className="bg-white border-2 border-gray-200 rounded-xl p-8 mb-8">
-                  <div className="prose prose-lg max-w-none">
-                    <div className="whitespace-pre-wrap text-gray-800 leading-relaxed">
-                      {selectedGuide.content}
-                    </div>
-                  </div>
-                </div>
+                {/* Rendered Guide Content with Workshop CTA */}
+                <WikiGuideRenderer content={selectedGuide.content} showRecordingCTA={true} />
 
                 {/* Download Actions */}
                 <div className="bg-gradient-to-r from-orange-50 to-purple-50 border-2 border-orange-200 rounded-xl p-6 mb-8">

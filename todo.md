@@ -1289,3 +1289,25 @@ Changed `client_reference_id: ctx.user.id.toString()` to `client_reference_id: c
 - [ ] Test complete payment → subscription → tokens flow
 - [ ] Verify webhook creates userSubscriptions correctly
 - [ ] Create checkpoint after Stripe configuration complete
+
+## Wiki Guides Visual Redesign
+
+- [x] Analyze current Wiki.tsx implementation
+- [x] Create WikiGuideRenderer component with beautiful styling (icons, cards, proper typography)
+- [x] Add "Watch Workshop Recording" CTA section at top of each guide
+- [x] Convert all 12 Wiki guides from raw markdown to rendered format
+- [x] Add proper heading hierarchy with visual styling
+- [x] Add icons for different section types (tips, examples, techniques)
+- [x] Test all Wiki guides render correctly
+- [ ] Create checkpoint after Wiki redesign
+
+## Tools & Prompts Database Expansion
+
+- [x] Locate previously provided tools database file (1,620+ tools)
+- [x] Import tools data into database
+- [x] Verify tools are accessible in Tools page
+- [x] Locate previously provided prompts library files
+- [x] Import additional prompts into database
+- [x] Verify prompts are accessible in Prompts page
+- [ ] Test filtering and search functionality
+- [ ] Create checkpoint after data import
