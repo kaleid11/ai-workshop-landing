@@ -3,7 +3,7 @@ import { useAuth } from "@/_core/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { APP_LOGO, APP_TITLE, getLoginUrl } from "@/const";
-import { Search, Download, ExternalLink, Loader2, BookOpen } from "lucide-react";
+import { Search, Download, ExternalLink, Loader2, BookOpen, Video } from "lucide-react";
 import { Link } from "wouter";
 
 interface WikiGuide {
@@ -635,38 +635,110 @@ export default function Wiki() {
                 ← Back to Guides
               </button>
 
-              <div className="prose prose-lg max-w-none">
-                <h1 className="text-4xl font-bold text-brand-purple mb-2">
-                  {selectedGuide.icon} {selectedGuide.title}
-                </h1>
-                <p className="text-gray-600 text-lg mb-8">{selectedGuide.description}</p>
-
-                <div className="bg-gray-50 p-6 rounded-lg mb-8 whitespace-pre-wrap text-gray-700 leading-relaxed font-mono text-sm">
-                  {selectedGuide.content}
+              <div className="max-w-4xl mx-auto">
+                {/* Header */}
+                <div className="mb-8">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="text-6xl">{selectedGuide.icon}</div>
+                    <div>
+                      <h1 className="text-4xl font-bold text-brand-purple mb-2">
+                        {selectedGuide.title}
+                      </h1>
+                      <p className="text-gray-600 text-lg">{selectedGuide.description}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-gray-500">
+                    <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full font-medium">
+                      {selectedGuide.category}
+                    </span>
+                  </div>
                 </div>
 
+                {/* Workshop Recording Banner */}
+                <div className="bg-gradient-to-r from-brand-purple/10 to-brand-blue/10 border-2 border-brand-purple/30 rounded-xl p-6 mb-8">
+                  <div className="flex items-start gap-4">
+                    <div className="text-4xl">🎥</div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-brand-purple mb-2">Watch the Workshop Recording</h3>
+                      <p className="text-gray-700 mb-4">
+                        See this guide in action! Watch the full workshop recording where we cover this topic step-by-step.
+                      </p>
+                      <Link href="/portal">
+                        <Button className="bg-brand-purple hover:bg-brand-purple/90 text-white">
+                          <Video className="w-4 h-4 mr-2" />
+                          Access Workshop Recordings
+                        </Button>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Guide Content */}
+                <div className="bg-white border-2 border-gray-200 rounded-xl p-8 mb-8">
+                  <div className="prose prose-lg max-w-none">
+                    <div className="whitespace-pre-wrap text-gray-800 leading-relaxed">
+                      {selectedGuide.content}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Download Actions */}
+                <div className="bg-gradient-to-r from-orange-50 to-purple-50 border-2 border-orange-200 rounded-xl p-6 mb-8">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">📥 Download This Guide</h3>
+                  <p className="text-gray-700 mb-4">
+                    Save this guide as markdown to use in your AI platforms (Gemini, ChatGPT, Claude) or keep for reference.
+                  </p>
+                  <div className="flex gap-3">
+                    <Button
+                      onClick={() => {
+                        const element = document.createElement("a");
+                        element.setAttribute(
+                          "href",
+                          "data:text/markdown;charset=utf-8," + encodeURIComponent(selectedGuide.content)
+                        );
+                        element.setAttribute("download", `${selectedGuide.id}.md`);
+                        element.style.display = "none";
+                        document.body.appendChild(element);
+                        element.click();
+                        document.body.removeChild(element);
+                      }}
+                      className="bg-brand-orange hover:bg-brand-orange/90 text-white"
+                    >
+                      <Download className="w-4 h-4 mr-2" />
+                      Download as Markdown (.md)
+                    </Button>
+                    <Button
+                      onClick={() => {
+                        const element = document.createElement("a");
+                        element.setAttribute(
+                          "href",
+                          "data:text/plain;charset=utf-8," + encodeURIComponent(selectedGuide.content)
+                        );
+                        element.setAttribute("download", `${selectedGuide.id}.txt`);
+                        element.style.display = "none";
+                        document.body.appendChild(element);
+                        element.click();
+                        document.body.removeChild(element);
+                      }}
+                      variant="outline"
+                      className="border-orange-300 text-orange-700 hover:bg-orange-50"
+                    >
+                      <Download className="w-4 h-4 mr-2" />
+                      Download as Text (.txt)
+                    </Button>
+                  </div>
+                </div>
+
+                {/* Navigation */}
                 <div className="flex gap-4">
-                  <Button
-                    onClick={() => {
-                      const element = document.createElement("a");
-                      element.setAttribute(
-                        "href",
-                        "data:text/plain;charset=utf-8," + encodeURIComponent(selectedGuide.content)
-                      );
-                      element.setAttribute("download", `${selectedGuide.id}.txt`);
-                      element.style.display = "none";
-                      document.body.appendChild(element);
-                      element.click();
-                      document.body.removeChild(element);
-                    }}
-                    className="bg-brand-purple hover:bg-brand-purple/90 text-white"
-                  >
-                    <Download className="w-4 h-4 mr-2" />
-                    Download as Text
-                  </Button>
                   <Link href="/portal">
                     <Button variant="outline" className="border-brand-purple text-brand-purple hover:bg-brand-purple/10">
-                      Back to Portal
+                      ← Back to Portal
+                    </Button>
+                  </Link>
+                  <Link href="/wiki">
+                    <Button variant="outline" className="border-gray-300 text-gray-700 hover:bg-gray-50">
+                      Browse All Guides
                     </Button>
                   </Link>
                 </div>

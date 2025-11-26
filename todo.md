@@ -1109,3 +1109,10 @@ Changed `client_reference_id: ctx.user.id.toString()` to `client_reference_id: c
 - [ ] Build comprehensive tools database page with categories and referral links
 - [ ] Test all links and navigation flow
 - [ ] Create checkpoint
+
+## Wiki Improvements - Nov 26, 2025
+- [x] Add markdown download button for each guide
+- [x] Improve visual design with better typography and color coding
+- [x] Add workshop recording section with links to app
+- [x] Test download functionality
+- [ ] Create checkpoint
