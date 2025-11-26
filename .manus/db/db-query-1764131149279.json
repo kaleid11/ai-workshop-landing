@@ -1,0 +1,58 @@
+{
+  "query": "SELECT id, name, slug, displayOrder FROM membershipTiers ORDER BY displayOrder;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute SELECT id, name, slug, displayOrder FROM membershipTiers ORDER BY displayOrder;",
+  "rows": [
+    {
+      "id": "1",
+      "name": "Free",
+      "slug": "free",
+      "displayOrder": "1"
+    },
+    {
+      "id": "30001",
+      "name": "Access Pass",
+      "slug": "access_pass",
+      "displayOrder": "1"
+    },
+    {
+      "id": "30002",
+      "name": "Workshop",
+      "slug": "workshop",
+      "displayOrder": "2"
+    },
+    {
+      "id": "2",
+      "name": "Starter",
+      "slug": "starter",
+      "displayOrder": "3"
+    },
+    {
+      "id": "3",
+      "name": "Lite",
+      "slug": "lite",
+      "displayOrder": "4"
+    },
+    {
+      "id": "4",
+      "name": "Pro",
+      "slug": "pro",
+      "displayOrder": "5"
+    },
+    {
+      "id": "5",
+      "name": "Elite",
+      "slug": "elite",
+      "displayOrder": "5"
+    },
+    {
+      "id": "30003",
+      "name": "Enterprise",
+      "slug": "enterprise",
+      "displayOrder": "6"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tslug\tdisplayOrder\n1\tFree\tfree\t1\n30001\tAccess Pass\taccess_pass\t1\n30002\tWorkshop\tworkshop\t2\n2\tStarter\tstarter\t3\n3\tLite\tlite\t4\n4\tPro\tpro\t5\n5\tElite\telite\t5\n30003\tEnterprise\tenterprise\t6\n",
+  "stderr": "",
+  "execution_time_ms": 1518
+}

@@ -1,0 +1,90 @@
+{
+  "query": "SELECT id, name, slug, displayOrder, priceMonthly, priceOneTime, foundingPriceMonthly, foundingPriceOneTime FROM membershipTiers ORDER BY displayOrder;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute SELECT id, name, slug, displayOrder, priceMonthly, priceOneTime, foundingPriceMonthly, foundingPriceOneTime FROM membershipTiers ORDER BY displayOrder;",
+  "rows": [
+    {
+      "id": "1",
+      "name": "Free",
+      "slug": "free",
+      "displayOrder": "1",
+      "priceMonthly": "0",
+      "priceOneTime": "NULL",
+      "foundingPriceMonthly": "NULL",
+      "foundingPriceOneTime": "NULL"
+    },
+    {
+      "id": "30001",
+      "name": "Access Pass",
+      "slug": "access_pass",
+      "displayOrder": "1",
+      "priceMonthly": "0",
+      "priceOneTime": "4700",
+      "foundingPriceMonthly": "0",
+      "foundingPriceOneTime": "2700"
+    },
+    {
+      "id": "30002",
+      "name": "Workshop",
+      "slug": "workshop",
+      "displayOrder": "2",
+      "priceMonthly": "0",
+      "priceOneTime": "7700",
+      "foundingPriceMonthly": "0",
+      "foundingPriceOneTime": "7700"
+    },
+    {
+      "id": "2",
+      "name": "Starter",
+      "slug": "starter",
+      "displayOrder": "3",
+      "priceMonthly": "4700",
+      "priceOneTime": "NULL",
+      "foundingPriceMonthly": "2700",
+      "foundingPriceOneTime": "NULL"
+    },
+    {
+      "id": "3",
+      "name": "Lite",
+      "slug": "lite",
+      "displayOrder": "4",
+      "priceMonthly": "9700",
+      "priceOneTime": "NULL",
+      "foundingPriceMonthly": "7700",
+      "foundingPriceOneTime": "NULL"
+    },
+    {
+      "id": "4",
+      "name": "Pro",
+      "slug": "pro",
+      "displayOrder": "5",
+      "priceMonthly": "29700",
+      "priceOneTime": "NULL",
+      "foundingPriceMonthly": "24700",
+      "foundingPriceOneTime": "NULL"
+    },
+    {
+      "id": "5",
+      "name": "Elite",
+      "slug": "elite",
+      "displayOrder": "5",
+      "priceMonthly": "99700",
+      "priceOneTime": "NULL",
+      "foundingPriceMonthly": "79700",
+      "foundingPriceOneTime": "NULL"
+    },
+    {
+      "id": "30003",
+      "name": "Enterprise",
+      "slug": "enterprise",
+      "displayOrder": "6",
+      "priceMonthly": "0",
+      "priceOneTime": "0",
+      "foundingPriceMonthly": "0",
+      "foundingPriceOneTime": "0"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tslug\tdisplayOrder\tpriceMonthly\tpriceOneTime\tfoundingPriceMonthly\tfoundingPriceOneTime\n1\tFree\tfree\t1\t0\tNULL\tNULL\tNULL\n30001\tAccess Pass\taccess_pass\t1\t0\t4700\t0\t2700\n30002\tWorkshop\tworkshop\t2\t0\t7700\t0\t7700\n2\tStarter\tstarter\t3\t4700\tNULL\t2700\tNULL\n3\tLite\tlite\t4\t9700\tNULL\t7700\tNULL\n4\tPro\tpro\t5\t29700\tNULL\t24700\tNULL\n5\tElite\telite\t5\t99700\tNULL\t79700\tNULL\n30003\tEnterprise\tenterprise\t6\t0\t0\t0\t0\n",
+  "stderr": "",
+  "execution_time_ms": 1558
+}

@@ -75,7 +75,7 @@ export default function Pricing() {
       <section className="py-12 px-4">
         <div className="container mx-auto max-w-7xl">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {tiers?.filter((t: any) => t.slug !== 'free').map((tier: any) => {
+            {tiers?.filter((t: any) => ['access_pass', 'workshop', 'starter', 'lite', 'pro', 'enterprise'].includes(t.slug)).map((tier: any) => {
               const features = JSON.parse(tier.features) as string[];
               const isCurrentTier = currentTierSlug === tier.slug;
               const isPro = tier.slug === 'pro';

@@ -1244,3 +1244,10 @@ Changed `client_reference_id: ctx.user.id.toString()` to `client_reference_id: c
 - [x] Update display order for all 6 tiers
 - [x] Test pricing page displays all tiers correctly
 - [ ] Create checkpoint
+
+## Pricing Page Fix - Nov 26, 2025
+- [x] Remove incorrect tier/tab that shouldn't exist
+- [x] Verify only 6 tiers display: Access Pass, Workshop, Starter, Lite, Pro, Enterprise
+- [x] Ensure Starter ($97/month) is the base monthly tier
+- [x] Updated filter to only show correct 6 tiers by slug
+- [ ] Test and create checkpoint
