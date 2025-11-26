@@ -172,12 +172,14 @@ export default function Portal() {
               <p className="text-gray-600">Access all your AI content creation tools in one place</p>
             </div>
             <div className="max-w-4xl mx-auto mb-6">
-              <img 
-                src="/academy-dashboard.webp"
-                loading="lazy" 
-                alt="Academy Dashboard" 
-                className="rounded-xl shadow-2xl border-4 border-white/50"
-              />
+              <div className="bg-gray-900 rounded-xl shadow-2xl border-4 border-white/50 aspect-video flex items-center justify-center">
+                <div className="text-center">
+                  <div className="text-6xl mb-4">🎥</div>
+                  <p className="text-white text-lg font-semibold mb-2">Platform Walkthrough Coming Soon</p>
+                  <p className="text-gray-300 text-sm">YouTube embed or Google Drive link will be added here</p>
+                  <p className="text-gray-400 text-xs mt-4">Check back soon for a complete platform tour</p>
+                </div>
+              </div>
             </div>
             <div className="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto">
               <div className="text-center p-4 bg-white rounded-lg shadow">
@@ -821,21 +823,35 @@ export default function Portal() {
                     </div>
                   </div>
                   <div className="flex gap-3 pt-2">
-                    <a href="/guides/gemini-beginners-guide.md" target="_blank" className="flex-1">
-                      <Button className="w-full bg-purple-500 hover:bg-purple-600 text-white">
-                        <Sparkles className="w-4 h-4 mr-2" />
-                        Read Guide
-                      </Button>
-                    </a>
-                    <a href="/guides/gemini-beginners-guide.md" download className="flex-1">
-                      <Button variant="outline" className="w-full border-purple-300 text-purple-700 hover:bg-purple-50">
-                        Download PDF
+                    <a href="/wiki" target="_blank" rel="noopener noreferrer" className="flex-1">
+                      <Button className="w-full bg-purple-600 hover:bg-purple-700 text-white">
+                        Read Full Guide
+                        <ExternalLink className="w-4 h-4 ml-2" />
                       </Button>
                     </a>
                   </div>
                 </div>
               </CardContent>
             </Card>
+          </div>
+
+          {/* Google Workspace Referral */}
+          <div className="mt-8 bg-gradient-to-r from-blue-50 to-blue-100 rounded-2xl p-8 border-2 border-blue-300">
+            <div className="max-w-2xl">
+              <h3 className="text-2xl font-bold text-blue-900 mb-3 flex items-center gap-2">
+                <span className="text-2xl">🚀</span>
+                Google Workspace Discount
+              </h3>
+              <p className="text-blue-800 mb-4">
+                Get 10% off your first year of Google Workspace when you sign up using my referral link. This discount applies to all plans and helps support my work.
+              </p>
+              <a href="https://referworkspace.app.goo.gl/s6pi" target="_blank" rel="noopener noreferrer">
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white">
+                  Get 10% Off Google Workspace
+                  <ExternalLink className="w-4 h-4 ml-2" />
+                </Button>
+              </a>
+            </div>
           </div>
         </div>
       </section>

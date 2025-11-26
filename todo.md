@@ -1081,4 +1081,20 @@ Changed `client_reference_id: ctx.user.id.toString()` to `client_reference_id: c
 - [x] Add Gemini guide to Portal Resource Hub section
 - [x] Add downloadable version to Resource Hub
 - [x] Test Gemini guide accessibility from Portal
-- [ ] Create checkpoint with calendar fix and Gemini guide
+- [x] Create checkpoint with calendar fix and Gemini guide
+
+
+## Workshop Presentation Creation (Nov 26)
+
+- [x] Plan workshop presentation structure (21 slides, 2-hour format)
+- [x] Write slide content for Welcome & Setup section (5 min)
+- [x] Write slide content for Gemini Mastery section (30 min) - prompting, brand context, mini apps
+- [x] Write slide content for ViralWave Studio section (40 min) - content creation & scheduling
+- [x] Write slide content for Captions.ai section (30 min) - video editing & AI avatar
+- [x] Write slide content for Wrap-up & Next Steps section (15 min)
+- [ ] Design branded slides with Tech Horizon Labs colors (orange/purple/blue)
+- [ ] Add practical examples and screenshots for each tool
+- [ ] Generate PowerPoint presentation
+- [ ] Export to editable PPTX format
+- [ ] Test presentation file opens correctly
+- [ ] Deliver presentation to user

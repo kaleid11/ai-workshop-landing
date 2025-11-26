@@ -15,18 +15,21 @@ interface ChecklistItem {
 
 const CHECKLIST_ITEMS: ChecklistItem[] = [
   {
-    id: "tools_signup",
-    title: "Sign up for recommended tools",
-    description: "Create accounts for ViralWave, Captions.ai, and Higgsfield.ai",
-    link: "/portal#tools",
-    linkText: "View Tools List",
-  },
-  {
-    id: "brand_prep",
-    title: "Prepare your brand materials",
-    description: "Use the Gemini Brand Alignment GEM to define your brand voice and style",
+    id: "gemini_setup",
+    title: "Set up Gemini Advanced",
+    description: "Sign up for Gemini Advanced and explore the Brand Alignment GEM",
     link: "https://gemini.google.com/gem/1mozSqiMQasw2mb-pokjK996ZSJKxyCLa",
     linkText: "Open Gemini GEM",
+  },
+  {
+    id: "viralwave_signup",
+    title: "Create ViralWave account",
+    description: "Sign up for ViralWave to explore content discovery and generation",
+  },
+  {
+    id: "captions_signup",
+    title: "Create Captions.ai account",
+    description: "Set up Captions.ai for video editing and AI avatar features",
   },
   {
     id: "whatsapp_join",
@@ -34,16 +37,6 @@ const CHECKLIST_ITEMS: ChecklistItem[] = [
     description: "Connect with other workshop members for support and networking",
     link: "https://chat.whatsapp.com/IvDjUjPdDL9Ksj0Rq3u4Jt",
     linkText: "Join WhatsApp Group",
-  },
-  {
-    id: "portal_tested",
-    title: "Test your Portal access",
-    description: "Explore all the tools and resources available in your Portal",
-  },
-  {
-    id: "photos_ready",
-    title: "Prepare 2-3 recent photos",
-    description: "Have photos ready for creating your AI Twin during the workshop",
   },
 ];
 

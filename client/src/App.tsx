@@ -33,6 +33,7 @@ import Workshop from "./pages/Workshop";
 import Upsell from "./pages/Upsell";
 import CheckoutPage from "./pages/CheckoutPage";
 import AcademyTools from "./pages/AcademyTools";
+import Wiki from "./pages/Wiki";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -65,6 +66,7 @@ function Router() {
       <Route path="/admin/workshop-access" component={AdminWorkshopAccess} />
       <Route path="/admin/submissions" component={AdminSubmissions} />
       <Route path="/academy/tools" component={AcademyTools} />
+      <Route path="/wiki" component={Wiki} />
       <Route path="/404" component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
