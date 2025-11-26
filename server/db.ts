@@ -584,3 +584,288 @@ export async function upsertUserOnboarding(userId: number, completedItems: strin
     throw error;
   }
 }
+
+/**
+ * Get all workshops ordered by scheduled date
+ */
+export async function getWorkshops() {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot get workshops: database not available");
+    return [];
+  }
+
+  try {
+    const { workshops } = await import("../drizzle/schema");
+    const result = await db.select().from(workshops).orderBy(workshops.scheduledAt);
+    return result;
+  } catch (error) {
+    console.error("[Database] Failed to get workshops:", error);
+    return [];
+  }
+}
+
+/**
+ * Request workshop access using tokens
+ */
+export async function requestWorkshopAccess(userId: number, workshopId: number) {
+  const db = await getDb();
+  if (!db) {
+    throw new Error("Database not available");
+  }
+
+  try {
+    const { userSubscriptions, workshopAccessRequests } = await import("../drizzle/schema");
+    
+    // Get user's subscription and token balance
+    const subscription = await db.select().from(userSubscriptions)
+      .where(eq(userSubscriptions.userId, userId))
+      .limit(1);
+    
+    if (!subscription || subscription.length === 0) {
+      throw new Error("No active subscription found. Please upgrade to access workshops.");
+    }
+
+    const userSub = subscription[0];
+    
+    // Check if user has tokens
+    if (userSub.workshopTokensRemaining <= 0) {
+      throw new Error("No workshop tokens remaining. Tokens reset monthly.");
+    }
+
+    // Check if user already requested access to this workshop
+    const { and } = await import("drizzle-orm");
+    const existingRequest = await db.select().from(workshopAccessRequests)
+      .where(and(
+        eq(workshopAccessRequests.userId, userId),
+        eq(workshopAccessRequests.workshopId, workshopId)
+      ))
+      .limit(1);
+    
+    if (existingRequest && existingRequest.length > 0) {
+      throw new Error("You have already requested access to this workshop.");
+    }
+
+    // Create access request
+    await db.insert(workshopAccessRequests).values({
+      userId,
+      workshopId,
+      status: "pending",
+      tokensUsed: 1,
+    });
+
+    // Deduct token
+    await db.update(userSubscriptions)
+      .set({
+        workshopTokensRemaining: userSub.workshopTokensRemaining - 1,
+        workshopTokensUsed: userSub.workshopTokensUsed + 1,
+      })
+      .where(eq(userSubscriptions.userId, userId));
+
+    return { success: true };
+  } catch (error) {
+    console.error("[Database] Failed to request workshop access:", error);
+    throw error;
+  }
+}
+
+/**
+ * Get user's workshop token balance
+ */
+export async function getUserTokenBalance(userId: number) {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot get token balance: database not available");
+    return { tokensRemaining: 0, tokensUsed: 0 };
+  }
+
+  try {
+    const { userSubscriptions } = await import("../drizzle/schema");
+    const result = await db.select().from(userSubscriptions)
+      .where(eq(userSubscriptions.userId, userId))
+      .limit(1);
+    
+    if (!result || result.length === 0) {
+      return { tokensRemaining: 0, tokensUsed: 0 };
+    }
+
+    return {
+      tokensRemaining: result[0].workshopTokensRemaining,
+      tokensUsed: result[0].workshopTokensUsed,
+    };
+  } catch (error) {
+    console.error("[Database] Failed to get token balance:", error);
+    return { tokensRemaining: 0, tokensUsed: 0 };
+  }
+}
+
+/**
+ * Get user's membership tier with workshop access info
+ */
+export async function getUserMembershipTier(userId: number) {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot get membership tier: database not available");
+    return null;
+  }
+
+  try {
+    const { userSubscriptions, membershipTiers } = await import("../drizzle/schema");
+    
+    // Get user's active subscription
+    const { and } = await import("drizzle-orm");
+    const subscription = await db.select().from(userSubscriptions)
+      .where(and(
+        eq(userSubscriptions.userId, userId),
+        eq(userSubscriptions.status, "active")
+      ))
+      .limit(1);
+    
+    if (!subscription || subscription.length === 0) {
+      return null;
+    }
+
+    // Get tier details
+    const tier = await db.select().from(membershipTiers)
+      .where(eq(membershipTiers.id, subscription[0].tierId))
+      .limit(1);
+    
+    if (!tier || tier.length === 0) {
+      return null;
+    }
+
+    return tier[0];
+  } catch (error) {
+    console.error("[Database] Failed to get membership tier:", error);
+    return null;
+  }
+}
+
+/**
+ * Get all workshop access requests with user and workshop details
+ */
+export async function getWorkshopAccessRequests() {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot get workshop access requests: database not available");
+    return [];
+  }
+
+  try {
+    const { workshopAccessRequests, users, workshops } = await import("../drizzle/schema");
+    
+    // Get all requests with joins
+    const requests = await db
+      .select({
+        id: workshopAccessRequests.id,
+        userId: workshopAccessRequests.userId,
+        workshopId: workshopAccessRequests.workshopId,
+        status: workshopAccessRequests.status,
+        tokensUsed: workshopAccessRequests.tokensUsed,
+        requestedAt: workshopAccessRequests.requestedAt,
+        reviewedAt: workshopAccessRequests.reviewedAt,
+        reviewedBy: workshopAccessRequests.reviewedBy,
+        adminNotes: workshopAccessRequests.adminNotes,
+        userName: users.name,
+        userEmail: users.email,
+        workshopTitle: workshops.title,
+        workshopScheduledAt: workshops.scheduledAt,
+      })
+      .from(workshopAccessRequests)
+      .leftJoin(users, eq(workshopAccessRequests.userId, users.id))
+      .leftJoin(workshops, eq(workshopAccessRequests.workshopId, workshops.id))
+      .orderBy(workshopAccessRequests.requestedAt);
+
+    return requests;
+  } catch (error) {
+    console.error("[Database] Failed to get workshop access requests:", error);
+    return [];
+  }
+}
+
+/**
+ * Review a workshop access request (approve or reject)
+ */
+export async function reviewWorkshopRequest(
+  requestId: number,
+  status: "approved" | "rejected",
+  reviewedBy: number,
+  adminNotes?: string
+) {
+  const db = await getDb();
+  if (!db) {
+    throw new Error("Database not available");
+  }
+
+  try {
+    const { workshopAccessRequests } = await import("../drizzle/schema");
+    
+    await db
+      .update(workshopAccessRequests)
+      .set({
+        status,
+        reviewedAt: new Date(),
+        reviewedBy,
+        adminNotes: adminNotes || null,
+      })
+      .where(eq(workshopAccessRequests.id, requestId));
+
+    return { success: true };
+  } catch (error) {
+    console.error("[Database] Failed to review workshop request:", error);
+    throw error;
+  }
+}
+
+/**
+ * Export approved attendees for a workshop
+ */
+export async function exportWorkshopAttendees(workshopId: number) {
+  const db = await getDb();
+  if (!db) {
+    throw new Error("Database not available");
+  }
+
+  try {
+    const { workshopAccessRequests, workshops, users } = await import("../drizzle/schema");
+    const { and } = await import("drizzle-orm");
+    
+    // Get workshop details
+    const workshop = await db.select().from(workshops)
+      .where(eq(workshops.id, workshopId))
+      .limit(1);
+    
+    if (!workshop || workshop.length === 0) {
+      throw new Error("Workshop not found");
+    }
+
+    // Get approved attendees
+    const attendees = await db
+      .select({
+        email: users.email,
+        name: users.name,
+        requestedAt: workshopAccessRequests.requestedAt,
+        approvedAt: workshopAccessRequests.reviewedAt,
+      })
+      .from(workshopAccessRequests)
+      .innerJoin(users, eq(workshopAccessRequests.userId, users.id))
+      .where(and(
+        eq(workshopAccessRequests.workshopId, workshopId),
+        eq(workshopAccessRequests.status, "approved")
+      ));
+
+    return {
+      workshopTitle: workshop[0].title,
+      workshopDate: workshop[0].scheduledAt,
+      attendees: attendees.map(a => ({
+        email: a.email || "No email",
+        name: a.name || "No name",
+        requestedAt: a.requestedAt,
+        approvedAt: a.approvedAt,
+      })),
+    };
+  } catch (error) {
+    console.error("[Database] Failed to export workshop attendees:", error);
+    throw error;
+  }
+}

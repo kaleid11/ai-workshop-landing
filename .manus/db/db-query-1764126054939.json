@@ -1,0 +1,65 @@
+{
+  "query": "SELECT * FROM pillars LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute SELECT * FROM pillars LIMIT 5;",
+  "rows": [
+    {
+      "id": "1",
+      "name": "Marketing",
+      "slug": "marketing",
+      "description": "Automate your content, scale your reach. Learn to create posts, videos, and marketing content in minutes using AI tools and proven frameworks.",
+      "iconUrl": "NULL",
+      "status": "active",
+      "launchDate": "2025-01-13 00:00:00",
+      "displayOrder": "1",
+      "createdAt": "2025-11-22 08:28:41"
+    },
+    {
+      "id": "2",
+      "name": "Coding",
+      "slug": "coding",
+      "description": "Build apps without code. Use AI coding agents like Manus, Replit, and Lovable to build custom tools and automate workflows.",
+      "iconUrl": "NULL",
+      "status": "active",
+      "launchDate": "2025-01-13 00:00:00",
+      "displayOrder": "2",
+      "createdAt": "2025-11-22 08:28:41"
+    },
+    {
+      "id": "3",
+      "name": "Alignment",
+      "slug": "alignment",
+      "description": "Optimize your AI strategy. Choose the right tools, design efficient workflows, and implement AI systems that actually work for your business.",
+      "iconUrl": "NULL",
+      "status": "active",
+      "launchDate": "2025-01-13 00:00:00",
+      "displayOrder": "3",
+      "createdAt": "2025-11-22 08:28:41"
+    },
+    {
+      "id": "4",
+      "name": "Selling",
+      "slug": "selling",
+      "description": "Automate your sales process. Build AI-powered lead generation, CRM automation, and sales workflows that convert.",
+      "iconUrl": "NULL",
+      "status": "coming_soon",
+      "launchDate": "NULL",
+      "displayOrder": "4",
+      "createdAt": "2025-11-22 08:28:41"
+    },
+    {
+      "id": "5",
+      "name": "Engineering",
+      "slug": "engineering",
+      "description": "Master advanced AI implementation. Build complex systems, integrate APIs, and create enterprise-grade AI solutions.",
+      "iconUrl": "NULL",
+      "status": "coming_soon",
+      "launchDate": "NULL",
+      "displayOrder": "5",
+      "createdAt": "2025-11-22 08:28:41"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tslug\tdescription\ticonUrl\tstatus\tlaunchDate\tdisplayOrder\tcreatedAt\n1\tMarketing\tmarketing\tAutomate your content, scale your reach. Learn to create posts, videos, and marketing content in minutes using AI tools and proven frameworks.\tNULL\tactive\t2025-01-13 00:00:00\t1\t2025-11-22 08:28:41\n2\tCoding\tcoding\tBuild apps without code. Use AI coding agents like Manus, Replit, and Lovable to build custom tools and automate workflows.\tNULL\tactive\t2025-01-13 00:00:00\t2\t2025-11-22 08:28:41\n3\tAlignment\talignment\tOptimize your AI strategy. Choose the right tools, design efficient workflows, and implement AI systems that actually work for your business.\tNULL\tactive\t2025-01-13 00:00:00\t3\t2025-11-22 08:28:41\n4\tSelling\tselling\tAutomate your sales process. Build AI-powered lead generation, CRM automation, and sales workflows that convert.\tNULL\tcoming_soon\tNULL\t4\t2025-11-22 08:28:41\n5\tEngineering\tengineering\tMaster advanced AI implementation. Build complex systems, integrate APIs, and create enterprise-grade AI solutions.\tNULL\tcoming_soon\tNULL\t5\t2025-11-22 08:28:41\n",
+  "stderr": "",
+  "execution_time_ms": 1670
+}

@@ -11,6 +11,15 @@ export default function Portal() {
   const accessCheck = trpc.portal.checkAccess.useQuery(undefined, {
     enabled: isAuthenticated,
   });
+  
+  // Get user's membership tier and token balance
+  const { data: userTier } = trpc.membership.getUserTier.useQuery(undefined, {
+    enabled: isAuthenticated,
+  });
+  
+  const { data: tokenBalance } = trpc.workshops.getTokenBalance.useQuery(undefined, {
+    enabled: !!(isAuthenticated && userTier?.slug && userTier.slug !== 'access_pass'),
+  });
 
   // Generate calendar event URLs for different formats
   const workshopDetails = {
@@ -154,23 +163,71 @@ export default function Portal() {
             <h2 className="text-3xl font-bold text-brand-purple mb-4">
               Welcome, {user?.name || "Workshop Member"}! 👋
             </h2>
-            <p className="text-gray-700 text-lg mb-4">
-              You're all set for the Social Media Automation Workshop on <strong>Wednesday, Nov 26 at 9-11am Brisbane</strong>.
-            </p>
-            <div className="flex gap-4">
-              <a href={generateGoogleCalendarUrl()} target="_blank" rel="noopener noreferrer">
-                <Button className="bg-brand-purple hover:bg-brand-purple/90 text-white">
-                  <Calendar className="w-4 h-4 mr-2" />
-                  Add to Google Calendar
-                </Button>
-              </a>
-              <a href="https://chat.whatsapp.com/FFzITkJIkkK7ZELGNQKDLl" target="_blank" rel="noopener noreferrer">
-                <Button className="bg-green-600 hover:bg-green-700 text-white">
-                  <MessageCircle className="w-4 h-4 mr-2" />
-                  Join WhatsApp Group
-                </Button>
-              </a>
-            </div>
+            
+            {/* Tier-based welcome message */}
+            {userTier?.slug === 'access_pass' ? (
+              <div className="space-y-4">
+                <p className="text-gray-700 text-lg">
+                  You have access to all resources, guides, and tools. Explore the knowledge base, tools database, and prompts library below.
+                </p>
+                <div className="bg-gradient-to-r from-purple-50 to-pink-50 border-2 border-purple-300 rounded-lg p-6">
+                  <h3 className="text-xl font-bold text-purple-900 mb-2">🎓 Want Access to Monthly Workshops?</h3>
+                  <p className="text-gray-700 mb-4">
+                    Upgrade to <strong>Starter ($97/month)</strong> or higher to attend live workshops, access recordings, and get monthly workshop tokens.
+                  </p>
+                  <Link href="/pricing">
+                    <Button className="bg-brand-purple hover:bg-brand-purple/90 text-white">
+                      <TrendingUp className="w-4 h-4 mr-2" />
+                      View Membership Tiers
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            ) : userTier?.slug ? (
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-gray-700 text-lg mb-2">
+                      You're on the <strong className="text-brand-purple">{userTier.name}</strong> plan.
+                    </p>
+                    {tokenBalance && (
+                      <p className="text-gray-600">
+                        Workshop Tokens: <strong className="text-brand-orange">{tokenBalance.tokensRemaining} remaining</strong> this month
+                      </p>
+                    )}
+                  </div>
+                  <Link href="/workshops">
+                    <Button className="bg-brand-purple hover:bg-brand-purple/90 text-white">
+                      <Calendar className="w-4 h-4 mr-2" />
+                      View Workshops
+                    </Button>
+                  </Link>
+                </div>
+                <p className="text-gray-700">
+                  Access live workshops, recordings, and exclusive resources. Use your tokens to request access to upcoming sessions.
+                </p>
+              </div>
+            ) : (
+              <div className="space-y-4">
+                <p className="text-gray-700 text-lg mb-4">
+                  You're all set for the Social Media Automation Workshop on <strong>Wednesday, Nov 26 at 9-11am Brisbane</strong>.
+                </p>
+                <div className="flex gap-4">
+                  <a href={generateGoogleCalendarUrl()} target="_blank" rel="noopener noreferrer">
+                    <Button className="bg-brand-purple hover:bg-brand-purple/90 text-white">
+                      <Calendar className="w-4 h-4 mr-2" />
+                      Add to Google Calendar
+                    </Button>
+                  </a>
+                  <a href="https://chat.whatsapp.com/FFzITkJIkkK7ZELGNQKDLl" target="_blank" rel="noopener noreferrer">
+                    <Button className="bg-green-600 hover:bg-green-700 text-white">
+                      <MessageCircle className="w-4 h-4 mr-2" />
+                      Join WhatsApp Group
+                    </Button>
+                  </a>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Quick Start Onboarding */}
@@ -339,14 +396,14 @@ export default function Portal() {
                 </CardContent>
               </Card>
 
-              <Card className="hover:shadow-xl transition-shadow cursor-pointer border-2 border-orange-200 hover:border-orange-400" onClick={() => window.location.href = '/tools'}>
+              <Card className="hover:shadow-xl transition-shadow cursor-pointer border-2 border-orange-200 hover:border-orange-400" onClick={() => window.location.href = '/tools-database'}>
                 <CardHeader>
                   <div className="flex items-center gap-3 mb-2">
                     <Wrench className="w-8 h-8 text-orange-500" />
                     <CardTitle className="text-xl">Tools Database</CardTitle>
                   </div>
                   <CardDescription>
-                    1,620+ AI tools categorized by use case with referral links
+                    Curated AI tools with exclusive discounts and referral links
                   </CardDescription>
                 </CardHeader>
                 <CardContent>

@@ -1,0 +1,9 @@
+{
+  "query": "ALTER TABLE membershipTiers \nADD COLUMN priceOneTime INT NULL,\nADD COLUMN foundingPriceOneTime INT NULL,\nADD COLUMN stripePriceIdOneTime VARCHAR(255) NULL,\nADD COLUMN workshopTokensPerMonth INT NOT NULL DEFAULT 0,\nADD COLUMN hasRecordingAccess INT NOT NULL DEFAULT 0;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute ALTER TABLE membershipTiers \nADD COLUMN priceOneTime INT NULL,\nADD COLUMN foundingPriceOneTime INT NULL,\nADD COLUMN stripePriceIdOneTime VARCHAR(255) NULL,\nADD COLUMN workshopTokensPerMonth INT NOT NULL DEFAULT 0,\nADD COLUMN hasRecordingAccess INT NOT NULL DEFAULT 0;",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 3506
+}

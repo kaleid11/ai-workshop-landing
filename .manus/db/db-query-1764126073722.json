@@ -1,0 +1,31 @@
+{
+  "query": "SHOW CREATE TABLE workshops;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute SHOW CREATE TABLE workshops;",
+  "rows": [
+    {
+      "Table": "workshops",
+      "Create Table": "CREATE TABLE `workshops` ("
+    }
+  ],
+  "messages": [
+    "  `id` int(11) NOT NULL AUTO_INCREMENT,",
+    "  `title` varchar(255) NOT NULL,",
+    "  `description` text DEFAULT NULL,",
+    "  `pillarId` int(11) NOT NULL,",
+    "  `tierRequired` enum('lite','pro','elite') NOT NULL DEFAULT 'lite',",
+    "  `sessionType` enum('lite','pro') NOT NULL DEFAULT 'lite',",
+    "  `durationMinutes` int(11) NOT NULL,",
+    "  `scheduledAt` timestamp NOT NULL,",
+    "  `googleMeetUrl` varchar(500) DEFAULT NULL,",
+    "  `recordingUrl` varchar(500) DEFAULT NULL,",
+    "  `materialsUrl` varchar(500) DEFAULT NULL,",
+    "  `maxAttendees` int(11) DEFAULT NULL,",
+    "  `status` enum('scheduled','completed','cancelled') NOT NULL DEFAULT 'scheduled',",
+    "  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,",
+    "  PRIMARY KEY (`id`) /*T![clustered_index] CLUSTERED */",
+    ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin"
+  ],
+  "stdout": "Table\tCreate Table\nworkshops\tCREATE TABLE `workshops` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `title` varchar(255) NOT NULL,\n  `description` text DEFAULT NULL,\n  `pillarId` int(11) NOT NULL,\n  `tierRequired` enum('lite','pro','elite') NOT NULL DEFAULT 'lite',\n  `sessionType` enum('lite','pro') NOT NULL DEFAULT 'lite',\n  `durationMinutes` int(11) NOT NULL,\n  `scheduledAt` timestamp NOT NULL,\n  `googleMeetUrl` varchar(500) DEFAULT NULL,\n  `recordingUrl` varchar(500) DEFAULT NULL,\n  `materialsUrl` varchar(500) DEFAULT NULL,\n  `maxAttendees` int(11) DEFAULT NULL,\n  `status` enum('scheduled','completed','cancelled') NOT NULL DEFAULT 'scheduled',\n  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  PRIMARY KEY (`id`) /*T![clustered_index] CLUSTERED */\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin\n",
+  "stderr": "",
+  "execution_time_ms": 1607
+}

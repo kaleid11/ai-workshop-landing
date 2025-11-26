@@ -63,20 +63,21 @@ export type InsertAdminToken = typeof adminTokens.$inferInsert;
 
 /**
  * Membership tiers table
- * Defines the 5 academy tiers with pricing and features
+ * Defines the 6 academy tiers: Access Pass, Workshop, Starter, Lite, Pro, Enterprise
  */
 export const membershipTiers = mysqlTable("membershipTiers", {
   id: int("id").autoincrement().primaryKey(),
-  name: varchar("name", { length: 64 }).notNull().unique(), // Free, Starter, Lite, Pro, Elite
+  name: varchar("name", { length: 64 }).notNull().unique(), // Access Pass, Workshop, Starter, Lite, Pro, Enterprise
   slug: varchar("slug", { length: 64 }).notNull().unique(),
-  priceMonthly: int("priceMonthly").notNull(), // in cents, 0 for free
-  priceAnnual: int("priceAnnual").notNull(), // in cents, 0 for free
+  priceMonthly: int("priceMonthly").notNull(), // in cents, 0 for one-time
+  priceOneTime: int("priceOneTime"), // for Access Pass and Workshop tiers
   foundingPriceMonthly: int("foundingPriceMonthly"), // founding member discount
-  foundingPriceAnnual: int("foundingPriceAnnual"),
+  foundingPriceOneTime: int("foundingPriceOneTime"),
   stripePriceIdMonthly: varchar("stripePriceIdMonthly", { length: 255 }),
-  stripePriceIdAnnual: varchar("stripePriceIdAnnual", { length: 255 }),
+  stripePriceIdOneTime: varchar("stripePriceIdOneTime", { length: 255 }),
   features: text("features").notNull(), // JSON array of features
-  maxWorkshopsPerMonth: int("maxWorkshopsPerMonth").default(0).notNull(),
+  workshopTokensPerMonth: int("workshopTokensPerMonth").default(0).notNull(), // 0 for Access Pass, 2 for Starter, 4 for Lite, unlimited for Pro/Enterprise
+  hasRecordingAccess: int("hasRecordingAccess").default(0).notNull(), // 0 = no, 1 = yes (Starter tier and above)
   forumAccess: int("forumAccess").default(0).notNull(), // 0 = no, 1 = yes
   prioritySupport: int("prioritySupport").default(0).notNull(),
   displayOrder: int("displayOrder").notNull(),
@@ -100,6 +101,9 @@ export const userSubscriptions = mysqlTable("userSubscriptions", {
   currentPeriodStart: timestamp("currentPeriodStart"),
   currentPeriodEnd: timestamp("currentPeriodEnd"),
   cancelAtPeriodEnd: int("cancelAtPeriodEnd").default(0).notNull(),
+  workshopTokensRemaining: int("workshopTokensRemaining").default(0).notNull(), // Resets monthly based on tier
+  workshopTokensUsed: int("workshopTokensUsed").default(0).notNull(), // Tracks usage this period
+  lastTokenReset: timestamp("lastTokenReset").defaultNow().notNull(), // When tokens were last reset
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
 });
@@ -219,6 +223,26 @@ export const workshopRegistrations = mysqlTable("workshopRegistrations", {
 
 export type WorkshopRegistration = typeof workshopRegistrations.$inferSelect;
 export type InsertWorkshopRegistration = typeof workshopRegistrations.$inferInsert;
+
+/**
+ * Workshop access requests table
+ * Users request access to workshops using their monthly tokens
+ * Admin manually approves and sends Google Meet links via email
+ */
+export const workshopAccessRequests = mysqlTable("workshopAccessRequests", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  workshopId: int("workshopId").notNull(),
+  status: mysqlEnum("status", ["pending", "approved", "rejected"]).default("pending").notNull(),
+  tokensUsed: int("tokensUsed").default(1).notNull(), // Usually 1 token per workshop
+  requestedAt: timestamp("requestedAt").defaultNow().notNull(),
+  reviewedAt: timestamp("reviewedAt"),
+  reviewedBy: int("reviewedBy"), // Admin user ID who reviewed
+  adminNotes: text("adminNotes"), // Internal notes for admin
+});
+
+export type WorkshopAccessRequest = typeof workshopAccessRequests.$inferSelect;
+export type InsertWorkshopAccessRequest = typeof workshopAccessRequests.$inferInsert;
 
 /**
  * Resources table

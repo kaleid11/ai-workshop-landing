@@ -174,6 +174,49 @@ export const appRouter = router({
       ]);
       return { feedback, assessments };
     }),
+    getWorkshopAccessRequests: protectedProcedure.query(async ({ ctx }) => {
+      // Check if user is admin
+      if (ctx.user.role !== "admin") {
+        throw new Error("Unauthorized: Admin access required");
+      }
+      const { getWorkshopAccessRequests } = await import("./db");
+      return await getWorkshopAccessRequests();
+    }),
+    reviewWorkshopRequest: protectedProcedure
+      .input(
+        z.object({
+          requestId: z.number().int().positive(),
+          status: z.enum(["approved", "rejected"]),
+          adminNotes: z.string().optional(),
+        })
+      )
+      .mutation(async ({ input, ctx }) => {
+        // Check if user is admin
+        if (ctx.user.role !== "admin") {
+          throw new Error("Unauthorized: Admin access required");
+        }
+        const { reviewWorkshopRequest } = await import("./db");
+        return await reviewWorkshopRequest(
+          input.requestId,
+          input.status,
+          ctx.user.id,
+          input.adminNotes
+        );
+      }),
+    exportWorkshopAttendees: protectedProcedure
+      .input(
+        z.object({
+          workshopId: z.number().int().positive(),
+        })
+      )
+      .query(async ({ input, ctx }) => {
+        // Check if user is admin
+        if (ctx.user.role !== "admin") {
+          throw new Error("Unauthorized: Admin access required");
+        }
+        const { exportWorkshopAttendees } = await import("./db");
+        return await exportWorkshopAttendees(input.workshopId);
+      }),
   }),
 
   feedback: router({
@@ -272,6 +315,35 @@ export const appRouter = router({
           message: "Scorecard generated successfully",
         };
       }),
+  }),
+
+  // Workshops router for workshop calendar and token-based access
+  workshops: router({ list: publicProcedure.query(async () => {
+      const { getWorkshops } = await import("./db");
+      return await getWorkshops();
+    }),
+    requestAccess: protectedProcedure
+      .input(
+        z.object({
+          workshopId: z.number().int().positive(),
+        })
+      )
+      .mutation(async ({ input, ctx }) => {
+        const { requestWorkshopAccess } = await import("./db");
+        return await requestWorkshopAccess(ctx.user.id, input.workshopId);
+      }),
+    getTokenBalance: protectedProcedure.query(async ({ ctx }) => {
+      const { getUserTokenBalance } = await import("./db");
+      return await getUserTokenBalance(ctx.user.id);
+    }),
+  }),
+
+  // Membership router for tier information
+  membership: router({
+    getUserTier: protectedProcedure.query(async ({ ctx }) => {
+      const { getUserMembershipTier } = await import("./db");
+      return await getUserMembershipTier(ctx.user.id);
+    }),
   }),
 
   // Assessment submission and report generation

@@ -1116,3 +1116,97 @@ Changed `client_reference_id: ctx.user.id.toString()` to `client_reference_id: c
 - [x] Add workshop recording section with links to app
 - [x] Test download functionality
 - [ ] Create checkpoint
+
+## Complete Membership & Workshop System - Nov 26, 2025
+
+### Database Schema
+- [ ] Create workshop_tokens table (user_id, tokens_remaining, tier)
+- [ ] Create membership_tiers table (name, price, monthly_tokens, has_recording_access)
+- [ ] Create workshops table (name, date, description, recording_url)
+- [ ] Create workshop_access_requests table (user_id, workshop_id, status, requested_at)
+- [ ] Create workshop_attendees table (user_id, workshop_id, attended_at)
+- [ ] Update user subscriptions to track tier and tokens
+
+### Workshop Calendar System
+- [ ] Create 4 rotating workshops (Vibe Marketing, Vibe Coding, Vibe Alignment, Business Workflows)
+- [ ] Build workshop calendar page with monthly schedule
+- [ ] Add token request button for each workshop
+- [ ] Implement tier checking (prompt upgrade if insufficient tier)
+- [ ] Add "Add to Calendar" functionality for all workshops
+- [ ] Show token balance for monthly tier users
+
+### Recording Library
+- [ ] Create recordings page (gated to $97+ tiers)
+- [ ] Add tier upgrade prompt for resource pack users
+- [ ] Build video player for workshop recordings
+- [ ] Organize recordings by workshop type
+- [ ] Add download option for recordings
+
+### Admin Portal
+- [ ] Create workshop access requests dashboard
+- [ ] Add export attendee emails functionality
+- [ ] Build workshop recording upload interface
+- [ ] Add manual approval/rejection for access requests
+- [ ] Create email notification system for approved requests
+
+### Tools Database Enhancement
+- [ ] Add all referral links from linktr.ee/huxleyp
+- [ ] Create featured tools section
+- [ ] Add Google Workspace with "10% off first year" messaging
+- [ ] Add discount badges for partner tools
+- [ ] Organize tools by category with referral links
+
+### Portal Updates
+- [ ] Clean intro section for resource pack buyers
+- [ ] Show different content based on tier (resource pack vs monthly)
+- [ ] Add workshop token balance display
+- [ ] Add tier upgrade CTAs for gated content
+- [ ] Link to workshop calendar and recordings
+
+### Wiki Expansion
+- [ ] Add Vibe Coding guide
+- [ ] Add Vibe Alignment for Business guide
+- [ ] Add Business Workflows with AI Agents guide
+- [ ] Add Building Your Own Agents guide
+- [ ] Expand existing guides with more examples
+
+### Payment & Upgrades
+- [ ] Create 50% discount payment link for workshop token top-ups
+- [ ] Add tier upgrade flow (resource pack → Starter tier)
+- [ ] Implement monthly subscription management
+- [ ] Add token purchase functionality
+
+### Testing & Launch
+- [ ] Test token request workflow
+- [ ] Test tier-based access control
+- [ ] Test admin approval workflow
+- [ ] Test recording access gating
+- [ ] Verify all referral links work
+- [ ] Create final checkpoint
+
+## Complete Membership & Workshop Token System - Nov 26, 2025
+- [x] Design database schema for workshop tokens, membership tiers, and access requests
+- [x] Update membershipTiers table with 6 tiers (Access Pass, Workshop, Starter, Lite, Pro, Enterprise)
+- [x] Add workshop tokens tracking to userSubscriptions table
+- [x] Create workshopAccessRequests table for token-based requests
+- [x] Seed 4 rotating workshops (Vibe Marketing, Vibe Coding, Vibe Alignment, Business Workflows with AI Agents)
+- [x] Create /workshops calendar page with token request system
+- [x] Build admin workshop management portal at /admin-workshops
+- [x] Add workshop access request approval/rejection workflow
+- [x] Export attendee emails for Google Calendar invites
+- [x] Add tier-based welcome messages to Portal
+- [x] Show token balance for monthly tier users (Starter, Lite, Pro)
+- [x] Add upgrade prompts for Access Pass users
+- [x] Build comprehensive /tools-database page with 17 curated tools
+- [x] Add all referral links (Perplexity, Gamma, Klipy, Leonardo.ai, Replit, Lovable, Bolt.new, etc.)
+- [x] Organize tools by 8 categories (AI & Productivity, Design, Development, Marketing, Infrastructure, AI Media, Finance, Automation)
+- [x] Expand Wiki with 3 new comprehensive guides:
+  - [x] Building Your AI Content Calendar (30-day framework, content pillars, batching)
+  - [x] Automating Social Media Workflows (10-hour time savings blueprint, 5 workflows)
+  - [x] Advanced Prompt Engineering (8 advanced techniques, business use cases, templates)
+- [x] Add markdown download functionality to Wiki guides (.md and .txt formats)
+- [x] Add workshop recording section to Wiki guides
+- [x] Update Portal dashboard cards to link to /workshops and /tools-database
+- [x] Write comprehensive vitest tests for workshop and membership system (8 tests)
+- [x] Test complete workshop token system end-to-end (all 8 tests passing)
+- [ ] Create final checkpoint with complete membership system
