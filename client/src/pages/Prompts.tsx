@@ -59,9 +59,9 @@ export default function Prompts() {
       <header className="bg-white border-b sticky top-0 z-10">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <Link href="/">
-            <a className="text-2xl font-bold bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent">
+            <span className="text-2xl font-bold bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent cursor-pointer">
               Tech Horizon Academy
-            </a>
+            </span>
           </Link>
           <div className="flex items-center gap-4">
             <Link href="/portal">
@@ -206,9 +206,11 @@ export default function Prompts() {
 
                       <CardFooter className="flex gap-2">
                         {locked ? (
-                          <Button className="w-full" variant="outline" asChild>
-                            <Link href="/pricing">Upgrade to Unlock</Link>
-                          </Button>
+                          <Link href="/pricing" className="w-full">
+                            <Button className="w-full" variant="outline">
+                              Upgrade to Unlock
+                            </Button>
+                          </Link>
                         ) : (
                           <>
                             <Button 

@@ -1210,3 +1210,7 @@ Changed `client_reference_id: ctx.user.id.toString()` to `client_reference_id: c
 - [x] Write comprehensive vitest tests for workshop and membership system (8 tests)
 - [x] Test complete workshop token system end-to-end (all 8 tests passing)
 - [ ] Create final checkpoint with complete membership system
+
+## Bug Fix - Nov 26, 2025
+- [x] Fix nested <a> tag error on /prompts page
+- [x] Test fix and create checkpoint
