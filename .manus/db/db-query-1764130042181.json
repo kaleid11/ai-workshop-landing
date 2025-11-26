@@ -1,0 +1,9 @@
+{
+  "query": "INSERT INTO membershipTiers (name, slug, features, priceMonthly, priceAnnual, priceOneTime, foundingPriceMonthly, foundingPriceAnnual, foundingPriceOneTime, workshopTokensPerMonth, displayOrder)\nVALUES (\n  'Enterprise',\n  'enterprise',\n  '[\"Everything in Pro\",\"Compliance audits\",\"Full systems assessment\",\"Custom integrations\",\"Dedicated support\",\"Contact us for pricing\"]',\n  0,\n  0,\n  0,\n  0,\n  0,\n  0,\n  999,\n  6\n);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute INSERT INTO membershipTiers (name, slug, features, priceMonthly, priceAnnual, priceOneTime, foundingPriceMonthly, foundingPriceAnnual, foundingPriceOneTime, workshopTokensPerMonth, displayOrder)\nVALUES (\n  'Enterprise',\n  'enterprise',\n  '[\"Everything in Pro\",\"Compliance audits\",\"Full systems assessment\",\"Custom integrations\",\"Dedicated support\",\"Contact us for pricing\"]',\n  0,\n  0,\n  0,\n  0,\n  0,\n  0,\n  999,\n  6\n);",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1580
+}

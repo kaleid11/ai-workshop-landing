@@ -79,10 +79,19 @@ export default function Pricing() {
               const features = JSON.parse(tier.features) as string[];
               const isCurrentTier = currentTierSlug === tier.slug;
               const isPro = tier.slug === 'pro';
-              const monthlyPrice = tier.foundingPriceMonthly || tier.priceMonthly;
-              const regularMonthlyPrice = tier.priceMonthly;
-              const hasDiscount = tier.foundingPriceMonthly && tier.foundingPriceMonthly < tier.priceMonthly;
-              const isStarter = tier.slug === 'starter';
+              
+              // Determine if this is a one-time or monthly tier
+              const isOneTime = tier.priceOneTime > 0 || tier.foundingPriceOneTime > 0;
+              const isEnterprise = tier.slug === 'enterprise';
+              
+              // Calculate pricing
+              const displayPrice = isOneTime 
+                ? (tier.foundingPriceOneTime || tier.priceOneTime)
+                : (tier.foundingPriceMonthly || tier.priceMonthly);
+              const regularPrice = isOneTime ? tier.priceOneTime : tier.priceMonthly;
+              const hasDiscount = isOneTime
+                ? (tier.foundingPriceOneTime && tier.foundingPriceOneTime < tier.priceOneTime)
+                : (tier.foundingPriceMonthly && tier.foundingPriceMonthly < tier.priceMonthly);
 
               return (
                 <Card 
@@ -100,42 +109,57 @@ export default function Pricing() {
                   <CardHeader>
                     <CardTitle className="text-2xl">{tier.name}</CardTitle>
                     <CardDescription className="text-base">
-                      {tier.slug === 'starter' && 'One-time payment for lifetime access'}
-                      {tier.slug === 'lite' && 'Perfect for getting started with live workshops'}
-                      {tier.slug === 'pro' && 'Deep-dive sessions and 1-on-1 strategy calls'}
-                      {tier.slug === 'elite' && 'Weekly coaching and custom automation builds'}
+                      {tier.slug === 'access_pass' && 'Lifetime access to all resources and community'}
+                      {tier.slug === 'workshop' && 'Single workshop access with recording'}
+                      {tier.slug === 'starter' && 'Monthly workshops and live training'}
+                      {tier.slug === 'lite' && 'More workshops plus recordings access'}
+                      {tier.slug === 'pro' && 'Unlimited workshops and strategy calls'}
+                      {tier.slug === 'enterprise' && 'Custom solutions for your business'}
                     </CardDescription>
                   </CardHeader>
 
                   <CardContent>
                     <div className="mb-6">
-                      {hasDiscount && (
-                        <div className="flex items-baseline gap-2 mb-2">
-                          <span className="text-3xl font-bold text-gray-900">
-                            ${(monthlyPrice / 100).toFixed(0)}
+                      {isEnterprise ? (
+                        <div className="mb-2">
+                          <span className="text-2xl font-bold text-gray-900">
+                            Contact Us
                           </span>
-                          <span className="text-xl text-gray-400 line-through">
-                            ${(regularMonthlyPrice / 100).toFixed(0)}
-                          </span>
-                          <Badge variant="secondary" className="bg-green-100 text-green-700">
-                            Save {Math.round((1 - monthlyPrice / regularMonthlyPrice) * 100)}%
-                          </Badge>
+                          <p className="text-sm text-gray-600 mt-1">
+                            Custom pricing for your needs
+                          </p>
                         </div>
-                      )}
-                      {!hasDiscount && (
-                        <div className="flex items-baseline gap-2 mb-2">
-                          <span className="text-3xl font-bold text-gray-900">
-                            ${(monthlyPrice / 100).toFixed(0)}
-                          </span>
-                        </div>
-                      )}
-                      <p className="text-sm text-gray-600">
-                        {isStarter ? 'AUD one-time' : 'AUD per month'}
-                      </p>
-                      {hasDiscount && (
-                        <p className="text-xs text-orange-600 mt-1">
-                          🔥 Founding member price until Dec 31, 2025
-                        </p>
+                      ) : (
+                        <>
+                          {hasDiscount && (
+                            <div className="flex items-baseline gap-2 mb-2">
+                              <span className="text-3xl font-bold text-gray-900">
+                                ${(displayPrice / 100).toFixed(0)}
+                              </span>
+                              <span className="text-xl text-gray-400 line-through">
+                                ${(regularPrice / 100).toFixed(0)}
+                              </span>
+                              <Badge variant="secondary" className="bg-green-100 text-green-700">
+                                Save {Math.round((1 - displayPrice / regularPrice) * 100)}%
+                              </Badge>
+                            </div>
+                          )}
+                          {!hasDiscount && (
+                            <div className="flex items-baseline gap-2 mb-2">
+                              <span className="text-3xl font-bold text-gray-900">
+                                ${(displayPrice / 100).toFixed(0)}
+                              </span>
+                            </div>
+                          )}
+                          <p className="text-sm text-gray-600">
+                            {isOneTime ? 'AUD one-time' : 'AUD per month'}
+                          </p>
+                          {hasDiscount && (
+                            <p className="text-xs text-orange-600 mt-1">
+                              🔥 Founding member price until Dec 31, 2025
+                            </p>
+                          )}
+                        </>
                       )}
                     </div>
 
@@ -154,13 +178,22 @@ export default function Pricing() {
                       <Button className="w-full" variant="outline" disabled>
                         Current Plan
                       </Button>
+                    ) : isEnterprise ? (
+                      <Button 
+                        className="w-full"
+                        asChild
+                      >
+                        <a href="mailto:huxley@thzn.world?subject=Enterprise Tier Inquiry">
+                          Contact Us
+                        </a>
+                      </Button>
                     ) : (
                       <Button 
                         className={`w-full ${isPro ? 'bg-orange-500 hover:bg-orange-600' : ''}`}
                         asChild
                       >
                         <Link href={`/checkout?tier=${tier.slug}`}>
-                          {isStarter ? 'Get Starter Pass' : `Join ${tier.name}`}
+                          {isOneTime ? `Get ${tier.name}` : `Join ${tier.name}`}
                         </Link>
                       </Button>
                     )}

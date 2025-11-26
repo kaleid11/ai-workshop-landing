@@ -1232,3 +1232,15 @@ Changed `client_reference_id: ctx.user.id.toString()` to `client_reference_id: c
 - [x] Clarify recordings are NOT available on Starter, only Lite tier and above
 - [x] Update FAQ section with workshop tokens and recordings clarification
 - [ ] Test changes and create checkpoint
+
+## Tier Structure Correction - Nov 26, 2025
+- [x] Create Access Pass tier ($27 founding / $47 regular) - ONE-TIME, resources only
+- [x] Create Workshop tier ($77 one-time) - Single workshop + recording
+- [x] Create Enterprise tier - Contact us for custom pricing
+- [x] Update Pricing.tsx to handle one-time and monthly pricing
+- [x] Verify Starter ($97/month) has 2 workshops per month
+- [x] Verify Lite ($300/month) has 4 workshops per month + recordings
+- [x] Verify Pro ($500/month) has unlimited workshops + recordings
+- [x] Update display order for all 6 tiers
+- [x] Test pricing page displays all tiers correctly
+- [ ] Create checkpoint

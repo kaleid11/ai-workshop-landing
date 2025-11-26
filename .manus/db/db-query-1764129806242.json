@@ -1,0 +1,60 @@
+{
+  "query": "SELECT id, name, slug, features, workshopTokensPerMonth, priceMonthly, priceOneTime, foundingPriceOneTime FROM membershipTiers ORDER BY COALESCE(priceMonthly, priceOneTime);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute SELECT id, name, slug, features, workshopTokensPerMonth, priceMonthly, priceOneTime, foundingPriceOneTime FROM membershipTiers ORDER BY COALESCE(priceMonthly, priceOneTime);",
+  "rows": [
+    {
+      "id": "1",
+      "name": "Free",
+      "slug": "free",
+      "features": "[\"Access to public Facebook group\",\"Weekly tips and challenges\",\"10 free prompts\",\"Tool comparison guides\",\"Monthly live Q&A (100+ attendees)\"]",
+      "workshopTokensPerMonth": "0",
+      "priceMonthly": "0",
+      "priceOneTime": "NULL",
+      "foundingPriceOneTime": "NULL"
+    },
+    {
+      "id": "2",
+      "name": "Starter",
+      "slug": "starter",
+      "features": "[\"2 workshops per month\",\"Monthly live training\",\"Full access to tools & prompts library (lifetime)\",\"Community access\",\"Priority support\"]",
+      "workshopTokensPerMonth": "2",
+      "priceMonthly": "4700",
+      "priceOneTime": "NULL",
+      "foundingPriceOneTime": "NULL"
+    },
+    {
+      "id": "3",
+      "name": "Lite",
+      "slug": "lite",
+      "features": "[\"4 workshops per month\",\"Monthly live training\",\"Workshop recordings access\",\"Full access to tools & prompts library (lifetime)\",\"1-hour 1-on-1 monthly\",\"Custom workflows\",\"Tool stack audit\"]",
+      "workshopTokensPerMonth": "4",
+      "priceMonthly": "9700",
+      "priceOneTime": "NULL",
+      "foundingPriceOneTime": "NULL"
+    },
+    {
+      "id": "4",
+      "name": "Pro",
+      "slug": "pro",
+      "features": "[\"Unlimited workshops per month\",\"Monthly live training\",\"Workshop recordings access\",\"Full access to tools & prompts library (lifetime)\",\"2 hours strategy monthly\",\"Security checklists\",\"Priority support\",\"Custom integrations\"]",
+      "workshopTokensPerMonth": "999",
+      "priceMonthly": "29700",
+      "priceOneTime": "NULL",
+      "foundingPriceOneTime": "NULL"
+    },
+    {
+      "id": "5",
+      "name": "Elite",
+      "slug": "elite",
+      "features": "[\"Everything in Pro Academy\",\"Weekly 1-on-1 coaching (60 min/month)\",\"Custom automation builds (5 hours/month)\",\"Direct WhatsApp access to Huxley\",\"Quarterly strategy reviews with ROI tracking\",\"Access to Replit Advanced Coding Lab (future)\",\"Exclusive mastermind group (10-15 members)\",\"Speaking/content collaboration opportunities\",\"Lifetime access to all future courses\"]",
+      "workshopTokensPerMonth": "0",
+      "priceMonthly": "99700",
+      "priceOneTime": "NULL",
+      "foundingPriceOneTime": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tslug\tfeatures\tworkshopTokensPerMonth\tpriceMonthly\tpriceOneTime\tfoundingPriceOneTime\n1\tFree\tfree\t[\"Access to public Facebook group\",\"Weekly tips and challenges\",\"10 free prompts\",\"Tool comparison guides\",\"Monthly live Q&A (100+ attendees)\"]\t0\t0\tNULL\tNULL\n2\tStarter\tstarter\t[\"2 workshops per month\",\"Monthly live training\",\"Full access to tools & prompts library (lifetime)\",\"Community access\",\"Priority support\"]\t2\t4700\tNULL\tNULL\n3\tLite\tlite\t[\"4 workshops per month\",\"Monthly live training\",\"Workshop recordings access\",\"Full access to tools & prompts library (lifetime)\",\"1-hour 1-on-1 monthly\",\"Custom workflows\",\"Tool stack audit\"]\t4\t9700\tNULL\tNULL\n4\tPro\tpro\t[\"Unlimited workshops per month\",\"Monthly live training\",\"Workshop recordings access\",\"Full access to tools & prompts library (lifetime)\",\"2 hours strategy monthly\",\"Security checklists\",\"Priority support\",\"Custom integrations\"]\t999\t29700\tNULL\tNULL\n5\tElite\telite\t[\"Everything in Pro Academy\",\"Weekly 1-on-1 coaching (60 min/month)\",\"Custom automation builds (5 hours/month)\",\"Direct WhatsApp access to Huxley\",\"Quarterly strategy reviews with ROI tracking\",\"Access to Replit Advanced Coding Lab (future)\",\"Exclusive mastermind group (10-15 members)\",\"Speaking/content collaboration opportunities\",\"Lifetime access to all future courses\"]\t0\t99700\tNULL\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 1643
+}

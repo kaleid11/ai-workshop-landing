@@ -1,0 +1,8 @@
+{
+  "query": "INSERT INTO membershipTiers (name, slug, description, features, priceOneTime, foundingPriceOneTime, workshopTokensPerMonth, displayOrder)\nVALUES (\n  'Access Pass',\n  'access_pass',\n  'Lifetime access to all resources and community',\n  '[\"Full access to tools & prompts library (lifetime)\",\"Complete wiki & resource hub\",\"Private community access\",\"Monthly newsletter\",\"No workshops or recordings\"]',\n  4700,\n  2700,\n  0,\n  1\n);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute INSERT INTO membershipTiers (name, slug, description, features, priceOneTime, foundingPriceOneTime, workshopTokensPerMonth, displayOrder)\nVALUES (\n  'Access Pass',\n  'access_pass',\n  'Lifetime access to all resources and community',\n  '[\"Full access to tools & prompts library (lifetime)\",\"Complete wiki & resource hub\",\"Private community access\",\"Monthly newsletter\",\"No workshops or recordings\"]',\n  4700,\n  2700,\n  0,\n  1\n);",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 1: Unknown column 'description' in 'field list'"
+  ]
+}
