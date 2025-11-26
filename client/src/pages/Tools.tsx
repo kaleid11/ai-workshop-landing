@@ -26,21 +26,14 @@ export default function Tools() {
   });
 
   const userTier = userSubscription?.tier?.slug || 'free';
+  const hasPaidTier = userSubscription?.tier !== null && userSubscription?.tier !== undefined;
 
   // Get unique categories from tools
   const categories = Array.from(new Set(tools?.map((t: any) => t.category).filter(Boolean)));
   
-  // Tier hierarchy for access control
-  const tierHierarchy: Record<string, number> = {
-    free: 0,
-    starter: 1,
-    lite: 2,
-    pro: 3,
-    elite: 4,
-  };
-
+  // Anyone with a paid tier (Access Pass, Workshop, Starter, Lite, Pro, Enterprise) gets full access
   const hasAccess = (toolTier: string) => {
-    return tierHierarchy[userTier] >= tierHierarchy[toolTier];
+    return hasPaidTier; // All paid tiers get full access to tools database
   };
 
   return (

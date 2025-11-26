@@ -28,22 +28,15 @@ export default function Prompts() {
   });
 
   const userTier = userSubscription?.tier?.slug || 'free';
+  const hasPaidTier = userSubscription?.tier !== null && userSubscription?.tier !== undefined;
 
   // Get unique categories and tools from prompts
   const categories = Array.from(new Set(prompts?.map((p: any) => p.category).filter(Boolean)));
   const tools = Array.from(new Set(prompts?.map((p: any) => p.tool).filter(Boolean)));
   
-  // Tier hierarchy for access control
-  const tierHierarchy: Record<string, number> = {
-    free: 0,
-    starter: 1,
-    lite: 2,
-    pro: 3,
-    elite: 4,
-  };
-
+  // Anyone with a paid tier (Access Pass, Workshop, Starter, Lite, Pro, Enterprise) gets full access
   const hasAccess = (promptTier: string) => {
-    return tierHierarchy[userTier] >= tierHierarchy[promptTier];
+    return hasPaidTier; // All paid tiers get full access to prompts library
   };
 
   const copyToClipboard = (text: string, id: number) => {

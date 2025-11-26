@@ -1214,3 +1214,11 @@ Changed `client_reference_id: ctx.user.id.toString()` to `client_reference_id: c
 ## Bug Fix - Nov 26, 2025
 - [x] Fix nested <a> tag error on /prompts page
 - [x] Test fix and create checkpoint
+
+## Access Control Update - Nov 26, 2025
+- [x] Update Prompts library to grant full access to all paid tiers (Access Pass, Workshop, Starter, Lite, Pro, Enterprise)
+- [x] Update Tools database to grant full access to all paid tiers
+- [x] Remove tier-based locking from individual prompts and tools
+- [x] Keep workshop access and recordings gated by appropriate tiers
+- [x] Test access control changes
+- [ ] Create checkpoint
