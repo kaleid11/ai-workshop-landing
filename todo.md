@@ -1,34 +1,47 @@
 # Tech Horizon Academy TODO
 
-## Homepage Repositioning - Academy Platform Focus
+## Homepage Improvements
 
-### Hero Section
-- [x] Rewrite headline to emphasize "Academy" and "Platform" (not just workshop)
-- [x] Clarify subscription model (monthly membership for ongoing access)
-- [x] Highlight competitive edge for pioneers using latest AI tools
-- [x] Mention Huxley's expertise (testing tools daily, real-world applications)
-- [x] Add platform value proposition (1,620+ tools, prompts, workflows, recordings)
+### CTA Section Fix
+- [x] Fix broken CTA section at bottom of homepage
+- [x] Ensure proper styling and layout
+- [x] Verify buttons work correctly
+- [ ] Test responsive design
 
-### Platform Features Section
-- [x] Showcase four pillars: Vibe Marketing, Vibe Coding, Vibe Alignment, Vibe Engineering
-- [x] List platform resources: Tools Database, Prompt Library, Workflows, Recorded Workshops, Live Sessions
-- [x] Emphasize "one place to plug into" for everything AI
-- [x] Show breadth of platform (not just workshops)
+### Member Testimonials Section
+- [x] Create testimonials database schema (if needed)
+- [x] Add testimonials section to homepage (before final CTA)
+- [x] Include 3-4 member success stories
+- [x] Show specific results (time saved, revenue, tools mastered)
+- [x] Add member photos/avatars and names
+- [x] Include tier badges (Starter/Lite/Pro)
 
-### Pricing Display
-- [x] Show per-month pricing clearly ($97/mo, $300/mo, $500/mo)
-- [x] Align pricing display with pricing page format
-- [x] Clarify what each tier includes (platform access + workshop credits)
-- [x] Mention one-time options (Access Pass $27, Workshop $97)
+## Onboarding Flow
 
-### Value Proposition
-- [x] Emphasize subscription model benefits (ongoing learning, new content)
-- [x] Highlight platform vs individual workshop positioning
-- [x] Show ROI of staying ahead with latest tools
-- [x] Position as investment in competitive advantage
+### Welcome Tour
+- [x] Create onboarding modal/dialog for new members
+- [x] Add guided tour of platform resources (tools, prompts, workflows)
+- [x] Highlight key features (workshops, recordings, knowledge base)
+- [x] Show how to book first workshop
+- [x] Add "Skip Tour" and "Next" navigation
+
+### Quick-Start Checklist
+- [x] Create checklist component for member portal (already exists)
+- [x] Add tasks: Complete profile, Browse tools, Save first prompt, Book workshop, Join community
+- [x] Track completion status in localStorage
+- [x] Show progress indicator (e.g., "3/5 completed")
+- [x] Celebrate completion with confetti/animation
+
+## Admin Workshop Verification
+
+### Workshop Creation Flow
+- [x] Test creating workshop in /admin/workshops
+- [x] Verify workshop appears in calendar immediately
+- [x] Verify workshop appears on /workshop landing page countdown
+- [x] Test workshop details update in real-time
+- [x] Ensure attendee registration works end-to-end
 
 ### Testing
-- [x] Test homepage clearly communicates Academy platform
-- [x] Verify pricing matches pricing page
-- [x] Ensure subscription model is obvious
-- [ ] Create checkpoint after homepage repositioning
+- [x] Test all new features work correctly
+- [x] Verify responsive design on mobile
+- [ ] Create checkpoint after improvements

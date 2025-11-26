@@ -1,5 +1,6 @@
 import { useAuth } from "@/_core/hooks/useAuth";
 import { Button } from "@/components/ui/button";
+import { OnboardingWelcome } from "@/components/OnboardingWelcome";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { APP_LOGO, APP_TITLE, getLoginUrl } from "@/const";
 import { trpc } from "@/lib/trpc";
@@ -136,6 +137,7 @@ export default function Portal() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <OnboardingWelcome />
       {/* Header */}
       <header className="bg-gradient-to-r from-[rgb(var(--brand-dark-purple))] to-[rgb(var(--brand-blue))] text-white py-8">
         <div className="container">

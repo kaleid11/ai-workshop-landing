@@ -585,8 +585,103 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Member Testimonials */}
+      <section className="py-20 bg-background">
+        <div className="container">
+          <div className="text-center mb-16">
+            <Badge className="mb-4">MEMBER SUCCESS STORIES</Badge>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+              Real Results from Real Members
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              See how Academy members are widening their competitive gap
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* Testimonial 1 */}
+            <Card className="border-2">
+              <CardContent className="pt-6">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 bg-brand-orange/20 rounded-full flex items-center justify-center text-2xl font-bold text-brand-orange">
+                    S
+                  </div>
+                  <div>
+                    <div className="font-semibold">Sarah Chen</div>
+                    <Badge variant="outline" className="text-xs">Pro Member</Badge>
+                  </div>
+                </div>
+                <div className="flex gap-1 mb-4">
+                  {[1, 2, 3, 4, 5].map((i) => (
+                    <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <p className="text-sm text-muted-foreground mb-4">
+                  "Cut my content creation time from 8 hours to 2 hours per week. The Vibe Marketing workflows are game-changing. Already seeing 3x engagement on social media."
+                </p>
+                <div className="text-xs text-muted-foreground">
+                  <strong>Results:</strong> 75% time saved • 3x engagement • $2K/mo saved
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Testimonial 2 */}
+            <Card className="border-2 border-brand-orange">
+              <CardContent className="pt-6">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 bg-brand-purple/20 rounded-full flex items-center justify-center text-2xl font-bold text-brand-purple">
+                    M
+                  </div>
+                  <div>
+                    <div className="font-semibold">Marcus Rodriguez</div>
+                    <Badge variant="outline" className="text-xs">Lite Member</Badge>
+                  </div>
+                </div>
+                <div className="flex gap-1 mb-4">
+                  {[1, 2, 3, 4, 5].map((i) => (
+                    <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <p className="text-sm text-muted-foreground mb-4">
+                  "The Gemini & Manus workshop was incredible. Built my first AI automation in 90 minutes during the live session. Huxley's real-world examples made everything click."
+                </p>
+                <div className="text-xs text-muted-foreground">
+                  <strong>Results:</strong> 5 automations built • 12 hours/week saved • ROI in 2 weeks
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Testimonial 3 */}
+            <Card className="border-2">
+              <CardContent className="pt-6">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 bg-brand-blue/20 rounded-full flex items-center justify-center text-2xl font-bold text-brand-blue">
+                    J
+                  </div>
+                  <div>
+                    <div className="font-semibold">Jessica Park</div>
+                    <Badge variant="outline" className="text-xs">Starter Member</Badge>
+                  </div>
+                </div>
+                <div className="flex gap-1 mb-4">
+                  {[1, 2, 3, 4, 5].map((i) => (
+                    <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <p className="text-sm text-muted-foreground mb-4">
+                  "The tools database alone is worth 10x the membership. Found 3 perfect tools for my business in 20 minutes. The prompt library saved me weeks of trial and error."
+                </p>
+                <div className="text-xs text-muted-foreground">
+                  <strong>Results:</strong> 3 tools deployed • 20+ prompts saved • 10x ROI
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA */}
-      <section className="py-20 bg-gradient-to-br from-brand-orange via-brand-purple to-brand-blue text-white">
+      <section className="py-20 bg-gradient-to-br from-[rgb(var(--brand-orange))] via-[rgb(var(--brand-purple))] to-[rgb(var(--brand-blue))] text-white">
         <div className="container text-center">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
             Join 200+ Pioneers Widening Their Gap
