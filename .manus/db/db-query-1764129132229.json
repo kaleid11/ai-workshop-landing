@@ -1,0 +1,31 @@
+{
+  "query": "SELECT id, name, slug, features, workshopTokensPerMonth FROM membershipTiers WHERE slug IN ('access_pass', 'workshop', 'starter', 'lite', 'pro', 'enterprise');",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute SELECT id, name, slug, features, workshopTokensPerMonth FROM membershipTiers WHERE slug IN ('access_pass', 'workshop', 'starter', 'lite', 'pro', 'enterprise');",
+  "rows": [
+    {
+      "id": "2",
+      "name": "Starter",
+      "slug": "starter",
+      "features": "[\"Access to private Facebook group\",\"Full tools database (1,620 tools)\",\"Full prompts library (118+ prompts)\",\"THL Tool Picker GPT (AI-powered tool recommendations)\",\"Resource library (playbooks, cheatsheets)\",\"20+ workflow templates\",\"Recorded workshop replays (past only)\",\"Monthly Q&A webinar access\"]",
+      "workshopTokensPerMonth": "0"
+    },
+    {
+      "id": "3",
+      "name": "Lite",
+      "slug": "lite",
+      "features": "[\"Everything in Starter Pass\",\"6 live workshops per month (2 per pillar)\",\"Expanded prompt library (150+ prompts)\",\"Monthly Q&A webinar (small group, 20-30 people)\",\"Monthly office hours\",\"Exclusive tool discounts\"]",
+      "workshopTokensPerMonth": "0"
+    },
+    {
+      "id": "4",
+      "name": "Pro",
+      "slug": "pro",
+      "features": "[\"Everything in Lite Academy\",\"12 live Pro workshops per month (4 per pillar)\",\"1-on-1 strategy call quarterly (30 min)\",\"Custom GPT library (Atlas, Lead Gen GPT)\",\"Private channel with direct instructor access\",\"Weekly co-working sessions\",\"Early access to new tools and features\"]",
+      "workshopTokensPerMonth": "0"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tslug\tfeatures\tworkshopTokensPerMonth\n2\tStarter\tstarter\t[\"Access to private Facebook group\",\"Full tools database (1,620 tools)\",\"Full prompts library (118+ prompts)\",\"THL Tool Picker GPT (AI-powered tool recommendations)\",\"Resource library (playbooks, cheatsheets)\",\"20+ workflow templates\",\"Recorded workshop replays (past only)\",\"Monthly Q&A webinar access\"]\t0\n3\tLite\tlite\t[\"Everything in Starter Pass\",\"6 live workshops per month (2 per pillar)\",\"Expanded prompt library (150+ prompts)\",\"Monthly Q&A webinar (small group, 20-30 people)\",\"Monthly office hours\",\"Exclusive tool discounts\"]\t0\n4\tPro\tpro\t[\"Everything in Lite Academy\",\"12 live Pro workshops per month (4 per pillar)\",\"1-on-1 strategy call quarterly (30 min)\",\"Custom GPT library (Atlas, Lead Gen GPT)\",\"Private channel with direct instructor access\",\"Weekly co-working sessions\",\"Early access to new tools and features\"]\t0\n",
+  "stderr": "",
+  "execution_time_ms": 1660
+}

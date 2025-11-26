@@ -1,0 +1,9 @@
+{
+  "query": "UPDATE membershipTiers \nSET features = '[\"Unlimited workshops per month\",\"Monthly live training\",\"Workshop recordings access\",\"Full access to tools & prompts library (lifetime)\",\"2 hours strategy monthly\",\"Security checklists\",\"Priority support\",\"Custom integrations\"]',\n    workshopTokensPerMonth = 999\nWHERE slug = 'pro';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute UPDATE membershipTiers \nSET features = '[\"Unlimited workshops per month\",\"Monthly live training\",\"Workshop recordings access\",\"Full access to tools & prompts library (lifetime)\",\"2 hours strategy monthly\",\"Security checklists\",\"Priority support\",\"Custom integrations\"]',\n    workshopTokensPerMonth = 999\nWHERE slug = 'pro';",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1508
+}

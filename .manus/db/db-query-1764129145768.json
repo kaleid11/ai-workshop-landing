@@ -1,0 +1,55 @@
+{
+  "query": "SELECT id, name, slug, features, workshopTokensPerMonth, priceMonthly, foundingPriceMonthly FROM membershipTiers ORDER BY priceMonthly;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute SELECT id, name, slug, features, workshopTokensPerMonth, priceMonthly, foundingPriceMonthly FROM membershipTiers ORDER BY priceMonthly;",
+  "rows": [
+    {
+      "id": "1",
+      "name": "Free",
+      "slug": "free",
+      "features": "[\"Access to public Facebook group\",\"Weekly tips and challenges\",\"10 free prompts\",\"Tool comparison guides\",\"Monthly live Q&A (100+ attendees)\"]",
+      "workshopTokensPerMonth": "0",
+      "priceMonthly": "0",
+      "foundingPriceMonthly": "NULL"
+    },
+    {
+      "id": "2",
+      "name": "Starter",
+      "slug": "starter",
+      "features": "[\"Access to private Facebook group\",\"Full tools database (1,620 tools)\",\"Full prompts library (118+ prompts)\",\"THL Tool Picker GPT (AI-powered tool recommendations)\",\"Resource library (playbooks, cheatsheets)\",\"20+ workflow templates\",\"Recorded workshop replays (past only)\",\"Monthly Q&A webinar access\"]",
+      "workshopTokensPerMonth": "0",
+      "priceMonthly": "4700",
+      "foundingPriceMonthly": "2700"
+    },
+    {
+      "id": "3",
+      "name": "Lite",
+      "slug": "lite",
+      "features": "[\"Everything in Starter Pass\",\"6 live workshops per month (2 per pillar)\",\"Expanded prompt library (150+ prompts)\",\"Monthly Q&A webinar (small group, 20-30 people)\",\"Monthly office hours\",\"Exclusive tool discounts\"]",
+      "workshopTokensPerMonth": "0",
+      "priceMonthly": "9700",
+      "foundingPriceMonthly": "7700"
+    },
+    {
+      "id": "4",
+      "name": "Pro",
+      "slug": "pro",
+      "features": "[\"Everything in Lite Academy\",\"12 live Pro workshops per month (4 per pillar)\",\"1-on-1 strategy call quarterly (30 min)\",\"Custom GPT library (Atlas, Lead Gen GPT)\",\"Private channel with direct instructor access\",\"Weekly co-working sessions\",\"Early access to new tools and features\"]",
+      "workshopTokensPerMonth": "0",
+      "priceMonthly": "29700",
+      "foundingPriceMonthly": "24700"
+    },
+    {
+      "id": "5",
+      "name": "Elite",
+      "slug": "elite",
+      "features": "[\"Everything in Pro Academy\",\"Weekly 1-on-1 coaching (60 min/month)\",\"Custom automation builds (5 hours/month)\",\"Direct WhatsApp access to Huxley\",\"Quarterly strategy reviews with ROI tracking\",\"Access to Replit Advanced Coding Lab (future)\",\"Exclusive mastermind group (10-15 members)\",\"Speaking/content collaboration opportunities\",\"Lifetime access to all future courses\"]",
+      "workshopTokensPerMonth": "0",
+      "priceMonthly": "99700",
+      "foundingPriceMonthly": "79700"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tslug\tfeatures\tworkshopTokensPerMonth\tpriceMonthly\tfoundingPriceMonthly\n1\tFree\tfree\t[\"Access to public Facebook group\",\"Weekly tips and challenges\",\"10 free prompts\",\"Tool comparison guides\",\"Monthly live Q&A (100+ attendees)\"]\t0\t0\tNULL\n2\tStarter\tstarter\t[\"Access to private Facebook group\",\"Full tools database (1,620 tools)\",\"Full prompts library (118+ prompts)\",\"THL Tool Picker GPT (AI-powered tool recommendations)\",\"Resource library (playbooks, cheatsheets)\",\"20+ workflow templates\",\"Recorded workshop replays (past only)\",\"Monthly Q&A webinar access\"]\t0\t4700\t2700\n3\tLite\tlite\t[\"Everything in Starter Pass\",\"6 live workshops per month (2 per pillar)\",\"Expanded prompt library (150+ prompts)\",\"Monthly Q&A webinar (small group, 20-30 people)\",\"Monthly office hours\",\"Exclusive tool discounts\"]\t0\t9700\t7700\n4\tPro\tpro\t[\"Everything in Lite Academy\",\"12 live Pro workshops per month (4 per pillar)\",\"1-on-1 strategy call quarterly (30 min)\",\"Custom GPT library (Atlas, Lead Gen GPT)\",\"Private channel with direct instructor access\",\"Weekly co-working sessions\",\"Early access to new tools and features\"]\t0\t29700\t24700\n5\tElite\telite\t[\"Everything in Pro Academy\",\"Weekly 1-on-1 coaching (60 min/month)\",\"Custom automation builds (5 hours/month)\",\"Direct WhatsApp access to Huxley\",\"Quarterly strategy reviews with ROI tracking\",\"Access to Replit Advanced Coding Lab (future)\",\"Exclusive mastermind group (10-15 members)\",\"Speaking/content collaboration opportunities\",\"Lifetime access to all future courses\"]\t0\t99700\t79700\n",
+  "stderr": "",
+  "execution_time_ms": 1519
+}

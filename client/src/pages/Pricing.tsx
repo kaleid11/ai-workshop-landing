@@ -179,9 +179,16 @@ export default function Pricing() {
           
           <div className="space-y-6">
             <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="font-semibold text-lg mb-2">What's the difference between Lite and Pro?</h3>
+              <h3 className="font-semibold text-lg mb-2">How many workshops can I attend each month?</h3>
               <p className="text-gray-600">
-                Lite includes 6 monthly workshops (2 per pillar, 60-90 minutes each). Pro includes all Lite workshops PLUS 12 deep-dive Pro sessions (4 per pillar, 2-3 hours each) and quarterly 1-on-1 strategy calls.
+                Starter tier includes 2 workshops per month. Lite tier includes 4 workshops per month. Pro tier includes unlimited workshops per month. All tiers include monthly live training sessions.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="font-semibold text-lg mb-2">Which tiers include workshop recordings?</h3>
+              <p className="text-gray-600">
+                Workshop recordings are available on Lite tier ($300/month) and above. Starter tier ($97/month) does not include access to workshop recordings, but you can attend live workshops and access all tools, prompts, and resources.
               </p>
             </div>
 
@@ -193,9 +200,9 @@ export default function Pricing() {
             </div>
 
             <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="font-semibold text-lg mb-2">Is the Starter Pass really lifetime access?</h3>
+              <h3 className="font-semibold text-lg mb-2">Do I keep access to tools and prompts if I cancel?</h3>
               <p className="text-gray-600">
-                Yes! One payment of $27 (founding member price) gives you permanent access to the tools database, prompts library, resource library, and private Facebook group. Workshop replays are past recordings only (not live sessions).
+                Yes! Anyone who has ever purchased any tier (even one-time Access Pass or Workshop) gets lifetime access to the full tools database and prompts library. This access never expires, even if you cancel your monthly subscription. Only workshop attendance and recordings require an active subscription.
               </p>
             </div>
 

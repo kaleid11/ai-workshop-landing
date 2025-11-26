@@ -1222,3 +1222,13 @@ Changed `client_reference_id: ctx.user.id.toString()` to `client_reference_id: c
 - [x] Keep workshop access and recordings gated by appropriate tiers
 - [x] Test access control changes
 - [ ] Create checkpoint
+
+## Pricing Page Clarifications - Nov 26, 2025
+- [x] Update Starter tier: "2 workshops per month"
+- [x] Update Lite tier: "4 workshops per month"
+- [x] Update Pro tier: "Unlimited workshops per month"
+- [x] Clarify monthly live training is included in Starter and Lite too
+- [x] Add note that all paid tiers get lifetime access to full prompts library and tools database
+- [x] Clarify recordings are NOT available on Starter, only Lite tier and above
+- [x] Update FAQ section with workshop tokens and recordings clarification
+- [ ] Test changes and create checkpoint
