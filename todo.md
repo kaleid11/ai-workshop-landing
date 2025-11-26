@@ -1251,3 +1251,20 @@ Changed `client_reference_id: ctx.user.id.toString()` to `client_reference_id: c
 - [x] Ensure Starter ($97/month) is the base monthly tier
 - [x] Updated filter to only show correct 6 tiers by slug
 - [ ] Test and create checkpoint
+
+## Tech Horizon Academy Refactor - Nov 26, 2025
+- [ ] Update branding from "AI Social Media Workshop" to "Tech Horizon Academy" across all pages
+- [ ] Update app title and metadata
+- [ ] Restructure Portal Quick Start to focus on top 3 tools: Manus, Google Workspace, ChatGPT/Claude
+- [ ] Remove ViralWave and Captions from Portal quick start
+- [ ] Reorganize Tools Database with Featured Tools section (Manus, Google Workspace, ChatGPT/Claude)
+- [ ] Add full tools database below featured section (1,620+ tools)
+- [ ] Create Knowledge Base guides for Manus, Google Workspace, and ChatGPT/Claude
+- [ ] Link each featured tool to its Knowledge Base guide
+- [ ] Make Workshop Calendar button prominent in Portal dashboard
+- [ ] Move ViralWave and Captions to tools database section
+- [ ] Ensure Prompts Library is accessible to all paid users
+- [ ] Audit navigation and refactor where necessary
+- [ ] Update all workshop content to be platform-agnostic (not social media specific)
+- [ ] Test complete refactor
+- [ ] Create checkpoint

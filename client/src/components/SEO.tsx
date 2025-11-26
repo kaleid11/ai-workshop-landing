@@ -10,9 +10,9 @@ interface SEOProps {
 }
 
 export function SEO({
-  title = "Tech Horizon Academy - AI Social Media Workshop",
-  description = "Learn to automate your social media with AI. Join 200+ Queensland businesses saving $3K/month. Live workshop + 1 month FREE Academy access.",
-  keywords = "AI social media, content automation, ViralWave Studio, AI workshop, social media marketing, Queensland business, AI tools",
+  title = "Tech Horizon Academy - Master AI & Automation",
+  description = "Master AI tools and automation for your business. Join 200+ Queensland businesses saving $3K/month with expert-led workshops and comprehensive resources.",
+  keywords = "AI automation, business automation, AI tools, Manus, Google Workspace, ChatGPT, AI workshop, Queensland business, tech education",
   ogImage = "/workshop-hero.webp",
   ogType = "website",
   structuredData,
@@ -54,8 +54,8 @@ export function SEO({
 export const workshopStructuredData = {
   "@context": "https://schema.org",
   "@type": "Course",
-  "name": "AI Social Media Workshop",
-  "description": "Learn to automate your social media with AI tools. Build an AI agent that knows your business and creates content automatically.",
+  "name": "Tech Horizon Academy - AI & Automation Workshops",
+  "description": "Master AI tools and automation for your business. Learn Manus, Google Workspace, ChatGPT, and more through expert-led workshops and comprehensive resources.",
   "provider": {
     "@type": "Organization",
     "name": "Tech Horizon Academy",
@@ -80,11 +80,11 @@ export const workshopStructuredData = {
   "duration": "PT2H",
   "educationalLevel": "Beginner to Intermediate",
   "teaches": [
-    "AI content automation",
-    "Social media scheduling",
-    "AI video generation",
-    "Brand voice development",
-    "Marketing automation"
+    "AI automation",
+    "Business process automation",
+    "AI tools mastery",
+    "Workflow optimization",
+    "AI agent development"
   ]
 };
 

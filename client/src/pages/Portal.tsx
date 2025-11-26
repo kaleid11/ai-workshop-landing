@@ -213,15 +213,15 @@ export default function Portal() {
                   You're all set for the Social Media Automation Workshop on <strong>Wednesday, Nov 26 at 9-11am Brisbane</strong>.
                 </p>
                 <div className="flex gap-4">
-                  <a href={generateGoogleCalendarUrl()} target="_blank" rel="noopener noreferrer">
-                    <Button className="bg-brand-purple hover:bg-brand-purple/90 text-white">
-                      <Calendar className="w-4 h-4 mr-2" />
-                      Add to Google Calendar
+                  <Link href="/workshops">
+                    <Button size="lg" className="bg-brand-orange hover:bg-brand-orange/90 text-white">
+                      <Calendar className="w-5 h-5 mr-2" />
+                      View Workshop Calendar
                     </Button>
-                  </a>
+                  </Link>
                   <a href="https://chat.whatsapp.com/FFzITkJIkkK7ZELGNQKDLl" target="_blank" rel="noopener noreferrer">
-                    <Button className="bg-green-600 hover:bg-green-700 text-white">
-                      <MessageCircle className="w-4 h-4 mr-2" />
+                    <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white">
+                      <MessageCircle className="w-5 h-5 mr-2" />
                       Join WhatsApp Group
                     </Button>
                   </a>
@@ -243,42 +243,72 @@ export default function Portal() {
               <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
                 <div className="bg-brand-orange text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">1</div>
                 <div className="flex-1">
-                  <h4 className="font-bold text-gray-900 mb-2">Setup Gemini Advanced</h4>
-                  <p className="text-sm text-gray-600 mb-3">Sign up for Gemini Advanced (free trial available) and explore the Brand Alignment GEM below</p>
-                  <a href="https://gemini.google.com" target="_blank" rel="noopener noreferrer">
-                    <Button className="bg-brand-purple hover:bg-brand-purple/90 text-white">
-                      Get Gemini Advanced
-                      <ExternalLink className="w-4 h-4 ml-2" />
-                    </Button>
-                  </a>
+                  <h4 className="font-bold text-gray-900 mb-2">Setup Manus Account</h4>
+                  <p className="text-sm text-gray-600 mb-3">Create your Manus account to access AI automation tools and build custom workflows</p>
+                  <div className="flex gap-2">
+                    <a href="https://manus.im" target="_blank" rel="noopener noreferrer">
+                      <Button className="bg-brand-purple hover:bg-brand-purple/90 text-white">
+                        Get Started with Manus
+                        <ExternalLink className="w-4 h-4 ml-2" />
+                      </Button>
+                    </a>
+                    <Link href="/wiki?guide=manus-mastery">
+                      <Button variant="outline" className="border-purple-300 text-purple-700">
+                        <BookOpen className="w-4 h-4 mr-2" />
+                        View Guide
+                      </Button>
+                    </Link>
+                  </div>
                 </div>
               </div>
 
               <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
                 <div className="bg-brand-orange text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">2</div>
                 <div className="flex-1">
-                  <h4 className="font-bold text-gray-900 mb-2">Create ViralWave Account</h4>
-                  <p className="text-sm text-gray-600 mb-3">Sign up for ViralWave Studio for social media scheduling and AI content generation</p>
-                  <a href="https://viralwavestudio.com?via=huxley17" target="_blank" rel="noopener noreferrer">
-                    <Button className="bg-brand-purple hover:bg-brand-purple/90 text-white">
-                      Sign Up for ViralWave
-                      <ExternalLink className="w-4 h-4 ml-2" />
-                    </Button>
-                  </a>
+                  <h4 className="font-bold text-gray-900 mb-2">Setup Google Workspace</h4>
+                  <p className="text-sm text-gray-600 mb-3">Get 10% off your first year with our referral link - includes Gmail, Drive, Docs, Sheets, and more</p>
+                  <div className="flex gap-2">
+                    <a href="https://referworkspace.app.goo.gl/s6pi" target="_blank" rel="noopener noreferrer">
+                      <Button className="bg-brand-purple hover:bg-brand-purple/90 text-white">
+                        Get Google Workspace (10% Off)
+                        <ExternalLink className="w-4 h-4 ml-2" />
+                      </Button>
+                    </a>
+                    <Link href="/wiki?guide=google-workspace-mastery">
+                      <Button variant="outline" className="border-purple-300 text-purple-700">
+                        <BookOpen className="w-4 h-4 mr-2" />
+                        View Guide
+                      </Button>
+                    </Link>
+                  </div>
                 </div>
               </div>
 
               <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
                 <div className="bg-brand-orange text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">3</div>
                 <div className="flex-1">
-                  <h4 className="font-bold text-gray-900 mb-2">Create Captions.ai Account</h4>
-                  <p className="text-sm text-gray-600 mb-3">Sign up for Captions.ai for AI video editing and auto-captions</p>
-                  <a href="https://www.captions.ai/" target="_blank" rel="noopener noreferrer">
-                    <Button className="bg-brand-blue hover:bg-brand-blue/90 text-white">
-                      Sign Up for Captions.ai
-                      <ExternalLink className="w-4 h-4 ml-2" />
-                    </Button>
-                  </a>
+                  <h4 className="font-bold text-gray-900 mb-2">Setup ChatGPT or Claude</h4>
+                  <p className="text-sm text-gray-600 mb-3">Choose your preferred AI assistant - ChatGPT Plus or Claude Pro for advanced capabilities</p>
+                  <div className="flex gap-2">
+                    <a href="https://chat.openai.com" target="_blank" rel="noopener noreferrer">
+                      <Button className="bg-brand-purple hover:bg-brand-purple/90 text-white">
+                        Get ChatGPT Plus
+                        <ExternalLink className="w-4 h-4 ml-2" />
+                      </Button>
+                    </a>
+                    <a href="https://claude.ai" target="_blank" rel="noopener noreferrer">
+                      <Button className="bg-brand-blue hover:bg-brand-blue/90 text-white">
+                        Get Claude Pro
+                        <ExternalLink className="w-4 h-4 ml-2" />
+                      </Button>
+                    </a>
+                    <Link href="/wiki?guide=chatgpt-claude-mastery">
+                      <Button variant="outline" className="border-purple-300 text-purple-700">
+                        <BookOpen className="w-4 h-4 mr-2" />
+                        View Guide
+                      </Button>
+                    </Link>
+                  </div>
                 </div>
               </div>
 
