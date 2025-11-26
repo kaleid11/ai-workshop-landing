@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { APP_TITLE, getLoginUrl } from "@/const";
-import { ExternalLink, Search, Sparkles, Code, Palette, TrendingUp, Server, Image, DollarSign, Zap } from "lucide-react";
+import { ExternalLink, Search, Sparkles, Code, Palette, TrendingUp, Server, Image, DollarSign, Zap, BookOpen, Star } from "lucide-react";
 import { Link } from "wouter";
 import { useState } from "react";
 
@@ -17,8 +17,43 @@ interface Tool {
   discount?: string;
   icon: string;
   featured?: boolean;
+  guideUrl?: string;
 }
 
+// TOP 3 FEATURED TOOLS
+const featuredTools: Tool[] = [
+  {
+    name: "Manus",
+    description: "AI-powered automation platform. Build workflows, agents, and automations with AI. This academy runs on Manus!",
+    category: "Automation",
+    url: "https://manus.im/invitation/XYJX3HZH1Q1JDVD",
+    discount: "Get exclusive access",
+    icon: "🤖",
+    featured: true,
+    guideUrl: "/wiki?guide=manus-mastery",
+  },
+  {
+    name: "Google Workspace",
+    description: "Professional email, storage, and collaboration tools. Gmail, Drive, Docs, Sheets, and more - the foundation of modern business.",
+    category: "Infrastructure",
+    url: "https://referworkspace.app.goo.gl/s6pi",
+    discount: "Get 10% off your first year",
+    icon: "📧",
+    featured: true,
+    guideUrl: "/wiki?guide=google-workspace-mastery",
+  },
+  {
+    name: "ChatGPT / Claude",
+    description: "Leading AI assistants for content creation, analysis, and automation. Choose ChatGPT Plus or Claude Pro for advanced capabilities.",
+    category: "AI & Productivity",
+    url: "https://chat.openai.com",
+    icon: "⚡",
+    featured: true,
+    guideUrl: "/wiki?guide=chatgpt-claude-mastery",
+  },
+];
+
+// FULL TOOLS DATABASE
 const tools: Tool[] = [
   // AI & Productivity
   {
@@ -28,7 +63,6 @@ const tools: Tool[] = [
     url: "https://pplx.ai/huxley82540",
     discount: "Get exclusive access",
     icon: "🔍",
-    featured: true,
   },
   {
     name: "Lead Gen GPT",
@@ -36,7 +70,6 @@ const tools: Tool[] = [
     category: "AI & Productivity",
     url: "https://chatgpt.com/g/g-68f4618407a08191898be9e84f044326-lead-gen-gpt",
     icon: "🎯",
-    featured: true,
   },
   {
     name: "Atlas - Prompt Engineer",
@@ -44,7 +77,6 @@ const tools: Tool[] = [
     category: "AI & Productivity",
     url: "https://chatgpt.com/g/g-68e45c22996c8191ac1a48482ee988ff-atlas-the-prompt-engineer",
     icon: "⚡",
-    featured: true,
   },
   {
     name: "NotebookLM",
@@ -70,7 +102,13 @@ const tools: Tool[] = [
     url: "https://gamma.app/signup?r=grh1ow9zxk23qa3",
     discount: "Get discount",
     icon: "🎨",
-    featured: true,
+  },
+  {
+    name: "Canva",
+    description: "Design platform for creating graphics, presentations, and social media content.",
+    category: "Design & Presentation",
+    url: "https://www.canva.com",
+    icon: "🎨",
   },
 
   // Development & No-Code
@@ -81,7 +119,6 @@ const tools: Tool[] = [
     url: "https://replit.com/refer/huxley3",
     discount: "Get discount",
     icon: "💻",
-    featured: true,
   },
   {
     name: "Lovable",
@@ -90,7 +127,6 @@ const tools: Tool[] = [
     url: "https://lovable.dev/invite/720f58fd-6934-4452-88e1-d509c0523d52",
     discount: "Get exclusive access",
     icon: "❤️",
-    featured: true,
   },
   {
     name: "Bolt.new",
@@ -99,6 +135,13 @@ const tools: Tool[] = [
     url: "https://bolt.new/?rid=3gerli",
     discount: "Get discount",
     icon: "⚡",
+  },
+  {
+    name: "Cursor",
+    description: "AI-first code editor. Write code faster with AI-powered completions and chat.",
+    category: "Development & No-Code",
+    url: "https://cursor.sh",
+    icon: "✏️",
   },
 
   // Marketing & CRM
@@ -110,7 +153,6 @@ const tools: Tool[] = [
     referralCode: "THLKICKSTART",
     discount: "Use code: THLKICKSTART",
     icon: "📊",
-    featured: true,
   },
   {
     name: "Fireflies.ai",
@@ -122,15 +164,6 @@ const tools: Tool[] = [
   },
 
   // Infrastructure
-  {
-    name: "Google Workspace",
-    description: "Professional email, storage, and collaboration tools. Gmail, Drive, Docs, Sheets, and more.",
-    category: "Infrastructure",
-    url: "https://referworkspace.app.goo.gl/s6pi",
-    discount: "Get 10% off your first year",
-    icon: "📧",
-    featured: true,
-  },
   {
     name: "SiteGround",
     description: "Fast, secure web hosting with excellent support. Perfect for WordPress and custom sites.",
@@ -148,7 +181,35 @@ const tools: Tool[] = [
     url: "https://app.leonardo.ai/?via=huxley",
     discount: "Get discount",
     icon: "🎨",
-    featured: true,
+  },
+  {
+    name: "ViralWave Studio",
+    description: "Social media scheduler with AI content generation. Plan, create, and schedule posts across all platforms.",
+    category: "AI Media",
+    url: "https://viralwavestudio.com?via=huxley17",
+    discount: "Get discount",
+    icon: "📱",
+  },
+  {
+    name: "Captions.ai",
+    description: "AI video editing with auto-captions and avatars. Create professional videos in minutes.",
+    category: "AI Media",
+    url: "https://www.captions.ai/",
+    icon: "🎬",
+  },
+  {
+    name: "Higgsfield",
+    description: "AI video generation platform. Create stunning videos from text prompts.",
+    category: "AI Media",
+    url: "https://higgsfield.ai",
+    icon: "🎥",
+  },
+  {
+    name: "CapCut",
+    description: "Free video editing app with AI-powered features. Create professional videos on mobile or desktop.",
+    category: "AI Media",
+    url: "https://www.capcut.com",
+    icon: "✂️",
   },
 
   // Finance & Crypto
@@ -176,17 +237,6 @@ const tools: Tool[] = [
     referralCode: "RHKRTUNQ",
     discount: "Use code: RHKRTUNQ",
     icon: "📈",
-  },
-
-  // Automation
-  {
-    name: "Manus",
-    description: "AI-powered automation platform. Build workflows, agents, and automations with AI.",
-    category: "Automation",
-    url: "https://manus.im/invitation/XYJX3HZH1Q1JDVD",
-    discount: "Get exclusive access",
-    icon: "🤖",
-    featured: true,
   },
 ];
 
@@ -216,8 +266,6 @@ export default function ToolsDatabase() {
     const matchesCategory = !selectedCategory || tool.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
-
-  const featuredTools = tools.filter((t) => t.featured);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50">
@@ -253,162 +301,158 @@ export default function ToolsDatabase() {
           </p>
         </div>
 
-        {/* Search & Filter */}
-        <div className="mb-8 space-y-4">
-          <div className="relative max-w-2xl mx-auto">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-            <Input
-              type="text"
-              placeholder="Search tools by name or description..."
-              className="pl-10 py-6 text-lg border-2 border-gray-200 focus:border-brand-purple"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
+        {/* FEATURED TOOLS SECTION */}
+        <div className="mb-16">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-brand-orange to-brand-purple text-white px-6 py-3 rounded-full mb-4">
+              <Star className="w-5 h-5 fill-current" />
+              <span className="font-bold text-lg">Top 3 Essential Tools</span>
+              <Star className="w-5 h-5 fill-current" />
+            </div>
+            <p className="text-gray-600 text-lg">
+              Start with these three tools - they power everything we do at Tech Horizon Academy
+            </p>
           </div>
 
-          {/* Category Filter */}
-          <div className="flex flex-wrap gap-2 justify-center">
-            <Button
-              variant={selectedCategory === null ? "default" : "outline"}
-              onClick={() => setSelectedCategory(null)}
-              className={selectedCategory === null ? "bg-brand-purple text-white" : ""}
-            >
-              All Tools
-            </Button>
-            {categories.map((category) => {
-              const Icon = categoryIcons[category] || Sparkles;
-              return (
-                <Button
-                  key={category}
-                  variant={selectedCategory === category ? "default" : "outline"}
-                  onClick={() => setSelectedCategory(category)}
-                  className={selectedCategory === category ? "bg-brand-purple text-white" : ""}
-                >
-                  <Icon className="w-4 h-4 mr-2" />
-                  {category}
-                </Button>
-              );
-            })}
+          <div className="grid md:grid-cols-3 gap-8 mb-8">
+            {featuredTools.map((tool, index) => (
+              <Card key={tool.name} className="border-4 border-brand-purple hover:shadow-2xl transition-all bg-gradient-to-br from-white to-purple-50">
+                <CardHeader>
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="text-6xl">{tool.icon}</div>
+                    <Badge className="bg-brand-orange text-white text-sm px-3 py-1">
+                      #{index + 1} Essential
+                    </Badge>
+                  </div>
+                  <CardTitle className="text-2xl text-brand-purple mb-2">{tool.name}</CardTitle>
+                  <CardDescription className="text-base text-gray-700">{tool.description}</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-3">
+                  {tool.discount && (
+                    <div className="bg-green-50 border-2 border-green-500 rounded-lg p-3">
+                      <p className="text-green-700 font-bold text-center">{tool.discount}</p>
+                    </div>
+                  )}
+                  <div className="flex gap-2">
+                    <a href={tool.url} target="_blank" rel="noopener noreferrer" className="flex-1">
+                      <Button className="w-full bg-brand-purple hover:bg-brand-purple/90 text-white">
+                        Get Started
+                        <ExternalLink className="w-4 h-4 ml-2" />
+                      </Button>
+                    </a>
+                    {tool.guideUrl && (
+                      <Link href={tool.guideUrl}>
+                        <Button variant="outline" className="border-purple-300 text-purple-700">
+                          <BookOpen className="w-4 h-4" />
+                        </Button>
+                      </Link>
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <p className="text-gray-600 text-lg mb-4">
+              💡 <strong>Pro Tip:</strong> Click the book icon to view our step-by-step setup guides for each tool
+            </p>
           </div>
         </div>
 
-        {/* Featured Tools */}
-        {!searchQuery && !selectedCategory && (
-          <div className="mb-12">
-            <h2 className="text-3xl font-bold text-brand-purple mb-6 text-center">⭐ Featured Tools</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {featuredTools.map((tool) => (
-                <Card key={tool.name} className="border-2 border-brand-purple hover:shadow-xl transition-all">
-                  <CardHeader>
-                    <div className="flex items-start justify-between mb-2">
-                      <div className="text-5xl">{tool.icon}</div>
-                      {tool.discount && (
-                        <Badge className="bg-brand-orange text-white">
-                          💰 Discount
-                        </Badge>
-                      )}
-                    </div>
-                    <CardTitle className="text-2xl text-brand-purple">{tool.name}</CardTitle>
-                    <CardDescription className="text-gray-600">{tool.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent className="space-y-3">
-                    {tool.discount && (
-                      <p className="text-sm font-semibold text-brand-orange">{tool.discount}</p>
-                    )}
-                    {tool.referralCode && (
-                      <div className="bg-gray-100 rounded px-3 py-2">
-                        <p className="text-xs text-gray-600 mb-1">Referral Code:</p>
-                        <code className="text-sm font-mono font-bold text-brand-purple">{tool.referralCode}</code>
-                      </div>
-                    )}
-                    <Button
-                      className="w-full bg-brand-purple hover:bg-brand-purple/90 text-white"
-                      onClick={() => window.open(tool.url, "_blank")}
-                    >
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Get Started
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
+        {/* Divider */}
+        <div className="border-t-4 border-gray-200 my-12"></div>
+
+        {/* FULL DATABASE SECTION */}
+        <div>
+          <div className="text-center mb-8">
+            <h2 className="text-4xl font-bold text-brand-purple mb-4">Full Tools Database</h2>
+            <p className="text-xl text-gray-700">
+              Explore {tools.length}+ additional tools across 8 categories with exclusive discounts
+            </p>
+          </div>
+
+          {/* Search & Filter */}
+          <div className="mb-8 space-y-4">
+            <div className="relative max-w-2xl mx-auto">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <Input
+                type="text"
+                placeholder="Search tools by name or description..."
+                className="pl-10 py-6 text-lg border-2 border-gray-200 focus:border-brand-purple"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+            </div>
+
+            {/* Category Filter */}
+            <div className="flex flex-wrap gap-2 justify-center">
+              <Button
+                variant={selectedCategory === null ? "default" : "outline"}
+                onClick={() => setSelectedCategory(null)}
+                className={selectedCategory === null ? "bg-brand-purple text-white" : ""}
+              >
+                All Tools
+              </Button>
+              {categories.map((category) => {
+                const Icon = categoryIcons[category] || Sparkles;
+                return (
+                  <Button
+                    key={category}
+                    variant={selectedCategory === category ? "default" : "outline"}
+                    onClick={() => setSelectedCategory(category)}
+                    className={selectedCategory === category ? "bg-brand-purple text-white" : ""}
+                  >
+                    <Icon className="w-4 h-4 mr-2" />
+                    {category}
+                  </Button>
+                );
+              })}
             </div>
           </div>
-        )}
 
-        {/* All Tools by Category */}
-        <div className="space-y-12">
-          {categories.map((category) => {
-            const categoryTools = filteredTools.filter((t) => t.category === category);
-            if (categoryTools.length === 0) return null;
-
-            const Icon = categoryIcons[category] || Sparkles;
-
-            return (
-              <div key={category}>
-                <div className="flex items-center gap-3 mb-6">
-                  <Icon className="w-8 h-8 text-brand-purple" />
-                  <h2 className="text-3xl font-bold text-brand-purple">{category}</h2>
-                  <Badge variant="outline" className="text-lg">
-                    {categoryTools.length} tools
-                  </Badge>
-                </div>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {categoryTools.map((tool) => (
-                    <Card key={tool.name} className="border-2 border-gray-200 hover:border-brand-purple hover:shadow-lg transition-all">
-                      <CardHeader>
-                        <div className="flex items-start justify-between mb-2">
-                          <div className="text-4xl">{tool.icon}</div>
-                          {tool.discount && (
-                            <Badge className="bg-brand-orange text-white">
-                              💰 Discount
-                            </Badge>
-                          )}
-                        </div>
-                        <CardTitle className="text-xl text-brand-purple">{tool.name}</CardTitle>
-                        <CardDescription className="text-gray-600">{tool.description}</CardDescription>
-                      </CardHeader>
-                      <CardContent className="space-y-3">
-                        {tool.discount && (
-                          <p className="text-sm font-semibold text-brand-orange">{tool.discount}</p>
-                        )}
-                        {tool.referralCode && (
-                          <div className="bg-gray-100 rounded px-3 py-2">
-                            <p className="text-xs text-gray-600 mb-1">Referral Code:</p>
-                            <code className="text-sm font-mono font-bold text-brand-purple">{tool.referralCode}</code>
-                          </div>
-                        )}
-                        <Button
-                          variant="outline"
-                          className="w-full border-brand-purple text-brand-purple hover:bg-brand-purple/10"
-                          onClick={() => window.open(tool.url, "_blank")}
-                        >
-                          <ExternalLink className="w-4 h-4 mr-2" />
-                          Visit Tool
-                        </Button>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* No Results */}
-        {filteredTools.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-xl text-gray-600">No tools found matching your search.</p>
-            <Button
-              className="mt-4"
-              onClick={() => {
-                setSearchQuery("");
-                setSelectedCategory(null);
-              }}
-            >
-              Clear Filters
-            </Button>
+          {/* Tools Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredTools.map((tool) => (
+              <Card key={tool.name} className="border-2 border-gray-200 hover:shadow-lg transition-all">
+                <CardHeader>
+                  <div className="flex items-start justify-between mb-2">
+                    <div className="text-4xl">{tool.icon}</div>
+                    <Badge variant="outline" className="text-xs">
+                      {tool.category}
+                    </Badge>
+                  </div>
+                  <CardTitle className="text-xl text-brand-purple mb-2">{tool.name}</CardTitle>
+                  <CardDescription className="text-sm text-gray-600">{tool.description}</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-2">
+                  {tool.discount && (
+                    <div className="bg-green-50 border border-green-300 rounded p-2">
+                      <p className="text-green-700 text-sm font-semibold text-center">{tool.discount}</p>
+                    </div>
+                  )}
+                  {tool.referralCode && (
+                    <div className="bg-blue-50 border border-blue-300 rounded p-2">
+                      <p className="text-blue-700 text-xs font-mono text-center">{tool.referralCode}</p>
+                    </div>
+                  )}
+                  <a href={tool.url} target="_blank" rel="noopener noreferrer" className="block">
+                    <Button className="w-full bg-brand-purple hover:bg-brand-purple/90 text-white">
+                      View Tool
+                      <ExternalLink className="w-4 h-4 ml-2" />
+                    </Button>
+                  </a>
+                </CardContent>
+              </Card>
+            ))}
           </div>
-        )}
+
+          {filteredTools.length === 0 && (
+            <div className="text-center py-12">
+              <p className="text-gray-500 text-lg">No tools found matching your search criteria</p>
+            </div>
+          )}
+        </div>
       </main>
     </div>
   );

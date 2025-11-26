@@ -1266,6 +1266,560 @@ Create 3 examples of your best social media posts, then ask AI to generate more.
 `,
     icon: "🧠",
   },
+  {
+    id: "manus-mastery",
+    title: "Manus Mastery: AI Automation Platform",
+    description: "Your complete guide to building workflows and automating business processes with Manus",
+    category: "Essential Tools",
+    content: `# Manus Mastery
+
+## What is Manus?
+
+Manus is the AI-powered automation platform that runs this entire Tech Horizon Academy. It's your operations center for connecting tools, building workflows, and automating repetitive tasks—no code required.
+
+## Why Manus?
+
+**Key Benefits:**
+- No-code AI automation
+- Connect 1000+ apps and services  
+- Build intelligent AI agents
+- Enterprise-grade security
+- Real-time collaboration
+
+**Use Cases:**
+- Marketing automation (social media, content generation)
+- Sales workflows (lead enrichment, email sequences)
+- Customer support (AI chatbots, ticket routing)
+- Data processing (web scraping, reports)
+- Business operations (invoices, documents)
+
+## Getting Started
+
+### Step 1: Create Your Account
+Visit https://manus.im/invitation/XYJX3HZH1Q1JDVD and sign up with email or Google.
+
+### Step 2: Complete the Tutorial
+Manus provides an interactive onboarding that teaches you the basics in 10 minutes.
+
+### Step 3: Explore Templates
+Browse the template library for pre-built workflows you can customize.
+
+## Core Concepts
+
+### Workflows
+Sequences of actions that run automatically:
+- **Scheduled** - Run at specific times
+- **Event-Driven** - Triggered by external events
+- **Manual** - Run on demand
+- **Webhook** - Triggered by HTTP requests
+
+### AI Agents
+Intelligent assistants that make decisions:
+- Natural language understanding
+- Context-aware responses
+- Multi-step reasoning
+- Tool usage and memory
+
+### Integrations
+Connect to your existing tools:
+- Google Workspace (Gmail, Drive, Sheets, Calendar)
+- Slack, Stripe, Airtable, OpenAI
+- Zapier (5000+ app connections)
+
+## Common Workflows
+
+**Content Calendar Automation:**
+1. Generate post ideas with AI weekly
+2. Create images with DALL-E
+3. Save to content calendar
+4. Schedule posts automatically
+5. Notify team in Slack
+
+**Lead Enrichment Pipeline:**
+1. New lead triggers workflow
+2. Search for company info
+3. Find decision-makers
+4. Score lead quality
+5. Assign to sales rep
+6. Send personalized email
+
+**Customer Support Bot:**
+1. New ticket triggers workflow
+2. Analyze ticket content
+3. Search knowledge base
+4. Generate response draft
+5. Route to appropriate team
+6. Send confirmation
+
+## Best Practices
+
+✅ **Do:**
+- Start with simple workflows
+- Test thoroughly before deploying
+- Document your workflows
+- Use error handling
+- Monitor performance regularly
+
+❌ **Don't:**
+- Over-complicate workflows
+- Ignore error handling
+- Hard-code values (use variables)
+- Skip testing
+- Forget security for sensitive data
+
+## Resources
+
+- Documentation: https://docs.manus.im
+- Template Library: https://manus.im/templates
+- Community Forum: https://community.manus.im
+- YouTube Tutorials: https://youtube.com/@manusai
+
+## Getting Help
+
+1. Check documentation (most answers are there)
+2. Search community forum
+3. Contact support: support@manus.im
+4. Book consultation with Manus experts
+
+## Next Steps
+
+1. Sign up at https://manus.im/invitation/XYJX3HZH1Q1JDVD
+2. Complete the onboarding tutorial
+3. Browse and customize templates
+4. Build your first workflow
+5. Join the community
+6. Explore integrations
+7. Scale up as you grow
+
+**Ready to automate?** Get started with Manus today!
+`,
+    icon: "🤖",
+  },
+  {
+    id: "google-workspace-setup",
+    title: "Google Workspace Setup Guide",
+    description: "Professional email, storage, and collaboration tools for your business",
+    category: "Essential Tools",
+    content: `# Google Workspace Setup Guide
+
+## What is Google Workspace?
+
+Google Workspace (formerly G Suite) is your business foundation: professional email, cloud storage, documents, spreadsheets, and calendar—all in one place.
+
+**Every business needs Google Workspace. It's non-negotiable.**
+
+## Why Google Workspace?
+
+**Key Benefits:**
+- Professional email (yourname@yourdomain.com)
+- 30GB to unlimited storage
+- Real-time collaboration
+- Enterprise security (2FA, encryption)
+- Mobile access from anywhere
+- AI-powered features
+
+**Business Impact:**
+- Save 10+ hours/week on email and documents
+- Reduce tool costs by $200-500/month
+- Improve team collaboration
+- Increase security
+
+## Getting Started (Get 10% Off!)
+
+### Step 1: Sign Up
+Visit https://referworkspace.app.goo.gl/s6pi to get 10% off your first year.
+
+### Step 2: Choose Your Plan
+
+**Business Starter ($6/user/month)**
+- 30GB storage per user
+- Custom email
+- Video meetings (100 participants)
+
+**Business Standard ($12/user/month) ⭐ Recommended**
+- 2TB storage per user
+- Video meetings (150 participants)
+- Recording and attendance tracking
+
+**Business Plus ($18/user/month)**
+- 5TB storage per user
+- Video meetings (500 participants)
+- Advanced security and compliance
+
+### Step 3: Set Up Your Domain
+
+**If you have a domain:**
+1. Verify domain ownership
+2. Update MX records for email
+3. Add SPF, DKIM, DMARC for security
+4. Wait 24-48 hours for propagation
+
+**Need a domain?**
+Buy through Google Domains ($12-15/year) for automatic configuration.
+
+## Core Tools
+
+### Gmail (Email)
+**Essential Features:**
+- Smart Compose (AI writing)
+- Labels and filters (auto-organize)
+- Schedule send (optimal timing)
+- Confidential mode (expiring emails)
+- Keyboard shortcuts (2x faster)
+
+**Best Practices:**
+- Aim for Inbox Zero daily
+- Use labels instead of folders
+- Set up filters for auto-categorization
+- Unsubscribe from noise
+- Archive (don't delete) for searchability
+
+### Google Drive (Storage)
+**Organization Strategy:**
+- 01-Active Projects
+- 02-Clients
+- 03-Marketing
+- 04-Operations
+- 05-Archive
+- 06-Personal
+
+**Best Practices:**
+- Use Shared Drives for teams
+- Enable version history
+- Set up offline access
+- Use consistent file naming
+- Regular cleanup and archiving
+
+### Google Docs (Documents)
+**Collaboration Features:**
+- Real-time editing (multiple people)
+- Suggesting mode (track changes)
+- Comments (discuss sections)
+- Version history (restore previous)
+- Smart Compose (AI assistance)
+
+### Google Sheets (Spreadsheets)
+**Common Use Cases:**
+- Financial tracking (budgets, revenue)
+- Project management (tasks, timelines)
+- Data analysis (reports, dashboards)
+- CRM (customer tracking)
+- Content calendar (planning)
+
+### Google Calendar (Scheduling)
+**Setup:**
+- Create multiple calendars (Work, Personal)
+- Color-code for visual organization
+- Set working hours and focus time
+- Enable email and mobile notifications
+- Share calendars for team visibility
+
+**Best Practices:**
+- Time blocking for deep work
+- 15-minute buffers between meetings
+- Recurring events for reviews
+- Appointment slots for bookings
+
+## Security Best Practices
+
+✅ **Must-Do:**
+1. Enable 2-Factor Authentication (all users)
+2. Set strong passwords (12+ characters)
+3. Review third-party app access
+4. Use Admin Console for management
+5. Enable Advanced Protection for high-risk users
+6. Regular security audits
+
+❌ **Never:**
+- Share passwords
+- Use public WiFi without VPN
+- Click suspicious email links
+- Grant unnecessary admin access
+- Ignore security alerts
+
+## Essential Integrations
+
+**Add-Ons:**
+- Manus (workflow automation)
+- Slack (team communication)
+- Asana/Trello (project management)
+- DocuSign (electronic signatures)
+
+**Chrome Extensions:**
+- Checker Plus for Gmail
+- Save to Google Drive
+- Google Calendar quick access
+- Grammarly (writing assistant)
+
+## Troubleshooting
+
+**Emails Not Sending:**
+- Check MX records
+- Verify SPF/DKIM/DMARC
+- Check spam folder
+- Confirm user has license
+
+**Storage Full:**
+- Empty trash
+- Delete large files
+- Archive old emails
+- Upgrade plan
+
+## Resources
+
+- Learning Center: https://support.google.com/a/users
+- YouTube Tutorials: https://youtube.com/googleworkspace
+- Admin Help: https://support.google.com/a
+- Community Forum: https://community.google.com/workspace
+
+## Next Steps
+
+1. Sign up with our referral link (10% off)
+2. Complete domain and email setup
+3. Configure security (2FA, admin controls)
+4. Train your team on best practices
+5. Integrate with Manus and other tools
+6. Optimize workflows and automate tasks
+
+**Ready to upgrade your business?** Get Google Workspace today!
+`,
+    icon: "📧",
+  },
+  {
+    id: "chatgpt-claude-guide",
+    title: "ChatGPT & Claude: Choosing Your AI Assistant",
+    description: "Complete comparison and usage guide for the two leading AI assistants",
+    category: "Essential Tools",
+    content: `# ChatGPT & Claude Guide
+
+## The AI Assistant Landscape
+
+ChatGPT and Claude are the two leading AI assistants for business. Both are powerful, but they have different strengths.
+
+**You don't need both—pick one and master it.**
+
+## ChatGPT vs Claude
+
+### ChatGPT (OpenAI)
+**Best For:**
+- Content creation (blogs, social media, marketing)
+- Code generation (Python, JavaScript, web dev)
+- Data analysis (CSV files, spreadsheets, charts)
+- Image generation (DALL-E integration)
+- Custom GPTs (specialized assistants)
+
+**Strengths:**
+- Larger user base and community
+- More integrations and plugins
+- Better for creative tasks
+- Image generation included
+- Custom GPTs (reusable assistants)
+
+**Pricing:**
+- Free: GPT-3.5, limited features
+- Plus ($20/month): GPT-4, DALL-E, custom GPTs
+- Team ($25/user/month): Collaboration
+- Enterprise: Custom pricing
+
+### Claude (Anthropic)
+**Best For:**
+- Long documents (200K token context)
+- Research and analysis (deep reasoning)
+- Technical writing (documentation, reports)
+- Code review (analyzing code)
+- Ethical AI (cautious responses)
+
+**Strengths:**
+- Longer context (can process entire books)
+- Better at complex instructions
+- More nuanced responses
+- Excellent for research
+- Strong ethical guardrails
+
+**Pricing:**
+- Free: Claude 3 Sonnet, limited usage
+- Pro ($20/month): Claude 3 Opus, 5x usage
+- Team ($25/user/month): Collaboration
+- Enterprise: Custom pricing
+
+## Our Recommendation
+
+### Choose ChatGPT if:
+- You need image generation
+- You want custom GPTs
+- Content creation is your primary use
+- You prefer a larger ecosystem
+
+### Choose Claude if:
+- You work with long documents
+- You need deep analysis
+- Research and technical writing are priorities
+- You value thoughtful, nuanced responses
+
+**Most businesses choose ChatGPT** for the broader feature set.
+
+## Getting Started with ChatGPT
+
+### Step 1: Sign Up
+1. Visit https://chat.openai.com
+2. Create account (email or Google)
+3. Upgrade to Plus ($20/month) - Recommended
+4. Complete onboarding
+
+### Step 2: Set Custom Instructions
+
+Tell ChatGPT about you and how to respond:
+
+**What to include:**
+- Your business and industry
+- Target audience
+- Brand voice
+- Key focus areas
+
+**How you want responses:**
+- Be concise and actionable
+- Use bullet points
+- Provide specific examples
+- Include relevant statistics
+- Avoid jargon
+
+## Essential Use Cases
+
+### 1. Content Creation
+**Blog Posts:**
+Ask for 1000-word posts on specific topics with your target audience, tone, statistics, examples, and clear structure.
+
+**Social Media:**
+Request multiple posts with hooks, word counts, engagement questions, and relevant hashtags.
+
+### 2. Data Analysis
+Upload CSV files and ask for:
+- Top customers by revenue
+- Month-over-month growth
+- Seasonal trends
+- Summary charts
+- Actionable recommendations
+
+### 3. Code Generation
+Request scripts with specific functionality, error handling, and comments.
+
+### 4. Research & Summarization
+Upload long documents and ask for:
+- Key trends
+- Competitor analysis
+- Pain points
+- Opportunities
+- Executive summaries
+
+## Custom GPTs (Plus/Team)
+
+Specialized assistants you can create and reuse.
+
+### Our Custom GPTs:
+
+**Lead Gen GPT** - B2B lead generation
+https://chatgpt.com/g/g-68f4618407a08191898be9e84f044326-lead-gen-gpt
+
+**Atlas - Prompt Engineer** - Optimize prompts
+https://chatgpt.com/g/g-68e45c22996c8191ac1a48482ee988ff-atlas-the-prompt-engineer
+
+**HuxleyGPT** - Brand persona builder
+https://chatgpt.com/g/g-huxleygpt
+
+### Create Your Own GPT:
+1. Click "Explore GPTs" in sidebar
+2. Click "Create a GPT"
+3. Describe what you want
+4. Test and refine
+5. Publish (private, shared, or public)
+
+**Example GPTs:**
+- Sales Email Writer
+- Meeting Summarizer
+- Content Repurposer
+- Code Reviewer
+
+## Best Practices
+
+✅ **Do:**
+- Be specific with prompts
+- Provide context (background, audience, goals)
+- Iterate and refine outputs
+- Use examples to show what you want
+- Save effective prompts
+- Fact-check important claims
+
+❌ **Don't:**
+- Assume AI knows your context
+- Accept first output without refinement
+- Use for critical decisions alone
+- Share sensitive/confidential data
+- Ignore AI limitations and biases
+
+## Advanced Techniques
+
+### Chain-of-Thought Prompting
+Ask AI to think step-by-step through complex problems.
+
+### Few-Shot Learning
+Provide 2-3 examples of desired output, then ask for more.
+
+### Role-Playing
+Ask AI to adopt a specific persona (CFO, marketing director, etc.).
+
+## Integrations
+
+**Connect ChatGPT:**
+- Manus (automate in workflows)
+- Zapier (5000+ apps)
+- Make (visual automation)
+- API (custom integrations)
+
+**Browser Extensions:**
+- ChatGPT Writer (email assistance)
+- WebChatGPT (real-time search)
+- ChatGPT for Google (search enhancement)
+
+## Troubleshooting
+
+**"I'm at capacity"**
+- Upgrade to Plus for priority access
+- Try off-peak hours
+- Use GPT-3.5 instead of GPT-4
+
+**Inaccurate Responses:**
+- Provide more context
+- Ask for sources
+- Fact-check important claims
+- Use web browsing mode
+
+**Generic Outputs:**
+- Be more specific in prompts
+- Provide examples
+- Use custom instructions
+- Iterate and refine
+
+## Resources
+
+- OpenAI Documentation: https://platform.openai.com/docs
+- Prompt Engineering Guide: https://platform.openai.com/docs/guides/prompt-engineering
+- Community Forum: https://community.openai.com
+- Reddit r/ChatGPT: https://reddit.com/r/ChatGPT
+
+## Next Steps
+
+1. Create ChatGPT account
+2. Upgrade to Plus ($20/month)
+3. Set custom instructions
+4. Try our custom GPTs (Lead Gen, Atlas, HuxleyGPT)
+5. Build your prompt library
+6. Integrate with Manus
+7. Join the community
+
+**Ready to master AI?** Get started with ChatGPT today!
+`,
+    icon: "⚡",
+  },
 ];
 
 export default function Wiki() {

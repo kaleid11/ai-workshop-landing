@@ -1268,3 +1268,10 @@ Changed `client_reference_id: ctx.user.id.toString()` to `client_reference_id: c
 - [ ] Update all workshop content to be platform-agnostic (not social media specific)
 - [ ] Test complete refactor
 - [ ] Create checkpoint
+
+## Tools Database Reorganization - Nov 26, 2025
+- [ ] Create Featured Tools section at top with Manus, Google Workspace, ChatGPT/Claude
+- [ ] Add Knowledge Base guide links to each featured tool
+- [ ] Add ViralWave and Captions to AI Media category in full database
+- [ ] Ensure clear visual separation between Featured and Full Database sections
+- [ ] Test and create checkpoint
