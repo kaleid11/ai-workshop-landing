@@ -38,6 +38,7 @@ import Workshops from "./pages/Workshops";
 import AdminWorkshops from "./pages/AdminWorkshops";
 import ToolsDatabase from "./pages/ToolsDatabase";
 import TierCheckout from "./pages/TierCheckout";
+import MyBookings from "./pages/MyBookings";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -73,6 +74,7 @@ function Router() {
       <Route path="/academy/tools" component={AcademyTools} />
       <Route path="/wiki" component={Wiki} />
       <Route path="/workshops" component={Workshops} />
+      <Route path="/my-bookings" component={MyBookings} />
       <Route path="/tools-database" component={ToolsDatabase} />
       <Route path="/404" component={NotFound} />
       {/* Final fallback route */}

@@ -9,20 +9,24 @@ import { toast } from "sonner";
 
 export default function Workshops() {
   const { user, loading: authLoading, isAuthenticated } = useAuth();
-  const { data: workshops, isLoading: workshopsLoading } = trpc.workshops.list.useQuery();
-  const { data: userTier } = trpc.membership.getUserTier.useQuery(undefined, {
+  const { data: workshops, isLoading: workshopsLoading, refetch: refetchWorkshops } = trpc.academy.getUpcomingWorkshops.useQuery(undefined, {
     enabled: isAuthenticated,
   });
-  const { data: tokenBalance } = trpc.workshops.getTokenBalance.useQuery(undefined, {
+  const { data: subscription } = trpc.academy.getUserSubscription.useQuery(undefined, {
+    enabled: isAuthenticated,
+  });
+  const { data: tokenBalance, refetch: refetchTokens } = trpc.academy.getUserTokens.useQuery(undefined, {
     enabled: isAuthenticated,
   });
   
-  const requestAccessMutation = trpc.workshops.requestAccess.useMutation({
+  const bookWorkshopMutation = trpc.academy.bookWorkshop.useMutation({
     onSuccess: () => {
-      toast.success("Workshop access requested! You'll receive an email with the Google Meet link once approved.");
+      toast.success("Workshop booked successfully! You'll receive a calendar invite via email.");
+      refetchWorkshops();
+      refetchTokens();
     },
     onError: (error) => {
-      toast.error(error.message || "Failed to request workshop access");
+      toast.error(error.message || "Failed to book workshop");
     },
   });
 
@@ -52,11 +56,11 @@ export default function Workshops() {
       return;
     }
     
-    requestAccessMutation.mutate({ workshopId });
+    bookWorkshopMutation.mutate({ workshopId });
   };
 
-  const canAccessWorkshops = userTier && userTier.workshopTokensPerMonth > 0;
-  const hasTokens = tokenBalance && tokenBalance.tokensRemaining > 0;
+  const canAccessWorkshops = subscription && subscription.tier && subscription.tier.workshopTokensPerMonth > 0;
+  const hasTokens = tokenBalance && (tokenBalance.isUnlimited || tokenBalance.tokensRemaining > 0);
 
   if (authLoading || workshopsLoading) {
     return (
@@ -109,9 +113,9 @@ export default function Workshops() {
                 Your Workshop Tokens
               </CardTitle>
               <CardDescription>
-                {userTier.workshopTokensPerMonth === 999 
+                {tokenBalance?.isUnlimited
                   ? "Unlimited workshop access this month"
-                  : `${tokenBalance?.tokensRemaining || 0} of ${userTier.workshopTokensPerMonth} tokens remaining this month`
+                  : `${tokenBalance?.tokensRemaining || 0} of ${tokenBalance?.tokensPerMonth || 0} tokens remaining this month`
                 }
               </CardDescription>
             </CardHeader>
@@ -196,9 +200,9 @@ export default function Workshops() {
                           <Button
                             className="w-full bg-brand-purple hover:bg-brand-purple/90 text-white"
                             onClick={() => handleRequestAccess(workshop.id)}
-                            disabled={requestAccessMutation.isPending}
+                            disabled={bookWorkshopMutation.isPending}
                           >
-                            {requestAccessMutation.isPending ? (
+                            {bookWorkshopMutation.isPending ? (
                               <>
                                 <Loader2 className="w-4 h-4 mr-2 animate-spin" />
                                 Requesting...

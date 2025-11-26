@@ -1,6 +1,6 @@
-import { eq, desc } from "drizzle-orm";
+import { eq, desc, and, gte, sql } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { adminTokens, InsertPurchase, InsertUser, purchases, users, sessionFeedback, InsertSessionFeedback, assessmentResults, userOnboarding, InsertUserOnboarding } from "../drizzle/schema";
+import { adminTokens, InsertPurchase, InsertUser, purchases, users, sessionFeedback, InsertSessionFeedback, assessmentResults, userOnboarding, InsertUserOnboarding, workshops, workshopRegistrations, userSubscriptions, membershipTiers, pillars, tools, prompts } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -250,8 +250,6 @@ export async function updateWorkshopReplay(videoUrl: string): Promise<void> {
 // ============================================================================
 // Academy Database Queries
 // ============================================================================
-
-import { membershipTiers, userSubscriptions, tools, prompts, pillars } from "../drizzle/schema";
 
 /**
  * Get all membership tiers ordered by display order
@@ -868,4 +866,223 @@ export async function exportWorkshopAttendees(workshopId: number) {
     console.error("[Database] Failed to export workshop attendees:", error);
     throw error;
   }
+}
+
+// Workshop-related database helpers
+// Note: workshops, workshopRegistrations, userSubscriptions, membershipTiers, pillars need to be imported at top
+// Note: and, gte, sql need to be imported at top with eq, desc
+
+/**
+ * Get upcoming workshops filtered by minimum tier requirement
+ */
+export async function getUpcomingWorkshops(minTierSlug?: string) {
+  const db = await getDb();
+  if (!db) return [];
+
+  const now = new Date();
+  
+  const result = await db
+    .select({
+      workshop: workshops,
+      pillar: pillars,
+    })
+    .from(workshops)
+    .leftJoin(pillars, eq(workshops.pillarId, pillars.id))
+    .where(
+      and(
+        gte(workshops.scheduledAt, now),
+        eq(workshops.status, "scheduled")
+      )
+    )
+    .orderBy(workshops.scheduledAt);
+
+  return result.map(r => ({
+    ...r.workshop,
+    pillar: r.pillar,
+  }));
+}
+
+/**
+ * Get user's subscription with tier details and token information
+ */
+export async function getUserSubscriptionWithTier(userId: number) {
+  const db = await getDb();
+  if (!db) return null;
+
+  const result = await db
+    .select({
+      subscription: userSubscriptions,
+      tier: membershipTiers,
+    })
+    .from(userSubscriptions)
+    .leftJoin(membershipTiers, eq(userSubscriptions.tierId, membershipTiers.id))
+    .where(
+      and(
+        eq(userSubscriptions.userId, userId),
+        eq(userSubscriptions.status, "active")
+      )
+    )
+    .limit(1);
+
+  if (result.length === 0) return null;
+
+  return {
+    ...result[0].subscription,
+    tier: result[0].tier,
+  };
+}
+
+/**
+ * Create a workshop registration and deduct token
+ */
+export async function createWorkshopRegistration(userId: number, workshopId: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  // Check if user already registered
+  const existing = await db
+    .select()
+    .from(workshopRegistrations)
+    .where(
+      and(
+        eq(workshopRegistrations.userId, userId),
+        eq(workshopRegistrations.workshopId, workshopId)
+      )
+    )
+    .limit(1);
+
+  if (existing.length > 0) {
+    throw new Error("Already registered for this workshop");
+  }
+
+  // Get user subscription
+  const subscription = await getUserSubscriptionWithTier(userId);
+  if (!subscription) {
+    throw new Error("No active subscription found");
+  }
+
+  // Check if user has tokens (unlimited for Pro/Enterprise = -1)
+  if (subscription.workshopTokensRemaining === 0 && subscription.tier?.workshopTokensPerMonth !== -1) {
+    throw new Error("No workshop tokens remaining");
+  }
+
+  // Create registration
+  await db.insert(workshopRegistrations).values({
+    workshopId,
+    userId,
+    status: "registered",
+  });
+
+  // Deduct token if not unlimited
+  if (subscription.tier?.workshopTokensPerMonth !== -1) {
+    await db
+      .update(userSubscriptions)
+      .set({
+        workshopTokensRemaining: sql`${userSubscriptions.workshopTokensRemaining} - 1`,
+        workshopTokensUsed: sql`${userSubscriptions.workshopTokensUsed} + 1`,
+      })
+      .where(eq(userSubscriptions.id, subscription.id));
+  }
+
+  return true;
+}
+
+/**
+ * Get user's workshop registrations
+ */
+export async function getUserWorkshopRegistrations(userId: number) {
+  const db = await getDb();
+  if (!db) return [];
+
+  const result = await db
+    .select({
+      registration: workshopRegistrations,
+      workshop: workshops,
+      pillar: pillars,
+    })
+    .from(workshopRegistrations)
+    .leftJoin(workshops, eq(workshopRegistrations.workshopId, workshops.id))
+    .leftJoin(pillars, eq(workshops.pillarId, pillars.id))
+    .where(eq(workshopRegistrations.userId, userId))
+    .orderBy(sql`${workshops.scheduledAt} DESC`);
+
+  return result.map(r => ({
+    ...r.registration,
+    workshop: r.workshop,
+    pillar: r.pillar,
+  }));
+}
+
+/**
+ * Cancel workshop registration and refund token
+ */
+export async function cancelWorkshopRegistration(userId: number, registrationId: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  // Get registration
+  const registration = await db
+    .select()
+    .from(workshopRegistrations)
+    .where(
+      and(
+        eq(workshopRegistrations.id, registrationId),
+        eq(workshopRegistrations.userId, userId)
+      )
+    )
+    .limit(1);
+
+  if (registration.length === 0) {
+    throw new Error("Registration not found");
+  }
+
+  // Delete registration
+  await db
+    .delete(workshopRegistrations)
+    .where(eq(workshopRegistrations.id, registrationId));
+
+  // Refund token
+  const subscription = await getUserSubscriptionWithTier(userId);
+  if (subscription && subscription.tier?.workshopTokensPerMonth !== -1) {
+    await db
+      .update(userSubscriptions)
+      .set({
+        workshopTokensRemaining: sql`${userSubscriptions.workshopTokensRemaining} + 1`,
+        workshopTokensUsed: sql`${userSubscriptions.workshopTokensUsed} - 1`,
+      })
+      .where(eq(userSubscriptions.id, subscription.id));
+  }
+
+  return true;
+}
+
+/**
+ * Reset workshop tokens for a user subscription (called monthly)
+ */
+export async function resetWorkshopTokens(subscriptionId: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  const subscription = await db
+    .select({
+      subscription: userSubscriptions,
+      tier: membershipTiers,
+    })
+    .from(userSubscriptions)
+    .leftJoin(membershipTiers, eq(userSubscriptions.tierId, membershipTiers.id))
+    .where(eq(userSubscriptions.id, subscriptionId))
+    .limit(1);
+
+  if (subscription.length === 0) return;
+
+  const tokensPerMonth = subscription[0].tier?.workshopTokensPerMonth || 0;
+
+  await db
+    .update(userSubscriptions)
+    .set({
+      workshopTokensRemaining: tokensPerMonth,
+      workshopTokensUsed: 0,
+      lastTokenReset: new Date(),
+    })
+    .where(eq(userSubscriptions.id, subscriptionId));
 }

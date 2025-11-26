@@ -1329,3 +1329,42 @@ Changed `client_reference_id: ctx.user.id.toString()` to `client_reference_id: c
 - [x] Expand FAQ/information section on Pricing page with accurate details
 - [x] Test pricing displays correctly
 - [ ] Create checkpoint after updates
+
+## Workshop Booking System
+
+### Database Schema
+- [x] Create workshops table (title, description, pillar, date/time, zoom link, capacity, tier required)
+- [x] Create workshop_bookings table (user, workshop, status, booked_at, attended)
+- [x] Add token tracking fields to userSubscriptions
+- [x] Push schema changes to database
+
+### Backend (tRPC Procedures)
+- [x] getUpcomingWorkshops - List available workshops filtered by user tier
+- [x] getUserTokens - Get remaining tokens and reset date
+- [x] bookWorkshop - Deduct token and create booking
+- [x] getUserBookings - Get user's upcoming and past bookings
+- [x] cancelBooking - Cancel booking and refund token
+- [ ] Admin: createWorkshop - Add new workshop to schedule
+- [ ] Admin: updateWorkshop - Edit workshop details
+- [ ] Admin: getWorkshopAttendees - View who booked each workshop
+
+### Frontend Components
+- [x] WorkshopsPage - Browse upcoming workshops by pillar
+- [x] WorkshopCard - Display workshop details with "Book" button
+- [x] TokenDashboard - Show remaining tokens, reset countdown
+- [x] BookingConfirmation - Toast notification after successful booking
+- [x] MyBookings - View upcoming and past workshop attendance
+- [ ] Add "Workshops" link to portal navigation
+
+### Calendar & Notifications
+- [x] Generate .ics calendar invite file
+- [x] Send booking confirmation email with calendar invite
+- [x] Send reminder email 24 hours before workshop (utility created, needs cron job)
+- [x] Add Google Meet link to calendar invite
+
+### Testing
+- [x] Test booking flow with token deduction
+- [x] Test token reset logic
+- [x] Test tier-based workshop access
+- [x] Test booking cancellation and refund
+- [ ] Create checkpoint after workshop system complete

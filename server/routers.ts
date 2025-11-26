@@ -325,6 +325,121 @@ export const appRouter = router({
     getPillars: publicProcedure.query(async () => {
       return await getActivePillars();
     }),
+
+    // Workshop booking procedures
+    getUpcomingWorkshops: protectedProcedure.query(async ({ ctx }) => {
+      const { getUpcomingWorkshops, getUserSubscriptionWithTier } = await import("./db");
+      
+      // Get user's subscription to filter workshops by tier
+      const subscription = await getUserSubscriptionWithTier(ctx.user.id);
+      const workshops = await getUpcomingWorkshops();
+      
+      // Filter workshops based on user's tier
+      if (!subscription || !subscription.tier) {
+        return [];
+      }
+      
+      const tierHierarchy: Record<string, number> = {
+        'free': 0,
+        'starter': 1,
+        'lite': 2,
+        'pro': 3,
+        'enterprise': 4,
+      };
+      
+      const userTierLevel = tierHierarchy[subscription.tier.slug] || 0;
+      
+      return workshops.filter((w: any) => {
+        const workshopTierLevel = tierHierarchy[w.tierRequired] || 0;
+        return userTierLevel >= workshopTierLevel;
+      });
+    }),
+
+    getUserTokens: protectedProcedure.query(async ({ ctx }) => {
+      const { getUserSubscriptionWithTier } = await import("./db");
+      const subscription = await getUserSubscriptionWithTier(ctx.user.id);
+      
+      if (!subscription || !subscription.tier) {
+        return {
+          tokensRemaining: 0,
+          tokensUsed: 0,
+          tokensPerMonth: 0,
+          lastReset: null,
+          nextReset: null,
+          isUnlimited: false,
+        };
+      }
+      
+      // Calculate next reset date (1 month from last reset)
+      const nextReset = new Date(subscription.lastTokenReset);
+      nextReset.setMonth(nextReset.getMonth() + 1);
+      
+      const isUnlimited = subscription.tier.workshopTokensPerMonth === -1;
+      
+      return {
+        tokensRemaining: isUnlimited ? -1 : subscription.workshopTokensRemaining,
+        tokensUsed: subscription.workshopTokensUsed,
+        tokensPerMonth: subscription.tier.workshopTokensPerMonth,
+        lastReset: subscription.lastTokenReset,
+        nextReset,
+        isUnlimited,
+      };
+    }),
+
+    bookWorkshop: protectedProcedure
+      .input(
+        z.object({
+          workshopId: z.number(),
+        })
+      )
+      .mutation(async ({ input, ctx }) => {
+        const { createWorkshopRegistration, getUpcomingWorkshops } = await import("./db");
+        
+        // Create the registration
+        await createWorkshopRegistration(ctx.user.id, input.workshopId);
+        
+        // Get workshop details for email
+        const workshops = await getUpcomingWorkshops();
+        const workshop = workshops.find((w: any) => w.id === input.workshopId);
+        
+        // Send confirmation email with calendar invite
+        if (workshop && ctx.user.email) {
+          try {
+            const { sendWorkshopBookingEmail } = await import("./utils/workshopEmail");
+            await sendWorkshopBookingEmail({
+              to: ctx.user.email,
+              userName: ctx.user.name || "there",
+              workshopTitle: workshop.title,
+              workshopDescription: workshop.description || "",
+              scheduledAt: new Date(workshop.scheduledAt),
+              durationMinutes: workshop.durationMinutes,
+              googleMeetUrl: workshop.googleMeetUrl || undefined,
+            });
+          } catch (emailError) {
+            console.error("Failed to send booking confirmation email:", emailError);
+            // Don't fail the booking if email fails
+          }
+        }
+        
+        return { success: true };
+      }),
+
+    getUserBookings: protectedProcedure.query(async ({ ctx }) => {
+      const { getUserWorkshopRegistrations } = await import("./db");
+      return await getUserWorkshopRegistrations(ctx.user.id);
+    }),
+
+    cancelBooking: protectedProcedure
+      .input(
+        z.object({
+          registrationId: z.number(),
+        })
+      )
+      .mutation(async ({ input, ctx }) => {
+        const { cancelWorkshopRegistration } = await import("./db");
+        await cancelWorkshopRegistration(ctx.user.id, input.registrationId);
+        return { success: true };
+      }),
   }),
 
   scorecard: router({
