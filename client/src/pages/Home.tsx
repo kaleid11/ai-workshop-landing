@@ -684,7 +684,7 @@ export default function Home() {
       <section className="py-20 bg-gradient-to-br from-[rgb(var(--brand-orange))] via-[rgb(var(--brand-purple))] to-[rgb(var(--brand-blue))] text-white">
         <div className="container text-center">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            Join 200+ Pioneers Widening Their Gap
+            Join Other Pioneers Widening The Competitive Gap
           </h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
             Every day you wait, your competitors get further ahead. Start today.
