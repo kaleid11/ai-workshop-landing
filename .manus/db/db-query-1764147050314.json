@@ -1,0 +1,9 @@
+{
+  "query": "INSERT INTO workshops (title, description, pillarId, sessionType, durationMinutes, scheduledAt, status) VALUES ('Vibe Coding Content Studios: Mastering Gemini & Manus', 'Learn to build your own AI-powered content studio using Gemini API and Manus automation. We''ll code together to create automated workflows for content generation, social media posting, and audience engagement. Perfect for developers and tech-savvy marketers ready to level up their automation game.', 2, 'lite', 120, DATE_ADD(NOW(), INTERVAL 7 DAY), 'scheduled');",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute INSERT INTO workshops (title, description, pillarId, sessionType, durationMinutes, scheduledAt, status) VALUES ('Vibe Coding Content Studios: Mastering Gemini & Manus', 'Learn to build your own AI-powered content studio using Gemini API and Manus automation. We''ll code together to create automated workflows for content generation, social media posting, and audience engagement. Perfect for developers and tech-savvy marketers ready to level up their automation game.', 2, 'lite', 120, DATE_ADD(NOW(), INTERVAL 7 DAY), 'scheduled');",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1538
+}

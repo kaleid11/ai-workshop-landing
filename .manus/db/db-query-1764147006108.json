@@ -1,0 +1,45 @@
+{
+  "query": "SELECT id, title, scheduledAt, status, recordingUrl FROM workshops ORDER BY scheduledAt DESC LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute SELECT id, title, scheduledAt, status, recordingUrl FROM workshops ORDER BY scheduledAt DESC LIMIT 5;",
+  "rows": [
+    {
+      "id": "4",
+      "title": "Updated Workshop Title",
+      "scheduledAt": "2025-12-17 10:00:00",
+      "status": "scheduled",
+      "recordingUrl": "NULL"
+    },
+    {
+      "id": "3",
+      "title": "Vibe Alignment for Business",
+      "scheduledAt": "2025-12-10 10:00:00",
+      "status": "scheduled",
+      "recordingUrl": "NULL"
+    },
+    {
+      "id": "30002",
+      "title": "Complete Workshop",
+      "scheduledAt": "2025-12-10 07:20:52",
+      "status": "scheduled",
+      "recordingUrl": "NULL"
+    },
+    {
+      "id": "30003",
+      "title": "Minimal Workshop",
+      "scheduledAt": "2025-12-06 07:20:52",
+      "status": "scheduled",
+      "recordingUrl": "NULL"
+    },
+    {
+      "id": "2",
+      "title": "Vibe Coding Session",
+      "scheduledAt": "2025-12-03 10:00:00",
+      "status": "scheduled",
+      "recordingUrl": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\tscheduledAt\tstatus\trecordingUrl\n4\tUpdated Workshop Title\t2025-12-17 10:00:00\tscheduled\tNULL\n3\tVibe Alignment for Business\t2025-12-10 10:00:00\tscheduled\tNULL\n30002\tComplete Workshop\t2025-12-10 07:20:52\tscheduled\tNULL\n30003\tMinimal Workshop\t2025-12-06 07:20:52\tscheduled\tNULL\n2\tVibe Coding Session\t2025-12-03 10:00:00\tscheduled\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 2597
+}

@@ -1,0 +1,9 @@
+{
+  "query": "UPDATE workshops SET recordingUrl = 'https://drive.google.com/file/d/1zEuVF1Ew5P0_WaTrhhVSyd4ES9inIGAv/preview', status = 'completed' WHERE id = (SELECT id FROM (SELECT id FROM workshops ORDER BY scheduledAt ASC LIMIT 1) AS temp);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute UPDATE workshops SET recordingUrl = 'https://drive.google.com/file/d/1zEuVF1Ew5P0_WaTrhhVSyd4ES9inIGAv/preview', status = 'completed' WHERE id = (SELECT id FROM (SELECT id FROM workshops ORDER BY scheduledAt ASC LIMIT 1) AS temp);",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1714
+}

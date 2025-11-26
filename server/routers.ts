@@ -408,6 +408,13 @@ export const appRouter = router({
     }),
 
     // Workshop booking procedures
+    getNextWorkshop: publicProcedure.query(async () => {
+      const { getUpcomingWorkshops } = await import("./db");
+      const workshops = await getUpcomingWorkshops();
+      // Return the next scheduled workshop
+      return workshops.length > 0 ? workshops[0] : null;
+    }),
+    
     getUpcomingWorkshops: protectedProcedure.query(async ({ ctx }) => {
       const { getUpcomingWorkshops, getUserSubscriptionWithTier } = await import("./db");
       
