@@ -217,6 +217,87 @@ export const appRouter = router({
         const { exportWorkshopAttendees } = await import("./db");
         return await exportWorkshopAttendees(input.workshopId);
       }),
+    
+    // New workshop management procedures
+    getAllWorkshops: protectedProcedure.query(async ({ ctx }) => {
+      if (ctx.user.role !== "admin") {
+        throw new Error("Unauthorized: Admin access required");
+      }
+      const { getAllWorkshops } = await import("./db");
+      return await getAllWorkshops();
+    }),
+    
+    createWorkshop: protectedProcedure
+      .input(
+        z.object({
+          title: z.string().min(1),
+          description: z.string().optional(),
+          pillarId: z.number().int().positive(),
+          scheduledAt: z.string().datetime(),
+          durationMinutes: z.number().int().positive(),
+          maxAttendees: z.number().int().positive().optional(),
+          sessionType: z.enum(["lite", "pro"]).default("lite"),
+          googleMeetUrl: z.string().url().optional(),
+        })
+      )
+      .mutation(async ({ input, ctx }) => {
+        if (ctx.user.role !== "admin") {
+          throw new Error("Unauthorized: Admin access required");
+        }
+        const { createWorkshop } = await import("./db");
+        return await createWorkshop(input);
+      }),
+    
+    updateWorkshop: protectedProcedure
+      .input(
+        z.object({
+          id: z.number().int().positive(),
+          title: z.string().min(1).optional(),
+          description: z.string().optional(),
+          pillarId: z.number().int().positive().optional(),
+          scheduledAt: z.string().datetime().optional(),
+          durationMinutes: z.number().int().positive().optional(),
+          maxAttendees: z.number().int().positive().optional(),
+          sessionType: z.enum(["lite", "pro"]).optional(),
+          googleMeetUrl: z.string().url().optional(),
+          status: z.enum(["scheduled", "completed", "cancelled"]).optional(),
+        })
+      )
+      .mutation(async ({ input, ctx }) => {
+        if (ctx.user.role !== "admin") {
+          throw new Error("Unauthorized: Admin access required");
+        }
+        const { updateWorkshop } = await import("./db");
+        return await updateWorkshop(input);
+      }),
+    
+    deleteWorkshop: protectedProcedure
+      .input(
+        z.object({
+          id: z.number().int().positive(),
+        })
+      )
+      .mutation(async ({ input, ctx }) => {
+        if (ctx.user.role !== "admin") {
+          throw new Error("Unauthorized: Admin access required");
+        }
+        const { deleteWorkshop } = await import("./db");
+        return await deleteWorkshop(input.id);
+      }),
+    
+    getWorkshopAttendees: protectedProcedure
+      .input(
+        z.object({
+          workshopId: z.number().int().positive(),
+        })
+      )
+      .query(async ({ input, ctx }) => {
+        if (ctx.user.role !== "admin") {
+          throw new Error("Unauthorized: Admin access required");
+        }
+        const { getWorkshopAttendees } = await import("./db");
+        return await getWorkshopAttendees(input.workshopId);
+      }),
   }),
 
   feedback: router({

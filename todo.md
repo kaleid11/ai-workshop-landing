@@ -1368,3 +1368,27 @@ Changed `client_reference_id: ctx.user.id.toString()` to `client_reference_id: c
 - [x] Test tier-based workshop access
 - [x] Test booking cancellation and refund
 - [ ] Create checkpoint after workshop system complete
+
+
+## Admin Workshop Management
+
+### Backend (tRPC Procedures)
+- [x] createWorkshop - Admin creates new workshop with details
+- [x] updateWorkshop - Admin edits workshop details
+- [x] deleteWorkshop - Admin removes workshop
+- [x] getWorkshopAttendees - Get list of registered users with emails
+- [x] getAllWorkshops - Get all workshops for admin view
+
+### Frontend (Admin UI)
+- [x] AdminWorkshops page - List all workshops (upcoming and past)
+- [x] CreateWorkshopForm - Form to create new workshop
+- [x] EditWorkshopForm - Form to edit existing workshop
+- [x] AttendeeList - Display registered users with emails for export
+- [x] Workshop status management (scheduled, completed, cancelled)
+
+### Testing
+- [x] Test workshop creation
+- [x] Test workshop editing
+- [x] Test attendee list display
+- [x] Test email export functionality
+- [ ] Create checkpoint after admin workshop management complete

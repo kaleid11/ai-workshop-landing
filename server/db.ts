@@ -1086,3 +1086,140 @@ export async function resetWorkshopTokens(subscriptionId: number) {
     })
     .where(eq(userSubscriptions.id, subscriptionId));
 }
+
+
+// ============================================================================
+// Admin Workshop Management
+// ============================================================================
+
+/**
+ * Get all workshops (for admin)
+ */
+export async function getAllWorkshops() {
+  const db = await getDb();
+  if (!db) return [];
+
+  const result = await db
+    .select({
+      workshop: workshops,
+      pillar: pillars,
+    })
+    .from(workshops)
+    .leftJoin(pillars, eq(workshops.pillarId, pillars.id))
+    .orderBy(desc(workshops.scheduledAt));
+
+  return result.map((r) => ({
+    ...r.workshop,
+    pillar: r.pillar,
+  }));
+}
+
+/**
+ * Create new workshop
+ */
+export async function createWorkshop(data: {
+  title: string;
+  description?: string;
+  pillarId: number;
+  scheduledAt: string;
+  durationMinutes: number;
+  maxAttendees?: number;
+  sessionType: "lite" | "pro";
+  googleMeetUrl?: string;
+}) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  await db.insert(workshops).values({
+    title: data.title,
+    description: data.description || null,
+    pillarId: data.pillarId,
+    scheduledAt: new Date(data.scheduledAt),
+    durationMinutes: data.durationMinutes,
+    maxAttendees: data.maxAttendees || null,
+    sessionType: data.sessionType,
+    googleMeetUrl: data.googleMeetUrl || null,
+    status: "scheduled",
+  });
+
+  return { success: true };
+}
+
+/**
+ * Update workshop
+ */
+export async function updateWorkshop(data: {
+  id: number;
+  title?: string;
+  description?: string;
+  pillarId?: number;
+  scheduledAt?: string;
+  durationMinutes?: number;
+  maxAttendees?: number;
+  sessionType?: "lite" | "pro";
+  googleMeetUrl?: string;
+  status?: "scheduled" | "completed" | "cancelled";
+}) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  const updateData: any = {};
+  
+  if (data.title !== undefined) updateData.title = data.title;
+  if (data.description !== undefined) updateData.description = data.description || null;
+  if (data.pillarId !== undefined) updateData.pillarId = data.pillarId;
+  if (data.scheduledAt !== undefined) updateData.scheduledAt = new Date(data.scheduledAt);
+  if (data.durationMinutes !== undefined) updateData.durationMinutes = data.durationMinutes;
+  if (data.maxAttendees !== undefined) updateData.maxAttendees = data.maxAttendees || null;
+  if (data.sessionType !== undefined) updateData.sessionType = data.sessionType;
+  if (data.googleMeetUrl !== undefined) updateData.googleMeetUrl = data.googleMeetUrl || null;
+  if (data.status !== undefined) updateData.status = data.status;
+
+  await db.update(workshops).set(updateData).where(eq(workshops.id, data.id));
+
+  return { success: true };
+}
+
+/**
+ * Delete workshop
+ */
+export async function deleteWorkshop(workshopId: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  // Delete registrations first
+  await db.delete(workshopRegistrations).where(eq(workshopRegistrations.workshopId, workshopId));
+  
+  // Delete workshop
+  await db.delete(workshops).where(eq(workshops.id, workshopId));
+
+  return { success: true };
+}
+
+/**
+ * Get workshop attendees with user details
+ */
+export async function getWorkshopAttendees(workshopId: number) {
+  const db = await getDb();
+  if (!db) return [];
+
+  const result = await db
+    .select({
+      registration: workshopRegistrations,
+      user: users,
+    })
+    .from(workshopRegistrations)
+    .innerJoin(users, eq(workshopRegistrations.userId, users.id))
+    .where(eq(workshopRegistrations.workshopId, workshopId))
+    .orderBy(workshopRegistrations.registeredAt);
+
+  return result.map((r) => ({
+    id: r.registration.id,
+    userId: r.user.id,
+    name: r.user.name,
+    email: r.user.email,
+    registeredAt: r.registration.registeredAt,
+    status: r.registration.status,
+    attendedAt: r.registration.attendedAt,
+  }));
+}
