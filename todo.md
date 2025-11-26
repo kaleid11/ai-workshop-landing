@@ -1098,3 +1098,14 @@ Changed `client_reference_id: ctx.user.id.toString()` to `client_reference_id: c
 - [ ] Export to editable PPTX format
 - [ ] Test presentation file opens correctly
 - [ ] Deliver presentation to user
+
+## Portal Redesign (Low Cognitive Load) - Nov 26, 2025
+- [x] Add 5 GEMs section (Brand Alignment, Prompt Engineer Gemini, Prompt Engineer ChatGPT, Lead Gen GPT, HuxleyGPT)
+- [x] Consolidate 3 workshop prep sections into single streamlined onboarding checklist
+- [x] Expand Wiki with comprehensive guides (Gemini 4-part formula, ViralWave workflows, Captions.ai, Mini Apps, Deep Thinking)
+- [x] Create dashboard-style navigation cards for easy access (Knowledge Base, Tools Database, Prompts Library)
+- [x] Add Google Workspace referral link
+- [x] Remove duplication across Portal page
+- [ ] Build comprehensive tools database page with categories and referral links
+- [ ] Test all links and navigation flow
+- [ ] Create checkpoint

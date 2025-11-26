@@ -19,6 +19,231 @@ interface WikiGuide {
 
 const WIKI_GUIDES: WikiGuide[] = [
   {
+    id: "gemini-4-part-formula",
+    title: "Gemini 4-Part Prompt Formula",
+    description: "Master the Persona-Task-Context-Format framework for powerful AI prompts",
+    category: "Prompting",
+    content: `# Gemini 4-Part Prompt Formula
+
+## The Framework
+
+Every powerful Gemini prompt follows this structure:
+
+### 1. **Persona** - Who should the AI be?
+Define the role or expertise level.
+
+**Examples:**
+- "You are a social media marketing expert with 10 years of B2B SaaS experience"
+- "You are a psychological PhD and content strategist"
+- "You are a premium wellness brand consultant"
+
+### 2. **Task** - What should it do?
+Be specific about the action.
+
+**Examples:**
+- "Create 5 Instagram captions"
+- "Create a 30-day content calendar where I post 3 days a week"
+- "Generate 10 LinkedIn post ideas for HR directors"
+
+### 3. **Context** - What's the situation?
+Provide background, constraints, and brand voice.
+
+**Examples:**
+- "Target audience: HR directors at 100-1000 employee companies"
+- "Brand voice: Professional but conversational, data-driven"
+- "Budget: $5K/month, focus on employee retention"
+
+**Pro Tip:** Use the Brand Alignment GEM to generate your context automatically!
+
+### 4. **Format** - How should it present results?
+Specify output structure.
+
+**Examples:**
+- "Format as numbered list with headline, body, CTA, and 3 hashtags"
+- "Include/exclude emojis"
+- "150-200 words per post"
+
+## Complete Example
+
+\`\`\`
+You are a social media marketing expert with 10 years of B2B SaaS experience.
+
+Create 5 LinkedIn post ideas for a B2B SaaS company that sells employee retention software.
+
+Target audience: HR directors at 100-1000 employee companies.
+Brand voice: Professional, data-driven, empathetic.
+Focus: Reducing turnover and improving company culture.
+
+Format each post as:
+- Headline (under 100 characters)
+- Body text (150-200 words)
+- Call-to-action
+- 3 relevant hashtags
+
+Make posts educational, not salesy.
+\`\`\`
+
+## Quick Tips
+
+1. **Be Specific** - Vague prompts = vague results
+2. **Use Examples** - Show what good looks like
+3. **Iterate** - Refine based on results
+4. **Test Variations** - Try different phrasings
+5. **Save Templates** - Create reusable prompts
+6. **Combine Prompts** - Use output as input for next prompt
+`,
+    icon: "⚡",
+  },
+  {
+    id: "gemini-deep-thinking",
+    title: "Gemini Deep Thinking Mode",
+    description: "Use Gemini's advanced reasoning for complex problems and creative tasks",
+    category: "Gemini Features",
+    content: `# Gemini Deep Thinking Mode
+
+## What is Deep Thinking?
+
+Gemini's "Thinking" mode (also called Deep Thinking) is an advanced reasoning model that:
+- Takes longer to respond (10-30 seconds)
+- Shows its reasoning process
+- Produces higher quality, more thoughtful outputs
+- Best for complex problems and creative tasks
+
+## When to Use Deep Thinking
+
+✅ **Use Deep Thinking for:**
+- Complex strategy development
+- Multi-step problem solving
+- Creative content that needs depth
+- Technical analysis
+- Long-form content creation
+- Business planning
+
+❌ **Don't use Deep Thinking for:**
+- Simple questions
+- Quick edits
+- Formatting tasks
+- Basic information lookup
+
+## How to Enable
+
+1. Open Gemini Advanced
+2. Look for the "Thinking" toggle at the top
+3. Turn it ON before sending your prompt
+4. Wait for the extended response time
+
+## Best Practices
+
+1. **Give it complex problems** - Don't waste Deep Thinking on simple tasks
+2. **Be patient** - Quality takes time
+3. **Review the reasoning** - Learn from how it thinks
+4. **Combine with 4-part formula** - Structure still matters
+
+## Example Use Cases
+
+### Business Strategy
+\`\`\`
+Analyze my business model and identify 3 growth opportunities.
+Include market analysis, competitive positioning, and implementation roadmap.
+\`\`\`
+
+### Content Strategy
+\`\`\`
+Create a 90-day content strategy for LinkedIn that positions me as a thought leader.
+Include content pillars, posting frequency, and engagement tactics.
+\`\`\`
+
+### Problem Solving
+\`\`\`
+I'm struggling with low engagement on social media despite posting daily.
+Analyze potential causes and provide a step-by-step solution.
+\`\`\`
+`,
+    icon: "🧠",
+  },
+  {
+    id: "gemini-mini-apps",
+    title: "Creating Mini Apps with Gemini",
+    description: "Build interactive tools and calculators directly in Gemini",
+    category: "Gemini Features",
+    content: `# Creating Mini Apps with Gemini
+
+## What are Mini Apps?
+
+Mini Apps are interactive tools you can create directly in Gemini using simple prompts. They run in your browser and don't require coding knowledge.
+
+## Types of Mini Apps
+
+1. **Calculators** - ROI calculators, pricing tools, budget planners
+2. **Generators** - Content generators, name generators, idea generators
+3. **Analyzers** - Text analyzers, sentiment analyzers, keyword extractors
+4. **Planners** - Content calendars, project timelines, goal trackers
+5. **Quizzes** - Lead magnets, assessments, personality tests
+
+## How to Create a Mini App
+
+Use this prompt template:
+
+\`\`\`
+Create an interactive mini app that [describes what it does].
+
+Features:
+- [Feature 1]
+- [Feature 2]
+- [Feature 3]
+
+Make it visually appealing with a modern design.
+\`\`\`
+
+## Example: ROI Calculator
+
+\`\`\`
+Create an interactive ROI calculator mini app for social media automation.
+
+Features:
+- Input: Hours spent per week on social media
+- Input: Hourly rate
+- Input: Number of posts per week
+- Output: Annual time savings
+- Output: Annual cost savings
+- Output: ROI percentage
+
+Make it visually appealing with a modern design and clear labels.
+\`\`\`
+
+## Example: Content Calendar Generator
+
+\`\`\`
+Create an interactive content calendar generator.
+
+Features:
+- Select number of posts per week
+- Choose content pillars (3-5 topics)
+- Set posting days
+- Generate 30-day calendar with post ideas
+- Export as CSV
+
+Make it visually appealing with color-coded content pillars.
+\`\`\`
+
+## Pro Tips
+
+1. **Start simple** - Add features incrementally
+2. **Test immediately** - Gemini generates working code
+3. **Iterate** - Ask for changes: "Make the buttons bigger" or "Add a dark mode"
+4. **Save the code** - Copy HTML to reuse later
+5. **Share with team** - Mini apps work in any browser
+
+## Common Use Cases
+
+- **Lead magnets** - Quizzes and assessments
+- **Client tools** - ROI calculators and planners
+- **Internal tools** - Project trackers and dashboards
+- **Content tools** - Generators and analyzers
+`,
+    icon: "🛠️",
+  },
+  {
     id: "gemini-guide",
     title: "Gemini Mastery Guide",
     description: "Complete beginner-friendly guide to using Gemini for social media automation",
@@ -71,11 +296,109 @@ Gemini integrates seamlessly with:
     icon: "✨",
   },
   {
-    id: "viralwave-guide",
-    title: "ViralWave Studio Essentials",
-    description: "Learn how to use ViralWave for automated content generation and scheduling",
+    id: "viralwave-workflows",
+    title: "ViralWave Complete Workflows",
+    description: "Step-by-step workflows for automated social media content creation",
     category: "Tools",
-    content: `# ViralWave Studio Essentials
+    content: `# ViralWave Complete Workflows
+
+## Getting Started
+
+ViralWave Studio is your AI-powered content creation and scheduling platform.
+
+### Initial Setup (5 minutes)
+
+1. **Sign up** at viralwavestudio.com?via=huxley17
+2. **Connect accounts** - Instagram, LinkedIn, Twitter, TikTok
+3. **Upload Brand Alignment Doc** - Paste your brand voice from the GEM
+4. **Set posting schedule** - Choose days and times
+5. **Define content pillars** - 3-5 main topics
+
+## Workflow 1: Brand Authority Posts
+
+### What You Need:
+- 3-5 high-quality photos of yourself (1000x1000px minimum)
+- Brand Alignment Doc from Gemini GEM
+
+### Steps:
+
+1. **Upload Photos** to Brand Authority feature
+2. **Generate Post Ideas** using AI
+3. **Select Best Ideas** (3-5 posts)
+4. **Customize Captions** with your voice
+5. **Generate Custom Images** featuring you
+6. **Schedule Posts** across platforms
+
+### Pro Tips:
+- Use professional headshots + casual photos
+- Mix action shots and talking head shots
+- Avoid heavily filtered images
+- High resolution = better AI results
+
+## Workflow 2: Content Calendar Creation
+
+### Steps:
+
+1. **Open Calendar View**
+2. **Set Frequency** (e.g., 3 posts/week)
+3. **Choose Content Pillars**
+   - Educational (40%)
+   - Behind-the-scenes (30%)
+   - Promotional (20%)
+   - Engagement (10%)
+4. **Generate 30 Days** of content
+5. **Review and Edit** each post
+6. **Schedule All** with one click
+
+## Workflow 3: Rapid Post Creation
+
+### For Quick Posts (5 minutes):
+
+1. **Open Post Generator**
+2. **Paste Context** (event, news, idea)
+3. **Select Platform** (Instagram, LinkedIn, etc.)
+4. **Generate 5 Variations**
+5. **Pick Best One**
+6. **Edit if Needed**
+7. **Post Immediately** or Schedule
+
+## Workflow 4: Multi-Platform Distribution
+
+### Same Content, Multiple Platforms:
+
+1. **Create Master Post** in ViralWave
+2. **Adapt for Each Platform:**
+   - **LinkedIn:** Professional tone, longer form
+   - **Instagram:** Visual focus, emojis, hashtags
+   - **Twitter:** Concise, thread-friendly
+   - **TikTok:** Casual, trending sounds
+3. **Schedule All** at optimal times
+4. **Track Performance** across platforms
+
+## Best Practices
+
+1. **Batch Content** - Create 1 week at a time
+2. **Review Before Posting** - AI needs human touch
+3. **Engage Within 1 Hour** - Respond to comments quickly
+4. **Analyze Weekly** - What's working?
+5. **Adjust Strategy** - Double down on winners
+
+## Common Mistakes to Avoid
+
+❌ **Don't:**
+- Post without reviewing
+- Ignore engagement
+- Use same content across all platforms
+- Forget to add personality
+- Schedule too far in advance
+
+✅ **Do:**
+- Add personal touches
+- Respond to comments
+- Adapt content per platform
+- Test different times
+- Monitor analytics
+
 
 ## Getting Started
 
