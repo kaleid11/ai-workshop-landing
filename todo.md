@@ -45,3 +45,11 @@
 - [x] Test all new features work correctly
 - [x] Verify responsive design on mobile
 - [ ] Create checkpoint after improvements
+
+
+## Homepage Copy Updates
+
+- [x] Change "Join 200+ Pioneers" to "Join Other Pioneers"
+- [x] Update Prompt Library description to reflect 118+ prompts (not just expert-curated)
+- [x] Update Wiki Guides description to mention new guides added after every workshop
+- [ ] Create checkpoint after copy updates

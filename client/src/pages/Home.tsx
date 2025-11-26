@@ -47,7 +47,7 @@ export default function Home() {
           <div className="flex items-center gap-2">
             <Sparkles className="w-4 h-4 flex-shrink-0" />
             <span className="text-xs md:text-sm font-semibold line-clamp-1">
-              🎓 Join 200+ Pioneers • Next Workshop: Nov 26 • Academy Platform Now Open
+              🎓 Join Other Pioneers • Next Workshop: Nov 26 • Academy Platform Now Open
             </span>
             <Sparkles className="w-4 h-4 flex-shrink-0" />
           </div>
@@ -286,7 +286,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-semibold">Prompt Library</h3>
               <p className="text-muted-foreground">
-                118 expert-crafted prompts for every scenario. Copy, customize, and deploy instantly.
+                118+ battle-tested prompts for every AI use case. Copy, customize, and deploy instantly—new prompts added weekly.
               </p>
             </div>
 
@@ -326,7 +326,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-semibold">Knowledge Base</h3>
               <p className="text-muted-foreground">
-                12 comprehensive Wiki guides covering fundamentals to advanced techniques.
+                12 comprehensive Wiki guides covering fundamentals to advanced techniques. New guides added after every workshop.
               </p>
             </div>
           </div>
