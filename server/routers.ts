@@ -58,7 +58,7 @@ export const appRouter = router({
           allow_promotion_codes: true,
         });
 
-        return { url: session.url };
+        return { url: session.url || undefined };
       }),
 
     getProducts: publicProcedure.query(() => {
@@ -249,6 +249,55 @@ export const appRouter = router({
     getUserSubscription: protectedProcedure.query(async ({ ctx }) => {
       return await getUserSubscription(ctx.user.id);
     }),
+    createCheckoutSession: protectedProcedure
+      .input(
+        z.object({
+          tierSlug: z.string(),
+        })
+      )
+      .mutation(async ({ input, ctx }) => {
+        const origin = ctx.req.headers.origin || "http://localhost:3000";
+        const tiers = await getMembershipTiers();
+        const tier = tiers.find((t: any) => t.slug === input.tierSlug);
+
+        if (!tier) {
+          throw new Error("Tier not found");
+        }
+
+        // Determine which price ID to use (one-time or monthly)
+        const isOneTime = (tier.priceOneTime ?? 0) > 0 || (tier.foundingPriceOneTime ?? 0) > 0;
+        const priceId = isOneTime ? tier.stripePriceIdOneTime : tier.stripePriceIdMonthly;
+
+        if (!priceId) {
+          throw new Error("Stripe price ID not configured for this tier");
+        }
+
+        // Create Stripe checkout session
+        const session = await stripe.checkout.sessions.create({
+          payment_method_types: ["card"],
+          line_items: [
+            {
+              price: priceId,
+              quantity: 1,
+            },
+          ],
+          mode: isOneTime ? "payment" : "subscription",
+          success_url: `${origin}/success?session_id={CHECKOUT_SESSION_ID}`,
+          cancel_url: `${origin}/pricing`,
+          customer_email: ctx.user.email || undefined,
+          client_reference_id: ctx.user.openId,
+          metadata: {
+            user_id: ctx.user.id.toString(),
+            tier_id: tier.id.toString(),
+            tier_slug: tier.slug,
+            customer_email: ctx.user.email || "",
+            customer_name: ctx.user.name || "",
+          },
+          allow_promotion_codes: true,
+        });
+
+        return { url: session.url || undefined };
+      }),
     getTools: publicProcedure
       .input(
         z.object({

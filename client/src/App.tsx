@@ -37,13 +37,14 @@ import Wiki from "./pages/Wiki";
 import Workshops from "./pages/Workshops";
 import AdminWorkshops from "./pages/AdminWorkshops";
 import ToolsDatabase from "./pages/ToolsDatabase";
+import TierCheckout from "./pages/TierCheckout";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
     <Switch>
       <Route path={"/"} component={Home} />
-      <Route path={"/checkout"} component={Checkout} />
+      <Route path={"/checkout"} component={TierCheckout} />
       <Route path={"/success"} component={Success} />
       <Route path={"/portal"} component={Portal} />
       <Route path="/admin-bind" component={AdminBind} />

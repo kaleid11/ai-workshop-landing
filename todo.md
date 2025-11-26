@@ -1275,3 +1275,17 @@ Changed `client_reference_id: ctx.user.id.toString()` to `client_reference_id: c
 - [ ] Add ViralWave and Captions to AI Media category in full database
 - [ ] Ensure clear visual separation between Featured and Full Database sections
 - [ ] Test and create checkpoint
+
+## Stripe Integration & Recordings Setup
+
+- [ ] Create 6 products in Stripe Dashboard (Access Pass, Workshop, Starter, Lite, Pro, Enterprise)
+- [ ] Copy all Stripe Price IDs (founding + regular for one-time, monthly for subscriptions)
+- [ ] Update membershipTiers table with Stripe Price IDs via SQL
+- [ ] Test checkout flow in Stripe test mode
+- [ ] Switch to Stripe live mode and update Price IDs
+- [ ] Create promo codes for testing (100% off)
+- [ ] Upload first workshop recording to S3 or YouTube
+- [ ] Create /recordings page for Lite+ members
+- [ ] Test complete payment → subscription → tokens flow
+- [ ] Verify webhook creates userSubscriptions correctly
+- [ ] Create checkpoint after Stripe configuration complete
