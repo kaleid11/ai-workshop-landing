@@ -1,0 +1,17 @@
+{
+  "query": "SELECT id, title, scheduledAt, recordingUrl, status FROM workshops WHERE recordingUrl IS NOT NULL LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute SELECT id, title, scheduledAt, recordingUrl, status FROM workshops WHERE recordingUrl IS NOT NULL LIMIT 5;",
+  "rows": [
+    {
+      "id": "1",
+      "title": "Vibe Marketing Session",
+      "scheduledAt": "2025-11-26 10:00:00",
+      "recordingUrl": "https://drive.google.com/file/d/1zEuVF1Ew5P0_WaTrhhVSyd4ES9inIGAv/preview",
+      "status": "completed"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\tscheduledAt\trecordingUrl\tstatus\n1\tVibe Marketing Session\t2025-11-26 10:00:00\thttps://drive.google.com/file/d/1zEuVF1Ew5P0_WaTrhhVSyd4ES9inIGAv/preview\tcompleted\n",
+  "stderr": "",
+  "execution_time_ms": 1885
+}

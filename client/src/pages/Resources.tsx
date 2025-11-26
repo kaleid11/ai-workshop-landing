@@ -2,7 +2,10 @@ import { useAuth } from "@/_core/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Download, Lock, FileText, Video, BookOpen, Sparkles, CheckCircle2, ExternalLink } from "lucide-react";
+import { Download, Lock, FileText, Video, BookOpen, Sparkles, CheckCircle2, ExternalLink, Share2, TrendingUp } from "lucide-react";
+import { ToolStackAssessment } from "@/components/ToolStackAssessment";
+import { AuditingTools } from "@/components/AuditingTools";
+import { toast } from "sonner";
 import { Link } from "wouter";
 import { useState } from "react";
 
@@ -203,6 +206,33 @@ export default function Resources() {
           </p>
         </div>
       </section>
+
+      {/* Sharing Section */}
+      <section className="py-8 px-4 bg-gradient-to-r from-blue-100 to-purple-100 border-y">
+        <div className="container mx-auto max-w-4xl text-center">
+          <h3 className="text-xl font-semibold mb-3">💡 Share These Free Tools With Your Team</h3>
+          <p className="text-gray-700 mb-4">
+            Help your colleagues discover AI tools and assessments. This page is 100% free and shareable!
+          </p>
+          <Button
+            onClick={() => {
+              navigator.clipboard.writeText(window.location.href);
+              toast.success("Link copied! Share with your team.");
+            }}
+            variant="outline"
+            className="bg-white"
+          >
+            <Share2 className="w-4 h-4 mr-2" />
+            Copy Share Link
+          </Button>
+        </div>
+      </section>
+
+      {/* Tool Stack Assessment */}
+      <ToolStackAssessment />
+
+      {/* Auditing Tools */}
+      <AuditingTools />
 
       {/* Quick-Start Checklist */}
       <section className="py-12 px-4 bg-gradient-to-br from-orange-50 to-pink-50">

@@ -4,7 +4,8 @@ import { OnboardingWelcome } from "@/components/OnboardingWelcome";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { APP_LOGO, APP_TITLE, getLoginUrl } from "@/const";
 import { trpc } from "@/lib/trpc";
-import { Calendar, ExternalLink, Loader2, Mail, MessageCircle, ShoppingCart, Sparkles, Users, Video, TrendingUp, Code2, Target, BookOpen, Wrench, Zap } from "lucide-react";
+import { Calendar, ExternalLink, Loader2, Mail, MessageCircle, ShoppingCart, Sparkles, Users, Video, TrendingUp, Code2, Target, BookOpen, Wrench, Zap, Gift, Share2 } from "lucide-react";
+import { toast } from "sonner";
 import { Link } from "wouter";
 
 export default function Portal() {
@@ -325,6 +326,44 @@ export default function Portal() {
                       <ExternalLink className="w-4 h-4 ml-2" />
                     </Button>
                   </a>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Free Resources Section */}
+          <Card className="mb-8 border-2 border-blue-300 bg-gradient-to-br from-blue-50 to-white">
+            <CardHeader>
+              <CardTitle className="text-2xl text-blue-900 flex items-center gap-2">
+                <Gift className="w-6 h-6" />
+                Free Resources & Tools
+              </CardTitle>
+              <CardDescription className="text-base">
+                Access our free Tool Stack Assessment, ROI Calculator, and downloadable guides. Share with your team!
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="p-4 bg-white rounded-lg shadow border border-blue-200">
+                <h4 className="font-bold text-gray-900 mb-2">🎁 Free Assessment Tools</h4>
+                <p className="text-sm text-gray-600 mb-3">
+                  Evaluate your AI readiness, audit your tool stack, and get personalized recommendations. No login required!
+                </p>
+                <div className="flex gap-3">
+                  <Link href="/resources">
+                    <Button className="bg-blue-500 hover:bg-blue-600 text-white">
+                      Access Free Tools
+                    </Button>
+                  </Link>
+                  <Button
+                    variant="outline"
+                    onClick={() => {
+                      navigator.clipboard.writeText(window.location.origin + "/resources");
+                      toast.success("Link copied! Share with your team.");
+                    }}
+                  >
+                    <Share2 className="w-4 h-4 mr-2" />
+                    Share Link
+                  </Button>
                 </div>
               </div>
             </CardContent>
