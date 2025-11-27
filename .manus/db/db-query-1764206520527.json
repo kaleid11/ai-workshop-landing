@@ -1,0 +1,9 @@
+{
+  "query": "INSERT INTO workshops (title, description, pillarId, tierRequired, sessionType, durationMinutes, scheduledAt, maxAttendees, status, googleMeetUrl, recordingUrl) \nVALUES (\n  'Mastering Gemini & AI Studio',\n  'Deep dive into Google Gemini and AI Studio - learn advanced prompting techniques, build custom AI assistants, and integrate Gemini into your workflows. Perfect for those ready to leverage Google\\'s latest AI capabilities.',\n  2,\n  'lite',\n  'lite',\n  120,\n  '2025-12-03 09:00:00',\n  50,\n  'scheduled',\n  'https://meet.google.com/mmj-gvad-tgt',\n  NULL\n);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute INSERT INTO workshops (title, description, pillarId, tierRequired, sessionType, durationMinutes, scheduledAt, maxAttendees, status, googleMeetUrl, recordingUrl) \nVALUES (\n  'Mastering Gemini & AI Studio',\n  'Deep dive into Google Gemini and AI Studio - learn advanced prompting techniques, build custom AI assistants, and integrate Gemini into your workflows. Perfect for those ready to leverage Google\\'s latest AI capabilities.',\n  2,\n  'lite',\n  'lite',\n  120,\n  '2025-12-03 09:00:00',\n  50,\n  'scheduled',\n  'https://meet.google.com/mmj-gvad-tgt',\n  NULL\n);",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1598
+}

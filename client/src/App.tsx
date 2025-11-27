@@ -39,6 +39,7 @@ import AdminWorkshops from "./pages/AdminWorkshops";
 import ToolsDatabase from "./pages/ToolsDatabase";
 import TierCheckout from "./pages/TierCheckout";
 import MyBookings from "./pages/MyBookings";
+import Recordings from "./pages/Recordings";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -76,6 +77,7 @@ function Router() {
       <Route path="/workshops" component={Workshops} />
       <Route path="/my-bookings" component={MyBookings} />
       <Route path="/tools-database" component={ToolsDatabase} />
+      <Route path="/recordings" component={Recordings} />
       <Route path="/404" component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

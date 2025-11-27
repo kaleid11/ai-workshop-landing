@@ -15,4 +15,12 @@
 - [x] Test admin can book any workshop without token deduction
 - [x] Verify admin can access all recordings
 - [x] Verify no duplicate subscriptions on subsequent logins
-- [ ] Create checkpoint after admin access complete
+- [x] Create checkpoint after admin access complete
+
+## Admin Portal & Recordings Improvements
+
+- [x] Add delete button and functionality to admin workshop management (already exists)
+- [x] Create dedicated /recordings page for Lite+ members to access past workshop recordings
+- [x] Clean up workshop calendar - remove all workshops except completed social media content workshop
+- [x] Add new workshop: "Mastering Gemini & AI Studio" on Wednesday Dec 3, 2025 at 9:00 AM Brisbane time
+- [x] Update Google Meet link for new workshop: https://meet.google.com/mmj-gvad-tgt

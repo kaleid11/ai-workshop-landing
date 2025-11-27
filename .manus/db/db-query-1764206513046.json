@@ -1,0 +1,9 @@
+{
+  "query": "INSERT INTO workshops (title, description, pillarId, tierRequired, sessionType, durationMinutes, scheduledAt, maxAttendees, status, googleMeetUrl, recordingUrl) \nVALUES (\n  'Vibe Marketing: Social Media Content Automation',\n  'Master social media automation with AI tools - create engaging content, schedule posts, and build your brand presence across all platforms.',\n  1,\n  'lite',\n  'lite',\n  120,\n  '2025-11-26 09:00:00',\n  50,\n  'completed',\n  'https://meet.google.com/completed-session',\n  NULL\n);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute INSERT INTO workshops (title, description, pillarId, tierRequired, sessionType, durationMinutes, scheduledAt, maxAttendees, status, googleMeetUrl, recordingUrl) \nVALUES (\n  'Vibe Marketing: Social Media Content Automation',\n  'Master social media automation with AI tools - create engaging content, schedule posts, and build your brand presence across all platforms.',\n  1,\n  'lite',\n  'lite',\n  120,\n  '2025-11-26 09:00:00',\n  50,\n  'completed',\n  'https://meet.google.com/completed-session',\n  NULL\n);",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1613
+}

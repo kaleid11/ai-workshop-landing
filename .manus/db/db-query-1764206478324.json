@@ -1,0 +1,58 @@
+{
+  "query": "SELECT id, title, scheduledAt, status FROM workshops ORDER BY scheduledAt DESC;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute SELECT id, title, scheduledAt, status FROM workshops ORDER BY scheduledAt DESC;",
+  "rows": [
+    {
+      "id": "4",
+      "title": "Updated Workshop Title",
+      "scheduledAt": "2025-12-17 10:00:00",
+      "status": "scheduled"
+    },
+    {
+      "id": "3",
+      "title": "Vibe Alignment for Business",
+      "scheduledAt": "2025-12-10 10:00:00",
+      "status": "scheduled"
+    },
+    {
+      "id": "30002",
+      "title": "Complete Workshop",
+      "scheduledAt": "2025-12-10 07:20:52",
+      "status": "scheduled"
+    },
+    {
+      "id": "30003",
+      "title": "Minimal Workshop",
+      "scheduledAt": "2025-12-06 07:20:52",
+      "status": "scheduled"
+    },
+    {
+      "id": "2",
+      "title": "Vibe Coding Session",
+      "scheduledAt": "2025-12-03 10:00:00",
+      "status": "scheduled"
+    },
+    {
+      "id": "60001",
+      "title": "Vibe Coding Content Studios: Mastering Gemini & Manus",
+      "scheduledAt": "2025-12-03 08:50:50",
+      "status": "scheduled"
+    },
+    {
+      "id": "30001",
+      "title": "Test Workshop",
+      "scheduledAt": "2025-12-03 07:20:51",
+      "status": "scheduled"
+    },
+    {
+      "id": "1",
+      "title": "Vibe Marketing Session",
+      "scheduledAt": "2025-11-26 10:00:00",
+      "status": "completed"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\tscheduledAt\tstatus\n4\tUpdated Workshop Title\t2025-12-17 10:00:00\tscheduled\n3\tVibe Alignment for Business\t2025-12-10 10:00:00\tscheduled\n30002\tComplete Workshop\t2025-12-10 07:20:52\tscheduled\n30003\tMinimal Workshop\t2025-12-06 07:20:52\tscheduled\n2\tVibe Coding Session\t2025-12-03 10:00:00\tscheduled\n60001\tVibe Coding Content Studios: Mastering Gemini & Manus\t2025-12-03 08:50:50\tscheduled\n30001\tTest Workshop\t2025-12-03 07:20:51\tscheduled\n1\tVibe Marketing Session\t2025-11-26 10:00:00\tcompleted\n",
+  "stderr": "",
+  "execution_time_ms": 1699
+}
