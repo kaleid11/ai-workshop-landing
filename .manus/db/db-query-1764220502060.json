@@ -1,0 +1,130 @@
+{
+  "query": "SELECT id, name, category, description FROM tools ORDER BY category, name LIMIT 20;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute SELECT id, name, category, description FROM tools ORDER BY category, name LIMIT 20;",
+  "rows": [
+    {
+      "id": "30095",
+      "name": "AI Shopping Agents",
+      "category": "AI Assistant",
+      "description": "Assist shoppers with recommendations, searches, and purchasing."
+    },
+    {
+      "id": "31715",
+      "name": "AI Shopping Agents",
+      "category": "AI Assistant",
+      "description": "Assist shoppers with recommendations, searches, and purchasing."
+    },
+    {
+      "id": "95",
+      "name": "AI Shopping Agents",
+      "category": "AI Assistant",
+      "description": "Assist shoppers with recommendations, searches, and purchasing."
+    },
+    {
+      "id": "30952",
+      "name": "Advanced-Prompt-Engineering-Techniques-3817061",
+      "category": "AI Assistant",
+      "description": "This repo is for LinkedIn Learning course - Advanced Prompt Engineering Techniques"
+    },
+    {
+      "id": "952",
+      "name": "Advanced-Prompt-Engineering-Techniques-3817061",
+      "category": "AI Assistant",
+      "description": "This repo is for LinkedIn Learning course - Advanced Prompt Engineering Techniques"
+    },
+    {
+      "id": "32572",
+      "name": "Advanced-Prompt-Engineering-Techniques-3817061",
+      "category": "AI Assistant",
+      "description": "This repo is for LinkedIn Learning course - Advanced Prompt Engineering Techniques"
+    },
+    {
+      "id": "30953",
+      "name": "Advanced-Prompt-Generator",
+      "category": "AI Assistant",
+      "description": "Automating prompt engineering using AI Agents."
+    },
+    {
+      "id": "953",
+      "name": "Advanced-Prompt-Generator",
+      "category": "AI Assistant",
+      "description": "Automating prompt engineering using AI Agents."
+    },
+    {
+      "id": "32573",
+      "name": "Advanced-Prompt-Generator",
+      "category": "AI Assistant",
+      "description": "Automating prompt engineering using AI Agents."
+    },
+    {
+      "id": "32574",
+      "name": "Aigc_Prompt_Engineering",
+      "category": "AI Assistant",
+      "description": "aigc prompt engineering"
+    },
+    {
+      "id": "954",
+      "name": "Aigc_Prompt_Engineering",
+      "category": "AI Assistant",
+      "description": "aigc prompt engineering"
+    },
+    {
+      "id": "30954",
+      "name": "Aigc_Prompt_Engineering",
+      "category": "AI Assistant",
+      "description": "aigc prompt engineering"
+    },
+    {
+      "id": "955",
+      "name": "Alphacodium",
+      "category": "AI Assistant",
+      "description": "Official implementation for the paper - \"Code Generation with AlphaCodium - From Prompt Engineering to Flow Engineering\"\""
+    },
+    {
+      "id": "30955",
+      "name": "Alphacodium",
+      "category": "AI Assistant",
+      "description": "Official implementation for the paper - \"Code Generation with AlphaCodium - From Prompt Engineering to Flow Engineering\"\""
+    },
+    {
+      "id": "32575",
+      "name": "Alphacodium",
+      "category": "AI Assistant",
+      "description": "Official implementation for the paper - \"Code Generation with AlphaCodium - From Prompt Engineering to Flow Engineering\"\""
+    },
+    {
+      "id": "32576",
+      "name": "Autogpt-Handbook",
+      "category": "AI Assistant",
+      "description": "A guide to using AutoGPT for code generation and prompt engineering."
+    },
+    {
+      "id": "30956",
+      "name": "Autogpt-Handbook",
+      "category": "AI Assistant",
+      "description": "A guide to using AutoGPT for code generation and prompt engineering."
+    },
+    {
+      "id": "956",
+      "name": "Autogpt-Handbook",
+      "category": "AI Assistant",
+      "description": "A guide to using AutoGPT for code generation and prompt engineering."
+    },
+    {
+      "id": "957",
+      "name": "Automated-Prompt-Engineering-From-Scratch",
+      "category": "AI Assistant",
+      "description": "A repo with an automated prompt engineering workflow from scratch. It leverages the OPRO technique."
+    },
+    {
+      "id": "30957",
+      "name": "Automated-Prompt-Engineering-From-Scratch",
+      "category": "AI Assistant",
+      "description": "A repo with an automated prompt engineering workflow from scratch. It leverages the OPRO technique."
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tcategory\tdescription\n30095\tAI Shopping Agents\tAI Assistant\tAssist shoppers with recommendations, searches, and purchasing.\n31715\tAI Shopping Agents\tAI Assistant\tAssist shoppers with recommendations, searches, and purchasing.\n95\tAI Shopping Agents\tAI Assistant\tAssist shoppers with recommendations, searches, and purchasing.\n30952\tAdvanced-Prompt-Engineering-Techniques-3817061\tAI Assistant\tThis repo is for LinkedIn Learning course - Advanced Prompt Engineering Techniques\n952\tAdvanced-Prompt-Engineering-Techniques-3817061\tAI Assistant\tThis repo is for LinkedIn Learning course - Advanced Prompt Engineering Techniques\n32572\tAdvanced-Prompt-Engineering-Techniques-3817061\tAI Assistant\tThis repo is for LinkedIn Learning course - Advanced Prompt Engineering Techniques\n30953\tAdvanced-Prompt-Generator\tAI Assistant\tAutomating prompt engineering using AI Agents.\n953\tAdvanced-Prompt-Generator\tAI Assistant\tAutomating prompt engineering using AI Agents.\n32573\tAdvanced-Prompt-Generator\tAI Assistant\tAutomating prompt engineering using AI Agents.\n32574\tAigc_Prompt_Engineering\tAI Assistant\taigc prompt engineering\n954\tAigc_Prompt_Engineering\tAI Assistant\taigc prompt engineering\n30954\tAigc_Prompt_Engineering\tAI Assistant\taigc prompt engineering\n955\tAlphacodium\tAI Assistant\tOfficial implementation for the paper - \"Code Generation with AlphaCodium - From Prompt Engineering to Flow Engineering\"\"\n30955\tAlphacodium\tAI Assistant\tOfficial implementation for the paper - \"Code Generation with AlphaCodium - From Prompt Engineering to Flow Engineering\"\"\n32575\tAlphacodium\tAI Assistant\tOfficial implementation for the paper - \"Code Generation with AlphaCodium - From Prompt Engineering to Flow Engineering\"\"\n32576\tAutogpt-Handbook\tAI Assistant\tA guide to using AutoGPT for code generation and prompt engineering.\n30956\tAutogpt-Handbook\tAI Assistant\tA guide to using AutoGPT for code generation and prompt engineering.\n956\tAutogpt-Handbook\tAI Assistant\tA guide to using AutoGPT for code generation and prompt engineering.\n957\tAutomated-Prompt-Engineering-From-Scratch\tAI Assistant\tA repo with an automated prompt engineering workflow from scratch. It leverages the OPRO technique.\n30957\tAutomated-Prompt-Engineering-From-Scratch\tAI Assistant\tA repo with an automated prompt engineering workflow from scratch. It leverages the OPRO technique.\n",
+  "stderr": "",
+  "execution_time_ms": 2064
+}

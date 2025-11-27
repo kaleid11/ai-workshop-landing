@@ -1,0 +1,130 @@
+{
+  "query": "SELECT id, title, category, description FROM prompts ORDER BY category, title LIMIT 20;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute SELECT id, title, category, description FROM prompts ORDER BY category, title LIMIT 20;",
+  "rows": [
+    {
+      "id": "30256",
+      "title": "3D FPS Game",
+      "category": "Coding",
+      "description": "Develop a first-person shooter game using Three.js and JavaScript. Create detailed weapon models with realistic animations and effects. Implement precise hit detection and damage systems. Design multi..."
+    },
+    {
+      "id": "30254",
+      "title": "3D Racing Game",
+      "category": "Coding",
+      "description": "Create an exciting 3D racing game using Three.js and JavaScript. Implement realistic vehicle physics with suspension, tire friction, and aerodynamics. Create detailed car models with customizable pain..."
+    },
+    {
+      "id": "30255",
+      "title": "3D Space Explorer",
+      "category": "Coding",
+      "description": "Build an immersive 3D space exploration game using Three.js and JavaScript. Create a vast universe with procedurally generated planets, stars, and nebulae. Implement realistic spacecraft controls with..."
+    },
+    {
+      "id": "30228",
+      "title": "Advanced Color Picker Tool",
+      "category": "Coding",
+      "description": "Build a professional-grade color tool with HTML5, CSS3 and JavaScript for designers and developers. Create an intuitive interface with multiple selection methods including eyedropper, color wheel, sli..."
+    },
+    {
+      "id": "30234",
+      "title": "Budget Tracker",
+      "category": "Coding",
+      "description": "Develop a comprehensive budget tracking application using HTML5, CSS3, and JavaScript. Create an intuitive dashboard showing income, expenses, savings, and budget status. Implement transaction managem..."
+    },
+    {
+      "id": "30246",
+      "title": "Chess Game",
+      "category": "Coding",
+      "description": "Develop a feature-rich chess game using HTML5, CSS3, and JavaScript. Create a realistic chessboard with proper piece rendering. Implement standard chess rules with move validation. Add move highlighti..."
+    },
+    {
+      "id": "30233",
+      "title": "Code Snippet Manager",
+      "category": "Coding",
+      "description": "Build a developer-focused code snippet manager using HTML5, CSS3, and JavaScript. Create a clean IDE-like interface with syntax highlighting for 30+ programming languages. Implement a tagging and cate..."
+    },
+    {
+      "id": "30231",
+      "title": "Currency Exchange Calculator",
+      "category": "Coding",
+      "description": "Develop a comprehensive currency converter using HTML5, CSS3, JavaScript and a reliable Exchange Rate API. Create a clean, intuitive interface with prominent input fields and currency selectors. Imple..."
+    },
+    {
+      "id": "30238",
+      "title": "Drawing App",
+      "category": "Coding",
+      "description": "Create an interactive drawing application using HTML5 Canvas, CSS3, and JavaScript. Build a clean interface with intuitive tool selection. Implement multiple drawing tools including brush, pencil, sha..."
+    },
+    {
+      "id": "30232",
+      "title": "File Encryption Tool",
+      "category": "Coding",
+      "description": "Create a client-side file encryption tool using HTML5, CSS3, and JavaScript with the Web Crypto API. Build a drag-and-drop interface for file selection with progress indicators. Implement AES-256-GCM ..."
+    },
+    {
+      "id": "30251",
+      "title": "File System Indexer CLI",
+      "category": "Coding",
+      "description": "Build a high-performance file system indexer and search tool in Go. Implement recursive directory traversal with configurable depth. Add file metadata extraction including size, dates, and permissions..."
+    },
+    {
+      "id": "30240",
+      "title": "Flashcard Study System",
+      "category": "Coding",
+      "description": "Develop a comprehensive flashcard study system using HTML5, CSS3, and JavaScript. Create an intuitive interface for card creation and review. Implement spaced repetition algorithm for optimized learni..."
+    },
+    {
+      "id": "30253",
+      "title": "HTTP Benchmarking Tool CLI",
+      "category": "Coding",
+      "description": "Create a high-performance HTTP benchmarking tool in Go. Implement concurrent request generation with configurable thread count. Add detailed statistics including latency, throughput, and error rates. ..."
+    },
+    {
+      "id": "30241",
+      "title": "Habit Tracker",
+      "category": "Coding",
+      "description": "Create a habit tracking application using HTML5, CSS3, and JavaScript. Build a clean interface showing daily, weekly, and monthly views. Implement habit creation with frequency, reminders, and goals. ..."
+    },
+    {
+      "id": "30230",
+      "title": "Health Metrics Calculator",
+      "category": "Coding",
+      "description": "Build a comprehensive health metrics calculator with HTML5, CSS3 and JavaScript based on medical standards. Create a clean, accessible interface with step-by-step input forms. Implement accurate BMI c..."
+    },
+    {
+      "id": "30243",
+      "title": "Image Editor",
+      "category": "Coding",
+      "description": "Develop a web-based image editor using HTML5 Canvas, CSS3, and JavaScript. Create a professional interface with tool panels and preview area. Implement basic adjustments including brightness, contrast..."
+    },
+    {
+      "id": "30227",
+      "title": "Interactive Quiz",
+      "category": "Coding",
+      "description": "Develop a comprehensive interactive quiz application with HTML5, CSS3 and JavaScript. Create an engaging UI with smooth transitions between questions. Support multiple question types including multipl..."
+    },
+    {
+      "id": "30236",
+      "title": "Kanban Board",
+      "category": "Coding",
+      "description": "Build a Kanban project management board using HTML5, CSS3, and JavaScript. Create a flexible board layout with customizable columns (To Do, In Progress, Done, etc.). Implement drag-and-drop card movem..."
+    },
+    {
+      "id": "30225",
+      "title": "Markdown Notes",
+      "category": "Coding",
+      "description": "Build a feature-rich markdown notes application with HTML5, CSS3 and JavaScript. Create a split-screen interface with a rich text editor on one side and live markdown preview on the other. Implement f..."
+    },
+    {
+      "id": "30239",
+      "title": "Meditation Timer",
+      "category": "Coding",
+      "description": "Build a mindfulness meditation timer using HTML5, CSS3, and JavaScript. Create a serene, distraction-free interface with nature-inspired design. Implement customizable meditation sessions with prepara..."
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\tcategory\tdescription\n30256\t3D FPS Game\tCoding\tDevelop a first-person shooter game using Three.js and JavaScript. Create detailed weapon models with realistic animations and effects. Implement precise hit detection and damage systems. Design multi...\n30254\t3D Racing Game\tCoding\tCreate an exciting 3D racing game using Three.js and JavaScript. Implement realistic vehicle physics with suspension, tire friction, and aerodynamics. Create detailed car models with customizable pain...\n30255\t3D Space Explorer\tCoding\tBuild an immersive 3D space exploration game using Three.js and JavaScript. Create a vast universe with procedurally generated planets, stars, and nebulae. Implement realistic spacecraft controls with...\n30228\tAdvanced Color Picker Tool\tCoding\tBuild a professional-grade color tool with HTML5, CSS3 and JavaScript for designers and developers. Create an intuitive interface with multiple selection methods including eyedropper, color wheel, sli...\n30234\tBudget Tracker\tCoding\tDevelop a comprehensive budget tracking application using HTML5, CSS3, and JavaScript. Create an intuitive dashboard showing income, expenses, savings, and budget status. Implement transaction managem...\n30246\tChess Game\tCoding\tDevelop a feature-rich chess game using HTML5, CSS3, and JavaScript. Create a realistic chessboard with proper piece rendering. Implement standard chess rules with move validation. Add move highlighti...\n30233\tCode Snippet Manager\tCoding\tBuild a developer-focused code snippet manager using HTML5, CSS3, and JavaScript. Create a clean IDE-like interface with syntax highlighting for 30+ programming languages. Implement a tagging and cate...\n30231\tCurrency Exchange Calculator\tCoding\tDevelop a comprehensive currency converter using HTML5, CSS3, JavaScript and a reliable Exchange Rate API. Create a clean, intuitive interface with prominent input fields and currency selectors. Imple...\n30238\tDrawing App\tCoding\tCreate an interactive drawing application using HTML5 Canvas, CSS3, and JavaScript. Build a clean interface with intuitive tool selection. Implement multiple drawing tools including brush, pencil, sha...\n30232\tFile Encryption Tool\tCoding\tCreate a client-side file encryption tool using HTML5, CSS3, and JavaScript with the Web Crypto API. Build a drag-and-drop interface for file selection with progress indicators. Implement AES-256-GCM ...\n30251\tFile System Indexer CLI\tCoding\tBuild a high-performance file system indexer and search tool in Go. Implement recursive directory traversal with configurable depth. Add file metadata extraction including size, dates, and permissions...\n30240\tFlashcard Study System\tCoding\tDevelop a comprehensive flashcard study system using HTML5, CSS3, and JavaScript. Create an intuitive interface for card creation and review. Implement spaced repetition algorithm for optimized learni...\n30253\tHTTP Benchmarking Tool CLI\tCoding\tCreate a high-performance HTTP benchmarking tool in Go. Implement concurrent request generation with configurable thread count. Add detailed statistics including latency, throughput, and error rates. ...\n30241\tHabit Tracker\tCoding\tCreate a habit tracking application using HTML5, CSS3, and JavaScript. Build a clean interface showing daily, weekly, and monthly views. Implement habit creation with frequency, reminders, and goals. ...\n30230\tHealth Metrics Calculator\tCoding\tBuild a comprehensive health metrics calculator with HTML5, CSS3 and JavaScript based on medical standards. Create a clean, accessible interface with step-by-step input forms. Implement accurate BMI c...\n30243\tImage Editor\tCoding\tDevelop a web-based image editor using HTML5 Canvas, CSS3, and JavaScript. Create a professional interface with tool panels and preview area. Implement basic adjustments including brightness, contrast...\n30227\tInteractive Quiz\tCoding\tDevelop a comprehensive interactive quiz application with HTML5, CSS3 and JavaScript. Create an engaging UI with smooth transitions between questions. Support multiple question types including multipl...\n30236\tKanban Board\tCoding\tBuild a Kanban project management board using HTML5, CSS3, and JavaScript. Create a flexible board layout with customizable columns (To Do, In Progress, Done, etc.). Implement drag-and-drop card movem...\n30225\tMarkdown Notes\tCoding\tBuild a feature-rich markdown notes application with HTML5, CSS3 and JavaScript. Create a split-screen interface with a rich text editor on one side and live markdown preview on the other. Implement f...\n30239\tMeditation Timer\tCoding\tBuild a mindfulness meditation timer using HTML5, CSS3, and JavaScript. Create a serene, distraction-free interface with nature-inspired design. Implement customizable meditation sessions with prepara...\n",
+  "stderr": "",
+  "execution_time_ms": 1616
+}

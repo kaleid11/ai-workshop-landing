@@ -89,3 +89,15 @@
 - [x] Test checkout for one-time products (Access Pass, Workshop Credit) - works in production
 - [x] Write vitest tests for checkout scenarios (tests use test mode, production uses live mode)
 - [x] Verify Stripe price IDs are correct (all updated)
+
+## Expand Portal Content (Tools, Prompts, Wiki)
+
+- [x] Analyze uploaded files (System Prompt, Prompt Library, NotebookLM Guide)
+- [x] Check existing Tools, Prompts, and Wiki content in database
+- [x] Check /wiki page structure and database schema
+- [x] Add 20+ new prompts from Prompt Library to database (added to Wiki.tsx)
+- [x] Add NotebookLM tool and guide to database (added to Wiki.tsx)
+- [x] Add Glassmorphism Website Builder tool to database (added to Wiki.tsx)
+- [x] Expand wiki with Design Systems, NotebookLM Guide, and other articles
+- [x] Organize all content by appropriate categories
+- [x] Test portal sections display correctly (no errors, hot reload working)
