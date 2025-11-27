@@ -40,3 +40,9 @@
 - [x] Verify checkout flow works with new price IDs
 - [x] Implement credit management system for workshop bookings (already exists)
 - [x] Test Stripe webhook handling for purchases
+
+## Buy More Credits Feature
+
+- [x] Add "Buy More Credits" button to Portal page
+- [x] Connect button to checkout with Workshop Credit price ID
+- [x] Test credit purchase flow end-to-end

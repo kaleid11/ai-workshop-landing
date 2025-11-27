@@ -23,6 +23,18 @@ export default function Portal() {
     enabled: !!(isAuthenticated && userTier?.slug && userTier.slug !== 'access_pass'),
   });
 
+  // Mutation for buying workshop credits
+  const buyCredits = trpc.checkout.createSession.useMutation({
+    onSuccess: (data) => {
+      if (data.url) {
+        window.location.href = data.url;
+      }
+    },
+    onError: () => {
+      toast.error('Failed to start checkout');
+    },
+  });
+
   // Generate calendar event URLs for different formats
   const workshopDetails = {
     title: "Social Media Automation Workshop",
@@ -199,12 +211,31 @@ export default function Portal() {
                       </p>
                     )}
                   </div>
-                  <Link href="/workshops">
-                    <Button className="bg-brand-purple hover:bg-brand-purple/90 text-white">
-                      <Calendar className="w-4 h-4 mr-2" />
-                      View Workshops
+                  <div className="flex gap-3">
+                    <Button
+                      onClick={() => {
+                        buyCredits.mutate({
+                          priceId: 'price_1SWqfaCii5zXCZr60lffDWXy'
+                        });
+                      }}
+                      disabled={buyCredits.isPending}
+                      variant="outline"
+                      className="border-brand-orange text-brand-orange hover:bg-brand-orange hover:text-white"
+                    >
+                      {buyCredits.isPending ? (
+                        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                      ) : (
+                        <ShoppingCart className="w-4 h-4 mr-2" />
+                      )}
+                      Buy More Credits
                     </Button>
-                  </Link>
+                    <Link href="/workshops">
+                      <Button className="bg-brand-purple hover:bg-brand-purple/90 text-white">
+                        <Calendar className="w-4 h-4 mr-2" />
+                        View Workshops
+                      </Button>
+                    </Link>
+                  </div>
                 </div>
                 <p className="text-gray-700">
                   Access live workshops, recordings, and exclusive resources. Use your tokens to request access to upcoming sessions.
