@@ -53,3 +53,8 @@
 
 - [x] Add strikethrough display for $197 original price on Workshop tier
 - [x] Link Workshop credit button to checkout with price ID price_1SWqfaCii5zXCZr60lffDWXy
+
+## Fix Workshop Pricing Display
+
+- [x] Debug why Workshop tier shows $197 instead of $77 with strikethrough
+- [x] Fix pricing display logic to use foundingPriceOneTime correctly

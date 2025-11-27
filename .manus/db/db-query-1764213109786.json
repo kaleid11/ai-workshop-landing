@@ -1,0 +1,21 @@
+{
+  "query": "SELECT id, name, slug, priceOneTime, foundingPriceOneTime, priceAnnual, foundingPriceAnnual, priceMonthly, foundingPriceMonthly FROM membershipTiers WHERE slug = 'workshop';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute SELECT id, name, slug, priceOneTime, foundingPriceOneTime, priceAnnual, foundingPriceAnnual, priceMonthly, foundingPriceMonthly FROM membershipTiers WHERE slug = 'workshop';",
+  "rows": [
+    {
+      "id": "30002",
+      "name": "Workshop",
+      "slug": "workshop",
+      "priceOneTime": "9700",
+      "foundingPriceOneTime": "19700",
+      "priceAnnual": "19700",
+      "foundingPriceAnnual": "7700",
+      "priceMonthly": "0",
+      "foundingPriceMonthly": "0"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tslug\tpriceOneTime\tfoundingPriceOneTime\tpriceAnnual\tfoundingPriceAnnual\tpriceMonthly\tfoundingPriceMonthly\n30002\tWorkshop\tworkshop\t9700\t19700\t19700\t7700\t0\t0\n",
+  "stderr": "",
+  "execution_time_ms": 1610
+}
