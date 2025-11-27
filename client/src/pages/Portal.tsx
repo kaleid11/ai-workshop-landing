@@ -138,7 +138,7 @@ export default function Portal() {
           <p className="text-gray-600">
             You need to purchase the workshop to access this portal.
           </p>
-          <Link href="/">
+          <Link href="/pricing">
             <Button size="lg" className="bg-brand-purple hover:bg-brand-purple/90 text-white w-full">
               View Workshop Details
             </Button>

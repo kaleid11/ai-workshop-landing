@@ -58,3 +58,9 @@
 
 - [x] Debug why Workshop tier shows $197 instead of $77 with strikethrough
 - [x] Fix pricing display logic to use foundingPriceOneTime correctly
+
+## Fix Portal Access Issues
+
+- [x] Fix portal access check to allow admin users
+- [x] Fix portal access check to allow users with active subscriptions/purchases
+- [x] Fix "View Workshop Details" button to link to /pricing instead of /

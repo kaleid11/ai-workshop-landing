@@ -71,6 +71,33 @@ export const appRouter = router({
 
   portal: router({
     checkAccess: protectedProcedure.query(async ({ ctx }) => {
+      // Admin always has access
+      if (ctx.user.role === 'admin') {
+        return {
+          hasAccess: true,
+          userId: ctx.user.id,
+          userName: ctx.user.name,
+          userEmail: ctx.user.email,
+          liveAccessExpiresAt: null,
+          purchasedAt: null,
+        };
+      }
+
+      // Check for active subscription
+      const { getUserSubscriptionWithTier } = await import('./db');
+      const subscription = await getUserSubscriptionWithTier(ctx.user.id);
+      if (subscription && subscription.status === 'active') {
+        return {
+          hasAccess: true,
+          userId: ctx.user.id,
+          userName: ctx.user.name,
+          userEmail: ctx.user.email,
+          liveAccessExpiresAt: subscription.currentPeriodEnd || null,
+          purchasedAt: subscription.createdAt || null,
+        };
+      }
+
+      // Check for completed purchase (legacy)
       const purchase = await getUserPurchase(ctx.user.id);
       const hasAccess = purchase?.status === "completed";
       
