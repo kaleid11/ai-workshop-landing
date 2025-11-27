@@ -3,15 +3,17 @@ import { useAuth } from "@/_core/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { getLoginUrl, APP_TITLE } from "@/const";
 import { trpc } from "@/lib/trpc";
-import { Loader2, Check, ArrowLeft } from "lucide-react";
+import { Loader2, Check, ArrowLeft, CreditCard, Shield } from "lucide-react";
 import { Link, useLocation } from "wouter";
 
 export default function TierCheckout() {
   const { isAuthenticated, loading: authLoading, user } = useAuth();
   const [, navigate] = useLocation();
   const [tierSlug, setTierSlug] = useState<string | null>(null);
+  const [showProcessingModal, setShowProcessingModal] = useState(false);
 
   // Get tier slug from URL query params
   useEffect(() => {
@@ -24,11 +26,13 @@ export default function TierCheckout() {
   const createCheckoutMutation = trpc.academy.createCheckoutSession.useMutation({
     onSuccess: (data: { url?: string }) => {
       if (data.url) {
+        // Keep modal open while redirecting
         window.location.href = data.url;
       }
     },
     onError: (error: any) => {
       console.error('Checkout error:', error);
+      setShowProcessingModal(false);
       alert('Failed to create checkout session. Please try again.');
     },
   });
@@ -87,6 +91,7 @@ export default function TierCheckout() {
     : (tier.foundingPriceMonthly && tier.priceMonthly && tier.foundingPriceMonthly < tier.priceMonthly);
 
   const handleCheckout = () => {
+    setShowProcessingModal(true);
     createCheckoutMutation.mutate({ tierSlug: tier.slug });
   };
 
@@ -229,6 +234,50 @@ export default function TierCheckout() {
           )}
         </div>
       </section>
+
+      {/* Payment Processing Modal */}
+      <Dialog open={showProcessingModal} onOpenChange={setShowProcessingModal}>
+        <DialogContent className="sm:max-w-md" onInteractOutside={(e) => e.preventDefault()}>
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2 text-xl">
+              <CreditCard className="w-6 h-6 text-orange-500" />
+              Processing Your Payment
+            </DialogTitle>
+            <DialogDescription className="text-base pt-2">
+              Please wait while we securely redirect you to Stripe checkout...
+            </DialogDescription>
+          </DialogHeader>
+          
+          <div className="flex flex-col items-center justify-center py-8 space-y-6">
+            <div className="relative">
+              <Loader2 className="w-16 h-16 animate-spin text-orange-500" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full bg-orange-100 animate-pulse"></div>
+              </div>
+            </div>
+            
+            <div className="text-center space-y-2">
+              <p className="text-sm font-medium text-gray-900">
+                Setting up your secure payment session
+              </p>
+              <p className="text-xs text-gray-500">
+                This usually takes just a few seconds
+              </p>
+            </div>
+
+            <div className="flex items-center gap-2 text-xs text-gray-600 bg-gray-50 px-4 py-2 rounded-full">
+              <Shield className="w-4 h-4 text-green-600" />
+              <span>256-bit SSL encrypted connection</span>
+            </div>
+          </div>
+
+          <div className="bg-orange-50 border border-orange-200 rounded-lg p-4">
+            <p className="text-xs text-orange-800 text-center">
+              ⚠️ <strong>Important:</strong> Please don't close this window. You'll be redirected automatically.
+            </p>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
