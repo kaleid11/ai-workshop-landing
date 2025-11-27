@@ -7,6 +7,7 @@ import { trpc } from "@/lib/trpc";
 import { useEffect, useState } from "react";
 import { useLocation } from "wouter";
 import { Loader2, MessageSquare, BarChart3, Download, Search, Filter } from "lucide-react";
+import { AdminNav } from "@/components/AdminNav";
 
 export default function AdminSubmissions() {
   const { user, loading: authLoading } = useAuth();
@@ -96,7 +97,9 @@ export default function AdminSubmissions() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
+    <div className="min-h-screen bg-gray-50">
+      <AdminNav />
+      <div className="py-12">
       <div className="container max-w-7xl">
         <div className="mb-8">
           <h1 className="text-4xl font-bold mb-2">All Submissions</h1>
@@ -289,6 +292,7 @@ export default function AdminSubmissions() {
             </div>
           </TabsContent>
         </Tabs>
+      </div>
       </div>
     </div>
   );

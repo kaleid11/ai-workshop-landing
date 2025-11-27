@@ -11,6 +11,7 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 import { APP_TITLE, getLoginUrl } from "@/const";
 import { Calendar, Clock, Users, Plus, Edit, Trash2, Download, Loader2, Mail } from "lucide-react";
 import { Link } from "wouter";
+import { AdminNav } from "@/components/AdminNav";
 import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
 import { useState } from "react";
@@ -191,19 +192,7 @@ export default function AdminWorkshops() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <Link href="/">
-            <h1 className="text-2xl font-bold text-orange-500 cursor-pointer">{APP_TITLE}</h1>
-          </Link>
-          <div className="flex items-center gap-4">
-            <Link href="/admin">
-              <Button variant="outline">Admin Dashboard</Button>
-            </Link>
-          </div>
-        </div>
-      </header>
+      <AdminNav />
 
       <main className="container mx-auto px-4 py-12 max-w-7xl">
         {/* Page Header */}

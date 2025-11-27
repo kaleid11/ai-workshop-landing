@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Download, Mail, CheckCircle2, XCircle, Loader2 } from "lucide-react";
 import { Link } from "wouter";
+import { AdminNav } from "@/components/AdminNav";
 
 export default function AdminAssessments() {
   const { user, loading } = useAuth();
@@ -81,7 +82,9 @@ export default function AdminAssessments() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4">
+    <div className="min-h-screen bg-gray-50">
+      <AdminNav />
+      <div className="py-12 px-4">
       <div className="container max-w-7xl">
         {/* Header */}
         <div className="mb-8">
@@ -237,6 +240,7 @@ export default function AdminAssessments() {
             })}
           </div>
         )}
+      </div>
       </div>
     </div>
   );

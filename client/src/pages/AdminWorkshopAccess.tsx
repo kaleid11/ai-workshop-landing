@@ -16,6 +16,7 @@ import {
   DollarSign,
   Clock
 } from "lucide-react";
+import { AdminNav } from "@/components/AdminNav";
 
 export default function AdminWorkshopAccess() {
   const { user, isAuthenticated } = useAuth();
@@ -79,17 +80,7 @@ export default function AdminWorkshopAccess() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white border-b">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <h1 className="text-2xl font-bold">Workshop Access Management</h1>
-            <Link href="/admin/assessments">
-              <Button variant="outline">View Assessments</Button>
-            </Link>
-          </div>
-        </div>
-      </header>
+      <AdminNav />
 
       <div className="container mx-auto px-4 py-8 max-w-6xl">
         {/* Manual Access Grant */}

@@ -1,0 +1,15 @@
+{
+  "query": "SELECT id, title, recordingUrl FROM workshops WHERE title LIKE '%Social Media%';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute SELECT id, title, recordingUrl FROM workshops WHERE title LIKE '%Social Media%';",
+  "rows": [
+    {
+      "id": "90001",
+      "title": "Vibe Marketing: Social Media Content Automation",
+      "recordingUrl": "https://drive.google.com/file/d/1zEuVF1Ew5P0_WaTrhhVSyd4ES9inIGAv/preview"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\trecordingUrl\n90001\tVibe Marketing: Social Media Content Automation\thttps://drive.google.com/file/d/1zEuVF1Ew5P0_WaTrhhVSyd4ES9inIGAv/preview\n",
+  "stderr": "",
+  "execution_time_ms": 1730
+}

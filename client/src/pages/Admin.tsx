@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { APP_LOGO, getLoginUrl } from "@/const";
 import { trpc } from "@/lib/trpc";
 import { AlertCircle, Loader2, Shield, Upload, Users } from "lucide-react";
+import { AdminNav } from "@/components/AdminNav";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -96,7 +97,9 @@ export default function Admin() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
+      <AdminNav />
+      
+      {/* Page Header */}
       <div className="bg-white border-b">
         <div className="container py-6">
           <div className="flex items-center gap-3">
@@ -104,7 +107,7 @@ export default function Admin() {
               <Shield className="w-6 h-6 text-brand-purple" />
             </div>
             <div>
-              <h1 className="text-2xl font-bold">Admin Portal</h1>
+              <h1 className="text-2xl font-bold">Admin Dashboard</h1>
               <p className="text-gray-600">Manage workshop content and participants</p>
             </div>
           </div>

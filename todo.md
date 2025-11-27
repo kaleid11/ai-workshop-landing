@@ -24,3 +24,10 @@
 - [x] Clean up workshop calendar - remove all workshops except completed social media content workshop
 - [x] Add new workshop: "Mastering Gemini & AI Studio" on Wednesday Dec 3, 2025 at 9:00 AM Brisbane time
 - [x] Update Google Meet link for new workshop: https://meet.google.com/mmj-gvad-tgt
+
+## Admin Navigation & Workshop Recording
+
+- [x] Add recording URL to completed social media workshop (Google Drive embed)
+- [x] Create unified admin navigation component
+- [x] Add admin navigation to all admin pages (Workshops, Assessments, Submissions, Workshop Access)
+- [x] Test admin navigation flow
