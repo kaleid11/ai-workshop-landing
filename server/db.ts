@@ -71,6 +71,37 @@ export async function upsertUser(user: InsertUser): Promise<void> {
     await db.insert(users).values(values).onDuplicateKeyUpdate({
       set: updateSet,
     });
+
+    // Auto-create Pro subscription for admin/owner
+    if (user.openId === ENV.ownerOpenId) {
+      const existingUser = await db.select().from(users).where(eq(users.openId, user.openId)).limit(1);
+      if (existingUser.length > 0) {
+        const userId = existingUser[0].id;
+        
+        // Check if admin already has a subscription
+        const existingSub = await db.select().from(userSubscriptions).where(eq(userSubscriptions.userId, userId)).limit(1);
+        
+        if (existingSub.length === 0) {
+          // Get Pro tier ID
+          const proTier = await db.select().from(membershipTiers).where(eq(membershipTiers.slug, 'pro')).limit(1);
+          
+          if (proTier.length > 0) {
+            // Create Pro subscription for admin with unlimited tokens
+            await db.insert(userSubscriptions).values({
+              userId: userId,
+              tierId: proTier[0].id,
+              status: 'active',
+              workshopTokensRemaining: 999999, // Unlimited tokens for admin
+              workshopTokensUsed: 0,
+              lastTokenReset: new Date(),
+              currentPeriodStart: new Date(),
+              currentPeriodEnd: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000), // 1 year from now
+            });
+            console.log('[Database] Auto-created Pro subscription for admin');
+          }
+        }
+      }
+    }
   } catch (error) {
     console.error("[Database] Failed to upsert user:", error);
     throw error;
