@@ -1,0 +1,32 @@
+{
+  "query": "SELECT * FROM membershipTiers WHERE slug = 'starter' LIMIT 1;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute SELECT * FROM membershipTiers WHERE slug = 'starter' LIMIT 1;",
+  "rows": [
+    {
+      "id": "2",
+      "name": "Starter",
+      "slug": "starter",
+      "priceMonthly": "14700",
+      "priceAnnual": "4700",
+      "foundingPriceMonthly": "9700",
+      "foundingPriceAnnual": "2700",
+      "stripePriceIdMonthly": "price_1SXuiyCii5zXCZr6IchHjgwP",
+      "stripePriceIdAnnual": "NULL",
+      "features": "[\"2 workshops per month\",\"Monthly live training\",\"Full access to tools & prompts library (lifetime)\",\"Community access\",\"Priority support\"]",
+      "maxWorkshopsPerMonth": "0",
+      "forumAccess": "1",
+      "prioritySupport": "0",
+      "displayOrder": "3",
+      "createdAt": "2025-11-22 08:28:41",
+      "priceOneTime": "0",
+      "foundingPriceOneTime": "0",
+      "stripePriceIdOneTime": "NULL",
+      "workshopTokensPerMonth": "2",
+      "hasRecordingAccess": "0"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tslug\tpriceMonthly\tpriceAnnual\tfoundingPriceMonthly\tfoundingPriceAnnual\tstripePriceIdMonthly\tstripePriceIdAnnual\tfeatures\tmaxWorkshopsPerMonth\tforumAccess\tprioritySupport\tdisplayOrder\tcreatedAt\tpriceOneTime\tfoundingPriceOneTime\tstripePriceIdOneTime\tworkshopTokensPerMonth\thasRecordingAccess\n2\tStarter\tstarter\t14700\t4700\t9700\t2700\tprice_1SXuiyCii5zXCZr6IchHjgwP\tNULL\t[\"2 workshops per month\",\"Monthly live training\",\"Full access to tools & prompts library (lifetime)\",\"Community access\",\"Priority support\"]\t0\t1\t0\t3\t2025-11-22 08:28:41\t0\t0\tNULL\t2\t0\n",
+  "stderr": "",
+  "execution_time_ms": 1600
+}

@@ -1,0 +1,16 @@
+{
+  "query": "SELECT id, name, slug, stripePriceIdAnnual FROM membershipTiers WHERE name LIKE '%Access%' OR slug LIKE '%access%';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute SELECT id, name, slug, stripePriceIdAnnual FROM membershipTiers WHERE name LIKE '%Access%' OR slug LIKE '%access%';",
+  "rows": [
+    {
+      "id": "30001",
+      "name": "Access Pass",
+      "slug": "access_pass",
+      "stripePriceIdAnnual": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tslug\tstripePriceIdAnnual\n30001\tAccess Pass\taccess_pass\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 1626
+}

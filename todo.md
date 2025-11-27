@@ -31,3 +31,12 @@
 - [x] Create unified admin navigation component
 - [x] Add admin navigation to all admin pages (Workshops, Assessments, Submissions, Workshop Access)
 - [x] Test admin navigation flow
+
+## Stripe Price IDs & Credit Management
+
+- [x] Update Stripe price IDs in database for all tiers (Starter, Lite, Pro)
+- [x] Add Access Pass price ID (price_1SXuchCii5zXCZr6irHGWFec)
+- [x] Add 1 Workshop Credit price ID (price_1SWqfaCii5zXCZr60lffDWXy)
+- [x] Verify checkout flow works with new price IDs
+- [x] Implement credit management system for workshop bookings (already exists)
+- [x] Test Stripe webhook handling for purchases

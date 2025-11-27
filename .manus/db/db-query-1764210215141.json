@@ -1,0 +1,46 @@
+{
+  "query": "SELECT id, name, slug, stripePriceIdMonthly FROM membershipTiers ORDER BY priceMonthly;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute SELECT id, name, slug, stripePriceIdMonthly FROM membershipTiers ORDER BY priceMonthly;",
+  "rows": [
+    {
+      "id": "30001",
+      "name": "Access Pass",
+      "slug": "access_pass",
+      "stripePriceIdMonthly": "NULL"
+    },
+    {
+      "id": "30002",
+      "name": "Workshop",
+      "slug": "workshop",
+      "stripePriceIdMonthly": "NULL"
+    },
+    {
+      "id": "30003",
+      "name": "Enterprise",
+      "slug": "enterprise",
+      "stripePriceIdMonthly": "NULL"
+    },
+    {
+      "id": "2",
+      "name": "Starter",
+      "slug": "starter",
+      "stripePriceIdMonthly": "NULL"
+    },
+    {
+      "id": "3",
+      "name": "Lite",
+      "slug": "lite",
+      "stripePriceIdMonthly": "NULL"
+    },
+    {
+      "id": "4",
+      "name": "Pro",
+      "slug": "pro",
+      "stripePriceIdMonthly": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tslug\tstripePriceIdMonthly\n30001\tAccess Pass\taccess_pass\tNULL\n30002\tWorkshop\tworkshop\tNULL\n30003\tEnterprise\tenterprise\tNULL\n2\tStarter\tstarter\tNULL\n3\tLite\tlite\tNULL\n4\tPro\tpro\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 1619
+}

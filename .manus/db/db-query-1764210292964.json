@@ -1,0 +1,58 @@
+{
+  "query": "SELECT id, name, slug, priceMonthly, priceOneTime, workshopTokensPerMonth FROM membershipTiers ORDER BY displayOrder;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute SELECT id, name, slug, priceMonthly, priceOneTime, workshopTokensPerMonth FROM membershipTiers ORDER BY displayOrder;",
+  "rows": [
+    {
+      "id": "30001",
+      "name": "Access Pass",
+      "slug": "access_pass",
+      "priceMonthly": "0",
+      "priceOneTime": "4700",
+      "workshopTokensPerMonth": "0"
+    },
+    {
+      "id": "30002",
+      "name": "Workshop",
+      "slug": "workshop",
+      "priceMonthly": "0",
+      "priceOneTime": "9700",
+      "workshopTokensPerMonth": "1"
+    },
+    {
+      "id": "2",
+      "name": "Starter",
+      "slug": "starter",
+      "priceMonthly": "14700",
+      "priceOneTime": "0",
+      "workshopTokensPerMonth": "2"
+    },
+    {
+      "id": "3",
+      "name": "Lite",
+      "slug": "lite",
+      "priceMonthly": "39700",
+      "priceOneTime": "0",
+      "workshopTokensPerMonth": "4"
+    },
+    {
+      "id": "4",
+      "name": "Pro",
+      "slug": "pro",
+      "priceMonthly": "69700",
+      "priceOneTime": "NULL",
+      "workshopTokensPerMonth": "999"
+    },
+    {
+      "id": "30003",
+      "name": "Enterprise",
+      "slug": "enterprise",
+      "priceMonthly": "0",
+      "priceOneTime": "0",
+      "workshopTokensPerMonth": "999"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tslug\tpriceMonthly\tpriceOneTime\tworkshopTokensPerMonth\n30001\tAccess Pass\taccess_pass\t0\t4700\t0\n30002\tWorkshop\tworkshop\t0\t9700\t1\n2\tStarter\tstarter\t14700\t0\t2\n3\tLite\tlite\t39700\t0\t4\n4\tPro\tpro\t69700\tNULL\t999\n30003\tEnterprise\tenterprise\t0\t0\t999\n",
+  "stderr": "",
+  "execution_time_ms": 1590
+}
