@@ -1,0 +1,45 @@
+{
+  "query": "SELECT id, name, slug, stripePriceIdMonthly, stripePriceIdOneTime FROM membershipTiers WHERE slug IN ('starter', 'lite', 'pro', 'access_pass', 'workshop');",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute SELECT id, name, slug, stripePriceIdMonthly, stripePriceIdOneTime FROM membershipTiers WHERE slug IN ('starter', 'lite', 'pro', 'access_pass', 'workshop');",
+  "rows": [
+    {
+      "id": "2",
+      "name": "Starter",
+      "slug": "starter",
+      "stripePriceIdMonthly": "price_1SXuiyCii5zXCZr6IchHjgwP",
+      "stripePriceIdOneTime": "NULL"
+    },
+    {
+      "id": "3",
+      "name": "Lite",
+      "slug": "lite",
+      "stripePriceIdMonthly": "price_1SXuiRCii5zXCZr6e3GjmmVA",
+      "stripePriceIdOneTime": "NULL"
+    },
+    {
+      "id": "4",
+      "name": "Pro",
+      "slug": "pro",
+      "stripePriceIdMonthly": "price_1SXugDCii5zXCZr68DQj2I81",
+      "stripePriceIdOneTime": "NULL"
+    },
+    {
+      "id": "30001",
+      "name": "Access Pass",
+      "slug": "access_pass",
+      "stripePriceIdMonthly": "NULL",
+      "stripePriceIdOneTime": "NULL"
+    },
+    {
+      "id": "30002",
+      "name": "Workshop",
+      "slug": "workshop",
+      "stripePriceIdMonthly": "NULL",
+      "stripePriceIdOneTime": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tslug\tstripePriceIdMonthly\tstripePriceIdOneTime\n2\tStarter\tstarter\tprice_1SXuiyCii5zXCZr6IchHjgwP\tNULL\n3\tLite\tlite\tprice_1SXuiRCii5zXCZr6e3GjmmVA\tNULL\n4\tPro\tpro\tprice_1SXugDCii5zXCZr68DQj2I81\tNULL\n30001\tAccess Pass\taccess_pass\tNULL\tNULL\n30002\tWorkshop\tworkshop\tNULL\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 1527
+}

@@ -1,0 +1,70 @@
+{
+  "query": "SELECT id, name, slug, stripePriceIdMonthly, stripePriceIdOneTime, priceMonthly, priceOneTime, foundingPriceOneTime FROM membershipTiers;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute SELECT id, name, slug, stripePriceIdMonthly, stripePriceIdOneTime, priceMonthly, priceOneTime, foundingPriceOneTime FROM membershipTiers;",
+  "rows": [
+    {
+      "id": "2",
+      "name": "Starter",
+      "slug": "starter",
+      "stripePriceIdMonthly": "price_1SXuiyCii5zXCZr6IchHjgwP",
+      "stripePriceIdOneTime": "NULL",
+      "priceMonthly": "14700",
+      "priceOneTime": "0",
+      "foundingPriceOneTime": "0"
+    },
+    {
+      "id": "3",
+      "name": "Lite",
+      "slug": "lite",
+      "stripePriceIdMonthly": "price_1SXuiRCii5zXCZr6e3GjmmVA",
+      "stripePriceIdOneTime": "NULL",
+      "priceMonthly": "39700",
+      "priceOneTime": "0",
+      "foundingPriceOneTime": "0"
+    },
+    {
+      "id": "4",
+      "name": "Pro",
+      "slug": "pro",
+      "stripePriceIdMonthly": "price_1SXugDCii5zXCZr68DQj2I81",
+      "stripePriceIdOneTime": "NULL",
+      "priceMonthly": "69700",
+      "priceOneTime": "NULL",
+      "foundingPriceOneTime": "NULL"
+    },
+    {
+      "id": "30001",
+      "name": "Access Pass",
+      "slug": "access_pass",
+      "stripePriceIdMonthly": "NULL",
+      "stripePriceIdOneTime": "NULL",
+      "priceMonthly": "0",
+      "priceOneTime": "4700",
+      "foundingPriceOneTime": "2700"
+    },
+    {
+      "id": "30002",
+      "name": "Workshop",
+      "slug": "workshop",
+      "stripePriceIdMonthly": "NULL",
+      "stripePriceIdOneTime": "NULL",
+      "priceMonthly": "0",
+      "priceOneTime": "19700",
+      "foundingPriceOneTime": "7700"
+    },
+    {
+      "id": "30003",
+      "name": "Enterprise",
+      "slug": "enterprise",
+      "stripePriceIdMonthly": "NULL",
+      "stripePriceIdOneTime": "NULL",
+      "priceMonthly": "0",
+      "priceOneTime": "0",
+      "foundingPriceOneTime": "0"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tslug\tstripePriceIdMonthly\tstripePriceIdOneTime\tpriceMonthly\tpriceOneTime\tfoundingPriceOneTime\n2\tStarter\tstarter\tprice_1SXuiyCii5zXCZr6IchHjgwP\tNULL\t14700\t0\t0\n3\tLite\tlite\tprice_1SXuiRCii5zXCZr6e3GjmmVA\tNULL\t39700\t0\t0\n4\tPro\tpro\tprice_1SXugDCii5zXCZr68DQj2I81\tNULL\t69700\tNULL\tNULL\n30001\tAccess Pass\taccess_pass\tNULL\tNULL\t0\t4700\t2700\n30002\tWorkshop\tworkshop\tNULL\tNULL\t0\t19700\t7700\n30003\tEnterprise\tenterprise\tNULL\tNULL\t0\t0\t0\n",
+  "stderr": "",
+  "execution_time_ms": 1643
+}

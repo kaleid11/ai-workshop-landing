@@ -76,3 +76,16 @@
 - [x] Debug why workshop access request uses 2 tokens instead of 1 (found double-click issue)
 - [x] Fix duplicate workshop access requests (added isPending check)
 - [x] Ensure only requested workshop gets access, not all workshops (already working correctly)
+
+## Fix Page Title
+
+- [ ] Update browser tab title from "AI Social Media Workshop" to "Tech Horizon Academy"
+- [ ] Check all pages have correct title
+
+## Fix Checkout Session Creation Bug
+
+- [x] Debug "Failed to create checkout session" error (missing price IDs)
+- [x] Test checkout for all membership tiers (Starter, Lite, Pro) - works in production with live keys
+- [x] Test checkout for one-time products (Access Pass, Workshop Credit) - works in production
+- [x] Write vitest tests for checkout scenarios (tests use test mode, production uses live mode)
+- [x] Verify Stripe price IDs are correct (all updated)
