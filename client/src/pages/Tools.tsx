@@ -5,9 +5,10 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Search, ExternalLink, Lock } from "lucide-react";
+import { Search, ExternalLink, Lock, ArrowRight } from "lucide-react";
 import { trpc } from "@/lib/trpc";
 import { Link } from "wouter";
+import { AIToolPicker } from "@/components/AIToolPicker";
 
 export default function Tools() {
   const { user, isAuthenticated } = useAuth();
@@ -73,9 +74,24 @@ export default function Tools() {
         </div>
       </section>
 
-      {/* Filters */}
+      {/* AI Tool Picker - Prominent Placement */}
       <section className="py-8 px-4 bg-white border-b">
         <div className="container mx-auto max-w-6xl">
+          <AIToolPicker type="tool" />
+        </div>
+      </section>
+
+      {/* Filters */}
+      <section className="py-6 px-4 bg-gray-50 border-b">
+        <div className="container mx-auto max-w-6xl">
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="text-lg font-semibold">Or browse by filters</h3>
+            <Link href="/tool-comparisons">
+              <Button variant="outline" size="sm">
+                Compare Tools <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </Link>
+          </div>
           <div className="grid md:grid-cols-3 gap-4">
             <div className="relative">
               <Search className="absolute left-3 top-3 h-4 w-4 text-gray-400" />

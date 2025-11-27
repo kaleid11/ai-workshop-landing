@@ -442,6 +442,110 @@ export const appRouter = router({
     getPillars: publicProcedure.query(async () => {
       return await getActivePillars();
     }),
+    
+    // AI-powered tool/prompt suggestions using Gemini
+    suggestTools: publicProcedure
+      .input(
+        z.object({
+          query: z.string().min(1),
+          type: z.enum(["tool", "prompt"]),
+        })
+      )
+      .mutation(async ({ input }) => {
+        const { invokeLLM } = await import("./_core/llm");
+        
+        // Get all tools or prompts from database
+        const items = input.type === "tool" 
+          ? await getTools({})
+          : await getPrompts({});
+        
+        // Create a concise list for the AI
+        const itemsList = items.map((item: any) => ({
+          id: item.id,
+          name: item.name || item.title,
+          description: item.description,
+          category: item.category,
+          tags: item.tags,
+        }));
+        
+        // Ask Gemini to suggest the best matches
+        const response = await invokeLLM({
+          messages: [
+            {
+              role: "system",
+              content: `You are an AI assistant helping users find the perfect ${input.type}s for their needs. Analyze the user's query and suggest the top 3-5 most relevant ${input.type}s from the provided list. Return your response as JSON with this structure:
+{
+  "explanation": "Brief explanation of why these ${input.type}s match the user's needs",
+  "suggestions": [
+    {
+      "id": number,
+      "matchReason": "Why this specific ${input.type} is a good match"
+    }
+  ]
+}
+
+Be concise, helpful, and focus on practical value.`,
+            },
+            {
+              role: "user",
+              content: `User query: "${input.query}"
+
+Available ${input.type}s:
+${JSON.stringify(itemsList, null, 2)}
+
+Suggest the best matches.`,
+            },
+          ],
+          response_format: {
+            type: "json_schema",
+            json_schema: {
+              name: "tool_suggestions",
+              strict: true,
+              schema: {
+                type: "object",
+                properties: {
+                  explanation: {
+                    type: "string",
+                    description: "Brief explanation of the suggestions",
+                  },
+                  suggestions: {
+                    type: "array",
+                    items: {
+                      type: "object",
+                      properties: {
+                        id: { type: "number" },
+                        matchReason: { type: "string" },
+                      },
+                      required: ["id", "matchReason"],
+                      additionalProperties: false,
+                    },
+                  },
+                },
+                required: ["explanation", "suggestions"],
+                additionalProperties: false,
+              },
+            },
+          },
+        });
+        
+        const content = response.choices[0].message.content;
+        const contentStr = typeof content === 'string' ? content : JSON.stringify(content);
+        const aiResponse = JSON.parse(contentStr || "{}");
+        
+        // Enrich suggestions with full item data
+        const enrichedSuggestions = aiResponse.suggestions.map((suggestion: any) => {
+          const item = items.find((i: any) => i.id === suggestion.id);
+          return {
+            ...item,
+            matchReason: suggestion.matchReason,
+          };
+        }).filter(Boolean);
+        
+        return {
+          explanation: aiResponse.explanation,
+          suggestions: enrichedSuggestions,
+        };
+      }),
 
     // Workshop booking procedures
     getNextWorkshop: publicProcedure.query(async () => {

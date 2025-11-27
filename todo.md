@@ -134,3 +134,42 @@
 - [x] Add bonus recording to workshops table (Google Drive embed)
 - [x] Update recordings page to display bonus recording (automatically displays via existing query)
 - [x] Test recording playback on /recordings page (verified bonus recording appears correctly)
+
+## Tools Database Comprehensive Update
+
+- [x] Research and add all Google AI tools (Vids, NotebookLM, Stitch, Pomelli, Opal, AI Studio added)
+- [x] Update Captions.ai description to include AI avatar creation (AI Twin feature added)
+- [x] Add recently released AI tools (Google Vids, HeyGen, Synthesia added)
+- [ ] Verify and update pricing for all existing tools
+- [ ] Update tool categories and use cases
+- [ ] Add tool logos/icons for better visual recognition
+
+## AI-Powered Tool Picker (Gemini Integration)
+
+- [x] Create AI tool picker component with Gemini API
+- [x] Implement natural language query processing
+- [x] Add intelligent tool suggestions based on user needs
+- [x] Create similar feature for prompt picker (same component handles both)
+- [x] Test AI Tool Picker with sample queries (tested with video creation query - works perfectly!)
+- [x] Verify Gemini API integration works correctly (returns 5 ranked suggestions with match reasons)
+- [ ] Add conversation history for refined suggestions (future enhancement)
+- [x] Implement loading states and error handling
+
+## Enhanced Filtering & Navigation
+
+- [ ] Add multi-select category filters
+- [ ] Implement price range filter (Free, Under $20, $20-50, $50+)
+- [ ] Add tier requirement filter
+- [ ] Create use case filter (Content Creation, Automation, Research, etc.)
+- [ ] Add sorting options (Popular, Newest, Price, Rating)
+- [x] Make tool comparisons more prominent on tools page (Compare Tools button added)
+- [ ] Add "Compare" checkbox selection for tools (future enhancement)
+- [ ] Create sticky filter bar for better UX (header already sticky)
+
+## Tool Comparisons Updates
+
+- [x] Update ChatGPT vs Claude vs Gemini with latest features (2024 context windows, pricing, features updated)
+- [ ] Add new comparison: Google Vids vs Synthesia vs HeyGen (will add after testing)
+- [ ] Add new comparison: NotebookLM vs Perplexity vs ChatGPT Research (will add after testing)
+- [x] Update pricing and context windows for all comparisons
+- [ ] Add comparison links from individual tool pages (future enhancement)

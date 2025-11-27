@@ -1,0 +1,8 @@
+{
+  "query": "INSERT INTO tools (name, provider, category, description, pricing, website, tierRequired, featured) VALUES\n('Google Vids', 'Google', 'Video Creation', 'AI-powered video creation for work with Gemini and Veo 3 integration. Create professional videos from prompts, generate AI avatars, animate images, and collaborate seamlessly. Features include auto-generated storyboards, stock media library, recording studio with teleprompter, and 8-second AI-generated video clips. Perfect for employee training, announcements, and marketing content.', 'Included in Workspace Business/Enterprise, AI Pro/Ultra plans', 'https://workspace.google.com/products/vids/', 'pro', true);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute INSERT INTO tools (name, provider, category, description, pricing, website, tierRequired, featured) VALUES\n('Google Vids', 'Google', 'Video Creation', 'AI-powered video creation for work with Gemini and Veo 3 integration. Create professional videos from prompts, generate AI avatars, animate images, and collaborate seamlessly. Features include auto-generated storyboards, stock media library, recording studio with teleprompter, and 8-second AI-generated video clips. Perfect for employee training, announcements, and marketing content.', 'Included in Workspace Business/Enterprise, AI Pro/Ultra plans', 'https://workspace.google.com/products/vids/', 'pro', true);",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 1: Unknown column 'provider' in 'field list'"
+  ]
+}

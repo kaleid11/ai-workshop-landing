@@ -9,6 +9,7 @@ import { Search, Copy, Lock, Check } from "lucide-react";
 import { trpc } from "@/lib/trpc";
 import { Link } from "wouter";
 import { toast } from "sonner";
+import { AIToolPicker } from "@/components/AIToolPicker";
 
 export default function Prompts() {
   const { user, isAuthenticated } = useAuth();
@@ -67,8 +68,15 @@ export default function Prompts() {
         </div>
       </header>
 
+      {/* AI Prompt Picker - Prominent Placement */}
+      <section className="py-8 px-4 bg-white border-b">
+        <div className="container mx-auto max-w-6xl">
+          <AIToolPicker type="prompt" />
+        </div>
+      </section>
+
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-purple-500 to-pink-500 text-white py-12 px-4">
+      <section className="bg-gradient-to-r from-purple-500 to-pink-500 text-white py-8 px-4">
         <div className="container mx-auto text-center max-w-4xl">
           <h1 className="text-4xl font-bold mb-4">AI Prompts Library</h1>
           <p className="text-xl mb-6">
