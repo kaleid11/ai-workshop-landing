@@ -56,6 +56,11 @@ export default function Workshops() {
       return;
     }
     
+    // Prevent double-click
+    if (bookWorkshopMutation.isPending) {
+      return;
+    }
+    
     bookWorkshopMutation.mutate({ workshopId });
   };
 

@@ -70,3 +70,9 @@
 - [x] Review getUserPurchase implementation for legacy users (already implemented)
 - [x] Verify purchase table structure and status field (confirmed working)
 - [x] Test portal access for users with legacy purchase records (5 existing records found)
+
+## Fix Workshop Access Request Bug
+
+- [x] Debug why workshop access request uses 2 tokens instead of 1 (found double-click issue)
+- [x] Fix duplicate workshop access requests (added isPending check)
+- [x] Ensure only requested workshop gets access, not all workshops (already working correctly)

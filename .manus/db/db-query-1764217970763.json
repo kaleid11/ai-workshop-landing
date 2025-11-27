@@ -1,0 +1,18 @@
+{
+  "query": "SELECT * FROM workshopRegistrations LIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute SELECT * FROM workshopRegistrations LIMIT 10;",
+  "rows": [
+    {
+      "id": "1",
+      "workshopId": "90002",
+      "userId": "3330015",
+      "status": "registered",
+      "registeredAt": "2025-11-27 04:30:14",
+      "attendedAt": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tworkshopId\tuserId\tstatus\tregisteredAt\tattendedAt\n1\t90002\t3330015\tregistered\t2025-11-27 04:30:14\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 1574
+}
