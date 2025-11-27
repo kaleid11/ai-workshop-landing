@@ -1,0 +1,50 @@
+{
+  "query": "SELECT id, userId, productId, status, liveAccessExpiresAt, purchasedAt FROM purchases LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute SELECT id, userId, productId, status, liveAccessExpiresAt, purchasedAt FROM purchases LIMIT 5;",
+  "rows": [
+    {
+      "id": "1",
+      "userId": "1",
+      "productId": "standard",
+      "status": "completed",
+      "liveAccessExpiresAt": "NULL",
+      "purchasedAt": "2025-11-19 03:03:15"
+    },
+    {
+      "id": "30001",
+      "userId": "1",
+      "productId": "standard",
+      "status": "completed",
+      "liveAccessExpiresAt": "NULL",
+      "purchasedAt": "2025-11-22 13:03:41"
+    },
+    {
+      "id": "60001",
+      "userId": "1",
+      "productId": "standard",
+      "status": "completed",
+      "liveAccessExpiresAt": "NULL",
+      "purchasedAt": "2025-11-22 13:49:02"
+    },
+    {
+      "id": "90001",
+      "userId": "1",
+      "productId": "standard",
+      "status": "completed",
+      "liveAccessExpiresAt": "NULL",
+      "purchasedAt": "2025-11-22 14:03:00"
+    },
+    {
+      "id": "120001",
+      "userId": "1",
+      "productId": "standard",
+      "status": "completed",
+      "liveAccessExpiresAt": "NULL",
+      "purchasedAt": "2025-11-22 14:20:08"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tuserId\tproductId\tstatus\tliveAccessExpiresAt\tpurchasedAt\n1\t1\tstandard\tcompleted\tNULL\t2025-11-19 03:03:15\n30001\t1\tstandard\tcompleted\tNULL\t2025-11-22 13:03:41\n60001\t1\tstandard\tcompleted\tNULL\t2025-11-22 13:49:02\n90001\t1\tstandard\tcompleted\tNULL\t2025-11-22 14:03:00\n120001\t1\tstandard\tcompleted\tNULL\t2025-11-22 14:20:08\n",
+  "stderr": "",
+  "execution_time_ms": 1692
+}

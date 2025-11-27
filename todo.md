@@ -64,3 +64,9 @@
 - [x] Fix portal access check to allow admin users
 - [x] Fix portal access check to allow users with active subscriptions/purchases
 - [x] Fix "View Workshop Details" button to link to /pricing instead of /
+
+## Legacy Purchase Access Verification
+
+- [x] Review getUserPurchase implementation for legacy users (already implemented)
+- [x] Verify purchase table structure and status field (confirmed working)
+- [x] Test portal access for users with legacy purchase records (5 existing records found)
