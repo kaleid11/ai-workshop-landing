@@ -192,9 +192,15 @@ export default function Pricing() {
                         className={`w-full ${isPro ? 'bg-orange-500 hover:bg-orange-600' : ''}`}
                         asChild
                       >
-                        <Link href={`/checkout?tier=${tier.slug}`}>
-                          {isOneTime ? `Get ${tier.name}` : `Join ${tier.name}`}
-                        </Link>
+                        {tier.slug === 'workshop' ? (
+                          <a href={`/checkout?priceId=price_1SWqfaCii5zXCZr60lffDWXy`}>
+                            {isOneTime ? `Get ${tier.name}` : `Join ${tier.name}`}
+                          </a>
+                        ) : (
+                          <Link href={`/checkout?tier=${tier.slug}`}>
+                            {isOneTime ? `Get ${tier.name}` : `Join ${tier.name}`}
+                          </Link>
+                        )}
                       </Button>
                     )}
                   </CardFooter>

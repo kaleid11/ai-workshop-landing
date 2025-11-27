@@ -50,3 +50,6 @@
 ## Pricing Page Updates
 
 - [x] Update pricing to show $77 with $197 strikethrough (special offer)
+
+- [x] Add strikethrough display for $197 original price on Workshop tier
+- [x] Link Workshop credit button to checkout with price ID price_1SWqfaCii5zXCZr60lffDWXy
