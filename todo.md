@@ -46,3 +46,7 @@
 - [x] Add "Buy More Credits" button to Portal page
 - [x] Connect button to checkout with Workshop Credit price ID
 - [x] Test credit purchase flow end-to-end
+
+## Pricing Page Updates
+
+- [x] Update pricing to show $77 with $197 strikethrough (special offer)
