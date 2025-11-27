@@ -1,0 +1,8 @@
+{
+  "query": "INSERT INTO workshops (\n  title,\n  description,\n  pillar,\n  scheduledAt,\n  meetLink,\n  capacity,\n  accessLevel,\n  recordingUrl,\n  status\n) VALUES (\n  'Bonus: Advanced AI Automation Techniques',\n  'Exclusive bonus recording covering advanced automation workflows, integration strategies, and real-world case studies. Perfect for members who want to dive deeper into AI implementation.',\n  'marketing',\n  '2024-11-01 09:00:00',\n  '',\n  0,\n  'lite',\n  'https://drive.google.com/file/d/1JjcDCkjX9dEXU7FzSiPu8rNR7bOMEz-m/preview',\n  'completed'\n);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute INSERT INTO workshops (\n  title,\n  description,\n  pillar,\n  scheduledAt,\n  meetLink,\n  capacity,\n  accessLevel,\n  recordingUrl,\n  status\n) VALUES (\n  'Bonus: Advanced AI Automation Techniques',\n  'Exclusive bonus recording covering advanced automation workflows, integration strategies, and real-world case studies. Perfect for members who want to dive deeper into AI implementation.',\n  'marketing',\n  '2024-11-01 09:00:00',\n  '',\n  0,\n  'lite',\n  'https://drive.google.com/file/d/1JjcDCkjX9dEXU7FzSiPu8rNR7bOMEz-m/preview',\n  'completed'\n);",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 1: Unknown column 'pillar' in 'field list'"
+  ]
+}

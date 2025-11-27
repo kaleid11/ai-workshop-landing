@@ -1,0 +1,9 @@
+{
+  "query": "ALTER TABLE emailLogs MODIFY COLUMN emailType ENUM(\n  'workshop_confirmation',\n  'workshop_reminder_24h',\n  'workshop_followup',\n  'academy_confirmation',\n  'academy_renewal_reminder',\n  'onboarding_day1',\n  'onboarding_day3',\n  'onboarding_day7'\n) NOT NULL;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute ALTER TABLE emailLogs MODIFY COLUMN emailType ENUM(\n  'workshop_confirmation',\n  'workshop_reminder_24h',\n  'workshop_followup',\n  'academy_confirmation',\n  'academy_renewal_reminder',\n  'onboarding_day1',\n  'onboarding_day3',\n  'onboarding_day7'\n) NOT NULL;",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1829
+}

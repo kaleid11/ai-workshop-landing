@@ -357,7 +357,10 @@ export const emailLogs = mysqlTable("emailLogs", {
     "workshop_reminder_24h",
     "workshop_followup",
     "academy_confirmation",
-    "academy_renewal_reminder"
+    "academy_renewal_reminder",
+    "onboarding_day1",
+    "onboarding_day3",
+    "onboarding_day7"
   ]).notNull(),
   recipientEmail: varchar("recipientEmail", { length: 320 }).notNull(),
   subject: varchar("subject", { length: 255 }).notNull(),

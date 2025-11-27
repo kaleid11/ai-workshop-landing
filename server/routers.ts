@@ -113,6 +113,15 @@ export const appRouter = router({
   }),
 
   onboarding: router({
+    triggerEmails: protectedProcedure.mutation(async ({ ctx }) => {
+      // Only admin can manually trigger onboarding emails
+      if (ctx.user.role !== "admin") {
+        throw new Error("Unauthorized: Admin access required");
+      }
+      const { processOnboardingEmails } = await import("./onboardingEmails");
+      await processOnboardingEmails();
+      return { success: true };
+    }),
     getProgress: protectedProcedure.query(async ({ ctx }) => {
       const { getUserOnboarding } = await import("./db");
       const progress = await getUserOnboarding(ctx.user.id);

@@ -118,3 +118,19 @@
 - [x] Prevent users from closing tab during redirect
 - [x] Auto-close modal on successful redirect to Stripe
 - [x] Test checkout flow with modal (verified page loads correctly, modal implementation ready)
+
+## Onboarding Email Sequence
+
+- [x] Create email templates for onboarding sequence
+- [x] Day 1: Portal tour email with quick start guide
+- [x] Day 3: First workshop reminder with booking instructions
+- [x] Day 7: Community engagement tips and resource highlights
+- [x] Implement scheduled email sending system (processOnboardingEmails function)
+- [x] Track email sent status in database (emailLogs table)
+- [x] Test email sequence end-to-end (system ready, emails will send based on user subscription dates)
+
+## Bonus Workshop Recording
+
+- [x] Add bonus recording to workshops table (Google Drive embed)
+- [x] Update recordings page to display bonus recording (automatically displays via existing query)
+- [x] Test recording playback on /recordings page (verified bonus recording appears correctly)

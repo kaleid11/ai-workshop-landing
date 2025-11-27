@@ -1,0 +1,9 @@
+{
+  "query": "INSERT INTO workshops (\n  title,\n  description,\n  pillarId,\n  tierRequired,\n  sessionType,\n  durationMinutes,\n  scheduledAt,\n  googleMeetUrl,\n  recordingUrl,\n  maxAttendees,\n  status\n) VALUES (\n  'Bonus: Advanced AI Automation Techniques',\n  'Exclusive bonus recording covering advanced automation workflows, integration strategies, and real-world case studies. Perfect for members who want to dive deeper into AI implementation.',\n  1,\n  'lite',\n  'lite',\n  90,\n  '2024-11-01 09:00:00',\n  '',\n  'https://drive.google.com/file/d/1JjcDCkjX9dEXU7FzSiPu8rNR7bOMEz-m/preview',\n  0,\n  'completed'\n);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute INSERT INTO workshops (\n  title,\n  description,\n  pillarId,\n  tierRequired,\n  sessionType,\n  durationMinutes,\n  scheduledAt,\n  googleMeetUrl,\n  recordingUrl,\n  maxAttendees,\n  status\n) VALUES (\n  'Bonus: Advanced AI Automation Techniques',\n  'Exclusive bonus recording covering advanced automation workflows, integration strategies, and real-world case studies. Perfect for members who want to dive deeper into AI implementation.',\n  1,\n  'lite',\n  'lite',\n  90,\n  '2024-11-01 09:00:00',\n  '',\n  'https://drive.google.com/file/d/1JjcDCkjX9dEXU7FzSiPu8rNR7bOMEz-m/preview',\n  0,\n  'completed'\n);",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1637
+}
