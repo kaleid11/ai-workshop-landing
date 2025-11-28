@@ -204,3 +204,49 @@
 - [ ] Add filtering and search to wiki guides page
 - [ ] Organize guides by difficulty level (Beginner, Intermediate, Advanced)
 - [ ] Test wiki guide display and filtering
+
+## Comprehensive Content Extraction from All Uploads
+
+### PDF Analysis & Extraction
+- [ ] Re-analyze Mastering_AI_Agents_1741176307.pdf for agent frameworks and implementation patterns
+- [ ] Extract business frameworks from TheAIguideforSmallBusiness-Alivingdoc.pdf.pdf
+- [ ] Extract case studies and ROI data from FINALFINAL_AIDeepDive.pdf
+- [ ] Extract LLM concepts from Generative-AI-and-LLMs-for-Dummies.pdf
+- [ ] Extract agent design patterns from OpenAI_s_practical_guide_to_building_AI_agents_1745100003.pdf
+- [ ] Extract workshop notes and insights from 061000AEST–NotesbyGemini.docx
+
+### Image Content Extraction
+- [ ] Extract workflow diagrams from uploaded images (IMG_1704, IMG_1725, IMG_1726, etc.)
+- [ ] Extract AI tool comparison matrices from images
+- [ ] Extract framework diagrams and decision trees
+- [ ] Extract prompt templates and examples from screenshot images
+
+### New Database Tables Design
+- [x] Create `businessFrameworks` table (ROI calculators, implementation roadmaps)
+- [x] Create `caseStudies` table (real-world AI adoption stories with metrics)
+- [ ] Create `researchPapers` table (curated academic papers with summaries)
+- [ ] Create `workshopNotes` table (key insights from live workshops)
+- [x] Create `implementationGuides` table (step-by-step guides for specific use cases)
+- [ ] Create `aiGlossary` table (comprehensive AI terminology database)
+
+### Content Population
+- [x] Add 3 business frameworks (AI Activation Formula, Prompt Improvement Framework, AI Integration Cycle)
+- [x] Add 4 case studies with real metrics (Retail, Trade Services, Marketing Agency, B2B Services)
+- [ ] Add 20+ curated research papers with executive summaries
+- [x] Add 5 implementation guides (Email Automation, Content Creation, Customer Service, Meeting Documentation, Competitive Analysis)
+- [ ] Add 50+ AI terminology definitions
+- [ ] Create implementation guides for top 5 business use cases
+
+### UI Components
+- [ ] Create Business Frameworks page (/frameworks)
+- [ ] Create Case Studies page (/case-studies)
+- [ ] Create Research Library page (/research)
+- [ ] Create AI Glossary page (/glossary)
+- [ ] Add these sections to Portal dashboard
+
+### Testing & Integration
+- [ ] Test all new database tables and content
+- [ ] Verify content displays correctly on frontend
+- [ ] Create admin interface for managing frameworks and case studies
+- [ ] Add search functionality for research library
+- [ ] Create final comprehensive checkpoint
