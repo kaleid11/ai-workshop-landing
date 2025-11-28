@@ -173,3 +173,34 @@
 - [ ] Add new comparison: NotebookLM vs Perplexity vs ChatGPT Research (will add after testing)
 - [x] Update pricing and context windows for all comparisons
 - [ ] Add comparison links from individual tool pages (future enhancement)
+
+## Nano Banana Pro Prompts Integration
+
+- [ ] Extract awesome-nanobanana-pro-main.zip and analyze content
+- [ ] Parse pasted_content_2.txt and pasted_content_3.txt for prompts
+- [x] Add "source", "model", "complexity" fields to prompts table schema
+- [x] Add Nano Banana Pro prompts to database (18 prompts added so far, more being added)
+- [ ] Create "Nano Banana Pro" filter tag for prompts
+- [ ] Add filtering UI for prompt sources (All, Nano Banana Pro, Tech Horizon, Community)
+- [ ] Test Nano Banana Pro prompt filtering
+
+## Community Request Forms
+
+- [ ] Create toolRequests table in database (name, description, url, category, requestedBy, status, createdAt)
+- [ ] Create promptRequests table in database (title, description, category, useCase, requestedBy, status, createdAt)
+- [ ] Build RequestToolForm component with validation
+- [ ] Build RequestPromptForm component with validation
+- [ ] Create /request-tool page
+- [ ] Create /request-prompt page
+- [ ] Add tRPC endpoints for submitting requests
+- [ ] Add admin page to review and approve requests
+- [ ] Send notification to admin when new request submitted
+- [ ] Test request submission flow end-to-end
+
+## Wiki Guides Expansion
+
+- [ ] Extract valuable content from Nano Banana Pro for wiki guides
+- [ ] Create new wiki guides based on extracted content
+- [ ] Add filtering and search to wiki guides page
+- [ ] Organize guides by difficulty level (Beginner, Intermediate, Advanced)
+- [ ] Test wiki guide display and filtering

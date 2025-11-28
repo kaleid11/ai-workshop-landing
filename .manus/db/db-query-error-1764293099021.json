@@ -1,0 +1,8 @@
+{
+  "query": "ALTER TABLE prompts \nADD COLUMN source VARCHAR(100) DEFAULT 'Tech Horizon',\nADD COLUMN model VARCHAR(100) DEFAULT 'General',\nADD COLUMN complexity ENUM('Beginner', 'Intermediate', 'Advanced') DEFAULT 'Intermediate',\nADD COLUMN useCase VARCHAR(200);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute ALTER TABLE prompts \nADD COLUMN source VARCHAR(100) DEFAULT 'Tech Horizon',\nADD COLUMN model VARCHAR(100) DEFAULT 'General',\nADD COLUMN complexity ENUM('Beginner', 'Intermediate', 'Advanced') DEFAULT 'Intermediate',\nADD COLUMN useCase VARCHAR(200);",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1060 (42S21) at line 1: Duplicate column name 'source'"
+  ]
+}
