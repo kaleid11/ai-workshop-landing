@@ -1,0 +1,18 @@
+{
+  "query": "SHOW COLUMNS FROM prompts LIKE 'complexity';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute SHOW COLUMNS FROM prompts LIKE 'complexity';",
+  "rows": [
+    {
+      "Field": "complexity",
+      "Type": "enum('Beginner','Intermediate','Advanced')",
+      "Null": "YES",
+      "Key": "",
+      "Default": "Intermediate",
+      "Extra": ""
+    }
+  ],
+  "messages": [],
+  "stdout": "Field\tType\tNull\tKey\tDefault\tExtra\ncomplexity\tenum('Beginner','Intermediate','Advanced')\tYES\t\tIntermediate\t\n",
+  "stderr": "",
+  "execution_time_ms": 1668
+}

@@ -192,7 +192,7 @@
 - [ ] Build RequestPromptForm component with validation
 - [ ] Create /request-tool page
 - [ ] Create /request-prompt page
-- [ ] Add tRPC endpoints for submitting requests
+- [x] Add tRPC endpoints for submitting requests (community.submitToolRequest, community.submitPromptRequest)
 - [ ] Add admin page to review and approve requests
 - [ ] Send notification to admin when new request submitted
 - [ ] Test request submission flow end-to-end
@@ -250,3 +250,24 @@
 - [ ] Create admin interface for managing frameworks and case studies
 - [ ] Add search functionality for research library
 - [ ] Create final comprehensive checkpoint
+
+## Complete Nano Banana Pro Integration
+- [x] Add remaining 17 Nano Banana Pro prompts (composition rescue, texture rendering, photo editing, social media) - Total: 35 Nano Banana Pro prompts in database
+- [ ] Update Prompts page with source/model/complexity filters
+- [ ] Add Nano Banana Pro badge/icon to prompts
+- [ ] Test filtering functionality for Nano Banana Pro prompts
+
+## Community Request F- [x] Create RequestPrompt page component with formest-tool)
+- [ ] Create RequestPrompt page component (/request-prompt)
+- [ ] Add tRPC endpoints for submitting tool/prompt requests
+- [ ] Create admin review dashboard (/admin/requests)
+- [ ] Add email notifications for new requests
+- [ ] Test form submission and admin review workflow
+
+## Anthropic Productivity Research Integration
+- [x] Research Anthropic productivity gains study (80% time savings, 1.8% productivity growth potential)
+- [x] Extract key findings and metrics (saved to anthropic-research-summary.md)
+- [ ] Add research-backed productivity data to case studies
+- [ ] Create new case study based on Anthropic research
+- [ ] Update frameworks with research-backed time savings
+- [ ] Add research citations to implementation guides

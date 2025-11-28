@@ -835,6 +835,74 @@ Suggest the best matches.`,
       return getAllAssessmentResults();
     }),
   }),
+
+  community: router({
+    submitToolRequest: protectedProcedure
+      .input(
+        z.object({
+          toolName: z.string(),
+          toolUrl: z.string().url(),
+          category: z.string(),
+          description: z.string(),
+          pricing: z.string().optional(),
+          useCase: z.string().optional(),
+          whyValuable: z.string().optional(),
+        })
+      )
+      .mutation(async ({ input, ctx }) => {
+        const { getDb } = await import('./db');
+        const db = await getDb();
+        if (!db) throw new Error('Database not available');
+
+        const { toolRequests } = await import('../drizzle/schema');
+        await db.insert(toolRequests).values({
+          userId: ctx.user.id,
+          toolName: input.toolName,
+          toolUrl: input.toolUrl,
+          category: input.category,
+          description: input.description,
+          pricing: input.pricing || null,
+          useCase: input.useCase || null,
+          whyValuable: input.whyValuable || null,
+          status: 'pending',
+        });
+
+        return { success: true };
+      }),
+
+    submitPromptRequest: protectedProcedure
+      .input(
+        z.object({
+          promptTitle: z.string(),
+          promptText: z.string(),
+          category: z.string(),
+          description: z.string(),
+          useCase: z.string().optional(),
+          model: z.string().optional(),
+          results: z.string().optional(),
+        })
+      )
+      .mutation(async ({ input, ctx }) => {
+        const { getDb } = await import('./db');
+        const db = await getDb();
+        if (!db) throw new Error('Database not available');
+
+        const { promptRequests } = await import('../drizzle/schema');
+        await db.insert(promptRequests).values({
+          userId: ctx.user.id,
+          promptTitle: input.promptTitle,
+          promptText: input.promptText,
+          category: input.category,
+          description: input.description,
+          useCase: input.useCase || null,
+          model: input.model || null,
+          results: input.results || null,
+          status: 'pending',
+        });
+
+        return { success: true };
+      }),
+  }),
 });
 
 export type AppRouter = typeof appRouter;

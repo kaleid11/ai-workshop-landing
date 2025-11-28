@@ -385,3 +385,49 @@ export const userOnboarding = mysqlTable("userOnboarding", {
 
 export type UserOnboarding = typeof userOnboarding.$inferSelect;
 export type InsertUserOnboarding = typeof userOnboarding.$inferInsert;
+
+/**
+ * Tool requests table
+ * Community-submitted tool suggestions
+ */
+export const toolRequests = mysqlTable("toolRequests", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  toolName: varchar("toolName", { length: 255 }).notNull(),
+  toolUrl: text("toolUrl").notNull(),
+  category: varchar("category", { length: 100 }).notNull(),
+  description: text("description").notNull(),
+  pricing: text("pricing"),
+  useCase: text("useCase"),
+  whyValuable: text("whyValuable"),
+  status: mysqlEnum("status", ["pending", "approved", "rejected"]).default("pending").notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  reviewedAt: timestamp("reviewedAt"),
+  reviewedBy: int("reviewedBy"),
+});
+
+export type ToolRequest = typeof toolRequests.$inferSelect;
+export type InsertToolRequest = typeof toolRequests.$inferInsert;
+
+/**
+ * Prompt requests table
+ * Community-submitted prompt suggestions
+ */
+export const promptRequests = mysqlTable("promptRequests", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  promptTitle: varchar("promptTitle", { length: 255 }).notNull(),
+  promptText: text("promptText").notNull(),
+  category: varchar("category", { length: 100 }).notNull(),
+  description: text("description").notNull(),
+  useCase: text("useCase"),
+  model: varchar("model", { length: 100 }),
+  results: text("results"),
+  status: mysqlEnum("status", ["pending", "approved", "rejected"]).default("pending").notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  reviewedAt: timestamp("reviewedAt"),
+  reviewedBy: int("reviewedBy"),
+});
+
+export type PromptRequest = typeof promptRequests.$inferSelect;
+export type InsertPromptRequest = typeof promptRequests.$inferInsert;
