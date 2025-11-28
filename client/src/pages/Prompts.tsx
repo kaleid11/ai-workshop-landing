@@ -16,12 +16,18 @@ export default function Prompts() {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState<string>("");
   const [tool, setTool] = useState<string>("");
+  const [source, setSource] = useState<string>("");
+  const [model, setModel] = useState<string>("");
+  const [complexity, setComplexity] = useState<string>("");
   const [copiedId, setCopiedId] = useState<number | null>(null);
 
   const { data: prompts, isLoading } = trpc.academy.getPrompts.useQuery({
     search: search || undefined,
     category: category || undefined,
     tool: tool || undefined,
+    source: source || undefined,
+    model: model || undefined,
+    complexity: complexity || undefined,
   });
 
   const { data: userSubscription } = trpc.academy.getUserSubscription.useQuery(undefined, {
@@ -31,9 +37,12 @@ export default function Prompts() {
   const userTier = userSubscription?.tier?.slug || 'free';
   const hasPaidTier = userSubscription?.tier !== null && userSubscription?.tier !== undefined;
 
-  // Get unique categories and tools from prompts
+  // Get unique categories, tools, sources, models, and complexities from prompts
   const categories = Array.from(new Set(prompts?.map((p: any) => p.category).filter(Boolean)));
   const tools = Array.from(new Set(prompts?.map((p: any) => p.tool).filter(Boolean)));
+  const sources = Array.from(new Set(prompts?.map((p: any) => p.source).filter(Boolean)));
+  const models = Array.from(new Set(prompts?.map((p: any) => p.model).filter(Boolean)));
+  const complexities = Array.from(new Set(prompts?.map((p: any) => p.complexity).filter(Boolean)));
   
   // Anyone with a paid tier (Access Pass, Workshop, Starter, Lite, Pro, Enterprise) gets full access
   const hasAccess = (promptTier: string) => {
@@ -96,7 +105,7 @@ export default function Prompts() {
       {/* Filters */}
       <section className="py-8 px-4 bg-white border-b">
         <div className="container mx-auto max-w-6xl">
-          <div className="grid md:grid-cols-3 gap-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
             <div className="relative">
               <Search className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
               <Input
@@ -128,7 +137,76 @@ export default function Prompts() {
                 ))}
               </SelectContent>
             </Select>
+            <Select value={source || "all"} onValueChange={(val) => setSource(val === "all" ? "" : val)}>
+              <SelectTrigger>
+                <SelectValue placeholder="All Sources" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All Sources</SelectItem>
+                {sources.map((s: any) => (
+                  <SelectItem key={s} value={s}>{s}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            <Select value={model || "all"} onValueChange={(val) => setModel(val === "all" ? "" : val)}>
+              <SelectTrigger>
+                <SelectValue placeholder="All Models" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All Models</SelectItem>
+                {models.map((m: any) => (
+                  <SelectItem key={m} value={m}>{m}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            <Select value={complexity || "all"} onValueChange={(val) => setComplexity(val === "all" ? "" : val)}>
+              <SelectTrigger>
+                <SelectValue placeholder="All Levels" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All Levels</SelectItem>
+                {complexities.map((c: any) => (
+                  <SelectItem key={c} value={c}>
+                    {c.charAt(0).toUpperCase() + c.slice(1)}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
+          {(source || model || complexity) && (
+            <div className="mt-4 flex items-center gap-2">
+              <span className="text-sm text-gray-600">Active filters:</span>
+              {source && (
+                <Badge variant="secondary" className="cursor-pointer" onClick={() => setSource("")}>
+                  Source: {source} ✕
+                </Badge>
+              )}
+              {model && (
+                <Badge variant="secondary" className="cursor-pointer" onClick={() => setModel("")}>
+                  Model: {model} ✕
+                </Badge>
+              )}
+              {complexity && (
+                <Badge variant="secondary" className="cursor-pointer" onClick={() => setComplexity("")}>
+                  Level: {complexity} ✕
+                </Badge>
+              )}
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => {
+                  setSource("");
+                  setModel("");
+                  setComplexity("");
+                  setCategory("");
+                  setTool("");
+                  setSearch("");
+                }}
+              >
+                Clear all
+              </Button>
+            </div>
+          )}
         </div>
       </section>
 

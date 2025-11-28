@@ -176,7 +176,9 @@ export const prompts = mysqlTable("prompts", {
   tags: text("tags"), // JSON array
   status: mysqlEnum("status", ["approved", "pending", "archived"]).default("approved").notNull(),
   tierRequired: mysqlEnum("tierRequired", ["free", "starter", "lite", "pro", "elite"]).default("free").notNull(),
-  source: varchar("source", { length: 64 }), // internal, community, github
+  source: varchar("source", { length: 64 }), // internal, community, github, nano-banana-pro
+  model: varchar("model", { length: 64 }), // chatgpt, claude, gemini, midjourney, dalle
+  complexity: mysqlEnum("complexity", ["beginner", "intermediate", "advanced"]).default("intermediate"),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   createdBy: int("createdBy"), // userId, nullable
 });
@@ -431,3 +433,84 @@ export const promptRequests = mysqlTable("promptRequests", {
 
 export type PromptRequest = typeof promptRequests.$inferSelect;
 export type InsertPromptRequest = typeof promptRequests.$inferInsert;
+
+/**
+ * Business frameworks table
+ * Strategic frameworks and methodologies for business leaders
+ */
+export const businessFrameworks = mysqlTable("businessFrameworks", {
+  id: int("id").autoincrement().primaryKey(),
+  name: varchar("name", { length: 255 }).notNull(),
+  slug: varchar("slug", { length: 255 }).notNull().unique(),
+  description: text("description").notNull(),
+  category: varchar("category", { length: 100 }).notNull(), // Strategy, Operations, Innovation, etc.
+  content: text("content").notNull(), // Full markdown content
+  components: text("components"), // JSON array of framework components
+  prompts: text("prompts"), // JSON array of AI prompts for each component
+  examples: text("examples"), // JSON array of examples
+  expectedOutcome: text("expectedOutcome"),
+  timeToImplement: varchar("timeToImplement", { length: 100 }),
+  difficulty: mysqlEnum("difficulty", ["beginner", "intermediate", "advanced"]).default("intermediate").notNull(),
+  requiredTier: varchar("requiredTier", { length: 50 }).default("free").notNull(),
+  icon: varchar("icon", { length: 50 }),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type BusinessFramework = typeof businessFrameworks.$inferSelect;
+export type InsertBusinessFramework = typeof businessFrameworks.$inferInsert;
+
+/**
+ * Case studies table
+ * Real-world AI adoption success stories with metrics
+ */
+export const caseStudies = mysqlTable("caseStudies", {
+  id: int("id").autoincrement().primaryKey(),
+  title: varchar("title", { length: 255 }).notNull(),
+  slug: varchar("slug", { length: 255 }).notNull().unique(),
+  industry: varchar("industry", { length: 100 }).notNull(),
+  companySize: varchar("companySize", { length: 100 }),
+  challenge: text("challenge").notNull(),
+  solution: text("solution").notNull(),
+  results: text("results").notNull(),
+  metrics: text("metrics"), // JSON object with key metrics (ROI, time saved, etc.)
+  toolsUsed: text("toolsUsed"), // JSON array of tool names
+  implementationTime: varchar("implementationTime", { length: 100 }),
+  investment: varchar("investment", { length: 100 }),
+  roi: varchar("roi", { length: 100 }),
+  testimonial: text("testimonial"),
+  testimonialAuthor: varchar("testimonialAuthor", { length: 255 }),
+  requiredTier: varchar("requiredTier", { length: 50 }).default("free").notNull(),
+  featured: boolean("featured").default(false).notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type CaseStudy = typeof caseStudies.$inferSelect;
+export type InsertCaseStudy = typeof caseStudies.$inferInsert;
+
+/**
+ * Implementation guides table
+ * Step-by-step guides for specific AI use cases
+ */
+export const implementationGuides = mysqlTable("implementationGuides", {
+  id: int("id").autoincrement().primaryKey(),
+  title: varchar("title", { length: 255 }).notNull(),
+  slug: varchar("slug", { length: 255 }).notNull().unique(),
+  description: text("description").notNull(),
+  category: varchar("category", { length: 100 }).notNull(),
+  content: text("content").notNull(), // Full markdown content
+  steps: text("steps"), // JSON array of implementation steps
+  toolsRequired: text("toolsRequired"), // JSON array of required tools
+  estimatedTime: varchar("estimatedTime", { length: 100 }),
+  difficulty: mysqlEnum("difficulty", ["beginner", "intermediate", "advanced"]).default("intermediate").notNull(),
+  expectedResults: text("expectedResults"),
+  commonPitfalls: text("commonPitfalls"), // JSON array of common mistakes
+  requiredTier: varchar("requiredTier", { length: 50 }).default("starter").notNull(),
+  icon: varchar("icon", { length: 50 }),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type ImplementationGuide = typeof implementationGuides.$inferSelect;
+export type InsertImplementationGuide = typeof implementationGuides.$inferInsert;

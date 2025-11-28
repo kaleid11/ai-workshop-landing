@@ -434,6 +434,9 @@ export const appRouter = router({
           tool: z.string().optional(),
           search: z.string().optional(),
           tierRequired: z.string().optional(),
+          source: z.string().optional(),
+          model: z.string().optional(),
+          complexity: z.string().optional(),
         }).optional()
       )
       .query(async ({ input }) => {

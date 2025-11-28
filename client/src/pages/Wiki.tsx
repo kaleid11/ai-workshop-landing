@@ -2928,6 +2928,552 @@ Batch-create content monthly. Use tools like Canva (graphics), Descript (video),
 `,
     icon: "🔄",
   },
+  {
+    id: "business-model-canvas",
+    title: "Business Model Canvas Framework",
+    description: "Map your entire business model on one page using the 9 building blocks framework. Includes AI prompts for each component.",
+    category: "Business Strategy",
+    content: `# Business Model Canvas Framework
+
+## Overview
+
+The Business Model Canvas is a strategic management template for developing new business models or documenting existing ones. Created by Alexander Osterwalder, it visualizes the 9 key building blocks that form the foundation of every successful business.
+
+This framework is used by millions of entrepreneurs and enterprises worldwide to map out their business strategy on a single page.
+
+## The 9 Building Blocks
+
+### 1. Customer Segments (Who)
+Define the different groups of people or organizations your business aims to reach and serve.
+
+**Key Questions:**
+- Who are your most important customers?
+- What are their needs, behaviors, and characteristics?
+- How do you segment them?
+
+**AI Prompt:**
+\`\`\`
+You are a business strategist specializing in customer segmentation.
+
+Analyze my business and help me identify distinct customer segments.
+
+Business Description: [YOUR BUSINESS]
+Industry: [YOUR INDUSTRY]
+Current Customers: [DESCRIBE CURRENT CUSTOMERS]
+
+For each segment, provide:
+1. Segment name and size estimate
+2. Demographics and psychographics
+3. Key needs and pain points
+4. Buying behavior and decision criteria
+5. Willingness to pay
+
+Format as a table with clear distinctions between segments.
+\`\`\`
+
+### 2. Value Propositions (What)
+Describe the bundle of products and services that create value for your customer segments.
+
+**Key Questions:**
+- What value do you deliver to customers?
+- Which customer problems are you solving?
+- What makes you different from competitors?
+
+**AI Prompt:**
+\`\`\`
+You are a product strategist expert in value proposition design.
+
+Help me craft compelling value propositions for each customer segment.
+
+Customer Segment: [SEGMENT NAME]
+Their Main Problem: [PROBLEM]
+Our Solution: [YOUR SOLUTION]
+Competitors: [LIST COMPETITORS]
+
+Create:
+1. A clear value proposition statement (1-2 sentences)
+2. 3-5 key benefits that matter to this segment
+3. Quantifiable outcomes (time saved, money saved, revenue increased)
+4. Emotional benefits
+5. Differentiation from competitors
+
+Make it customer-focused, not product-focused.
+\`\`\`
+
+### 3. Channels (How to Reach)
+Explain how your company communicates with and reaches its customer segments to deliver value.
+
+**Key Questions:**
+- Through which channels do customers want to be reached?
+- How are you reaching them now?
+- Which channels work best and are most cost-efficient?
+
+**AI Prompt:**
+\`\`\`
+You are a marketing channel strategist.
+
+Recommend the best channels to reach my target customers.
+
+Customer Segment: [SEGMENT]
+Budget: [YOUR BUDGET]
+Current Channels: [LIST CURRENT CHANNELS]
+Goals: [ACQUISITION/RETENTION/BOTH]
+
+For each recommended channel, provide:
+1. Channel name and type (owned/paid/earned)
+2. Why it works for this segment
+3. Expected cost per acquisition
+4. Implementation complexity (1-5)
+5. Timeline to see results
+6. Key metrics to track
+
+Prioritize channels by ROI potential.
+\`\`\`
+
+### 4. Customer Relationships (How to Keep)
+Describe the types of relationships you establish with specific customer segments.
+
+**Key Questions:**
+- What type of relationship does each segment expect?
+- How costly are these relationships?
+- How do they integrate with your business model?
+
+### 5. Revenue Streams (Income)
+Represent the cash your company generates from each customer segment.
+
+**Key Questions:**
+- For what value are customers willing to pay?
+- What and how do they currently pay?
+- What is your pricing strategy?
+
+**AI Prompt:**
+\`\`\`
+You are a pricing strategist and revenue optimization expert.
+
+Design optimal revenue streams for my business model.
+
+Product/Service: [YOUR OFFERING]
+Target Customer: [SEGMENT]
+Competitor Pricing: [RANGE]
+Cost to Deliver: [AMOUNT]
+Target Margin: [X%]
+
+Recommend:
+1. Primary revenue model (subscription, one-time, usage-based, freemium, etc.)
+2. Pricing tiers with features and price points
+3. Upsell and cross-sell opportunities
+4. Volume discounts or enterprise pricing
+5. Payment terms and billing frequency
+6. First-year revenue projection
+
+Justify each pricing decision with market data or psychology.
+\`\`\`
+
+### 6. Key Resources (What You Need)
+Describe the most important assets required to make your business model work.
+
+**Key Questions:**
+- What key resources do your value propositions require?
+- What about distribution channels and customer relationships?
+- What resources do you need for revenue streams?
+
+### 7. Key Activities (What You Do)
+Describe the most important things your company must do to make the business model work.
+
+**Key Questions:**
+- What key activities do your value propositions require?
+- What about distribution channels and customer relationships?
+- What activities are needed for revenue streams?
+
+### 8. Key Partnerships (Who Helps)
+Describe the network of suppliers and partners that make the business model work.
+
+**Key Questions:**
+- Who are your key partners/suppliers?
+- What key resources do you acquire from partners?
+- What key activities do partners perform?
+
+### 9. Cost Structure (Expenses)
+Describe all costs incurred to operate your business model.
+
+**Key Questions:**
+- What are the most important costs in your business?
+- Which key resources and activities are most expensive?
+- Is your business cost-driven or value-driven?
+
+## How to Use This Framework
+
+1. **Start with Customer Segments** - Understand who you serve
+2. **Define Value Propositions** - Clarify what you offer
+3. **Map Channels & Relationships** - Plan how you reach and keep customers
+4. **Identify Revenue Streams** - Understand how you make money
+5. **List Key Resources & Activities** - Know what you need and do
+6. **Define Key Partnerships** - Identify who helps you succeed
+7. **Calculate Cost Structure** - Understand your expenses
+
+## Real-World Examples
+
+### SaaS Business
+- **Segments:** SMBs, Enterprise, Freelancers
+- **Value:** Automation that saves 10 hours/week
+- **Revenue:** Subscription ($49-$499/mo)
+- **Channels:** Content marketing, SEO, partnerships
+
+### E-commerce
+- **Segments:** Millennials, Gen Z, Gift buyers
+- **Value:** Unique handcrafted products
+- **Revenue:** Product sales + subscription box
+- **Channels:** Instagram, TikTok, influencer marketing
+
+### Consulting
+- **Segments:** Startups, Scale-ups
+- **Value:** Expert guidance to avoid costly mistakes
+- **Revenue:** Hourly, project-based, retainer
+- **Channels:** Referrals, LinkedIn, speaking engagements
+
+## AI Integration Tips
+
+Use AI to:
+- Generate customer personas for each segment
+- Brainstorm unique value propositions
+- Analyze competitor business models
+- Calculate financial projections
+- Create marketing channel strategies
+- Optimize pricing models
+
+## Expected Outcomes
+
+✅ Complete business model mapped on one page  
+✅ Clarity on all 9 components  
+✅ Validated assumptions  
+✅ Identified gaps and opportunities  
+✅ Actionable next steps for each building block
+
+**Time Investment:** 2-4 hours for initial canvas, ongoing refinement
+
+**Difficulty:** Beginner-friendly
+`,
+    icon: "🎯",
+  },
+  {
+    id: "ai-adoption-framework",
+    title: "AI Technology Adoption Framework (25 Steps)",
+    description: "A structured approach to understanding, evaluating, and implementing AI in your business. Based on Daniel Drescher's technology adoption methodology.",
+    category: "Business Strategy",
+    content: `# AI Technology Adoption Framework
+
+## Overview
+
+Adapted from Daniel Drescher's systematic approach to technology adoption, this framework breaks down AI implementation into 25 manageable steps. No technical jargon—just practical guidance for business leaders who need to make informed decisions about AI.
+
+**Perfect for:** Non-technical business leaders, entrepreneurs, and decision-makers
+
+## Phase 1: Understanding AI Fundamentals (Steps 1-5)
+
+### Step 1: What is AI?
+Understand AI as a tool that learns from data to make predictions or decisions.
+
+**Think of it like:** A very fast pattern-matching assistant that gets better with practice.
+
+### Step 2: Types of AI
+- **Generative AI**: Creates content (text, images, video) - *Example: ChatGPT, Midjourney*
+- **Predictive AI**: Forecasts outcomes - *Example: Sales forecasting, demand prediction*
+- **Analytical AI**: Finds patterns in data - *Example: Customer segmentation*
+- **Automation AI**: Performs repetitive tasks - *Example: Email responses, data entry*
+
+### Step 3: How AI Learns
+- **Supervised learning** - Learning from examples you provide
+- **Unsupervised learning** - Finding patterns on its own
+- **Reinforcement learning** - Learning through trial and error
+
+### Step 4: AI Capabilities vs. Limitations
+
+**✅ AI CAN:**
+- Recognize patterns in large datasets
+- Generate content based on examples
+- Automate repetitive tasks
+- Analyze data faster than humans
+- Make predictions based on historical data
+
+**❌ AI CANNOT:**
+- Truly reason or understand context like humans
+- Make ethical judgments
+- Be creative in the human sense
+- Replace strategic thinking
+- Work well without good data
+
+### Step 5: AI in Your Industry
+Research how competitors and industry leaders are using AI.
+
+**AI Prompt:**
+\`\`\`
+You are an AI industry analyst.
+
+Research and summarize how AI is being used in [YOUR INDUSTRY].
+
+Industry: [YOUR INDUSTRY]
+Company Size: [YOUR SIZE]
+
+Provide:
+1. Top 5 AI use cases in this industry
+2. Companies leading AI adoption
+3. Typical ROI and time savings
+4. Common implementation challenges
+5. Recommended starting points for my company size
+
+Format as an executive summary.
+\`\`\`
+
+## Phase 2: Assessing Your Readiness (Steps 6-10)
+
+### Step 6: Data Audit
+**Questions to ask:**
+- What data do you have?
+- Is it organized?
+- Is it accessible?
+- Is it accurate?
+
+**AI Prompt:**
+\`\`\`
+You are a data consultant.
+
+Help me audit my business data for AI readiness.
+
+Data we have:
+- [LIST YOUR DATA SOURCES]
+
+Data we don't have:
+- [LIST GAPS]
+
+Evaluate:
+1. Data quality score (1-10)
+2. Data accessibility score (1-10)
+3. Critical gaps for AI implementation
+4. Quick wins to improve data readiness
+5. 30-day action plan
+\`\`\`
+
+### Step 7: Process Mapping
+Identify processes that are:
+- ✅ Repetitive
+- ✅ Time-consuming
+- ✅ Error-prone
+- ✅ Rule-based
+
+These are prime candidates for AI automation.
+
+### Step 8: Team Skills Assessment
+**Questions:**
+- Who on your team understands AI?
+- Who is willing to learn?
+- Who is resistant to change?
+- What training is needed?
+
+### Step 9: Budget Reality Check
+**Good news:** You can start small!
+
+- **$100-500/month:** Basic AI tools (ChatGPT Plus, Gemini, basic automation)
+- **$500-2000/month:** Multiple tools + some custom integration
+- **$2000+/month:** Advanced tools + dedicated AI resources
+
+### Step 10: Risk Assessment
+**What could go wrong?**
+- Data privacy concerns
+- Job displacement fears
+- Quality issues
+- Vendor lock-in
+- Over-reliance on AI
+
+**Mitigation strategies for each risk**
+
+## Phase 3: Identifying Use Cases (Steps 11-15)
+
+### Step 11: Quick Wins
+Find tasks that are:
+- Repetitive ✅
+- Time-consuming ✅
+- Low-risk if AI makes mistakes ✅
+- High-impact if improved ✅
+
+**Examples:**
+- Meeting notes and summaries
+- Email drafting
+- Social media content
+- Data entry
+- Report generation
+
+### Step 12: Customer-Facing Opportunities
+- Chatbots for support
+- Personalized recommendations
+- Automated email responses
+- Content personalization
+
+### Step 13: Internal Operations
+- Meeting notes and summaries
+- Data analysis and reporting
+- Content creation
+- Research and competitive intelligence
+- HR screening and onboarding
+
+### Step 14: Strategic Applications
+- Market trend analysis
+- Product development insights
+- Pricing optimization
+- Workforce planning
+- Risk assessment
+
+### Step 15: Prioritization Matrix
+
+**AI Prompt:**
+\`\`\`
+You are an AI strategy consultant.
+
+Help me prioritize AI use cases for my business.
+
+Business: [YOUR BUSINESS]
+Team Size: [NUMBER]
+Budget: [MONTHLY AMOUNT]
+
+Potential use cases:
+1. [USE CASE 1]
+2. [USE CASE 2]
+3. [USE CASE 3]
+4. [USE CASE 4]
+5. [USE CASE 5]
+
+For each, score:
+- Impact (1-5)
+- Effort (1-5)
+- Risk (1-5)
+- Cost (1-5)
+
+Calculate priority score: (Impact × 2) - (Effort + Risk + Cost)
+
+Rank from highest to lowest priority.
+Highlight top 3 "Quick Wins" (high impact, low effort, low risk).
+\`\`\`
+
+## Phase 4: Pilot Implementation (Steps 16-20)
+
+### Step 16: Choose Your First Tool
+Based on your top use case, select ONE AI tool to start.
+
+**Don't try to do everything at once!**
+
+### Step 17: Set Success Metrics
+Define what success looks like:
+- ⏱️ Time saved (hours per week)
+- 💰 Cost reduced ($ per month)
+- 📈 Quality improved (error rate, customer satisfaction)
+- 💵 Revenue increased ($ per month)
+
+### Step 18: Train Your Team
+- 1-2 hour training session
+- Hands-on practice
+- Documentation and templates
+- Q&A and troubleshooting
+
+### Step 19: Run 30-Day Pilot
+**Week 1:** Setup and initial training  
+**Week 2-3:** Daily use and data collection  
+**Week 4:** Evaluation and decision
+
+**During pilot:**
+- Use the tool daily
+- Track metrics
+- Gather feedback
+- Document issues
+
+### Step 20: Evaluate Results
+**Questions to answer:**
+- Did we hit our success metrics?
+- What worked well?
+- What didn't work?
+- Should we continue, adjust, or stop?
+
+## Phase 5: Scaling & Optimization (Steps 21-25)
+
+### Step 21: Refine Your Process
+Based on pilot learnings, optimize workflows.
+
+### Step 22: Expand to More Users
+Roll out to additional team members with proper training.
+
+### Step 23: Add More Use Cases
+Implement your next 2-3 prioritized use cases.
+
+### Step 24: Integrate Systems
+Connect AI tools to your existing software (CRM, project management, etc.)
+
+### Step 25: Continuous Improvement
+- **Monthly:** Review AI usage and metrics
+- **Quarterly:** Evaluate new tools and opportunities
+- **Annually:** Refresh AI strategy
+
+## Decision Framework
+
+At each step, ask:
+
+1. **Does this align with business goals?**
+2. **Do we have the resources (time, money, skills)?**
+3. **What's the worst-case scenario?**
+4. **Can we reverse this decision if needed?**
+5. **What will we learn from this?**
+
+## Common Pitfalls to Avoid
+
+❌ **Trying to do everything at once** → Start with one use case  
+❌ **Choosing tools before defining problems** → Problem first, tool second  
+❌ **Underestimating training needs** → Budget time for learning  
+❌ **Ignoring data quality** → Garbage in, garbage out  
+❌ **No clear success metrics** → You can't improve what you don't measure  
+❌ **Expecting perfection immediately** → AI improves over time  
+❌ **Not involving the team** → Change management is critical
+
+## Real-World Examples
+
+### Professional Services Firm
+- **Use Case:** Automated meeting notes and client summaries
+- **Tool:** Gemini + NotebookLM
+- **Result:** 8 hours/week saved, 100% meeting documentation
+- **Timeline:** 2 weeks to full adoption
+
+### E-commerce Business
+- **Use Case:** Product description generation
+- **Tool:** ChatGPT + Shopify integration
+- **Result:** 90% faster product listings, improved SEO
+- **Timeline:** 4 weeks to full rollout
+
+### Real Estate Agency
+- **Use Case:** Property listing descriptions and social posts
+- **Tool:** Claude + Canva
+- **Result:** 5 hours/week saved, 40% more listings
+- **Timeline:** 3 weeks to team adoption
+
+## AI Integration Checklist
+
+- [ ] Understand AI basics (Phase 1)
+- [ ] Assess organizational readiness (Phase 2)
+- [ ] Identify and prioritize use cases (Phase 3)
+- [ ] Run pilot with clear metrics (Phase 4)
+- [ ] Scale successful implementations (Phase 5)
+- [ ] Establish continuous improvement process
+
+## Expected Outcomes
+
+✅ Structured roadmap for AI adoption  
+✅ Clear understanding of capabilities and limitations  
+✅ Validated use cases with ROI projections  
+✅ Successful pilot implementation  
+✅ Scaling plan with risk mitigation  
+✅ Team buy-in and training
+
+**Time Investment:** 6-12 weeks for full framework implementation
+
+**Difficulty:** Intermediate (requires commitment and change management)
+`,
+    icon: "🚀",
+  },
 ];
 
 export default function Wiki() {

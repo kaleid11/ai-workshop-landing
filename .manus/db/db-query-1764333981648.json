@@ -1,0 +1,13 @@
+{
+  "query": "SHOW TABLES LIKE 'businessFrameworks'",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute SHOW TABLES LIKE 'businessFrameworks'",
+  "rows": [
+    {
+      "Tables_in_e9RJaE3TPmF4zsnh5FSQoP (businessFrameworks)": "businessFrameworks"
+    }
+  ],
+  "messages": [],
+  "stdout": "Tables_in_e9RJaE3TPmF4zsnh5FSQoP (businessFrameworks)\nbusinessFrameworks\n",
+  "stderr": "",
+  "execution_time_ms": 1516
+}

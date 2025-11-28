@@ -42,12 +42,14 @@ import MyBookings from "./pages/MyBookings";
 import Recordings from "./pages/Recordings";
 import RequestTool from "./pages/RequestTool";
 import RequestPrompt from "./pages/RequestPrompt";
+import Frameworks from "./pages/Frameworks";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
     <Switch>
       <Route path={"/"} component={Home} />
+      <Route path={"/frameworks"} component={Frameworks} />
       <Route path={"/checkout"} component={TierCheckout} />
       <Route path={"/success"} component={Success} />
       <Route path={"/portal"} component={Portal} />

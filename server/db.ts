@@ -378,6 +378,9 @@ export async function getPrompts(filters?: {
   tool?: string;
   search?: string;
   tierRequired?: string;
+  source?: string;
+  model?: string;
+  complexity?: string;
 }) {
   const db = await getDb();
   if (!db) {
@@ -409,6 +412,18 @@ export async function getPrompts(filters?: {
 
   if (filters?.tierRequired) {
     filtered = filtered.filter(p => p.tierRequired === filters.tierRequired);
+  }
+
+  if (filters?.source) {
+    filtered = filtered.filter(p => p.source === filters.source);
+  }
+
+  if (filters?.model) {
+    filtered = filtered.filter(p => p.model === filters.model);
+  }
+
+  if (filters?.complexity) {
+    filtered = filtered.filter(p => p.complexity === filters.complexity);
   }
 
   return filtered;

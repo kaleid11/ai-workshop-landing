@@ -238,7 +238,7 @@
 - [ ] Create implementation guides for top 5 business use cases
 
 ### UI Components
-- [ ] Create Business Frameworks page (/frameworks)
+- [x] Create Business Frameworks page (/frameworks)
 - [ ] Create Case Studies page (/case-studies)
 - [ ] Create Research Library page (/research)
 - [ ] Create AI Glossary page (/glossary)
@@ -253,9 +253,9 @@
 
 ## Complete Nano Banana Pro Integration
 - [x] Add remaining 17 Nano Banana Pro prompts (composition rescue, texture rendering, photo editing, social media) - Total: 35 Nano Banana Pro prompts in database
-- [ ] Update Prompts page with source/model/complexity filters
+- [x] Update Prompts page with source/model/complexity filters
 - [ ] Add Nano Banana Pro badge/icon to prompts
-- [ ] Test filtering functionality for Nano Banana Pro prompts
+- [x] Test filtering functionality for Nano Banana Pro prompts
 
 ## Community Request F- [x] Create RequestPrompt page component with formest-tool)
 - [ ] Create RequestPrompt page component (/request-prompt)
@@ -271,3 +271,65 @@
 - [ ] Create new case study based on Anthropic research
 - [ ] Update frameworks with research-backed time savings
 - [ ] Add research citations to implementation guides
+
+## Content Architecture Assessment & Business Frameworks
+
+### Architecture Decision
+- [x] Assess wiki guides vs. separate pages architecture
+- [x] Decide if frameworks should be in wiki or separate /frameworks page (both - wiki for content, /frameworks for discovery)
+- [ ] Decide if case studies should be in wiki or separate /case-studies page
+- [ ] Document architecture decision and rationale
+
+### Business Model Canvas Integration
+- [x] Add Business Model Canvas framework to Wiki guides
+- [x] Create practical prompts for each BMC component (9 building blocks)
+- [ ] Add examples for different business types (SaaS, E-commerce, Services)
+- [ ] Test BMC framework display and usability
+
+### Daniel Drescher Frameworks
+- [x] Research Daniel Drescher's blockchain/technology frameworks
+- [x] Adapt frameworks for AI/business context (25-step AI adoption framework)
+- [x] Add Drescher frameworks to Wiki guides
+- [x] Create prompts for applying Drescher frameworks
+- [x] Test framework implementation
+
+### Business Leader Focus
+- [x] Review all frameworks for business leader accessibility
+- [ ] Add executive summaries to complex frameworks
+- [ ] Create "Quick Start" prompts for busy executives
+- [ ] Add ROI calculators to frameworks
+- [ ] Test frameworks with non-technical language
+
+### Prompt Filtering UI
+- [x] Add source filter dropdown (All, Nano Banana Pro, Tech Horizon, Community)
+- [x] Add model filter dropdown (All, ChatGPT, Claude, Gemini, Midjourney, DALL-E)
+- [x] Add complexity filter dropdown (All, Beginner, Intermediate, Advanced)
+- [x] Test filtering functionality
+- [x] Add filter reset button
+
+### Frameworks & Case Studies Pages
+- [x] Build /frameworks page with card layout
+- [ ] Build /case-studies page with metrics display
+- [x] Add navigation links from Portal (via View All Guides button)
+- [ ] Test responsive design
+- [ ] Add search functionality
+
+## Architecture Decision & Business Frameworks (COMPLETED)
+
+- [x] Assess wiki guides vs. separate pages architecture
+- [x] Decide to keep frameworks in wiki (working system, immediate value)
+- [x] Add Business Model Canvas framework to Wiki guides
+- [x] Add AI Technology Adoption Framework (Daniel Drescher methodology) to Wiki guides
+- [x] Include practical AI prompts for each framework component
+- [x] Make frameworks accessible to business leaders (no technical jargon)
+- [x] Add source, model, and complexity fields to prompts table schema
+- [x] Push database schema changes for new prompt fields
+- [x] Add source filter dropdown to Prompts page (All, Nano Banana Pro, Tech Horizon, Community)
+- [x] Add model filter dropdown to Prompts page (All, ChatGPT, Claude, Gemini, Midjourney, DALL-E)
+- [x] Add complexity filter dropdown to Prompts page (All, Beginner, Intermediate, Advanced)
+- [x] Add active filter badges with clear functionality
+- [x] Add "Clear all" button for filters
+- [x] Update getPrompts tRPC endpoint to support new filters
+- [x] Create /frameworks page with card layout
+- [x] Add frameworks navigation to App.tsx
+- [x] Test filtering functionality (verified working - filters 639 prompts to 19 Nano Banana Pro prompts)
