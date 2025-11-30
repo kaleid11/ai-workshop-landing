@@ -45,16 +45,16 @@ export default function Home() {
       <MobileNav />
       {/* Top Banner */}
       <div className="bg-brand-orange text-white relative z-10">
-        <div className="container flex items-center justify-between py-3 px-4">
-          <div className="flex items-center gap-2">
+        <div className="container flex items-center justify-between py-3 px-4 pr-16">
+          <div className="flex items-center gap-1 md:gap-2 flex-1 min-w-0">
             <Sparkles className="w-4 h-4 flex-shrink-0" />
             <span className="text-xs md:text-sm font-semibold line-clamp-1">
               🎓 Join Other Pioneers • Next Workshop: Nov 26 • Academy Platform Now Open
             </span>
-            <Sparkles className="w-4 h-4 flex-shrink-0" />
+            <Sparkles className="w-4 h-4 flex-shrink-0 hidden md:inline" />
           </div>
-          <Link href="/portal" className="flex-shrink-0 ml-2">
-            <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 hover:text-white text-xs md:text-sm px-3 md:px-4 py-1 h-auto">
+          <Link href="/portal" className="flex-shrink-0 ml-2 hidden md:block">
+            <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 hover:text-white text-sm px-4 py-1 h-auto">
               Member Login
             </Button>
           </Link>

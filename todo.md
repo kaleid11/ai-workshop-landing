@@ -355,3 +355,18 @@
 - [x] Remove confusing multi-phase structure
 - [x] Test user flow from landing to checkout
 - [x] Ensure messaging is clear and flows well
+
+
+## UI Fixes - Mobile Menu & Top Banner
+
+### Mobile Menu Issues
+- [x] Fix overlapping buttons at bottom of mobile menu (Join The Academy + Book Free Audit)
+- [x] Remove duplicate "Book Free 15-Min Audit" button from mobile menu footer (fixed with z-index)
+- [x] Ensure proper spacing between menu sections
+- [x] Test mobile menu on different screen sizes
+
+### Top Banner Issues
+- [x] Fix Member Login button and burger menu overlap in orange banner
+- [x] Ensure proper spacing and alignment in top banner
+- [x] Make burger menu icon position consistent across all pages
+- [x] Test banner responsiveness on mobile and desktop

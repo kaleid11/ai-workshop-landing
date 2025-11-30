@@ -29,7 +29,7 @@ export default function MobileNav() {
         variant="ghost"
         size="icon"
         onClick={toggleMenu}
-        className="fixed top-4 right-4 z-50 bg-background/80 backdrop-blur-sm border border-border"
+        className="fixed top-4 right-4 z-[60] bg-background/80 backdrop-blur-sm border border-border shadow-lg"
         aria-label="Toggle menu"
       >
         {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -38,14 +38,14 @@ export default function MobileNav() {
       {/* Overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-40 backdrop-blur-sm"
+          className="fixed inset-0 bg-black/50 z-[55] backdrop-blur-sm"
           onClick={closeMenu}
         />
       )}
 
       {/* Slide-out Menu */}
       <div
-        className={`fixed top-0 right-0 h-full w-80 bg-background border-l border-border shadow-2xl z-40 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 right-0 h-full w-80 max-w-[90vw] bg-background border-l border-border shadow-2xl z-[55] transform transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
