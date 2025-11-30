@@ -333,3 +333,25 @@
 - [x] Create /frameworks page with card layout
 - [x] Add frameworks navigation to App.tsx
 - [x] Test filtering functionality (verified working - filters 639 prompts to 19 Nano Banana Pro prompts)
+
+
+## Navigation & Workshop Landing Page Improvements
+
+### Burger Menu Navigation
+- [x] Create MobileNav component with burger menu icon
+- [x] Add navigation links (Home, Portal, Tools, Prompts, Wiki, Frameworks, Workshops, Pricing)
+- [x] Implement slide-out menu with smooth animation
+- [x] Add to all pages for consistent navigation
+- [x] Test mobile and desktop responsiveness
+- [x] Ensure menu closes on route change
+
+### Workshop Landing Page Redesign
+- [x] Remove "Phase 1" language - clarify this is standalone weekly drop-in workshop
+- [x] Update hero section with clear value proposition
+- [x] Simplify CTA flow: "Join This Workshop" and "Join Academy" buttons
+- [x] Add workshop calendar integration callout
+- [x] Clarify weekly drop-in format for members
+- [x] Add simple pricing comparison (Workshop vs Academy tiers)
+- [x] Remove confusing multi-phase structure
+- [x] Test user flow from landing to checkout
+- [x] Ensure messaging is clear and flows well

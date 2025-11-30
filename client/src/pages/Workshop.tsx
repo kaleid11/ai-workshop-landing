@@ -2,15 +2,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { 
-  Check, Video, FileText, BookOpen, Calendar, Sparkles, 
-  Users, Clock, Zap, Star, ArrowRight, Shield, Target, MessageCircle, ChevronDown, Loader2
+  Check, Video, Calendar, Sparkles, 
+  Users, Clock, Zap, Star, ArrowRight, Target, MessageCircle, Loader2, BookOpen
 } from "lucide-react";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { getLoginUrl, BOOKING_URL } from "@/const";
@@ -20,6 +14,7 @@ import { motion } from "framer-motion";
 import { WorkshopCountdown } from "@/components/WorkshopCountdown";
 import { SEO, workshopStructuredData } from "@/components/SEO";
 import { Header } from "@/components/Header";
+import MobileNav from "@/components/MobileNav";
 
 export default function Workshop() {
   const { user, isAuthenticated } = useAuth();
@@ -74,15 +69,16 @@ export default function Workshop() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
+      <MobileNav />
       <Header />
       <SEO 
         title={nextWorkshop ? `${nextWorkshop.title} - Tech Horizon Academy` : "AI Workshops - Tech Horizon Academy"}
-        description={nextWorkshop?.description || "Join our live AI workshops and learn to automate your business with cutting-edge tools and strategies."}
+        description={nextWorkshop?.description || "Join our weekly drop-in AI workshops. Get live support, troubleshoot bottlenecks, and accelerate your AI implementation."}
         keywords="AI workshop, automation training, Gemini API, Manus automation, content studio, AI coding, tech training"
         structuredData={workshopStructuredData}
       />
       
-      {/* Hero Section - Dynamic Workshop Countdown */}
+      {/* Hero Section - Clear Value Proposition */}
       <section id="workshop-top" className="relative overflow-hidden bg-gradient-to-br from-orange-500 via-purple-600 to-blue-600 text-white">
         {/* Animated gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/30 via-transparent to-orange-500/30 animate-pulse" style={{animationDuration: '8s'}} />
@@ -95,10 +91,10 @@ export default function Workshop() {
             <div className="space-y-6 sm:space-y-8">
               <div className="flex items-center gap-3">
                 <Badge className="bg-white/20 text-white border-white/30 hover:bg-white/30 text-xs sm:text-sm">
-                  PHASE 2: ADVANCED SESSIONS
+                  WEEKLY DROP-IN SESSIONS
                 </Badge>
                 <Badge className="bg-orange-400/30 text-white border-orange-300/30 hover:bg-orange-400/40 text-xs sm:text-sm">
-                  LIVE WORKSHOP
+                  LIVE SUPPORT
                 </Badge>
               </div>
               
@@ -127,73 +123,88 @@ export default function Workshop() {
                     </div>
                     <div className="flex items-center gap-2">
                       <Users className="h-4 w-4" />
-                      {nextWorkshop.sessionType === "pro" ? "Pro Members Only" : "Lite+ Members"}
+                      {nextWorkshop.sessionType === "pro" ? "Pro Members" : "Lite+ Members"}
                     </div>
                   </div>
                 </>
               ) : (
                 <div className="space-y-4">
                   <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                    Phase 2: Advanced AI Workshops
+                    Weekly AI Implementation Workshops
                   </h1>
                   <p className="text-lg sm:text-xl text-white/95">
-                    New workshops coming soon! Check back for upcoming sessions on Gemini API, Manus automation, and advanced AI strategies.
+                    Join our weekly drop-in sessions for live support, troubleshooting, and guidance on implementing AI in your business.
                   </p>
                 </div>
               )}
               
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <Button 
-                  size="lg" 
-                  className="bg-white text-purple-600 hover:bg-white/90 w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6"
-                  onClick={() => window.location.href = isAuthenticated ? "/workshops" : getLoginUrl("/workshops")}
-                >
-                  {nextWorkshop ? "Book Your Spot" : "View All Workshops"}
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline"
-                  className="bg-white/10 text-white border-white/30 hover:bg-white/20 w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6"
-                  onClick={() => window.location.href = "/pricing"}
-                >
-                  View Membership Plans
-                </Button>
+              {/* Simple CTA Flow */}
+              <div className="space-y-4">
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                  <Button 
+                    size="lg" 
+                    className="bg-white text-purple-600 hover:bg-white/90 w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6"
+                    onClick={() => window.location.href = isAuthenticated ? "/workshops" : getLoginUrl("/workshops")}
+                  >
+                    {nextWorkshop ? "Book This Workshop" : "View Workshop Calendar"}
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                  <Button 
+                    size="lg" 
+                    variant="outline"
+                    className="bg-white/10 text-white border-white/30 hover:bg-white/20 w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6"
+                    onClick={() => window.location.href = "/pricing"}
+                  >
+                    Join The Academy
+                  </Button>
+                </div>
+                <p className="text-sm text-white/80 text-center sm:text-left">
+                  💡 Academy members get unlimited access to all workshops
+                </p>
               </div>
             </div>
 
-            {/* Right Column - Stats/Benefits */}
+            {/* Right Column - Workshop Benefits */}
             <div className="space-y-4">
               <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white">
                 <CardHeader>
-                  <CardTitle className="text-white">What You'll Learn</CardTitle>
+                  <CardTitle className="text-white">What You Get</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3">
                   <div className="flex items-start gap-3">
                     <div className="bg-orange-400/20 p-2 rounded-lg">
-                      <Sparkles className="h-5 w-5" />
+                      <MessageCircle className="h-5 w-5" />
                     </div>
                     <div>
-                      <p className="font-medium">Hands-On Coding</p>
-                      <p className="text-sm text-white/80">Build real automation workflows together</p>
+                      <p className="font-medium">Live Q&A Support</p>
+                      <p className="text-sm text-white/80">Get your questions answered in real-time</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <div className="bg-purple-400/20 p-2 rounded-lg">
-                      <Zap className="h-5 w-5" />
+                      <Target className="h-5 w-5" />
                     </div>
                     <div>
-                      <p className="font-medium">AI Integration</p>
-                      <p className="text-sm text-white/80">Master Gemini API and Manus tools</p>
+                      <p className="font-medium">Troubleshoot Bottlenecks</p>
+                      <p className="text-sm text-white/80">Work through implementation challenges together</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <div className="bg-blue-400/20 p-2 rounded-lg">
-                      <Target className="h-5 w-5" />
+                      <Sparkles className="h-5 w-5" />
                     </div>
                     <div>
-                      <p className="font-medium">Production Ready</p>
-                      <p className="text-sm text-white/80">Deploy your content studio by end of session</p>
+                      <p className="font-medium">Hands-On Guidance</p>
+                      <p className="text-sm text-white/80">Build and deploy real AI solutions</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="bg-green-400/20 p-2 rounded-lg">
+                      <Video className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <p className="font-medium">Recording Access</p>
+                      <p className="text-sm text-white/80">Can't make it live? Watch the replay</p>
                     </div>
                   </div>
                 </CardContent>
@@ -201,14 +212,19 @@ export default function Workshop() {
 
               <Card className="bg-gradient-to-br from-orange-400/20 to-purple-400/20 backdrop-blur-sm border-white/20 text-white">
                 <CardContent className="pt-6">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-sm text-white/80">Included with</p>
-                      <p className="text-2xl font-bold">Lite+ Membership</p>
+                  <div className="text-center">
+                    <p className="text-sm text-white/80 mb-2">Included with Academy Membership</p>
+                    <div className="flex items-center justify-center gap-4">
+                      <div>
+                        <p className="text-lg font-semibold">Lite</p>
+                        <p className="text-2xl font-bold">$300/mo</p>
+                      </div>
+                      <div className="h-12 w-px bg-white/30" />
+                      <div>
+                        <p className="text-lg font-semibold">Pro</p>
+                        <p className="text-2xl font-bold">$500/mo</p>
+                      </div>
                     </div>
-                    <Badge className="bg-white text-purple-600 text-lg px-4 py-2">
-                      $300/mo
-                    </Badge>
                   </div>
                 </CardContent>
               </Card>
@@ -217,149 +233,281 @@ export default function Workshop() {
         </div>
       </section>
 
-      {/* Phase 2 Progression Section */}
+      {/* How It Works Section */}
       <section className="container py-16">
         <div className="text-center mb-12">
-          <Badge className="mb-4">YOUR LEARNING JOURNEY</Badge>
+          <Badge className="mb-4">HOW IT WORKS</Badge>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            From Fundamentals to Mastery
+            Weekly Drop-In Format
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Phase 1 taught you the foundations. Phase 2 takes you to the next level with advanced automation and AI integration.
+            No rigid curriculum. No prerequisites. Just show up, ask questions, and get the support you need.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          <Card className="border-2">
+        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <Card>
             <CardHeader>
-              <div className="flex items-center justify-between mb-2">
-                <Badge variant="outline">PHASE 1</Badge>
-                <Check className="h-5 w-5 text-green-500" />
+              <div className="bg-gradient-to-br from-orange-500 to-pink-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                <Calendar className="h-6 w-6 text-white" />
               </div>
-              <CardTitle>Foundation Skills</CardTitle>
-              <CardDescription>You've learned the basics</CardDescription>
+              <CardTitle>1. Check the Calendar</CardTitle>
             </CardHeader>
             <CardContent>
-              <ul className="space-y-2">
-                <li className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-green-500" />
-                  <span className="text-sm">AI tool selection and evaluation</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-green-500" />
-                  <span className="text-sm">Prompt engineering fundamentals</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-green-500" />
-                  <span className="text-sm">Content creation workflows</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-green-500" />
-                  <span className="text-sm">Social media automation basics</span>
-                </li>
-              </ul>
+              <p className="text-muted-foreground">
+                Browse upcoming workshop sessions in your member portal. Each week covers different topics based on member needs.
+              </p>
             </CardContent>
           </Card>
 
-          <Card className="border-2 border-orange-500 bg-gradient-to-br from-orange-50 to-purple-50 dark:from-orange-950/20 dark:to-purple-950/20">
+          <Card>
             <CardHeader>
-              <div className="flex items-center justify-between mb-2">
-                <Badge className="bg-orange-500">PHASE 2</Badge>
-                <Sparkles className="h-5 w-5 text-orange-500" />
+              <div className="bg-gradient-to-br from-purple-500 to-blue-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                <Users className="h-6 w-6 text-white" />
               </div>
-              <CardTitle>Advanced Mastery</CardTitle>
-              <CardDescription>Build production systems</CardDescription>
+              <CardTitle>2. Join Live</CardTitle>
             </CardHeader>
             <CardContent>
-              <ul className="space-y-2">
-                <li className="flex items-center gap-2">
-                  <ArrowRight className="h-4 w-4 text-orange-500" />
-                  <span className="text-sm font-medium">Custom API integrations</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <ArrowRight className="h-4 w-4 text-orange-500" />
-                  <span className="text-sm font-medium">Automated content studios</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <ArrowRight className="h-4 w-4 text-orange-500" />
-                  <span className="text-sm font-medium">Multi-platform deployment</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <ArrowRight className="h-4 w-4 text-orange-500" />
-                  <span className="text-sm font-medium">Scalable automation workflows</span>
-                </li>
-              </ul>
+              <p className="text-muted-foreground">
+                Drop in to any session that fits your schedule. Bring your questions, challenges, or just listen and learn.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <div className="bg-gradient-to-br from-blue-500 to-teal-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                <Zap className="h-6 w-6 text-white" />
+              </div>
+              <CardTitle>3. Implement & Repeat</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground">
+                Apply what you learn, then come back next week for follow-up support. Continuous progress, not one-time training.
+              </p>
             </CardContent>
           </Card>
         </div>
       </section>
 
-      {/* Past Workshop Recordings Section */}
-      {nextWorkshop?.recordingUrl && nextWorkshop.status === 'completed' && (
-        <section className="container py-16">
+      {/* Who This Is For Section */}
+      <section className="container py-16 bg-muted/30">
+        <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <Badge className="mb-4">WORKSHOP RECORDING</Badge>
+            <Badge className="mb-4">WHO THIS IS FOR</Badge>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Watch the Full Session
+              Perfect For Business Leaders Who...
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Couldn't make it live? Watch the recording and follow along at your own pace.
-            </p>
           </div>
 
-          <div className="max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-6">
             <Card>
-              <CardContent className="p-6">
-                <div className="aspect-video bg-black rounded-lg overflow-hidden mb-4">
-                  <iframe 
-                    src={nextWorkshop.recordingUrl}
-                    width="100%" 
-                    height="100%" 
-                    allow="autoplay"
-                    className="w-full h-full"
-                  />
-                </div>
-                <div className="flex items-center justify-between">
+              <CardContent className="pt-6">
+                <div className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-green-500 mt-1" />
                   <div>
-                    <h3 className="font-semibold text-lg">{nextWorkshop.title}</h3>
-                    <p className="text-sm text-muted-foreground">
-                      {formatWorkshopDate(nextWorkshop.scheduledAt)}
-                    </p>
+                    <p className="font-medium mb-1">Want to implement AI but don't know where to start</p>
+                    <p className="text-sm text-muted-foreground">Get clarity on the right tools and strategies for your business</p>
                   </div>
-                  <Badge variant="outline">Lite+ Members</Badge>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="pt-6">
+                <div className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-green-500 mt-1" />
+                  <div>
+                    <p className="font-medium mb-1">Are stuck on a specific implementation challenge</p>
+                    <p className="text-sm text-muted-foreground">Troubleshoot bottlenecks with expert guidance</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="pt-6">
+                <div className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-green-500 mt-1" />
+                  <div>
+                    <p className="font-medium mb-1">Need accountability and ongoing support</p>
+                    <p className="text-sm text-muted-foreground">Weekly check-ins keep you on track and progressing</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="pt-6">
+                <div className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-green-500 mt-1" />
+                  <div>
+                    <p className="font-medium mb-1">Want to learn from other business owners</p>
+                    <p className="text-sm text-muted-foreground">Share insights and solutions with peers facing similar challenges</p>
+                  </div>
                 </div>
               </CardContent>
             </Card>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
-      {/* CTA Section */}
+      {/* Simple Pricing Comparison */}
       <section className="container py-16">
-        <Card className="bg-gradient-to-br from-orange-500 to-purple-600 text-white border-0">
-          <CardContent className="py-12 text-center">
+        <div className="text-center mb-12">
+          <Badge className="mb-4">SIMPLE PRICING</Badge>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Choose Your Path
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Join the academy for unlimited workshop access, or book individual sessions as needed.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          {/* Single Workshop */}
+          <Card className="border-2">
+            <CardHeader>
+              <CardTitle>Single Workshop</CardTitle>
+              <CardDescription>One-time access</CardDescription>
+              <div className="mt-4">
+                <span className="text-4xl font-bold">$97</span>
+                <span className="text-muted-foreground">/session</span>
+              </div>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <ul className="space-y-2">
+                <li className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-green-500" />
+                  <span className="text-sm">Access to one workshop</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-green-500" />
+                  <span className="text-sm">Recording access</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-green-500" />
+                  <span className="text-sm">Live Q&A support</span>
+                </li>
+              </ul>
+              <Button 
+                className="w-full"
+                variant="outline"
+                onClick={() => window.location.href = isAuthenticated ? "/workshops" : getLoginUrl("/workshops")}
+              >
+                Book Workshop
+              </Button>
+            </CardContent>
+          </Card>
+
+          {/* Lite Membership */}
+          <Card className="border-2 border-orange-500 relative">
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+              <Badge className="bg-orange-500">BEST VALUE</Badge>
+            </div>
+            <CardHeader>
+              <CardTitle>Lite Membership</CardTitle>
+              <CardDescription>Unlimited workshops</CardDescription>
+              <div className="mt-4">
+                <span className="text-4xl font-bold">$300</span>
+                <span className="text-muted-foreground">/month</span>
+              </div>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <ul className="space-y-2">
+                <li className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-green-500" />
+                  <span className="text-sm">All workshops included</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-green-500" />
+                  <span className="text-sm">1,620+ tools database</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-green-500" />
+                  <span className="text-sm">118+ prompts library</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-green-500" />
+                  <span className="text-sm">Knowledge base access</span>
+                </li>
+              </ul>
+              <Button 
+                className="w-full bg-gradient-to-r from-orange-500 to-pink-600 hover:from-orange-600 hover:to-pink-700"
+                onClick={() => window.location.href = "/pricing"}
+              >
+                Join Lite
+              </Button>
+            </CardContent>
+          </Card>
+
+          {/* Pro Membership */}
+          <Card className="border-2">
+            <CardHeader>
+              <CardTitle>Pro Membership</CardTitle>
+              <CardDescription>Everything + priority support</CardDescription>
+              <div className="mt-4">
+                <span className="text-4xl font-bold">$500</span>
+                <span className="text-muted-foreground">/month</span>
+              </div>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <ul className="space-y-2">
+                <li className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-green-500" />
+                  <span className="text-sm">Everything in Lite</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-green-500" />
+                  <span className="text-sm">Priority support</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-green-500" />
+                  <span className="text-sm">Exclusive Pro sessions</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-green-500" />
+                  <span className="text-sm">1-on-1 consulting</span>
+                </li>
+              </ul>
+              <Button 
+                className="w-full"
+                variant="outline"
+                onClick={() => window.location.href = "/pricing"}
+              >
+                Join Pro
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="container py-16">
+        <Card className="bg-gradient-to-br from-orange-500 via-purple-600 to-blue-600 text-white border-0">
+          <CardContent className="pt-12 pb-12 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to Level Up?
+              Ready to Get Started?
             </h2>
             <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
-              Join Lite+ membership to access all Phase 2 workshops, recordings, and advanced resources.
+              Join the next workshop or become an academy member for unlimited access to all sessions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg"
                 className="bg-white text-purple-600 hover:bg-white/90"
-                onClick={() => window.location.href = "/pricing"}
+                onClick={() => window.location.href = isAuthenticated ? "/workshops" : getLoginUrl("/workshops")}
               >
-                View Membership Plans
+                View Workshop Calendar
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button 
                 size="lg"
                 variant="outline"
                 className="bg-white/10 text-white border-white/30 hover:bg-white/20"
-                onClick={() => window.location.href = "/workshops"}
+                onClick={() => window.location.href = "/pricing"}
               >
-                Browse All Workshops
+                Explore Membership Plans
               </Button>
             </div>
           </CardContent>

@@ -35,12 +35,14 @@ import {
 } from "lucide-react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
+import MobileNav from "@/components/MobileNav";
 
 const BOOKING_URL = "https://app.klipy.ai/book/pre-discovery/free-pre-discovery";
 
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
+      <MobileNav />
       {/* Top Banner */}
       <div className="bg-brand-orange text-white relative z-10">
         <div className="container flex items-center justify-between py-3 px-4">
