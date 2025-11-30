@@ -370,3 +370,17 @@
 - [x] Ensure proper spacing and alignment in top banner
 - [x] Make burger menu icon position consistent across all pages
 - [x] Test banner responsiveness on mobile and desktop
+
+
+## Navigation & Error Fixes
+
+### Add Free Resources to Navigation
+- [x] Add Free Resources link to burger menu (MobileNav.tsx)
+- [x] Verify Free Resources page route exists in App.tsx
+- [x] Test navigation to Free Resources page
+
+### Fix Errors
+- [ ] Investigate error appearing on site
+- [ ] Check browser console for error details
+- [ ] Fix identified errors
+- [ ] Test all pages for errors

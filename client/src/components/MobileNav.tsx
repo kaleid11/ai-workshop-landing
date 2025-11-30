@@ -12,6 +12,7 @@ const navLinks = [
   { href: "/wiki", label: "Knowledge Base" },
   { href: "/frameworks", label: "Frameworks" },
   { href: "/workshops", label: "Workshops" },
+  { href: "/free-resources", label: "Free Resources" },
   { href: "/pricing", label: "Pricing" },
 ];
 
