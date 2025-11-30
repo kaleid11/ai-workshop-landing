@@ -408,3 +408,32 @@
 - [x] Highlight local SEQ business focus
 - [x] Ensure pricing addresses "Safe Bet" (<$1k) psychology
 - [ ] Apply "Tech Noir meets Sunshine Coast" visual strategy where appropriate
+
+
+## Deployment & Performance Issues
+
+### Deployment Investigation
+- [ ] Check if latest checkpoint was successfully published
+- [ ] Verify build completed without errors
+- [ ] Check if cache needs to be cleared on production
+- [ ] Confirm DNS/CDN is pointing to latest deployment
+
+### Speed Optimizations
+- [x] Implement lazy loading for images (fetchPriority for hero)
+- [x] Add code splitting for routes (React.lazy for all pages except Home/NotFound)
+- [ ] Optimize image sizes and formats (WebP)
+- [x] Minify CSS and JavaScript (esbuild minification)
+- [ ] Enable compression (gzip/brotli)
+- [x] Remove unused dependencies (manual chunks for vendor splitting)
+- [ ] Implement font optimization
+- [x] Add resource hints (preconnect, prefetch, dns-prefetch)
+
+### Bounce Rate Fixes
+- [x] Improve above-the-fold content loading speed (fetchPriority for hero logo)
+- [x] Optimize hero section for faster paint (eager load Home page, lazy load all others)
+- [x] Add clear CTAs above the fold (Join The Academy + Book Free Audit buttons)
+- [x] Reduce initial bundle size (code splitting + manual chunks)
+- [x] Implement skeleton loaders for better perceived performance (PageLoader component with spinner)
+- [ ] Fix any layout shifts (CLS issues)
+- [ ] Ensure mobile responsiveness
+- [ ] Add engaging content in first 3 seconds

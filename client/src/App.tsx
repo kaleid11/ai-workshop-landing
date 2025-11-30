@@ -1,48 +1,60 @@
+import { lazy, Suspense } from "react";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { GoogleAnalytics } from "./components/GoogleAnalytics";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import StickyBookingButton from "./components/StickyBookingButton";
 import WhatsAppButton from "./components/WhatsAppButton";
+import { Loader2 } from "lucide-react";
+
+// Eager load critical pages
 import Home from "./pages/Home";
-import Checkout from "./pages/Checkout";
-import Success from "./pages/Success";
-import Portal from "./pages/Portal";
-import AdminBind from "./pages/AdminBind";
-import Admin from "./pages/Admin";
-import Pricing from "./pages/Pricing";
-import Tools from "./pages/Tools";
-import Prompts from "./pages/Prompts";
-import Resources from "./pages/Resources";
-import VibeMarketing from "./pages/pillars/VibeMarketing";
-import VibeCoding from "./pages/pillars/VibeCoding";
-import VibeAlignment from "./pages/pillars/VibeAlignment";
-import Calendar from "./pages/Calendar";
-import Enterprise from "./pages/Enterprise";
-import CaseStudies from "./pages/CaseStudies";
-import Quiz from "./pages/Quiz";
-import About from "./pages/About";
-import Scorecard from "./pages/Scorecard";
-import AdminAssessments from "./pages/AdminAssessments";
-import AdminWorkshopAccess from "./pages/AdminWorkshopAccess";
-import AdminSubmissions from "./pages/AdminSubmissions";
-import Workshop from "./pages/Workshop";
-import Upsell from "./pages/Upsell";
-import CheckoutPage from "./pages/CheckoutPage";
-import AcademyTools from "./pages/AcademyTools";
-import Wiki from "./pages/Wiki";
-import Workshops from "./pages/Workshops";
-import AdminWorkshops from "./pages/AdminWorkshops";
-import ToolsDatabase from "./pages/ToolsDatabase";
-import TierCheckout from "./pages/TierCheckout";
-import MyBookings from "./pages/MyBookings";
-import Recordings from "./pages/Recordings";
-import RequestTool from "./pages/RequestTool";
-import RequestPrompt from "./pages/RequestPrompt";
-import Frameworks from "./pages/Frameworks";
+import NotFound from "./pages/NotFound";
+
+// Lazy load all other pages
+const Success = lazy(() => import("./pages/Success"));
+const Portal = lazy(() => import("./pages/Portal"));
+const AdminBind = lazy(() => import("./pages/AdminBind"));
+const Admin = lazy(() => import("./pages/Admin"));
+const Pricing = lazy(() => import("./pages/Pricing"));
+const Tools = lazy(() => import("./pages/Tools"));
+const Prompts = lazy(() => import("./pages/Prompts"));
+const Resources = lazy(() => import("./pages/Resources"));
+const VibeMarketing = lazy(() => import("./pages/pillars/VibeMarketing"));
+const VibeCoding = lazy(() => import("./pages/pillars/VibeCoding"));
+const VibeAlignment = lazy(() => import("./pages/pillars/VibeAlignment"));
+const Calendar = lazy(() => import("./pages/Calendar"));
+const Enterprise = lazy(() => import("./pages/Enterprise"));
+const CaseStudies = lazy(() => import("./pages/CaseStudies"));
+const Quiz = lazy(() => import("./pages/Quiz"));
+const About = lazy(() => import("./pages/About"));
+const Scorecard = lazy(() => import("./pages/Scorecard"));
+const AdminAssessments = lazy(() => import("./pages/AdminAssessments"));
+const AdminWorkshopAccess = lazy(() => import("./pages/AdminWorkshopAccess"));
+const AdminSubmissions = lazy(() => import("./pages/AdminSubmissions"));
+const Workshop = lazy(() => import("./pages/Workshop"));
+const Upsell = lazy(() => import("./pages/Upsell"));
+const CheckoutPage = lazy(() => import("./pages/CheckoutPage"));
+const AcademyTools = lazy(() => import("./pages/AcademyTools"));
+const Wiki = lazy(() => import("./pages/Wiki"));
+const Workshops = lazy(() => import("./pages/Workshops"));
+const AdminWorkshops = lazy(() => import("./pages/AdminWorkshops"));
+const ToolsDatabase = lazy(() => import("./pages/ToolsDatabase"));
+const TierCheckout = lazy(() => import("./pages/TierCheckout"));
+const MyBookings = lazy(() => import("./pages/MyBookings"));
+const Recordings = lazy(() => import("./pages/Recordings"));
+const RequestTool = lazy(() => import("./pages/RequestTool"));
+const RequestPrompt = lazy(() => import("./pages/RequestPrompt"));
+const Frameworks = lazy(() => import("./pages/Frameworks"));
+
+// Loading component
+const PageLoader = () => (
+  <div className="min-h-screen flex items-center justify-center">
+    <Loader2 className="w-8 h-8 animate-spin text-orange-500" />
+  </div>
+);
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -106,7 +118,9 @@ function App() {
       >
         <TooltipProvider>
           <Toaster />
-          <Router />
+          <Suspense fallback={<PageLoader />}>
+            <Router />
+          </Suspense>
           <StickyBookingButton />
           <WhatsAppButton />
         </TooltipProvider>

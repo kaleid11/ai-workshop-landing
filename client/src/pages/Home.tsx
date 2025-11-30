@@ -75,7 +75,7 @@ export default function Home() {
             {/* Logo with Glow Effect */}
             <div className="relative">
               <div className="absolute inset-0 bg-brand-orange/50 rounded-full blur-2xl animate-pulse"></div>
-              <img src={APP_LOGO} alt="Tech Horizon Academy" className="relative w-20 h-20 md:w-28 md:h-28 drop-shadow-2xl" />
+              <img src={APP_LOGO} alt="Tech Horizon Academy" className="relative w-20 h-20 md:w-28 md:h-28 drop-shadow-2xl" fetchPriority="high" />
             </div>
             
             {/* Academy Platform Value Proposition */}
