@@ -66,17 +66,16 @@ export default function MobileNav() {
                 const isActive = location === link.href;
                 return (
                   <li key={link.href}>
-                    <Link href={link.href}>
-                      <a
-                        onClick={closeMenu}
-                        className={`block px-4 py-3 rounded-lg transition-colors ${
-                          isActive
-                            ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white"
-                            : "hover:bg-accent text-foreground"
-                        }`}
-                      >
-                        {link.label}
-                      </a>
+                    <Link
+                      href={link.href}
+                      onClick={closeMenu}
+                      className={`block px-4 py-3 rounded-lg transition-colors ${
+                        isActive
+                          ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white"
+                          : "hover:bg-accent text-foreground"
+                      }`}
+                    >
+                      {link.label}
                     </Link>
                   </li>
                 );
@@ -86,14 +85,15 @@ export default function MobileNav() {
 
           {/* Footer CTA */}
           <div className="p-6 border-t border-border">
-            <Link href="/pricing">
-              <Button
-                onClick={closeMenu}
-                className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
-              >
-                Join The Academy
-              </Button>
-            </Link>
+            <Button
+              onClick={() => {
+                closeMenu();
+                window.location.href = "/pricing";
+              }}
+              className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
+            >
+              Join The Academy
+            </Button>
           </div>
         </div>
       </div>

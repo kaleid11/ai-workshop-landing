@@ -437,3 +437,10 @@
 - [ ] Fix any layout shifts (CLS issues)
 - [ ] Ensure mobile responsiveness
 - [ ] Add engaging content in first 3 seconds
+
+
+## Fix Nested Anchor Tag Error
+- [x] Locate nested <a> tags in navigation components (found in MobileNav.tsx)
+- [x] Fix MobileNav component if it has nested links (removed explicit <a> tags inside Link components)
+- [x] Check Home page for nested anchor tags (no issues found)
+- [x] Test fix in browser (console shows no errors)
