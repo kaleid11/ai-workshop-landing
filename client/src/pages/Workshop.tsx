@@ -130,10 +130,13 @@ export default function Workshop() {
               ) : (
                 <div className="space-y-4">
                   <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                    Weekly AI Implementation Workshops
+                    Stop Drowning in Admin Drag
                   </h1>
                   <p className="text-lg sm:text-xl text-white/95">
-                    Join our weekly drop-in sessions for live support, troubleshooting, and guidance on implementing AI in your business.
+                    Weekly drop-in sessions where we look at your workflow before installing robots. No fluff—just practical automation that works.
+                  </p>
+                  <p className="text-base text-white/90">
+                    Built for SEQ businesses competing with Brisbane and Sydney.
                   </p>
                 </div>
               )}
@@ -369,17 +372,18 @@ export default function Workshop() {
           <Card className="border-2">
             <CardHeader>
               <CardTitle>Single Workshop</CardTitle>
-              <CardDescription>One-time access</CardDescription>
+              <CardDescription>One-time payment</CardDescription>
               <div className="mt-4">
-                <span className="text-4xl font-bold">$97</span>
-                <span className="text-muted-foreground">/session</span>
+                <span className="text-4xl font-bold">$77</span>
+                <span className="text-muted-foreground"> one-time</span>
               </div>
+              <p className="text-xs text-muted-foreground mt-2">1 workshop credit • Pay once, use anytime</p>
             </CardHeader>
             <CardContent className="space-y-4">
               <ul className="space-y-2">
                 <li className="flex items-center gap-2">
                   <Check className="h-4 w-4 text-green-500" />
-                  <span className="text-sm">Access to one workshop</span>
+                  <span className="text-sm">1 workshop credit</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="h-4 w-4 text-green-500" />
@@ -388,6 +392,10 @@ export default function Workshop() {
                 <li className="flex items-center gap-2">
                   <Check className="h-4 w-4 text-green-500" />
                   <span className="text-sm">Live Q&A support</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-green-500" />
+                  <span className="text-sm">No recurring charges</span>
                 </li>
               </ul>
               <Button 
@@ -400,18 +408,61 @@ export default function Workshop() {
             </CardContent>
           </Card>
 
+          {/* Starter Membership - NEW */}
+          <Card className="border-2 border-blue-500 relative">
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+              <Badge className="bg-blue-500">SAFE BET</Badge>
+            </div>
+            <CardHeader>
+              <CardTitle>Starter Membership</CardTitle>
+              <CardDescription>Monthly subscription</CardDescription>
+              <div className="mt-4">
+                <span className="text-4xl font-bold">$97</span>
+                <span className="text-muted-foreground">/month</span>
+              </div>
+              <p className="text-xs text-muted-foreground mt-2">2 workshop credits per month • Cancel anytime</p>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <ul className="space-y-2">
+                <li className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-green-500" />
+                  <span className="text-sm"><strong>2 workshop credits/month</strong></span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-green-500" />
+                  <span className="text-sm">Full platform access</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-green-500" />
+                  <span className="text-sm">Tools & prompts database</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-green-500" />
+                  <span className="text-sm">Knowledge base access</span>
+                </li>
+              </ul>
+              <Button 
+                className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700"
+                onClick={() => window.location.href = "/pricing"}
+              >
+                Get Started
+              </Button>
+            </CardContent>
+          </Card>
+
           {/* Lite Membership */}
           <Card className="border-2 border-orange-500 relative">
             <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-              <Badge className="bg-orange-500">BEST VALUE</Badge>
+              <Badge className="bg-orange-500">UNLIMITED</Badge>
             </div>
             <CardHeader>
               <CardTitle>Lite Membership</CardTitle>
-              <CardDescription>Unlimited workshops</CardDescription>
+              <CardDescription>All workshops included</CardDescription>
               <div className="mt-4">
                 <span className="text-4xl font-bold">$300</span>
                 <span className="text-muted-foreground">/month</span>
               </div>
+              <p className="text-xs text-muted-foreground mt-2">Unlimited workshop access • No credit limits</p>
             </CardHeader>
             <CardContent className="space-y-4">
               <ul className="space-y-2">
@@ -441,44 +492,7 @@ export default function Workshop() {
             </CardContent>
           </Card>
 
-          {/* Pro Membership */}
-          <Card className="border-2">
-            <CardHeader>
-              <CardTitle>Pro Membership</CardTitle>
-              <CardDescription>Everything + priority support</CardDescription>
-              <div className="mt-4">
-                <span className="text-4xl font-bold">$500</span>
-                <span className="text-muted-foreground">/month</span>
-              </div>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <ul className="space-y-2">
-                <li className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-green-500" />
-                  <span className="text-sm">Everything in Lite</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-green-500" />
-                  <span className="text-sm">Priority support</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-green-500" />
-                  <span className="text-sm">Exclusive Pro sessions</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-green-500" />
-                  <span className="text-sm">1-on-1 consulting</span>
-                </li>
-              </ul>
-              <Button 
-                className="w-full"
-                variant="outline"
-                onClick={() => window.location.href = "/pricing"}
-              >
-                Join Pro
-              </Button>
-            </CardContent>
-          </Card>
+
         </div>
       </section>
 

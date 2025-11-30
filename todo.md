@@ -384,3 +384,27 @@
 - [ ] Check browser console for error details
 - [ ] Fix identified errors
 - [ ] Test all pages for errors
+
+
+## Workshop Navigation & Pricing Clarity
+
+### Burger Menu Updates
+- [x] Add "Workshop Landing" link to burger menu (as "Gemini Workshop")
+- [x] Keep existing "Workshops" link (as "All Workshops")
+- [x] Ensure both links are clearly differentiated
+- [x] Test navigation to both pages
+
+### Workshop Pricing Clarity
+- [x] Clarify $97/month = 2 workshop credits per month (recurring)
+- [x] Clarify $77 = single one-time workshop access (1 credit)
+- [x] Update pricing cards with clear "per month" vs "one-time" labels
+- [x] Add pricing comparison table if needed (3-card layout: $77 one-time, $97/mo Starter, $300/mo Lite)
+- [x] Ensure no confusion between monthly subscription and one-time payment
+
+### Brand Alignment (Tech Horizon Labs Brand Bible)
+- [x] Review brand voice: "No-Nonsense Expert" + "Community Guardian"
+- [x] Use key vocabulary: "Admin Drag", "Strategy Map", "Private & Secure"
+- [x] Emphasize "Low-Tech Leverage" before "High-Tech" solutions
+- [x] Highlight local SEQ business focus
+- [x] Ensure pricing addresses "Safe Bet" (<$1k) psychology
+- [ ] Apply "Tech Noir meets Sunshine Coast" visual strategy where appropriate

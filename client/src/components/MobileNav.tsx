@@ -11,7 +11,8 @@ const navLinks = [
   { href: "/prompts", label: "Prompts" },
   { href: "/wiki", label: "Knowledge Base" },
   { href: "/frameworks", label: "Frameworks" },
-  { href: "/workshops", label: "Workshops" },
+  { href: "/workshop", label: "Gemini Workshop" },
+  { href: "/workshops", label: "All Workshops" },
   { href: "/free-resources", label: "Free Resources" },
   { href: "/pricing", label: "Pricing" },
 ];
