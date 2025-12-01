@@ -1,0 +1,17 @@
+# robots.txt for Tech Horizon Academy
+User-agent: *
+Allow: /
+
+# Disallow admin and user-specific pages
+Disallow: /admin
+Disallow: /admin/*
+Disallow: /portal
+Disallow: /my-bookings
+Disallow: /checkout
+Disallow: /success
+
+# Disallow API endpoints
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://aisocialwork-e9rjae3t.manus.space/sitemap.xml

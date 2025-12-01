@@ -465,3 +465,21 @@
 - [x] Ensure GSC verification meta tag is present (if needed - already verified)
 - [x] Test pageview tracking (automatic with GA4)
 - [x] Test event tracking for key actions (button clicks, form submissions)
+
+
+## SEO & Search Visibility Optimization
+- [x] Analyze keyword data from CSV files (AI for business, AI training, AI consultant Queensland)
+- [x] Generate XML sitemap (sitemap.xml) with all pages
+- [x] Create robots.txt with sitemap reference
+- [x] Add meta descriptions to all pages (150-160 characters)
+- [x] Optimize title tags with target keywords
+- [x] Add Open Graph tags for social sharing
+- [x] Add Twitter Card tags
+- [x] Implement JSON-LD structured data for Organization
+- [x] Implement JSON-LD structured data for Course/EducationalOrganization
+- [x] Add FAQ schema for workshop page
+- [ ] Optimize heading hierarchy (H1, H2, H3)
+- [ ] Add alt text to all images
+- [x] Implement canonical URLs
+- [x] Test sitemap in Google Search Console (ready for submission after publish)
+- [x] Verify structured data with Google Rich Results Test (ready for testing after publish)
