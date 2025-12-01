@@ -483,3 +483,16 @@
 - [x] Implement canonical URLs
 - [x] Test sitemap in Google Search Console (ready for submission after publish)
 - [x] Verify structured data with Google Rich Results Test (ready for testing after publish)
+
+
+## Stripe Billing Portal & Booking Link Integration
+- [x] Add Stripe billing portal link to member portal (https://billing.stripe.com/p/login/bJefZg31KccueOg9SEfbq00)
+- [x] Create centralized BOOKING_LINK constant in client/src/const.ts (already exists as BOOKING_URL)
+- [x] Update all "Book Free 15-Min Audit" button references to use centralized constant
+- [x] Ensure booking link works in Portal page
+- [x] Ensure booking link works in Home page (already using BOOKING_URL)
+- [x] Ensure booking link works in Workshop page (already using BOOKING_URL)
+- [x] Ensure booking link works in MobileNav component (already using BOOKING_URL)
+- [x] Ensure booking link works in StickyBookingButton component (already using BOOKING_URL)
+- [x] Test billing portal access for authenticated users (Manage Billing button visible in Portal header)
+- [x] Test booking link opens in new tab (all booking links use target="_blank")

@@ -18,8 +18,7 @@ import {
 } from "lucide-react";
 import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
-
-const BOOKING_URL = "https://app.klipy.ai/book/pre-discovery/free-pre-discovery";
+import { BOOKING_URL } from "@/const";
 
 type Dimension = "technology" | "process" | "people" | "security" | "roi";
 

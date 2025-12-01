@@ -12,7 +12,7 @@ import {
   ArrowRight,
   Sparkles
 } from "lucide-react";
-import { APP_TITLE } from "@/const";
+import { APP_TITLE, BOOKING_URL } from "@/const";
 
 export default function CaseStudies() {
   const caseStudies = [
@@ -374,7 +374,7 @@ export default function CaseStudies() {
             Join 200+ businesses that have consolidated tools, saved money, and scaled faster
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6">
-            <a href="https://app.klipy.ai/book/pre-discovery/free-pre-discovery" target="_blank" rel="noopener noreferrer">
+            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
               <Button size="lg" className="bg-white text-brand-purple hover:bg-gray-100 text-lg px-8 py-6 h-auto">
                 Book Free 15-Min Audit
                 <ArrowRight className="w-5 h-5 ml-2" />

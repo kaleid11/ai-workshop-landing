@@ -2,7 +2,7 @@ import { useAuth } from "@/_core/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { OnboardingWelcome } from "@/components/OnboardingWelcome";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { APP_LOGO, APP_TITLE, getLoginUrl } from "@/const";
+import { APP_LOGO, APP_TITLE, BOOKING_URL, getLoginUrl } from "@/const";
 import { trpc } from "@/lib/trpc";
 import { Calendar, ExternalLink, Loader2, Mail, MessageCircle, ShoppingCart, Sparkles, Users, Video, TrendingUp, Code2, Target, BookOpen, Wrench, Zap, Gift, Share2 } from "lucide-react";
 import { toast } from "sonner";
@@ -162,11 +162,19 @@ export default function Portal() {
                 <p className="text-white/80">Member Portal</p>
               </div>
             </div>
-            <Link href="/">
-              <Button variant="outline" className="bg-white/10 hover:bg-white/20 text-white border-white/30">
-                Back to Home
-              </Button>
-            </Link>
+            <div className="flex items-center gap-3">
+              <a href="https://billing.stripe.com/p/login/bJefZg31KccueOg9SEfbq00" target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" className="bg-white/10 hover:bg-white/20 text-white border-white/30">
+                  <ShoppingCart className="w-4 h-4 mr-2" />
+                  Manage Billing
+                </Button>
+              </a>
+              <Link href="/">
+                <Button variant="outline" className="bg-white/10 hover:bg-white/20 text-white border-white/30">
+                  Back to Home
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </header>
@@ -212,6 +220,12 @@ export default function Portal() {
                     )}
                   </div>
                   <div className="flex gap-3">
+                    <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
+                      <Button variant="outline" className="border-brand-orange text-brand-orange hover:bg-brand-orange hover:text-white">
+                        <Calendar className="w-4 h-4 mr-2" />
+                        Book Free Audit
+                      </Button>
+                    </a>
                     <Button
                       onClick={() => {
                         buyCredits.mutate({

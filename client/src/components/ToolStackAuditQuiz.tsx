@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 import { trpc } from "@/lib/trpc";
+import { BOOKING_URL } from "@/const";
 
 interface QuizAnswers {
   teamSize: string;
@@ -710,7 +711,7 @@ export default function ToolStackAuditQuiz() {
           <p className="text-lg text-gray-700">
             Want to discuss your specific needs and confirm connector compatibility?
           </p>
-          <a href="https://app.klipy.ai/book/pre-discovery/free-pre-discovery" target="_blank" rel="noopener noreferrer">
+          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
             <Button size="lg" className="bg-brand-purple hover:bg-brand-purple/90 text-lg px-8 py-6 h-auto">
               Book Free 15-Min Consultation
             </Button>
