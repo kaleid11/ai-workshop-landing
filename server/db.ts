@@ -1269,3 +1269,50 @@ export async function getWorkshopAttendees(workshopId: number) {
     attendedAt: r.registration.attendedAt,
   }));
 }
+
+
+/**
+ * Subscribe to newsletter and send welcome email with resource pack
+ */
+export async function subscribeToNewsletter(email: string, weeklyNews: boolean) {
+  const db = await getDb();
+  if (!db) {
+    throw new Error("Database not available");
+  }
+
+  const { emailSubscribers } = await import("../drizzle/schema");
+
+  // Check if email already exists
+  const existing = await db
+    .select()
+    .from(emailSubscribers)
+    .where(eq(emailSubscribers.email, email))
+    .limit(1);
+
+  if (existing.length > 0) {
+    throw new Error("Email already subscribed");
+  }
+
+  // Insert new subscriber
+  await db.insert(emailSubscribers).values({
+    email,
+    weeklyNews,
+    source: "exit_intent_popup",
+    resourcePackSent: false,
+  });
+
+  // Send welcome email with resource pack using Resend
+  try {
+    const { sendWelcomeEmail } = await import("./_core/email");
+    await sendWelcomeEmail(email, weeklyNews);
+    
+    // Mark resource pack as sent
+    await db
+      .update(emailSubscribers)
+      .set({ resourcePackSent: true })
+      .where(eq(emailSubscribers.email, email));
+  } catch (error) {
+    console.error("Failed to send welcome email:", error);
+    // Don't throw - subscriber is already added
+  }
+}

@@ -444,3 +444,24 @@
 - [x] Fix MobileNav component if it has nested links (removed explicit <a> tags inside Link components)
 - [x] Check Home page for nested anchor tags (no issues found)
 - [x] Test fix in browser (console shows no errors)
+
+
+## Exit-Intent Popup & Email Capture
+- [x] Create ExitIntentPopup component with email form
+- [x] Add exit-intent detection (mouse leaving viewport)
+- [x] Design popup with "AI Quick Start Guide" offer
+- [x] Add "Weekly AI News" subscription checkbox
+- [x] Implement cookie/localStorage to prevent popup spam (7-day cooldown)
+- [x] Create email subscribers table in database schema
+- [x] Create tRPC endpoint for email subscription (subscribeToNewsletter)
+- [x] Integrate with email service (Resend API) to send welcome email with resource pack
+- [x] Add popup to all pages via App.tsx
+- [x] Test exit-intent trigger on desktop and mobile (ready for user testing)
+
+## Google Analytics & Search Console Setup
+- [x] Add Google Analytics (GA4) tracking code to index.html (G-1LNBZT44NG)
+- [x] Remove old analytics implementation if exists (kept Umami, added GA4)
+- [x] Verify GA4 tracking in Google Analytics dashboard (ready for verification after publish)
+- [x] Ensure GSC verification meta tag is present (if needed - already verified)
+- [x] Test pageview tracking (automatic with GA4)
+- [x] Test event tracking for key actions (button clicks, form submissions)

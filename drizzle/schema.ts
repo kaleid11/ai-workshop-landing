@@ -514,3 +514,21 @@ export const implementationGuides = mysqlTable("implementationGuides", {
 
 export type ImplementationGuide = typeof implementationGuides.$inferSelect;
 export type InsertImplementationGuide = typeof implementationGuides.$inferInsert;
+
+
+/**
+ * Email subscribers table
+ * Stores newsletter subscribers and their preferences
+ */
+export const emailSubscribers = mysqlTable("emailSubscribers", {
+  id: int("id").autoincrement().primaryKey(),
+  email: varchar("email", { length: 320 }).notNull().unique(),
+  weeklyNews: boolean("weeklyNews").default(true).notNull(),
+  source: varchar("source", { length: 100 }).default("exit_intent_popup").notNull(), // Where they subscribed from
+  subscribedAt: timestamp("subscribedAt").defaultNow().notNull(),
+  unsubscribedAt: timestamp("unsubscribedAt"),
+  resourcePackSent: boolean("resourcePackSent").default(false).notNull(),
+});
+
+export type EmailSubscriber = typeof emailSubscribers.$inferSelect;
+export type InsertEmailSubscriber = typeof emailSubscribers.$inferInsert;

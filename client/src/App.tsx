@@ -7,6 +7,7 @@ import { GoogleAnalytics } from "./components/GoogleAnalytics";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import StickyBookingButton from "./components/StickyBookingButton";
 import WhatsAppButton from "./components/WhatsAppButton";
+import ExitIntentPopup from "./components/ExitIntentPopup";
 import { Loader2 } from "lucide-react";
 
 // Eager load critical pages
@@ -123,6 +124,7 @@ function App() {
           </Suspense>
           <StickyBookingButton />
           <WhatsAppButton />
+          <ExitIntentPopup />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>

@@ -15,6 +15,22 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "", {
 export const appRouter = router({
     // if you need to use socket.io, read and register route in server/_core/index.ts, all api should start with '/api/' so that the gateway can route correctly
   system: systemRouter,
+  
+  newsletter: router({
+    subscribe: publicProcedure
+      .input(
+        z.object({
+          email: z.string().email(),
+          weeklyNews: z.boolean().default(true),
+        })
+      )
+      .mutation(async ({ input }) => {
+        const { subscribeToNewsletter } = await import("./db");
+        await subscribeToNewsletter(input.email, input.weeklyNews);
+        return { success: true };
+      }),
+  }),
+  
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),
     logout: publicProcedure.mutation(({ ctx }) => {
