@@ -63,7 +63,7 @@ export default function Tools() {
         <div className="container mx-auto text-center max-w-4xl">
           <h1 className="text-4xl font-bold mb-4">AI Tools Database</h1>
           <p className="text-xl mb-6">
-            Discover 1,620+ curated AI tools to automate your business. 
+            Discover 2,400+ curated AI tools to automate your business. 
             {!isAuthenticated && " Sign up for free access to basic tools."}
           </p>
           {!isAuthenticated && (

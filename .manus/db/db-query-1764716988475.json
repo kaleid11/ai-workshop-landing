@@ -1,0 +1,260 @@
+{
+  "query": "\nSELECT name, COUNT(*) as count, GROUP_CONCAT(id) as ids\nFROM tools\nGROUP BY name\nHAVING COUNT(*) > 1\nORDER BY count DESC\nLIMIT 50;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute \nSELECT name, COUNT(*) as count, GROUP_CONCAT(id) as ids\nFROM tools\nGROUP BY name\nHAVING COUNT(*) > 1\nORDER BY count DESC\nLIMIT 50;\n",
+  "rows": [
+    {
+      "name": "Prompt-Engineering",
+      "count": "15",
+      "ids": "30994,30995,30996,30997,30998,994,995,996,997,998,32614,32615,32616,32617,32618"
+    },
+    {
+      "name": "Chatgpt-Prompt-Engineering-For-Developers",
+      "count": "12",
+      "ids": "30970,30971,30972,30973,970,971,972,973,32590,32591,32592,32593"
+    },
+    {
+      "name": "Promptengineering",
+      "count": "12",
+      "ids": "31022,31023,31024,31025,1025,1022,1023,1024,32642,32643,32644,32645"
+    },
+    {
+      "name": "Alfred-Workflows",
+      "count": "12",
+      "ids": "1408,1409,1410,1411,31408,31409,31410,31411,33028,33029,33030,33031"
+    },
+    {
+      "name": "Workflows",
+      "count": "12",
+      "ids": "1612,1613,1614,1615,31612,31613,31614,31615,33232,33233,33234,33235"
+    },
+    {
+      "name": "Llm",
+      "count": "9",
+      "ids": "1301,1302,1303,31301,31302,31303,32921,32922,32923"
+    },
+    {
+      "name": "Fireflies.ai",
+      "count": "9",
+      "ids": "30033,30057,31653,31677,33,57,60010,120001,120089"
+    },
+    {
+      "name": "Ai_Ethics",
+      "count": "9",
+      "ids": "30694,30695,30696,694,695,696,32314,32315,32316"
+    },
+    {
+      "name": "Llm-Tools",
+      "count": "9",
+      "ids": "1315,1316,1317,31315,31316,31317,32935,32936,32937"
+    },
+    {
+      "name": "Zapier",
+      "count": "7",
+      "ids": "30004,30085,31624,31705,4,85,60023"
+    },
+    {
+      "name": "Cursor",
+      "count": "7",
+      "ids": "30016,30047,31636,31667,16,47,60015"
+    },
+    {
+      "name": "Descript",
+      "count": "7",
+      "ids": "30010,30080,31630,31700,10,80,60009"
+    },
+    {
+      "name": "Midjourney",
+      "count": "6",
+      "ids": "30008,30048,31628,31668,8,48"
+    },
+    {
+      "name": "Actions",
+      "count": "6",
+      "ids": "1395,1396,31395,31396,33015,33016"
+    },
+    {
+      "name": "Ai-Ethics",
+      "count": "6",
+      "ids": "30668,30669,668,669,32288,32289"
+    },
+    {
+      "name": "Shampoosalesagent",
+      "count": "6",
+      "ids": "30641,30401,32021,401,641,32261"
+    },
+    {
+      "name": "Awesome-Llmops",
+      "count": "6",
+      "ids": "1241,1242,31241,31242,32861,32862"
+    },
+    {
+      "name": "Bioinformatics",
+      "count": "6",
+      "ids": "1434,1435,31434,31435,33054,33055"
+    },
+    {
+      "name": "Ai-Agent",
+      "count": "6",
+      "ids": "30534,31044,1044,534,32154,32664"
+    },
+    {
+      "name": "Rpm-Ai-Agent",
+      "count": "6",
+      "ids": "1185,1186,31185,31186,32805,32806"
+    },
+    {
+      "name": "Workflow",
+      "count": "6",
+      "ids": "1609,30130,31609,31750,130,33229"
+    },
+    {
+      "name": "Querying-Csvs-And-Plot-Graphs-With-Llms",
+      "count": "6",
+      "ids": "30496,1355,31355,496,32116,32975"
+    },
+    {
+      "name": "Chatbot",
+      "count": "6",
+      "ids": "30569,1255,31255,569,32189,32875"
+    },
+    {
+      "name": "Langfuse",
+      "count": "6",
+      "ids": "30455,30983,32075,455,983,32603"
+    },
+    {
+      "name": "Awesome-Ai-Sdks",
+      "count": "6",
+      "ids": "30554,1230,31230,554,32174,32850"
+    },
+    {
+      "name": "Brokenhill",
+      "count": "6",
+      "ids": "30847,1252,31252,847,32467,32872"
+    },
+    {
+      "name": "Llama-Cpp-Agent",
+      "count": "6",
+      "ids": "30882,1299,31299,882,32502,32919"
+    },
+    {
+      "name": "Ethics-In-Ai",
+      "count": "6",
+      "ids": "30742,30743,742,743,32362,32363"
+    },
+    {
+      "name": "Incredible.Dev",
+      "count": "6",
+      "ids": "30598,1154,31154,598,32218,32774"
+    },
+    {
+      "name": "Netsecgame",
+      "count": "6",
+      "ids": "1072,1172,31072,31172,32692,32792"
+    },
+    {
+      "name": "Awesome_Gpt_Super_Prompting",
+      "count": "6",
+      "ids": "30965,31054,1054,965,32585,32674"
+    },
+    {
+      "name": "Empower-Functions",
+      "count": "6",
+      "ids": "30862,1274,31274,862,32482,32894"
+    },
+    {
+      "name": "Get-Things-Done-With-Prompt-Engineering-And-Langchain",
+      "count": "6",
+      "ids": "30869,30980,869,980,32489,32600"
+    },
+    {
+      "name": "Aidialer",
+      "count": "6",
+      "ids": "30833,1221,31221,833,32453,32841"
+    },
+    {
+      "name": "Loom",
+      "count": "6",
+      "ids": "30027,30082,31647,31702,27,82"
+    },
+    {
+      "name": "Ai_Buddy_Guard",
+      "count": "6",
+      "ids": "31050,1050,1114,31114,32670,32734"
+    },
+    {
+      "name": "Agentic.Md",
+      "count": "6",
+      "ids": "30526,1088,31088,526,32146,32708"
+    },
+    {
+      "name": "Crewai",
+      "count": "6",
+      "ids": "30578,1140,31140,578,32198,32760"
+    },
+    {
+      "name": "Csc2541-F19",
+      "count": "6",
+      "ids": "30720,30721,720,721,32340,32341"
+    },
+    {
+      "name": "Mcphost",
+      "count": "6",
+      "ids": "30919,1337,31337,919,32539,32957"
+    },
+    {
+      "name": "Chatgpt-Prompt-Engineering",
+      "count": "6",
+      "ids": "30967,30968,967,968,32587,32588"
+    },
+    {
+      "name": "Ai-Agent-Lab",
+      "count": "6",
+      "ids": "30537,1092,31092,537,32157,32712"
+    },
+    {
+      "name": "Ai-Agent-Test",
+      "count": "6",
+      "ids": "1095,1096,31095,31096,32715,32716"
+    },
+    {
+      "name": "Ethicsai",
+      "count": "6",
+      "ids": "30752,30753,752,753,32372,32373"
+    },
+    {
+      "name": "Ethicai",
+      "count": "6",
+      "ids": "30732,30733,732,733,32352,32353"
+    },
+    {
+      "name": "Llm-Benchmarks",
+      "count": "6",
+      "ids": "30460,1305,31305,32080,460,32925"
+    },
+    {
+      "name": "Intelligent-Agent",
+      "count": "6",
+      "ids": "1156,1157,31156,31157,32776,32777"
+    },
+    {
+      "name": "Awesome-Prompt-Engineering",
+      "count": "6",
+      "ids": "30960,30961,960,961,32580,32581"
+    },
+    {
+      "name": "Multiagentworkflow",
+      "count": "6",
+      "ids": "1169,1170,31169,31170,32789,32790"
+    },
+    {
+      "name": "Invariant",
+      "count": "6",
+      "ids": "31064,1064,1158,31158,32684,32778"
+    }
+  ],
+  "messages": [],
+  "stdout": "name\tcount\tids\nPrompt-Engineering\t15\t30994,30995,30996,30997,30998,994,995,996,997,998,32614,32615,32616,32617,32618\nChatgpt-Prompt-Engineering-For-Developers\t12\t30970,30971,30972,30973,970,971,972,973,32590,32591,32592,32593\nPromptengineering\t12\t31022,31023,31024,31025,1025,1022,1023,1024,32642,32643,32644,32645\nAlfred-Workflows\t12\t1408,1409,1410,1411,31408,31409,31410,31411,33028,33029,33030,33031\nWorkflows\t12\t1612,1613,1614,1615,31612,31613,31614,31615,33232,33233,33234,33235\nLlm\t9\t1301,1302,1303,31301,31302,31303,32921,32922,32923\nFireflies.ai\t9\t30033,30057,31653,31677,33,57,60010,120001,120089\nAi_Ethics\t9\t30694,30695,30696,694,695,696,32314,32315,32316\nLlm-Tools\t9\t1315,1316,1317,31315,31316,31317,32935,32936,32937\nZapier\t7\t30004,30085,31624,31705,4,85,60023\nCursor\t7\t30016,30047,31636,31667,16,47,60015\nDescript\t7\t30010,30080,31630,31700,10,80,60009\nMidjourney\t6\t30008,30048,31628,31668,8,48\nActions\t6\t1395,1396,31395,31396,33015,33016\nAi-Ethics\t6\t30668,30669,668,669,32288,32289\nShampoosalesagent\t6\t30641,30401,32021,401,641,32261\nAwesome-Llmops\t6\t1241,1242,31241,31242,32861,32862\nBioinformatics\t6\t1434,1435,31434,31435,33054,33055\nAi-Agent\t6\t30534,31044,1044,534,32154,32664\nRpm-Ai-Agent\t6\t1185,1186,31185,31186,32805,32806\nWorkflow\t6\t1609,30130,31609,31750,130,33229\nQuerying-Csvs-And-Plot-Graphs-With-Llms\t6\t30496,1355,31355,496,32116,32975\nChatbot\t6\t30569,1255,31255,569,32189,32875\nLangfuse\t6\t30455,30983,32075,455,983,32603\nAwesome-Ai-Sdks\t6\t30554,1230,31230,554,32174,32850\nBrokenhill\t6\t30847,1252,31252,847,32467,32872\nLlama-Cpp-Agent\t6\t30882,1299,31299,882,32502,32919\nEthics-In-Ai\t6\t30742,30743,742,743,32362,32363\nIncredible.Dev\t6\t30598,1154,31154,598,32218,32774\nNetsecgame\t6\t1072,1172,31072,31172,32692,32792\nAwesome_Gpt_Super_Prompting\t6\t30965,31054,1054,965,32585,32674\nEmpower-Functions\t6\t30862,1274,31274,862,32482,32894\nGet-Things-Done-With-Prompt-Engineering-And-Langchain\t6\t30869,30980,869,980,32489,32600\nAidialer\t6\t30833,1221,31221,833,32453,32841\nLoom\t6\t30027,30082,31647,31702,27,82\nAi_Buddy_Guard\t6\t31050,1050,1114,31114,32670,32734\nAgentic.Md\t6\t30526,1088,31088,526,32146,32708\nCrewai\t6\t30578,1140,31140,578,32198,32760\nCsc2541-F19\t6\t30720,30721,720,721,32340,32341\nMcphost\t6\t30919,1337,31337,919,32539,32957\nChatgpt-Prompt-Engineering\t6\t30967,30968,967,968,32587,32588\nAi-Agent-Lab\t6\t30537,1092,31092,537,32157,32712\nAi-Agent-Test\t6\t1095,1096,31095,31096,32715,32716\nEthicsai\t6\t30752,30753,752,753,32372,32373\nEthicai\t6\t30732,30733,732,733,32352,32353\nLlm-Benchmarks\t6\t30460,1305,31305,32080,460,32925\nIntelligent-Agent\t6\t1156,1157,31156,31157,32776,32777\nAwesome-Prompt-Engineering\t6\t30960,30961,960,961,32580,32581\nMultiagentworkflow\t6\t1169,1170,31169,31170,32789,32790\nInvariant\t6\t31064,1064,1158,31158,32684,32778\n",
+  "stderr": "",
+  "execution_time_ms": 1701
+}

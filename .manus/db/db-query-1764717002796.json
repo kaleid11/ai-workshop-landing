@@ -1,0 +1,15 @@
+{
+  "query": "\nSELECT \n    (SELECT COUNT(*) FROM tools) as total_tools,\n    (SELECT COUNT(DISTINCT name) FROM tools) as unique_tools,\n    (SELECT COUNT(*) FROM tools) - (SELECT COUNT(DISTINCT name) FROM tools) as duplicate_count;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute \nSELECT \n    (SELECT COUNT(*) FROM tools) as total_tools,\n    (SELECT COUNT(DISTINCT name) FROM tools) as unique_tools,\n    (SELECT COUNT(*) FROM tools) - (SELECT COUNT(DISTINCT name) FROM tools) as duplicate_count;\n",
+  "rows": [
+    {
+      "total_tools": "4991",
+      "unique_tools": "1655",
+      "duplicate_count": "3336"
+    }
+  ],
+  "messages": [],
+  "stdout": "total_tools\tunique_tools\tduplicate_count\n4991\t1655\t3336\n",
+  "stderr": "",
+  "execution_time_ms": 1638
+}

@@ -1,0 +1,9 @@
+{
+  "query": "\nCREATE INDEX IF NOT EXISTS idx_tools_name ON tools(name);\nCREATE INDEX IF NOT EXISTS idx_tools_category ON tools(category);\nCREATE INDEX IF NOT EXISTS idx_tools_pricingModel ON tools(pricingModel);\nCREATE INDEX IF NOT EXISTS idx_tools_name_category ON tools(name, category);\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Mhpd8nk54dx6w3.root --database e9RJaE3TPmF4zsnh5FSQoP --execute \nCREATE INDEX IF NOT EXISTS idx_tools_name ON tools(name);\nCREATE INDEX IF NOT EXISTS idx_tools_category ON tools(category);\nCREATE INDEX IF NOT EXISTS idx_tools_pricingModel ON tools(pricingModel);\nCREATE INDEX IF NOT EXISTS idx_tools_name_category ON tools(name, category);\n",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 4433
+}
