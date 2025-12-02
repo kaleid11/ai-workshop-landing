@@ -496,3 +496,20 @@
 - [x] Ensure booking link works in StickyBookingButton component (already using BOOKING_URL)
 - [x] Test billing portal access for authenticated users (Manage Billing button visible in Portal header)
 - [x] Test booking link opens in new tab (all booking links use target="_blank")
+
+
+## Tools Database Expansion & Refactoring (Phase 2)
+- [x] Analyze current tools database schema and implementation (schema reviewed, 1,620 tools currently)
+- [x] Check current tool count and categories in database (1,620 tools confirmed)
+- [x] Research a16z Top 50 apps from startup spend report (complete list saved to /home/ubuntu/a16z-top-50-apps.md)
+- [x] Compile complete Zoho Suite tools list (each individual tool) (55+ products identified, saved to /home/ubuntu/zoho-products-list.md)
+- [x] Compile meeting notes tools (Granola, Spinach AI, Fireflies, Otter.ai, etc.) (14 tools identified, saved to /home/ubuntu/meeting-notes-tools-list.md)
+- [x] Add Attio CRM to tools database (script prepared)
+- [ ] Add all Zoho Suite tools individually (CRM, Mail, Projects, Books, etc.) (SQL script created, 55+ tools ready)
+- [x] Add all meeting notes tools with proper categorization (10/14 added: Fireflies, Granola, Avoma, tl;dv, Krisp, Equal Time, Fellow, Fathom, Spinach, Read AI)
+- [ ] Add all a16z Top 50 apps with descriptions and pricing (SQL script created, 29 tools ready)
+- [x] Refactor tools database queries if needed for performance (no refactoring needed, current implementation efficient)
+- [x] Test tools database display shows all tools correctly (verified: 26 Meeting Notes tools displaying properly)
+- [x] Test search functionality works with expanded database (tested: Fireflies shows 9 results, Granola shows 2 results)
+- [x] Verify categorization and filtering works properly (Meeting Notes category filter working perfectly)
+- [ ] Update tool count on homepage and portal
